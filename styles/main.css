@@ -1,3 +1,47 @@
+:root {
+  --color-obsidian: #0c0c10;
+  --color-porcelain: #ededf2;
+  --color-ultraviolet: #7148ff;
+  --color-ultraviolet-deep: #5d3ccf; /* Ultraviolet com contraste AA sobre Porcelain */
+  --color-aqua: #00d6cf;
+  --color-pulse: #ff426c;
+
+  --color-bg: var(--color-obsidian);
+  --color-text: var(--color-porcelain);
+  --color-accent: var(--color-aqua);
+  --color-muted: color-mix(in srgb, var(--color-porcelain) 72%, var(--color-obsidian));
+
+  /* Superfícies compartilhadas pelos fragmentos do hero e pelos estudos. */
+  --surface-grid:
+    radial-gradient(circle at 72% 30%, color-mix(in srgb, var(--color-ultraviolet) 65%, transparent), transparent 55%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
+    color-mix(in srgb, var(--color-ultraviolet) 10%, var(--color-obsidian));
+  --surface-flow: linear-gradient(var(--color-aqua), var(--color-ultraviolet) 55%, transparent) no-repeat;
+  --surface-page:
+    linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
+    repeating-linear-gradient(transparent 0 0.75rem, color-mix(in srgb, var(--color-obsidian) 12%, transparent) 0.75rem calc(0.75rem + 1px)) left 10% top 18% / 46% 40% no-repeat,
+    linear-gradient(135deg, var(--color-porcelain) 55%, color-mix(in srgb, var(--color-ultraviolet) 25%, var(--color-porcelain)));
+  --line: 1px solid color-mix(in srgb, var(--color-porcelain) 14%, transparent);
+
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+  --gutter: clamp(1rem, 4vw, 3rem);
+
+  color-scheme: dark;
+}
+
+/* Atmosfera clara: redefine os tokens semânticos para os descendentes. */
+.light {
+  --color-bg: var(--color-porcelain);
+  --color-text: var(--color-obsidian);
+  --color-accent: var(--color-ultraviolet-deep);
+  --color-muted: color-mix(in srgb, var(--color-obsidian) 72%, var(--color-porcelain));
+
+  color-scheme: light;
+}
+
 *,
 *::before,
 *::after {
@@ -11,17 +55,513 @@ html {
 
 body {
   margin: 0;
-  padding-inline: 1rem;
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  line-height: 1.6;
   overflow-wrap: break-word;
+}
+
+h1,
+h2 {
+  margin-block: 0 1rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 1.5rem + 6vw, 6rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.25rem + 2.5vw, 3rem);
+}
+
+.lead {
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.45;
+  max-inline-size: 26ch;
+}
+
+body,
+.light {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+header,
+section,
+footer {
+  padding: 2rem var(--gutter);
 }
 
 p {
   max-inline-size: 70ch;
 }
 
+a {
+  color: var(--color-accent);
+}
+
 :focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Oculto visualmente até receber foco. */
+.skip-link {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 1;
+  padding: 0.75rem var(--gutter);
+  background: var(--color-bg);
+  transform: translateY(-100%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Cabeçalho */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 1.5rem;
+}
+
+.signature {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.signature span {
+  color: var(--color-accent);
+}
+
+.site-header ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem clamp(1rem, 3vw, 1.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header nav a {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  text-decoration: underline transparent;
+  text-underline-offset: 0.4em;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  text-decoration-color: var(--color-accent);
+}
+
+/* Hall de entrada */
+
+.hero {
+  display: grid;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  padding-block: clamp(1.5rem, 5vh, 4rem) clamp(2.5rem, 8vh, 6rem);
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+/* Luz ambiente: violeta atrás da composição, um reflexo de Aqua abaixo. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(55% 65% at 70% 45%, color-mix(in srgb, var(--color-ultraviolet) 20%, transparent), transparent 70%),
+    radial-gradient(25% 30% at 85% 68%, color-mix(in srgb, var(--color-aqua) 8%, transparent), transparent 70%);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 0 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.eyebrow::before {
+  content: "";
+  inline-size: 2rem;
+  border-block-start: 1px solid var(--color-aqua);
+}
+
+.hero h1 {
+  margin-block-end: 1.5rem;
+  font-size: clamp(3.5rem, 1.5rem + 7.5vw, 9rem);
+  font-weight: 700;
+  line-height: 0.88;
+}
+
+/* Contraste editorial: a segunda palavra em serifa itálica. */
+.hero h1 span,
+.works h2 span {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.hero .lead {
+  margin-block-end: 2rem;
+}
+
+.cta {
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
+}
+
+.cta:hover {
+  text-decoration-thickness: 2px;
+}
+
+.cta span {
+  color: var(--color-accent);
+}
+
+/*
+ * Fragmentos provisórios. A perspectiva comum e um --z por fragmento
+ * criam profundidade sem animação; os mais próximos parecem maiores.
+ */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  perspective: 1600px;
+  perspective-origin: 30% 40%;
+}
+
+.hero-visual span {
+  position: absolute;
+  border: var(--line);
+  transform: rotateX(4deg) rotateY(-12deg) translateZ(var(--z, 0));
+}
+
+/* Precisão: moldura e grade. */
+.frag-frame {
+  --z: -80px;
+  inset: 4% 0 12% 14%;
+}
+
+.frag-main {
+  --z: -20px;
+  inset: 0 12% 20% 0;
+  background: var(--surface-grid);
+}
+
+/* Fluidez: órbita e cápsula atravessam a grade. */
+.frag-orbit {
+  --z: 30px;
+  inset-block-start: 6%;
+  inset-inline-start: 34%;
+  block-size: 78%;
+  aspect-ratio: 1;
+  border-color: color-mix(in srgb, var(--color-porcelain) 24%, transparent);
+  border-radius: 50%;
+}
+
+.frag-flow {
+  --z: 70px;
+  inset-block-start: 16%;
+  inset-inline-end: 4%;
+  inline-size: 16%;
+  block-size: 58%;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface-flow);
+}
+
+/* Superfície clara, tingida pela luz violeta: futura área de um trabalho. */
+.frag-surface {
+  --z: 110px;
+  inset-block-end: 2%;
+  inset-inline-start: 30%;
+  inline-size: 42%;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-page);
+}
+
+.frag-accent {
+  --z: 140px;
+  inset-block-start: 10%;
+  inset-inline-start: 52%;
+  inline-size: 4%;
+  aspect-ratio: 1;
+  border: 0;
+  background: var(--color-pulse);
+}
+
+@media (min-width: 56rem) {
+  .hero {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    min-block-size: min(88svh, 60rem);
+  }
+
+  /* O texto avança sobre a borda escura da composição. */
+  .hero-text {
+    grid-area: 1 / 1 / 2 / 7;
+  }
+
+  .hero-visual {
+    grid-area: 1 / 4 / 2 / 13;
+    aspect-ratio: auto;
+    block-size: min(70svh, 44rem);
+  }
+}
+
+/* Projetos selecionados: os fragmentos do hero, agora alinhados (estado E). */
+
+.works {
+  padding-block: clamp(4rem, 12vh, 9rem);
+}
+
+.works-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem var(--gutter);
+  margin-block-end: clamp(3rem, 8vw, 6rem);
+}
+
+.works h2 {
+  margin: 0;
+  font-size: clamp(2.75rem, 1.25rem + 5.5vw, 6.5rem);
+  line-height: 0.9;
+}
+
+.works-intro p {
+  max-inline-size: 34ch;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.studies {
+  display: grid;
+  gap: clamp(3rem, 8vw, 6rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.study h3 {
+  margin-block: 0 0.25rem;
+  font-size: clamp(1.375rem, 1.125rem + 1vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.study p:last-child {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.study .eyebrow {
+  margin-block: 1.25rem 0.5rem;
+}
+
+.study-visual {
+  position: relative;
+  overflow: clip;
+  border: var(--line);
+}
+
+.study-visual::before,
+.study-visual::after {
+  content: "";
+  position: absolute;
+}
+
+/* Desenvolvimento: grade violeta com uma página editorial em primeiro plano. */
+.study-dev .study-visual {
+  aspect-ratio: 16 / 10;
+  background: var(--surface-grid);
+}
+
+.study-dev .study-visual::after {
+  inset-block-end: 10%;
+  inset-inline-end: 8%;
+  inline-size: 40%;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-page);
+}
+
+/* Experimentação: órbita e cápsula de fluxo sobre o escuro. */
+.study-lab {
+  inline-size: 80%;
+  margin-inline-start: auto;
+}
+
+.study-lab .study-visual {
+  aspect-ratio: 4 / 5;
+  background: radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--color-ultraviolet) 30%, transparent), transparent 60%);
+}
+
+.study-lab .study-visual::before {
+  inset-block-start: 14%;
+  inset-inline-start: 8%;
+  inline-size: 76%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-porcelain) 24%, transparent);
+  border-radius: 50%;
+}
+
+.study-lab .study-visual::after {
+  inset-block: 22% 12%;
+  inset-inline-end: 14%;
+  inline-size: 26%;
+  border-radius: 999px;
+  background: var(--surface-flow);
+}
+
+/* Expressão visual: superfície clara, luz violeta e o acento Pulse. */
+.study-art {
+  inline-size: 80%;
+}
+
+.study-art .study-visual {
+  aspect-ratio: 3 / 2;
+  background:
+    radial-gradient(circle at 30% 60%, color-mix(in srgb, var(--color-ultraviolet) 55%, transparent), transparent 45%),
+    linear-gradient(135deg, var(--color-porcelain) 40%, color-mix(in srgb, var(--color-ultraviolet) 25%, var(--color-porcelain)));
+}
+
+.study-art .study-visual::after {
+  inset-block-start: 16%;
+  inset-inline-end: 14%;
+  inline-size: 9%;
+  aspect-ratio: 1;
+  background: var(--color-pulse);
+}
+
+@media (min-width: 56rem) {
+  .studies {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+  }
+
+  .study {
+    inline-size: auto;
+    margin: 0;
+  }
+
+  .study-dev {
+    grid-column: 1 / 8;
+  }
+
+  .study-lab {
+    grid-column: 9 / 13;
+    align-self: end;
+  }
+
+  .study-art {
+    grid-column: 5 / 10;
+  }
+}
+
+/*
+ * Abertura: A (tipográfico) → B (equilibrado) → C (visual, o layout acima).
+ * Roda só em CSS, com transform e opacity; o JS apenas a pula em visitas
+ * seguintes (.no-intro) ou a conclui quando há interação. Sem animação,
+ * a página já está no estado final. Nenhum texto começa invisível.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero {
+    --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --intro-name: translateY(1.25rem) scale(1.06);
+  }
+
+  .hero::before {
+    animation: intro-light 2.4s var(--intro-ease) backwards;
+  }
+
+  .hero h1 {
+    transform-origin: 0 50%;
+    animation: intro-name 2.2s var(--intro-ease) backwards;
+  }
+
+  .hero-text p {
+    animation: intro-text 1.2s var(--intro-ease) 0.9s backwards;
+  }
+
+  .hero-visual {
+    animation: intro-visual 2.2s var(--intro-ease) backwards;
+  }
+
+  .hero-visual span {
+    animation: intro-depth 1.8s var(--intro-ease) var(--intro-delay, 0s) backwards;
+  }
+
+  .frag-main { --intro-delay: 0.1s; }
+  .frag-orbit { --intro-delay: 0.3s; }
+  .frag-flow { --intro-delay: 0.4s; }
+  .frag-surface { --intro-delay: 0.5s; }
+  .frag-accent { --intro-delay: 0.7s; }
+
+  .no-intro .hero *,
+  .no-intro .hero::before {
+    animation: none;
+  }
+
+  @media (min-width: 56rem) {
+    /* No desktop, o nome começa maior e mais ao centro da composição. */
+    .hero {
+      --intro-name: translate(32%, 10%) scale(1.16);
+    }
+  }
+}
+
+@keyframes intro-light {
+  0%, 15% { opacity: 0.2; transform: scale(0.8); }
+}
+
+@keyframes intro-name {
+  0%, 25% { transform: var(--intro-name); }
+}
+
+@keyframes intro-text {
+  from { opacity: 0.2; transform: translateY(0.75rem); }
+}
+
+@keyframes intro-visual {
+  0%, 20% { opacity: 0.35; transform: translateX(6%) scale(0.86); }
+}
+
+/* Os fragmentos partem planos e ganham profundidade. */
+@keyframes intro-depth {
+  from { opacity: 0.3; transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
 }
