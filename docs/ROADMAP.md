@@ -68,7 +68,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 - [ ] Implementar destaque cinematográfico e galeria editorial.
 - [ ] Construir apresentação de projeto reutilizável, com variantes adequadas ao conteúdo.
-- [ ] Definir acervo e filtros se o volume justificar; garantir acesso direto e alternativa sem JS.
+- [x] Criar o acervo (`projetos/`) como índice estático, acessível pela exposição da homepage.
+- [ ] Adicionar filtros ao acervo quando o volume justificar, com alternativa sem JS.
 - [ ] Conectar os fragmentos do hero aos trabalhos da curadoria.
 
 **Aceite:** trabalhos distinguíveis e acessíveis; contexto, autoria e links visíveis; adicionar um projeto não exige reescrever a fundação.

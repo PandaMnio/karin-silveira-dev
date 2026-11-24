@@ -126,7 +126,8 @@ Cada página de projeto deve valorizar o resultado e, quando pertinente, context
 
 - Três estudos ilustrativos (Desenvolvimento, Experimentação e Expressão visual) formam uma galeria assimétrica no estado E: alinhados e sem inclinação.
 - As superfícies compartilhadas (`--surface-*`) mantêm o vínculo visual com os fragmentos do hero, preparando a transição D.
-- Não há links enquanto não existirem destinos reais.
+- Os estudos não têm links individuais enquanto não existirem destinos reais; a exposição termina com um acesso ao acervo.
+- **Acervo (`projetos/`):** índice tipográfico em linhas com número em serifa itálica, título, resumo, metadados (categoria e tipo) e miniatura. As miniaturas têm a mesma altura, com largura que segue a proporção de cada trabalho. As categorias seguem as famílias do briefing (Desenvolvimento, Experimentação, Além do código). Cada entrada tem um `id` para link direto. A busca e os filtros só entram quando houver volume que os justifique.
 
 ## 7. Qualidade visual e acessibilidade
 

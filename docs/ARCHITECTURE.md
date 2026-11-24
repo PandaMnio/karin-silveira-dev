@@ -28,6 +28,8 @@ portfolio/
 │   └── main.js      # módulo de entrada (coordenação da abertura)
 ├── assets/
 │   └── fonts/       # WOFF2 e licenças OFL
+├── projetos/
+│   └── index.html   # acervo
 ├── index.html
 ├── AGENTS.md
 ├── README.md
