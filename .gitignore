@@ -1,0 +1,12 @@
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
