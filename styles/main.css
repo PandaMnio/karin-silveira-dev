@@ -275,6 +275,7 @@ a {
 /* Contraste editorial: a segunda palavra em serifa itálica. */
 .hero h1 span,
 .works h2 span,
+.lab h2 span,
 .archive h1 span,
 .about h2 span {
   display: block;
@@ -406,7 +407,7 @@ a {
   align-items: end;
   justify-content: space-between;
   gap: 1.5rem var(--gutter);
-  margin-block-end: clamp(3rem, 8vw, 6rem);
+  margin-block-end: clamp(2.5rem, 6vw, 4.5rem);
 }
 
 .works h2 {
@@ -423,7 +424,7 @@ a {
 
 .studies {
   display: grid;
-  gap: clamp(3rem, 8vw, 6rem);
+  gap: clamp(2.5rem, 7vw, 4rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -442,7 +443,7 @@ a {
 }
 
 .study .eyebrow {
-  margin-block: 1.25rem 0.5rem;
+  margin-block: 1rem 0.5rem;
 }
 
 .study-visual {
@@ -523,14 +524,18 @@ a {
 
 .works-more {
   max-inline-size: none;
-  margin-block: clamp(3rem, 8vw, 6rem) 0;
+  margin-block: clamp(2rem, 5vw, 3rem) 0;
   text-align: end;
 }
 
+/*
+ * Mosaico: o principal à esquerda; Experimentação ao lado, na mesma altura;
+ * Expressão visual logo abaixo do principal, ao lado da legenda dele.
+ */
 @media (min-width: 56rem) {
   .studies {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--gutter);
+    gap: clamp(1.5rem, 3vw, 2.5rem) var(--gutter);
   }
 
   .study {
@@ -539,16 +544,77 @@ a {
   }
 
   .study-dev {
-    grid-column: 1 / 8;
+    grid-column: 1 / 9;
   }
 
   .study-lab {
     grid-column: 9 / 13;
-    align-self: end;
   }
 
   .study-art {
-    grid-column: 5 / 10;
+    grid-column: 1 / 5;
+  }
+
+  /*
+   * Com subgrid, imagens e legendas compartilham as linhas do mosaico, e o
+   * acesso ao acervo ocupa o canto livre da última linha.
+   */
+  @supports (grid-template-rows: subgrid) {
+    .works {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(1rem, 1.5vw, 1.5rem) var(--gutter);
+    }
+
+    .works-intro {
+      grid-column: 1 / -1;
+    }
+
+    .studies {
+      grid-column: 1 / -1;
+      grid-row: 2 / 5;
+      grid-template-rows: subgrid;
+    }
+
+    .works-more {
+      grid-area: 4 / 9 / 5 / 13;
+      align-self: end;
+      margin: 0;
+    }
+
+    .study {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+      align-content: start;
+    }
+
+    .study-dev,
+    .study-lab {
+      grid-row: 1 / 3;
+    }
+
+    .study-art {
+      grid-row: 2 / 4;
+    }
+
+    .study-visual,
+    .study-text {
+      grid-column: 1 / -1;
+    }
+
+    .study-dev .study-text {
+      grid-column: 5 / -1;
+    }
+
+    /* Experimentação assenta na base do principal; as legendas se alinham. */
+    .study-lab .study-visual {
+      align-self: end;
+    }
+
+    .study .eyebrow {
+      margin-block-start: 0;
+    }
   }
 }
 
@@ -902,6 +968,191 @@ a {
   }
 }
 
+/* Laboratório: retorno ao escuro, com mais liberdade cromática. */
+
+.lab {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  padding-block: clamp(5rem, 16vh, 11rem);
+}
+
+.lab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(40% 35% at 10% 15%, color-mix(in srgb, var(--color-ultraviolet) 18%, transparent), transparent 70%),
+    radial-gradient(30% 30% at 90% 85%, color-mix(in srgb, var(--color-aqua) 8%, transparent), transparent 70%);
+}
+
+.lab-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem var(--gutter);
+  margin-block-end: clamp(3rem, 8vw, 5rem);
+}
+
+.lab h2 {
+  margin: 0;
+  font-size: clamp(2.75rem, 1.25rem + 5.5vw, 6.5rem);
+  line-height: 0.9;
+}
+
+.lab-intro > p {
+  max-inline-size: 34ch;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* O palco sangra até as bordas da página. */
+.experiment-stage {
+  aspect-ratio: 1;
+  margin-inline: calc(var(--gutter) * -1);
+  overflow: clip;
+  border-block: var(--line);
+  background: var(--surface-grid);
+}
+
+.experiment.is-ready .experiment-stage {
+  background:
+    radial-gradient(55% 70% at 35% 45%, color-mix(in srgb, var(--color-ultraviolet) 22%, transparent), transparent 70%),
+    var(--color-obsidian);
+}
+
+.experiment svg {
+  display: none;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.experiment.is-ready svg {
+  display: block;
+}
+
+.lab-grid path,
+.lab-streams path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+/* A grade se apaga conforme o fluxo cresce; as correntes ganham luz e espessura. */
+.lab-grid path {
+  stroke: var(--color-porcelain);
+  stroke-opacity: calc(0.02 + 0.16 * (1 - var(--flow, 0)));
+  stroke-width: 1;
+}
+
+.lab-streams path {
+  stroke: url("#lab-gradient");
+  stroke-opacity: calc(0.35 + 0.65 * var(--flow, 0));
+  stroke-width: calc(1px + 1.25px * var(--flow, 0));
+}
+
+#lab-gradient stop:first-child {
+  stop-color: var(--color-aqua);
+}
+
+#lab-gradient stop:last-child {
+  stop-color: var(--color-ultraviolet);
+}
+
+.lab-lens {
+  fill: none;
+  stroke: var(--color-porcelain);
+  stroke-opacity: 0.35;
+  stroke-dasharray: 2 6;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+}
+
+.lab-accent {
+  fill: var(--color-pulse);
+}
+
+.experiment-caption {
+  display: grid;
+  gap: 1.5rem var(--gutter);
+  margin-block-start: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.experiment-heading .eyebrow {
+  margin-block-end: 0.75rem;
+}
+
+.experiment h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 1.125rem + 1.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.experiment-description {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.control-range {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Os rótulos acompanham o controle: o peso se dissolve, a serifa se acende. */
+.control-start {
+  font-weight: calc(800 - 500 * var(--flow, 0));
+  letter-spacing: -0.02em;
+}
+
+.control-end {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-style: italic;
+  line-height: 1;
+  opacity: calc(0.6 + 0.4 * var(--flow, 0));
+}
+
+.control-range input {
+  inline-size: 100%;
+  min-block-size: 2.75rem;
+  margin: 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.control-hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+@media (min-width: 56rem) {
+  .experiment-stage {
+    aspect-ratio: 21 / 9;
+  }
+
+  .experiment-caption {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .experiment-heading {
+    grid-column: 1 / 5;
+  }
+
+  .experiment-description {
+    grid-column: 5 / 8;
+  }
+
+  .experiment-control {
+    grid-column: 9 / 13;
+  }
+}
+
 /*
  * Abertura: A (tipográfico) → B (equilibrado) → C (visual, o layout acima).
  * Roda só em CSS, com transform e opacity; o JS apenas a conclui em visitas
@@ -952,6 +1203,11 @@ a {
     animation: study-arrive linear backwards;
     animation-timeline: view();
     animation-range: entry 0% cover 45%;
+  }
+
+  /* No mosaico, Experimentação se assenta logo depois do principal. */
+  .studies .study-lab .study-visual {
+    animation-range: entry 15% cover 55%;
   }
 
   /* Os estudos inclinados ultrapassariam a largura da página. */

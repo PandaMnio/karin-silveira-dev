@@ -18,7 +18,7 @@ HTML, CSS e JavaScript nativos (ES Modules), sem dependências nem etapa de buil
 .
 ├── docs/              # Documentação do projeto
 ├── styles/main.css
-├── scripts/main.js    # Módulo de entrada
+├── scripts/           # main.js (entrada) e lab.js (experimento)
 ├── assets/fonts/      # Fontes WOFF2 e licenças
 ├── assets/images/     # Imagens otimizadas (WebP)
 ├── projetos/         # Acervo de projetos

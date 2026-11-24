@@ -1,5 +1,7 @@
 // Abertura do hall de entrada: completa só no primeiro acesso da sessão;
 // qualquer interação a conclui imediatamente. A animação em si está no CSS.
+import './lab.js';
+
 const hero = document.querySelector('.hero');
 
 function introSeen() {

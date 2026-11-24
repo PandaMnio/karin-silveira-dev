@@ -25,7 +25,8 @@ portfolio/
 ├── styles/
 │   └── main.css
 ├── scripts/
-│   └── main.js      # módulo de entrada (coordenação da abertura)
+│   ├── main.js      # módulo de entrada (coordenação da abertura)
+│   └── lab.js       # experimento do Laboratório, importado por main.js
 ├── assets/
 │   ├── fonts/       # WOFF2 e licenças OFL
 │   └── images/      # WebP em larguras responsivas

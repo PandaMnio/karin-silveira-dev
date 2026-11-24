@@ -54,21 +54,27 @@
         <ol class="studies" role="list">
           <li class="study study-dev">
             <div class="study-visual visual-dev" aria-hidden="true"></div>
-            <p class="eyebrow">01 · Estudo ilustrativo</p>
-            <h3>Desenvolvimento</h3>
-            <p>Sistemas, aplicações e interfaces: o núcleo profissional.</p>
+            <div class="study-text">
+              <p class="eyebrow">01 · Estudo ilustrativo</p>
+              <h3>Desenvolvimento</h3>
+              <p>Sistemas, aplicações e interfaces: o núcleo profissional.</p>
+            </div>
           </li>
           <li class="study study-lab">
             <div class="study-visual visual-lab" aria-hidden="true"></div>
-            <p class="eyebrow">02 · Estudo ilustrativo</p>
-            <h3>Experimentação</h3>
-            <p>Creative coding, interações e exploração de tecnologias.</p>
+            <div class="study-text">
+              <p class="eyebrow">02 · Estudo ilustrativo</p>
+              <h3>Experimentação</h3>
+              <p>Creative coding, interações e exploração de tecnologias.</p>
+            </div>
           </li>
           <li class="study study-art">
             <div class="study-visual visual-art" aria-hidden="true"></div>
-            <p class="eyebrow">03 · Estudo ilustrativo</p>
-            <h3>Expressão visual</h3>
-            <p>Fotografia, audiovisual, design e outras criações.</p>
+            <div class="study-text">
+              <p class="eyebrow">03 · Estudo ilustrativo</p>
+              <h3>Expressão visual</h3>
+              <p>Fotografia, audiovisual, design e outras criações.</p>
+            </div>
           </li>
         </ol>
 
@@ -109,9 +115,47 @@
         </div>
       </section>
 
-      <section id="laboratorio">
-        <h2>Laboratório</h2>
-        <p>[Provisório] Experimentos e estudos criativos a definir.</p>
+      <section id="laboratorio" class="lab" aria-labelledby="laboratorio-titulo">
+        <div class="lab-intro">
+          <div>
+            <p class="eyebrow">Laboratório</p>
+            <h2 id="laboratorio-titulo">Laboratório <span>criativo</span></h2>
+          </div>
+          <p>Um espaço para experimentos e descobertas entre código e criação. O primeiro estudo parte do conceito que orienta este portfólio.</p>
+        </div>
+
+        <article class="experiment" data-experiment="construcao-fluxo" aria-labelledby="experimento-titulo">
+          <div class="experiment-stage">
+            <svg viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="lab-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+                  <stop offset="0" />
+                  <stop offset="1" />
+                </linearGradient>
+              </defs>
+              <g class="lab-grid"></g>
+              <g class="lab-streams"></g>
+              <circle class="lab-lens" r="150" />
+              <rect class="lab-accent" width="18" height="18" />
+            </svg>
+          </div>
+
+          <div class="experiment-caption">
+            <div class="experiment-heading">
+              <p class="eyebrow">Experimento 01</p>
+              <h3 id="experimento-titulo">Construção &amp; Fluxo</h3>
+            </div>
+            <p class="experiment-description">Uma grade precisa se desfaz em correntes de luz: estrutura e fluidez como dois estados da mesma forma.</p>
+            <div class="experiment-control" hidden>
+              <div class="control-range">
+                <span class="control-start" aria-hidden="true">Construção</span>
+                <input type="range" min="0" max="100" value="35" aria-label="Da construção ao fluxo">
+                <span class="control-end" aria-hidden="true">Fluxo</span>
+              </div>
+              <p class="control-hint">Deslize entre construção e fluxo. Passe o cursor ou toque na composição para desviar as linhas.</p>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section id="contato">

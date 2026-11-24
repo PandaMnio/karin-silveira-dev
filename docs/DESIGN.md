@@ -72,6 +72,9 @@ A homepage combina A + C com a atmosfera de B dos estudos: presença assimétric
 - **Retrato (Sobre):** a fotografia permanece intacta, sem filtros nem recortes. Ao redor dela, camadas independentes em CSS: um painel de grade violeta que sangra pela borda da página, uma moldura da qual só aparecem os cantos, uma órbita que cruza o canto superior longe do rosto, a cápsula de fluxo e o acento Pulse. Com suporte a scroll-driven animations e sem preferência por movimento reduzido, as formas derivam em velocidades diferentes; a foto não se move.
 - **Hero estático = estado C:** fragmentos inclinados numa perspectiva comum, com o texto avançando sobre a borda escura da composição. Grade e moldura (precisão) contrastam com órbita e cápsula (fluidez).
 
+- **Laboratório:** volta ao escuro, com luz violeta e Aqua mais livre. O palco do experimento sangra até as bordas da página, e a legenda fica abaixo dele, em três colunas.
+- **Experimento 01 — Construção & Fluxo:** uma grade em SVG se transforma em correntes Aqua → Ultraviolet. O controle deslizante nativo vai da construção ao fluxo, e os rótulos acompanham: "Construção" perde peso enquanto "Fluxo", em serifa itálica, se acende. Com mouse, a lente segue o cursor; com toque, ela fica onde foi tocada. Na construção, ela abre a grade; no fluxo, faz as linhas girarem. O acento Pulse é levado pela corrente. Só há redesenho durante a interação, e o laço de quadros para quando tudo se assenta. Com movimento reduzido, as mudanças são imediatas, sem transição. Sem JS, o palco mostra a grade estática, e o controle continua oculto.
+
 ### Vocabulário gráfico permanente
 
 As formas abstratas da Spectrum (painéis, grades, molduras, órbitas, cápsulas de fluxo, gradientes e acentos cromáticos) deixam de ser provisórias e fazem parte da identidade do portfólio. Elas vão coexistir com os conteúdos reais dos projetos, sem ser substituídas por eles. Cada composição as recombina conforme o contexto, sem repetir literalmente o hero, e elas nunca encobrem rostos, textos ou o essencial de uma obra.
@@ -101,7 +104,7 @@ Comportamento acordado como direção: sequência completa apenas no primeiro ac
 - O JS apenas pula a abertura nas visitas seguintes da sessão e a conclui na primeira interação.
 - Sem JS ou sem `sessionStorage`, a abertura toca a cada carregamento.
 - No mobile, a coreografia é simplificada.
-- A transição D usa CSS scroll-driven animations, sem JS. Ao sair, os fragmentos do hero perdem inclinação e profundidade; os estudos entram com a mesma perspectiva e se assentam (no mobile, só escala e opacidade). Sem suporte, como no Firefox atual, ou com movimento reduzido, a exposição é estática.
+- A transição D usa CSS scroll-driven animations, sem JS. Ao sair, os fragmentos do hero perdem inclinação e profundidade; os estudos entram com a mesma perspectiva e se assentam (no mobile, só escala e opacidade). No mosaico, Experimentação se assenta logo depois do principal, em cascata. Sem suporte, como no Firefox atual, ou com movimento reduzido, a exposição é estática.
 
 ### Motion complementar — a validar
 
@@ -130,7 +133,7 @@ Cada página de projeto deve valorizar o resultado e, quando pertinente, context
 
 **Aplicado:**
 
-- Três estudos ilustrativos (Desenvolvimento, Experimentação e Expressão visual) formam uma galeria assimétrica no estado E: alinhados e sem inclinação.
+- Três estudos ilustrativos (Desenvolvimento, Experimentação e Expressão visual) formam um mosaico editorial no estado E, alinhados e sem inclinação. A partir de 56rem: o principal ocupa 8 colunas; Experimentação fica ao lado, em 4 colunas, com a base alinhada à dele; Expressão visual entra logo abaixo do principal, ao lado da legenda dele; e o acesso ao acervo ocupa o canto livre da última linha. As linhas são compartilhadas por subgrid. Sem subgrid, os três estudos ficam em duas faixas, com as legendas sob cada imagem. No mobile, os estudos se empilham com recuos alternados.
 - As superfícies compartilhadas (`--surface-*`) mantêm o vínculo visual com os fragmentos do hero, preparando a transição D.
 - Os estudos não têm links individuais enquanto não existirem destinos reais; a exposição termina com um acesso ao acervo.
 - **Acervo (`projetos/`):** índice tipográfico em linhas com número em serifa itálica, título, resumo, metadados (categoria e tipo) e miniatura. As miniaturas têm a mesma altura, com largura que segue a proporção de cada trabalho. As categorias seguem as famílias do briefing (Desenvolvimento, Experimentação, Além do código). Cada entrada tem um `id` para link direto. A busca e os filtros só entram quando houver volume que os justifique.
