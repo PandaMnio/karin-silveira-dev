@@ -43,14 +43,14 @@ As transições entre claro e escuro são parte da narrativa; não implicam nece
 
 ## 3. Tipografia
 
-Direção aprovada: contraste editorial. Famílias adotadas, carregadas pelo Google Fonts:
+Direção aprovada: contraste editorial. Famílias adotadas, hospedadas localmente:
 
 | Função | Família | Uso |
 | --- | --- | --- |
 | Estrutura | Manrope (200–800) | Nome, títulos, navegação e texto |
-| Expressão | Instrument Serif (regular e itálico) | Destaques pontuais: a segunda palavra de títulos expressivos, como o sobrenome no hero |
+| Expressão | Instrument Serif (regular e itálico) | Contraste editorial pontual, decidido em cada composição (ex.: o sobrenome no hero) |
 
-Manrope substituiu Satoshi, e Geist Mono foi deixada de lado até haver índices ou metadados que a justifiquem. A monumentalidade virá de escala, composição e peso, sem adicionar outra fonte display. Fallbacks: `system-ui` para Manrope e Georgia para Instrument Serif. Hospedar WOFF2 localmente continua sendo uma alternativa, caso privacidade ou performance justifiquem.
+Manrope substituiu Satoshi, e Geist Mono foi deixada de lado até haver índices ou metadados que a justifiquem. A monumentalidade virá de escala, composição e peso, sem adicionar outra fonte display. Fallbacks: `system-ui` para Manrope e Georgia para Instrument Serif. Os arquivos são WOFF2 do subconjunto latin, suficiente para o português, com `font-display: swap` e licenças OFL em `assets/fonts/`. Saíram do Google Fonts por privacidade e porque a folha externa bloqueava a renderização. O preload foi testado e piorou o FCP em rede lenta, por isso não é usado.
 
 Definir uma escala fluida com `clamp()` onde fizer sentido, hierarquia clara, largura de leitura confortável e espaçamento responsivo. Não fixar tamanhos de tela ou tipografia que impeçam zoom.
 
@@ -91,14 +91,19 @@ Comportamento acordado como direção: sequência completa apenas no primeiro ac
 **Aplicado:**
 
 - A abertura (A → B → C) é toda em CSS, com `transform` e `opacity`. O estado final é o próprio layout: sem animação, a página já está completa.
-- Nenhum texto começa invisível, para não atrasar o LCP.
+- Os textos começam com no mínimo 80% de opacidade: nunca invisíveis (o que atrasaria o LCP) e sempre com contraste AA.
 - O JS apenas pula a abertura nas visitas seguintes da sessão e a conclui na primeira interação.
 - Sem JS ou sem `sessionStorage`, a abertura toca a cada carregamento.
 - No mobile, a coreografia é simplificada.
+- A transição D usa CSS scroll-driven animations, sem JS. Ao sair, os fragmentos do hero perdem inclinação e profundidade; os estudos entram com a mesma perspectiva e se assentam (no mobile, só escala e opacidade). Sem suporte, como no Firefox atual, ou com movimento reduzido, a exposição é estática.
 
 ### Motion complementar — a validar
 
-- Parallax sutil para ponteiro de mouse, sem depender de hover.
+- Parallax sutil para ponteiro de mouse, sem depender de hover. **Aplicado no hero:**
+  - Os fragmentos se deslocam conforme a profundidade (`--z`); os mais próximos se movem mais, e a moldura vai no sentido oposto.
+  - A luz ambiente acompanha o cursor, e um reflexo percorre o painel principal.
+  - Ativa só depois da abertura, com mouse ou trackpad e sem preferência por movimento reduzido.
+  - Usa a propriedade `translate`, que se compõe com as animações de `transform`, e o retorno ao repouso é por transição CSS.
 - Máscaras e revelações, iluminação atmosférica, transformações ópticas e profundidade pontuais.
 - Microinterações com resposta clara; foco e toque equivalentes quando aplicável.
 - Transições cromáticas que acompanham o conteúdo.

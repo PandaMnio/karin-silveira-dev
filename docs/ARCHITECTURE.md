@@ -26,6 +26,8 @@ portfolio/
 │   └── main.css
 ├── scripts/
 │   └── main.js      # módulo de entrada (coordenação da abertura)
+├── assets/
+│   └── fonts/       # WOFF2 e licenças OFL
 ├── index.html
 ├── AGENTS.md
 ├── README.md
@@ -104,7 +106,7 @@ SEO, performance, responsividade e acessibilidade são requisitos de toda implem
 - **Aprovado:**
   - Stack nativa sem dependências, aprimoramento progressivo e independência dos projetos.
   - Estrutura mínima que cresce com a necessidade.
-  - Fontes via Google Fonts, o único recurso externo; a página funciona com os fallbacks.
+  - Fontes WOFF2 locais; nenhum recurso externo.
   - Movimento em CSS, com JS apenas coordenando estados.
 - **Proposto:** nomenclatura de CSS e JS, modo de publicação, detalhes das APIs.
 - **A validar:** páginas internas, estratégia de dados e compatibilidade dos efeitos em Safari, Firefox e dispositivos reais.

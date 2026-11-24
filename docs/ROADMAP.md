@@ -54,12 +54,12 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 **Aceite:** visitante consegue compreender o propósito, explorar trabalhos ilustrativos e chegar ao contato sem animações. Sem links quebrados ou destinos fictícios apresentados como reais.
 
-### 04 — Hall de entrada · em andamento
+### 04 — Hall de entrada · concluída
 
 - [x] Prototipar a composição final assimétrica/editorial com prioridade visual e nome legível (fragmentos provisórios).
 - [x] Desenvolver a abertura A → B → C com os mesmos elementos.
 - [x] Testar progressão automática, navegação durante a abertura e comportamento por sessão.
-- [ ] Implementar o estudo de continuidade espacial → modular com scroll, sem bloqueá-lo.
+- [x] Implementar o estudo de continuidade espacial → modular com scroll, sem bloqueá-lo.
 - [x] Criar tratamento mobile, fallback estático e redução de movimento.
 
 **Aceite:** movimento contínuo e controlado; conteúdo e ações acessíveis a qualquer momento; composição final preservada sem efeitos; testes em toque e desktop. Não avançar para efeitos ópticos antes de validar a coreografia.
@@ -114,8 +114,7 @@ Priorizar uma homepage estática com apresentação, curadoria de trabalhos, sob
 
 ## 4. Próximos passos
 
-- **Etapa 04:** transição D, do hero para a exposição de trabalhos, vinculada ao scroll e sem bloqueá-lo.
-- **Abertura:** validar em Safari, Firefox e dispositivos reais.
+- **Abertura e transição pelo scroll:** validar em Safari, Firefox e dispositivos reais.
 - **Etapa 01:** validação do HTML no W3C Nu.
 - **Etapa 02:** consolidar escala, espaçamentos e grid a partir do que o hero e a exposição já usam.
 

@@ -1,3 +1,24 @@
+/* Subconjunto latin, suficiente para o português. Licença OFL em assets/fonts. */
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/manrope-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../assets/fonts/instrument-serif-latin.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../assets/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --color-obsidian: #0c0c10;
   --color-porcelain: #ededf2;
@@ -40,6 +61,25 @@
   --color-muted: color-mix(in srgb, var(--color-obsidian) 72%, var(--color-porcelain));
 
   color-scheme: light;
+}
+
+/* Sem color-mix: valores equivalentes pré-calculados; brilhos decorativos são omitidos. */
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --color-muted: #aeaeb3;
+    --surface-grid:
+      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      #161228;
+    --surface-page:
+      linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
+      linear-gradient(135deg, var(--color-porcelain) 55%, #cec4f5);
+    --line: 1px solid rgb(237 237 242 / 0.14);
+  }
+
+  .light {
+    --color-muted: #4b4b4f;
+  }
 }
 
 *,
@@ -136,6 +176,9 @@ a {
 }
 
 .signature {
+  /* Alvo de 44px sem alterar a altura do cabeçalho. */
+  margin-block: -0.5rem;
+  padding-block: 0.5rem;
   font-size: 1.75rem;
   font-weight: 800;
   line-height: 1;
@@ -157,7 +200,9 @@ a {
   list-style: none;
 }
 
+/* Links inline: o padding amplia o alvo para 44px sem alterar o layout. */
 .site-header nav a {
+  padding-block: 0.75rem;
   font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -239,6 +284,7 @@ a {
 }
 
 .cta {
+  padding-block: 0.6875rem;
   font-weight: 600;
   color: var(--color-text);
   text-decoration-color: var(--color-accent);
@@ -343,7 +389,7 @@ a {
   }
 }
 
-/* Projetos selecionados: os fragmentos do hero, agora alinhados (estado E). */
+/* Projetos selecionados: reutiliza as superfícies dos fragmentos do hero, sem inclinação. */
 
 .works {
   padding-block: clamp(4rem, 12vh, 9rem);
@@ -385,7 +431,7 @@ a {
   letter-spacing: -0.02em;
 }
 
-.study p:last-child {
+.study h3 + p {
   margin: 0;
   color: var(--color-muted);
 }
@@ -436,6 +482,7 @@ a {
   inset-inline-start: 8%;
   inline-size: 76%;
   aspect-ratio: 1;
+  border: var(--line);
   border: 1px solid color-mix(in srgb, var(--color-porcelain) 24%, transparent);
   border-radius: 50%;
 }
@@ -455,6 +502,7 @@ a {
 
 .study-art .study-visual {
   aspect-ratio: 3 / 2;
+  background: var(--color-porcelain);
   background:
     radial-gradient(circle at 30% 60%, color-mix(in srgb, var(--color-ultraviolet) 55%, transparent), transparent 45%),
     linear-gradient(135deg, var(--color-porcelain) 40%, color-mix(in srgb, var(--color-ultraviolet) 25%, var(--color-porcelain)));
@@ -495,14 +543,15 @@ a {
 
 /*
  * Abertura: A (tipográfico) → B (equilibrado) → C (visual, o layout acima).
- * Roda só em CSS, com transform e opacity; o JS apenas a pula em visitas
- * seguintes (.no-intro) ou a conclui quando há interação. Sem animação,
- * a página já está no estado final. Nenhum texto começa invisível.
+ * Roda só em CSS, com transform e opacity; o JS apenas a conclui em visitas
+ * seguintes ou quando há interação. Sem animação, a página já está no estado
+ * final. Os textos mantêm contraste AA durante toda a abertura.
  */
 @media (prefers-reduced-motion: no-preference) {
   .hero {
     --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
     --intro-name: translateY(1.25rem) scale(1.06);
+    view-timeline: --hero;
   }
 
   .hero::before {
@@ -518,12 +567,35 @@ a {
     animation: intro-text 1.2s var(--intro-ease) 0.9s backwards;
   }
 
+  /*
+   * A segunda animação de cada lista segue o scroll: ao sair, os fragmentos
+   * perdem inclinação e profundidade. A faixa "exit" só começa após a rolagem,
+   * então não interfere na abertura. Sem suporte a animation-timeline, ela tem
+   * duração 0 e nenhum efeito: a página fica estática.
+   */
   .hero-visual {
-    animation: intro-visual 2.2s var(--intro-ease) backwards;
+    animation: intro-visual 2.2s var(--intro-ease) backwards, hero-descend linear;
+    animation-timeline: auto, --hero;
+    animation-range: normal, exit 0% exit 80%;
   }
 
   .hero-visual span {
-    animation: intro-depth 1.8s var(--intro-ease) var(--intro-delay, 0s) backwards;
+    animation: intro-depth 1.8s var(--intro-ease) var(--intro-delay, 0s) backwards, hero-settle linear;
+    animation-timeline: auto, --hero;
+    animation-range: normal, exit 0% exit 80%;
+  }
+
+  /* Os estudos chegam com a perspectiva dos fragmentos e se assentam. */
+  .study-visual {
+    --arrive: scale(0.94);
+    animation: study-arrive linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+
+  /* Os estudos inclinados ultrapassariam a largura da página. */
+  .works {
+    overflow: clip;
   }
 
   .frag-main { --intro-delay: 0.1s; }
@@ -532,15 +604,14 @@ a {
   .frag-surface { --intro-delay: 0.5s; }
   .frag-accent { --intro-delay: 0.7s; }
 
-  .no-intro .hero *,
-  .no-intro .hero::before {
-    animation: none;
-  }
-
   @media (min-width: 56rem) {
     /* No desktop, o nome começa maior e mais ao centro da composição. */
     .hero {
       --intro-name: translate(32%, 10%) scale(1.16);
+    }
+
+    .study-visual {
+      --arrive: perspective(1600px) rotateX(4deg) rotateY(-12deg) scale(0.92);
     }
   }
 }
@@ -554,11 +625,60 @@ a {
 }
 
 @keyframes intro-text {
-  from { opacity: 0.2; transform: translateY(0.75rem); }
+  from { opacity: 0.8; transform: translateY(0.75rem); }
 }
 
 @keyframes intro-visual {
   0%, 20% { opacity: 0.35; transform: translateX(6%) scale(0.86); }
+}
+
+/*
+ * Resposta ao cursor, só com mouse ou trackpad. Usa a propriedade translate,
+ * que se compõe com o transform animado pela abertura e pelo scroll.
+ * O JS atualiza --px e --py (de -1 a 1) e --glow; a transição dá a inércia e o
+ * retorno ao repouso.
+ */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .hero-visual span,
+  .hero::before,
+  .frag-main::after {
+    transition: translate 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+  }
+
+  /* Paralaxe pela profundidade: os mais próximos se movem mais; a moldura, ao contrário. */
+  .hero-visual span {
+    translate: calc(var(--px, 0) * var(--z, 0px) / 8) calc(var(--py, 0) * var(--z, 0px) / 8);
+  }
+
+  .hero::before {
+    translate: calc(var(--px, 0) * 3%) calc(var(--py, 0) * 3%);
+  }
+
+  /* Reflexo que percorre o painel principal enquanto o cursor está no hero. */
+  .frag-main {
+    overflow: clip;
+  }
+
+  .frag-main::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-porcelain) 16%, transparent), transparent 30%);
+    opacity: var(--glow, 0);
+    translate: calc(var(--px, 0) * 30%) calc(var(--py, 0) * 30%);
+  }
+}
+
+@keyframes hero-descend {
+  to { transform: translateY(12%); }
+}
+
+@keyframes hero-settle {
+  to { transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
+}
+
+@keyframes study-arrive {
+  from { opacity: 0.4; transform: var(--arrive); }
 }
 
 /* Os fragmentos partem planos e ganham profundidade. */
