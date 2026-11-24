@@ -19,6 +19,40 @@ O portfólio também é uma obra autoral, capaz de evoluir com novos interesses,
 
 O conceito é um princípio de design, não necessariamente um slogan público. Textos de apresentação, assinatura compacta e logotipo ainda serão refinados.
 
+### Dados profissionais confirmados
+
+Fonte única dos dados pessoais e profissionais do site; a seção Sobre os reproduz. Atualizar aqui antes de alterar o HTML e não acrescentar o que não estiver registrado.
+
+**Perfil:** desenvolvedora de software com experiência web e mobile desde 2021, bacharel em Ciência da Computação.
+
+**Experiência:** mais de cinco anos, desde 2021. Por decisão da autora, os nomes dos empregadores não são expostos no site nem no repositório. As atuações confirmadas que fundamentam as capacidades são:
+
+- Temas personalizados para WordPress.
+- Interfaces web e desenvolvimento e manutenção de aplicativo mobile (HTML, CSS, JavaScript, PHP, React Native e Expo).
+- Front-end de plataforma de conscientização em segurança da informação: páginas web, templates de e-mail e simulações educativas de phishing (Laravel, Livewire, Tailwind CSS e Flux UI).
+
+**Capacidades apresentadas:** desenvolvimento web; desenvolvimento mobile; dados e integrações; experiência digital, acessibilidade, SEO e desempenho. Cargos não foram informados e não devem ser presumidos.
+
+**Formação**
+
+- Bacharelado em Ciência da Computação, FSG, 2021–2025, concluído.
+- Colegial técnico em Informática, CETEC UCS, 2019–2020.
+- Ensino médio profissionalizante (pós-médio) em Informática, CETEC UCS, 2018–2020.
+
+**Comunidade e aprendizado contínuo**
+
+- Mentora de tecnologia no Startup Weekend Indústria 4.0, Caxias do Sul, 2024. Responsabilidades e resultados não foram informados e não devem ser presumidos.
+- Participação em eventos: Codecon (2024, 2025 e 2026) e Front in Floripa (2024).
+
+**Repertório** (sem níveis de proficiência)
+
+- Linguagens: HTML, CSS, JavaScript, TypeScript, PHP e C#.
+- Web e mobile: React, React Native, Expo, AngularJS, Laravel, Livewire, Tailwind CSS, Flux UI, Blade, Bootstrap, jQuery e WordPress.
+- Dados e integrações: Node.js, MySQL, MongoDB, REST APIs, JSON, Axios e Postman.
+- Ferramentas: Git, GitHub, VS Code, npm, Composer, GitHub Pages, Figma, Canva, ChatGPT e Claude Code.
+- Conhecimentos complementares: SEO.
+- Cursos complementares de React Native, Expo e Hooks.
+
 ## 3. Públicos e necessidades
 
 | Público | Necessidade |

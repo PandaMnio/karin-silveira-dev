@@ -29,6 +29,7 @@ portfolio/
 │   └── lab.js       # experimento do Laboratório, importado por main.js
 ├── assets/
 │   ├── fonts/       # WOFF2 e licenças OFL
+│   ├── icons/       # sprite SVG de tecnologias (Simple Icons, CC0)
 │   └── images/      # WebP em larguras responsivas
 ├── projetos/
 │   └── index.html   # acervo

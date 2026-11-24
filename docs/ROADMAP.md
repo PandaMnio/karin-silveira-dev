@@ -77,7 +77,9 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 ### 06 — Sobre, laboratório e contato
 
 - [x] Compor a seção clara de apresentação (textos provisórios, derivados do briefing).
-- [ ] Aprovar os textos e acrescentar a trajetória quando houver conteúdo.
+- [x] Acrescentar ao Sobre capacidades, formação e repertório confirmados, sem nomes de empregadores.
+- [x] Acrescentar ao Sobre a mentoria e a participação em eventos da comunidade.
+- [ ] Aprovar os textos de apresentação.
 - [x] Criar a entrada do laboratório com o primeiro experimento interativo (Construção & Fluxo).
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [ ] Construir encerramento e canais de contato; currículo quando disponível.

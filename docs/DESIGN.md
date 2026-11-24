@@ -69,7 +69,15 @@ A homepage combina A + C com a atmosfera de B dos estudos: presença assimétric
 - **Assinatura compacta:** `ks.` em Manrope 800, com o ponto em Aqua.
 - **Hierarquia do hero:** posicionamento, nome, mensagem autoral e CTA. Os textos ainda estão sujeitos a aprovação.
 - **Sobre:** atmosfera clara (`.light`), com título em duas vozes e um ponto final em acento, ecoando a assinatura. O texto desce em degrau ao lado do retrato, e os princípios aparecem como frases grandes com o verbo em serifa itálica, recuados para deixar espaço vazio à esquerda. Os textos derivam do briefing e estão sujeitos a aprovação.
+- **Sobre ampliado:**
+  - **Destaques:** ficam na coluna do retrato, ao lado do texto: experiência, bacharelado e formação técnica, com o valor em serifa.
+  - **Comunidade e aprendizado contínuo:** bloco compacto que continua o degrau do texto, ao lado dos destaques. Mentoria e eventos têm o mesmo peso, em texto corrido com local e anos atenuados, sem destaque tipográfico, para não competir com formação e capacidades.
+  - **Espaçamento:** os respiros entre e dentro das seções crescem com a largura da tela, não com a altura, para que os celulares altos não ganhem vazios excessivos.
+  - **Capacidades:** quatro colunas (duas abaixo de 75rem). Cada uma traz um índice em serifa itálica, a descrição, uma linha de ícones em acento e as tecnologias em texto, mencionadas uma única vez. Os ícones são decorativos; os nomes estão no texto. O sprite é local (Simple Icons, CC0).
+  - **Princípios:** fecham a seção, com o rótulo e o parágrafo no vazio à esquerda da lista.
+  - **Fonte e privacidade:** os dados vêm do [Briefing](BRIEFING.md#dados-profissionais-confirmados), e os nomes de empregadores não aparecem.
 - **Retrato (Sobre):** a fotografia permanece intacta, sem filtros nem recortes. Ao redor dela, camadas independentes em CSS: um painel de grade violeta que sangra pela borda da página, uma moldura da qual só aparecem os cantos, uma órbita que cruza o canto superior longe do rosto, a cápsula de fluxo e o acento Pulse. Com suporte a scroll-driven animations e sem preferência por movimento reduzido, as formas derivam em velocidades diferentes; a foto não se move.
+- **Cabeçalho:** transparente e acima da primeira seção. A luz do topo é um gradiente violeta no fundo da página que atravessa o cabeçalho e a primeira seção, sem emenda entre eles. Nos links, um traço Aqua → Ultraviolet cresce da esquerda no hover e no foco, e fica completo e mais espesso na página atual. O ponto da assinatura salta de leve. Sem filtros nem blur; com movimento reduzido, não há transições.
 - **Hero estático = estado C:** fragmentos inclinados numa perspectiva comum, com o texto avançando sobre a borda escura da composição. Grade e moldura (precisão) contrastam com órbita e cápsula (fluidez).
 
 - **Laboratório:** volta ao escuro, com luz violeta e Aqua mais livre. O palco do experimento sangra até as bordas da página, e a legenda fica abaixo dele, em três colunas.
