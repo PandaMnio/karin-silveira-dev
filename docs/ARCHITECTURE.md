@@ -1,6 +1,6 @@
 # Arquitetura técnica — Karin Silveira
 
-> Versão 0.2 · 24/11/2026 · Documento vivo
+> Versão 0.3 · 24/11/2026 · Documento vivo
 
 ## 1. Stack
 
@@ -21,11 +21,11 @@ Sem JS, sem uma API ou sem recursos gráficos, a página continua apresentável 
 
 ```text
 portfolio/
-├── docs/            # BRIEFING, DESIGN, ARCHITECTURE, ROADMAP
+├── docs/            # BRIEFING, DESIGN, ARCHITECTURE, ROADMAP e style-guide.html
 ├── styles/
 │   └── main.css
 ├── scripts/
-│   └── main.js      # módulo de entrada, ainda vazio
+│   └── main.js      # módulo de entrada (coordenação da abertura)
 ├── index.html
 ├── AGENTS.md
 ├── README.md
@@ -74,22 +74,39 @@ O HTML estático é a fonte do conteúdo profissional, o que garante acesso sem 
 
 ## 8. Desenvolvimento local e publicação
 
-Servir por HTTP, não por `file://`, que bloqueia módulos. A partir da raiz:
-
-```sh
-python3 -m http.server 8000
-```
-
-Acessar `http://localhost:8000/`. Live Server ou qualquer servidor estático também serve. Usar caminhos relativos para permitir publicação em subdiretórios. Hospedagem estática e domínio serão decididos depois. Contato por links reais; formulário com envio exigiria um serviço adicional.
+Servir por HTTP, não por `file://`, que bloqueia módulos; o comando está no [README](../README.md). Usar caminhos relativos para permitir publicação em subdiretórios. Hospedagem estática e domínio serão decididos depois. Contato por links reais; formulário com envio exigiria um serviço adicional.
 
 ## 9. Qualidade
 
-Testar desde já: teclado, foco, zoom, telas pequenas, redução de movimento, JS desativado, links, console e HTML válido. Com conteúdo real: otimizar imagens e fontes, declarar dimensões de mídia, carregar sob demanda o que está fora da primeira dobra e medir a performance em condições realistas.
+SEO, performance, responsividade e acessibilidade são requisitos de toda implementação, desde a fundação; as regras de trabalho estão no [AGENTS.md](../AGENTS.md).
+
+**Metas** (objetivos, não garantias):
+
+| Indicador | Meta |
+| --- | --- |
+| Lighthouse (desempenho, acessibilidade, boas práticas, SEO) | 95 ou mais em cada categoria |
+| LCP | até 2,5 s |
+| INP | até 200 ms |
+| CLS | até 0,1 |
+| Acessibilidade | WCAG 2.2 AA como referência (a verificar, não uma certificação) |
+| Transferência da homepage | até 600 KB (orçamento inicial, revisável com justificativa quando houver conteúdo real) |
+
+**Navegadores:** Chrome, Safari, Firefox e navegadores móveis.
+
+**Testar desde já:** teclado, foco, contraste, zoom, telas pequenas, redução de movimento, JS desativado, conteúdo alternativo, links, console e HTML válido.
+
+**Com conteúdo real:** otimizar imagens e fontes, declarar dimensões de mídia, carregar sob demanda o que está fora da primeira dobra e medir em condições realistas.
+
+**SEO de conteúdo:** títulos, descrições e textos reais e específicos em cada página.
 
 ## 10. Decisões
 
-- **Aprovado:** stack nativa sem dependências, aprimoramento progressivo, independência dos projetos, estrutura mínima que cresce com a necessidade.
+- **Aprovado:**
+  - Stack nativa sem dependências, aprimoramento progressivo e independência dos projetos.
+  - Estrutura mínima que cresce com a necessidade.
+  - Fontes via Google Fonts, o único recurso externo; a página funciona com os fallbacks.
+  - Movimento em CSS, com JS apenas coordenando estados.
 - **Proposto:** nomenclatura de CSS e JS, modo de publicação, detalhes das APIs.
-- **A validar:** páginas internas, estratégia de dados, compatibilidade dos efeitos e implementação da coreografia.
+- **A validar:** páginas internas, estratégia de dados e compatibilidade dos efeitos em Safari, Firefox e dispositivos reais.
 
 Ver também: [Briefing](BRIEFING.md), [Design](DESIGN.md) e [Roadmap](ROADMAP.md).

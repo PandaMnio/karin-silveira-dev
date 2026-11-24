@@ -21,7 +21,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 **Saída:** visão compartilhada, com hipóteses e decisões distinguidas.
 
-### 01 — Fundação técnica · concluída (primeiro commit pendente)
+### 01 — Fundação técnica · concluída
 
 - [x] Criar o repositório local e copiar a pasta `docs/`.
 - [x] Discutir e montar a estrutura mínima de arquivos.
@@ -31,14 +31,14 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Validar a base: verificações automatizadas e validação manual da autora (teclado e foco, zoom, telas pequenas, JS desativado).
 - [x] Revisar e simplificar a fundação: CSS consolidado em `main.css`, sem camadas nem arquivos reservados.
 - [ ] Validar o HTML no W3C Nu.
-- [ ] Primeiro commit, feito pela autora.
+- [x] Primeiro commit, feito pela autora.
 
 **Aceite:** página abre via HTTP, sem erros de console ou recursos inexistentes; conteúdo e links básicos utilizáveis; estrutura compreensível e sem dependências. Nenhuma animação complexa é necessária.
 
-### 02 — Design system
+### 02 — Design system · em andamento
 
-- [ ] Criar tokens Spectrum e tokens semânticos para atmosferas claras/escuras.
-- [ ] Testar Satoshi, Instrument Serif e Geist Mono (ou alternativas), licenças e fallbacks.
+- [x] Criar tokens Spectrum e tokens semânticos para atmosferas claras/escuras.
+- [x] Definir famílias tipográficas e fallbacks: Manrope + Instrument Serif via Google Fonts.
 - [ ] Definir escala de tipografia, espaçamentos, grid e regras responsivas.
 - [ ] Criar os primeiros estilos de links, botões, títulos, foco e navegação.
 - [ ] Testar contraste, zoom e estados de interação.
@@ -49,18 +49,18 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 - [ ] Montar a homepage em HTML semântico: entrada, projetos, sobre, lab e contato.
 - [ ] Criar navegação e decidir as primeiras páginas internas conforme o volume de conteúdo.
-- [ ] Usar projetos ilustrativos explicitamente marcados; definir modelo básico de conteúdo.
+- [x] Usar projetos ilustrativos explicitamente marcados; definir modelo básico de conteúdo.
 - [ ] Testar versão estática, responsividade, teclado e navegação sem JS.
 
 **Aceite:** visitante consegue compreender o propósito, explorar trabalhos ilustrativos e chegar ao contato sem animações. Sem links quebrados ou destinos fictícios apresentados como reais.
 
-### 04 — Hall de entrada
+### 04 — Hall de entrada · em andamento
 
-- [ ] Prototipar a composição final assimétrica/editorial com prioridade visual e nome legível.
-- [ ] Desenvolver a abertura A → B → C com os mesmos elementos.
-- [ ] Testar progressão automática, navegação durante a abertura e comportamento por sessão.
+- [x] Prototipar a composição final assimétrica/editorial com prioridade visual e nome legível (fragmentos provisórios).
+- [x] Desenvolver a abertura A → B → C com os mesmos elementos.
+- [x] Testar progressão automática, navegação durante a abertura e comportamento por sessão.
 - [ ] Implementar o estudo de continuidade espacial → modular com scroll, sem bloqueá-lo.
-- [ ] Criar tratamento mobile, fallback estático e redução de movimento.
+- [x] Criar tratamento mobile, fallback estático e redução de movimento.
 
 **Aceite:** movimento contínuo e controlado; conteúdo e ações acessíveis a qualquer momento; composição final preservada sem efeitos; testes em toque e desktop. Não avançar para efeitos ópticos antes de validar a coreografia.
 
@@ -112,9 +112,12 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 Priorizar uma homepage estática com apresentação, curadoria de trabalhos, sobre e contato. O laboratório pode começar como uma seção simples. A abertura complexa, acervo avançado e efeitos opcionais entram após a base. Uma versão pública só deverá sair com conteúdo real revisado e validação mínima de qualidade, mesmo que ainda não tenha todos os refinamentos.
 
-## 4. Próxima sessão de trabalho
+## 4. Próximos passos
 
-Iniciar a etapa 02 — Design system. Primeiro discutir com a autora os tokens primitivos Spectrum e os tokens semânticos por atmosfera, além da estratégia de testes das fontes candidatas; depois implementar um recorte pequeno e validá-lo. Não iniciar a estrutura funcional, a abertura cinematográfica nem as animações durante esta etapa. As pendências da etapa 01 (W3C Nu e primeiro commit) podem ser resolvidas em paralelo.
+- **Etapa 04:** transição D, do hero para a exposição de trabalhos, vinculada ao scroll e sem bloqueá-lo.
+- **Abertura:** validar em Safari, Firefox e dispositivos reais.
+- **Etapa 01:** validação do HTML no W3C Nu.
+- **Etapa 02:** consolidar escala, espaçamentos e grid a partir do que o hero e a exposição já usam.
 
 ## 5. Possibilidades futuras
 

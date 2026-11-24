@@ -72,15 +72,15 @@ Fora da primeira versão: autenticação, banco de dados, painel de administraç
 
 ## 8. Como trabalharemos
 
-Desenvolvimento colaborativo, em etapas pequenas: proposta, discussão, implementação pela autora com apoio, teste e refinamento. Não antecipar decisões nem produzir o site completo sem validação. A documentação registra acordos e distingue hipóteses de decisões aprovadas.
+Desenvolvimento colaborativo, em etapas pequenas e validadas com a autora; o método está no [Roadmap](ROADMAP.md) e as regras de trabalho, no [AGENTS.md](../AGENTS.md). A documentação registra acordos e distingue hipóteses de decisões aprovadas.
 
 ## 9. Questões em aberto
 
-- Texto definitivo de posicionamento e apresentação; idioma(s) da interface.
+- Texto definitivo de posicionamento e apresentação (versão atual do hero em teste); idioma(s) da interface.
 - Inventário de trabalhos reais, direitos de divulgação, imagens e contribuição individual.
 - Canais de contato, currículo e disponibilidade profissional.
 - Necessidade e divisão final das páginas internas.
-- Identidade nominal compacta, favicon e eventuais assinaturas visuais.
+- Favicon e eventuais assinaturas visuais (assinatura compacta `ks.` adotada).
 - Domínio, hospedagem e publicação.
 
 Ver também: [Design](DESIGN.md), [Arquitetura](ARCHITECTURE.md) e [Roadmap](ROADMAP.md).

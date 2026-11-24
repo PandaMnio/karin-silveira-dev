@@ -1,6 +1,6 @@
 # Direção artística e design — Karin Silveira
 
-> Versão 0.1 · 24/11/2026 · Documento vivo
+> Versão 0.2 · 24/11/2026 · Documento vivo
 
 ## 1. Linguagem visual
 
@@ -22,6 +22,13 @@ Proporção visual sugerida: 60% Obsidian, 25% Porcelain, 8% Ultraviolet, 4% Aqu
 
 Os tokens primitivos não substituem tokens semânticos: definir papéis como `--color-bg`, `--color-text`, `--color-muted`, `--color-border`, `--color-focus` e `--color-accent` por atmosfera. Validar contrastes antes de usar acentos em texto ou controles, especialmente sobre Porcelain. A cor não pode ser o único indicador de estado.
 
+**Aplicado:**
+
+- A atmosfera escura é o padrão. A clara é a classe `.light`, que redefine os tokens semânticos em uso (`--color-bg`, `--color-text`, `--color-muted`, `--color-accent`). Os demais papéis entram quando forem usados.
+- O acento é Aqua no escuro. No claro, é `--color-ultraviolet-deep` (`#5D3CCF`, 5,97:1), porque Ultraviolet não atinge AA sobre Porcelain (4,42:1).
+- Pulse fica restrito a usos pontuais e não textuais (2,88:1 sobre Porcelain).
+- Referência visual: [style-guide.html](style-guide.html).
+
 ### Ritmo cromático
 
 | Ambiente | Atmosfera |
@@ -36,15 +43,14 @@ As transições entre claro e escuro são parte da narrativa; não implicam nece
 
 ## 3. Tipografia
 
-Direção aprovada: contraste editorial. Combinação inicial a testar, ainda não definitiva:
+Direção aprovada: contraste editorial. Famílias adotadas, carregadas pelo Google Fonts:
 
-| Função | Família candidata | Uso |
+| Função | Família | Uso |
 | --- | --- | --- |
-| Estrutura | Satoshi | Nome, grandes títulos, navegação e texto |
-| Expressão | Instrument Serif | Destaques pontuais, inclusive itálicos |
-| Precisão | Geist Mono | Índices, numerações e metadados |
+| Estrutura | Manrope (200–800) | Nome, títulos, navegação e texto |
+| Expressão | Instrument Serif (regular e itálico) | Destaques pontuais: a segunda palavra de títulos expressivos, como o sobrenome no hero |
 
-A monumentalidade virá de escala, composição e peso, sem adicionar outra fonte display. Verificar legibilidade, caracteres portugueses, licenças e formatos antes de incorporar arquivos. Preferir WOFF2 local quando disponível e licenciado. Usar fontes de sistema como fallback. As amostras dos protótipos anteriores são aproximações, não a validação final das fontes.
+Manrope substituiu Satoshi, e Geist Mono foi deixada de lado até haver índices ou metadados que a justifiquem. A monumentalidade virá de escala, composição e peso, sem adicionar outra fonte display. Fallbacks: `system-ui` para Manrope e Georgia para Instrument Serif. Hospedar WOFF2 localmente continua sendo uma alternativa, caso privacidade ou performance justifiquem.
 
 Definir uma escala fluida com `clamp()` onde fizer sentido, hierarquia clara, largura de leitura confortável e espaçamento responsivo. Não fixar tamanhos de tela ou tipografia que impeçam zoom.
 
@@ -57,6 +63,12 @@ Definir uma escala fluida com `clamp()` onde fizer sentido, hierarquia clara, la
 - Evitar que cards, bordas, brilhos e sobreposições prejudiquem imagens ou texto.
 
 A homepage combina A + C com a atmosfera de B dos estudos: presença assimétrica, módulos editoriais e profundidade cinematográfica. O estado final do hero prioriza os fragmentos visuais, mantendo o nome, o posicionamento e o convite à ação claramente legíveis.
+
+**Aplicado na homepage:**
+
+- **Assinatura compacta:** `ks.` em Manrope 800, com o ponto em Aqua.
+- **Hierarquia do hero:** posicionamento, nome, mensagem autoral e CTA. Os textos ainda estão sujeitos a aprovação.
+- **Hero estático = estado C:** fragmentos inclinados numa perspectiva comum, com o texto avançando sobre a borda escura da composição. Grade e moldura (precisão) contrastam com órbita e cápsula (fluidez).
 
 ## 5. Assinatura de movimento
 
@@ -75,6 +87,14 @@ O conteúdo já está disponível; não é um preloader bloqueante. Os mesmos el
 Os tempos são parâmetros de prototipação. A abertura e o scroll devem parecer partes de uma única transformação. Preservar conteúdo legível, ações e navegação. Não sequestrar scroll, não usar flashes ou movimentos frenéticos.
 
 Comportamento acordado como direção: sequência completa apenas no primeiro acesso da sessão; em visitas subsequentes, estado final ou transição breve. Caso haja rolagem ou intenção de navegar durante a abertura, permitir conclusão/avanço sem espera. Preferência de movimento reduzido, falhas de JS e recursos indisponíveis devem deixar uma experiência estável e funcional. Em telas pequenas, priorizar composição própria e movimentos simplificados, não comprimir a versão desktop.
+
+**Aplicado:**
+
+- A abertura (A → B → C) é toda em CSS, com `transform` e `opacity`. O estado final é o próprio layout: sem animação, a página já está completa.
+- Nenhum texto começa invisível, para não atrasar o LCP.
+- O JS apenas pula a abertura nas visitas seguintes da sessão e a conclui na primeira interação.
+- Sem JS ou sem `sessionStorage`, a abertura toca a cada carregamento.
+- No mobile, a coreografia é simplificada.
 
 ### Motion complementar — a validar
 
@@ -97,12 +117,23 @@ Priorizar `transform` e `opacity` quando adequados; evitar trabalho contínuo de
 
 Cada página de projeto deve valorizar o resultado e, quando pertinente, contexto, desafio, papel da autora, decisões, processo, tecnologias e resultados verificáveis. Não atribuir métricas ou trabalhos fictícios à autora. Demos complexas podem ser abertas em ambiente independente.
 
+**Aplicado:**
+
+- Três estudos ilustrativos (Desenvolvimento, Experimentação e Expressão visual) formam uma galeria assimétrica no estado E: alinhados e sem inclinação.
+- As superfícies compartilhadas (`--surface-*`) mantêm o vínculo visual com os fragmentos do hero, preparando a transição D.
+- Não há links enquanto não existirem destinos reais.
+
 ## 7. Qualidade visual e acessibilidade
 
-Meta de referência: WCAG 2.2 AA, a verificar, não uma certificação. Contraste de texto normal de pelo menos 4,5:1 e texto grande 3:1, quando aplicável; controles e foco distinguíveis. Testar teclado, zoom, leitura em mobile, conteúdo alternativo, redução de movimento e desativação de JS. Todo efeito deve ser avaliado tanto em beleza quanto em utilidade e custo de execução.
+Controles e foco sempre distinguíveis. Todo efeito é avaliado tanto em beleza quanto em utilidade e custo de execução. Metas, testes e compatibilidade estão em [Arquitetura, seção 9](ARCHITECTURE.md#9-qualidade).
 
 ## 8. Pendências de design
 
-Validar fontes, escala, grid, tokens semânticos, breakpoints guiados por conteúdo, composição desktop/mobile, assinatura compacta, textos, imagens reais, estados de interação e implementação da transição do hero. Os protótipos do briefing são estudos, não layouts finais.
+- Consolidar escala tipográfica, espaçamentos e grid como sistema; definir breakpoints guiados pelo conteúdo.
+- Estados de interação.
+- Transição D (scroll) do hero para a exposição.
+- Textos e imagens reais; favicon.
+
+Os protótipos do briefing são estudos, não layouts finais.
 
 Ver também: [Briefing](BRIEFING.md), [Arquitetura](ARCHITECTURE.md) e [Roadmap](ROADMAP.md).
