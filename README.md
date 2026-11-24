@@ -20,6 +20,7 @@ HTML, CSS e JavaScript nativos (ES Modules), sem dependências nem etapa de buil
 ├── styles/main.css
 ├── scripts/main.js    # Módulo de entrada
 ├── assets/fonts/      # Fontes WOFF2 e licenças
+├── assets/images/     # Imagens otimizadas (WebP)
 ├── projetos/         # Acervo de projetos
 ├── index.html
 └── AGENTS.md          # Instruções para agentes de IA

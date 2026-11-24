@@ -68,7 +68,13 @@ A homepage combina A + C com a atmosfera de B dos estudos: presença assimétric
 
 - **Assinatura compacta:** `ks.` em Manrope 800, com o ponto em Aqua.
 - **Hierarquia do hero:** posicionamento, nome, mensagem autoral e CTA. Os textos ainda estão sujeitos a aprovação.
+- **Sobre:** atmosfera clara (`.light`), com título em duas vozes e um ponto final em acento, ecoando a assinatura. O texto desce em degrau ao lado do retrato, e os princípios aparecem como frases grandes com o verbo em serifa itálica, recuados para deixar espaço vazio à esquerda. Os textos derivam do briefing e estão sujeitos a aprovação.
+- **Retrato (Sobre):** a fotografia permanece intacta, sem filtros nem recortes. Ao redor dela, camadas independentes em CSS: um painel de grade violeta que sangra pela borda da página, uma moldura da qual só aparecem os cantos, uma órbita que cruza o canto superior longe do rosto, a cápsula de fluxo e o acento Pulse. Com suporte a scroll-driven animations e sem preferência por movimento reduzido, as formas derivam em velocidades diferentes; a foto não se move.
 - **Hero estático = estado C:** fragmentos inclinados numa perspectiva comum, com o texto avançando sobre a borda escura da composição. Grade e moldura (precisão) contrastam com órbita e cápsula (fluidez).
+
+### Vocabulário gráfico permanente
+
+As formas abstratas da Spectrum (painéis, grades, molduras, órbitas, cápsulas de fluxo, gradientes e acentos cromáticos) deixam de ser provisórias e fazem parte da identidade do portfólio. Elas vão coexistir com os conteúdos reais dos projetos, sem ser substituídas por eles. Cada composição as recombina conforme o contexto, sem repetir literalmente o hero, e elas nunca encobrem rostos, textos ou o essencial de uma obra.
 
 ## 5. Assinatura de movimento
 

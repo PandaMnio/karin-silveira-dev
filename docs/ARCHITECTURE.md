@@ -27,7 +27,8 @@ portfolio/
 ├── scripts/
 │   └── main.js      # módulo de entrada (coordenação da abertura)
 ├── assets/
-│   └── fonts/       # WOFF2 e licenças OFL
+│   ├── fonts/       # WOFF2 e licenças OFL
+│   └── images/      # WebP em larguras responsivas
 ├── projetos/
 │   └── index.html   # acervo
 ├── index.html
@@ -99,7 +100,7 @@ SEO, performance, responsividade e acessibilidade são requisitos de toda implem
 
 **Testar desde já:** teclado, foco, contraste, zoom, telas pequenas, redução de movimento, JS desativado, conteúdo alternativo, links, console e HTML válido.
 
-**Com conteúdo real:** otimizar imagens e fontes, declarar dimensões de mídia, carregar sob demanda o que está fora da primeira dobra e medir em condições realistas.
+**Com conteúdo real:** otimizar imagens e fontes (fotos em WebP, gerado com `cwebp` sem metadados, em várias larguras com `srcset`), declarar dimensões de mídia, carregar sob demanda o que está fora da primeira dobra e medir em condições realistas.
 
 **SEO de conteúdo:** títulos, descrições e textos reais e específicos em cada página.
 
