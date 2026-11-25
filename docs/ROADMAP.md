@@ -92,7 +92,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Acrescentar o Experimento 04 (Forma & Espaço), que compartilha com o gerador do hero o núcleo da escultura.
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [x] Construir encerramento e canais de contato.
-- [ ] Acrescentar o currículo quando disponível.
+- [x] Acrescentar o currículo (`/curriculo/`), em HTML como fonte única, com exportação em PDF pela impressão do navegador.
+- [ ] Testar a importação do PDF do currículo na Gupy.
 - [x] Criar a seção de serviços e os convites ao contato nas páginas internas.
 - [x] Acrescentar o WhatsApp aos canais de contato.
 

@@ -165,6 +165,107 @@
   }
 }
 
+/* Selo de status: aba fixa na borda direita; o acento Pulse desce o trilho com a rolagem. */
+
+.site-status {
+  position: fixed;
+  z-index: 10;
+  inset-block-start: 50%;
+  inset-inline-end: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  margin: 0;
+  padding: 1.125rem 0.5625rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-aqua) 45%, transparent);
+  border-inline-end: 0;
+  border-radius: 0.875rem 0 0 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-porcelain);
+  background:
+    linear-gradient(color-mix(in srgb, var(--color-ultraviolet) 22%, transparent), color-mix(in srgb, var(--color-aqua) 10%, transparent)),
+    color-mix(in srgb, var(--color-obsidian) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    -0.5rem 0 2.5rem -0.75rem color-mix(in srgb, var(--color-ultraviolet) 80%, transparent),
+    inset 1px 0 0 color-mix(in srgb, var(--color-porcelain) 12%, transparent);
+  transform: translateY(-50%);
+}
+
+.site-status span {
+  writing-mode: vertical-rl;
+}
+
+.site-status i {
+  position: relative;
+  --track: 3.5rem;
+  inline-size: 2px;
+  block-size: var(--track);
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--color-porcelain) 16%, transparent);
+}
+
+.site-status i::before,
+.site-status i::after {
+  content: "";
+  position: absolute;
+}
+
+.site-status i::before {
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(var(--color-aqua), var(--color-ultraviolet));
+  transform-origin: top;
+}
+
+.site-status i::after {
+  inset-block-end: -0.1875rem;
+  inset-inline-start: 50%;
+  inline-size: 0.4375rem;
+  block-size: 0.4375rem;
+  margin-inline-start: -0.21875rem;
+  border-radius: 50%;
+  background: var(--color-pulse);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-pulse) 24%, transparent), 0 0 0.75rem var(--color-pulse);
+}
+
+@media (max-width: 39.99rem) {
+  .site-status {
+    gap: 0.625rem;
+    padding: 0.875rem 0.3125rem 1rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    background:
+      linear-gradient(color-mix(in srgb, var(--color-ultraviolet) 18%, transparent), color-mix(in srgb, var(--color-aqua) 8%, transparent)),
+      color-mix(in srgb, var(--color-obsidian) 58%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: -0.25rem 0 1.5rem -0.75rem color-mix(in srgb, var(--color-ultraviolet) 70%, transparent);
+  }
+
+  .site-status i {
+    --track: 2.5rem;
+  }
+}
+
+.site-header.is-open ~ .site-status {
+  visibility: hidden;
+}
+
+@media print {
+  .site-status {
+    display: none;
+  }
+}
+
 /* Hall de entrada */
 
 .hero {
@@ -2351,6 +2452,10 @@
   color: var(--color-text);
 }
 
+.about-resume {
+  margin: 1.25rem 0 0;
+}
+
 .about-community {
   margin-block-start: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
 }
@@ -2483,10 +2588,14 @@
     max-inline-size: 26ch;
   }
 
-  .about-facts {
+  .about-profile {
     grid-area: 4 / 9 / 6 / 13;
-    grid-template-columns: minmax(0, 1fr);
     margin-block-start: 4.5rem;
+  }
+
+  .about-facts {
+    grid-template-columns: minmax(0, 1fr);
+    margin-block-start: 0;
   }
 
   .about-community {
@@ -3293,6 +3402,242 @@
 }
 
 
+/* Currículo: folha branca de leitura linear, a mesma na tela e na impressão. */
+
+.resume-page {
+  page: resume;
+  padding: clamp(0.5rem, 1.5vw, 1.5rem) var(--gutter) var(--space-section);
+}
+
+.resume-tools,
+.resume {
+  max-inline-size: 52rem;
+  margin-inline: auto;
+}
+
+.resume-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-block-end: 1.5rem;
+}
+
+.resume-tools .back {
+  margin: 0;
+}
+
+.resume-export {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.resume-export p {
+  max-inline-size: 34ch;
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.resume-export .button {
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.resume-export [hidden] {
+  display: none;
+}
+
+.resume {
+  --color-bg: #fff;
+
+  padding: clamp(1.5rem, 1rem + 4vw, 4rem);
+  border-block-start: 3px solid var(--color-ultraviolet-deep);
+  border-radius: 0.25rem;
+  font-variant-ligatures: no-common-ligatures;
+  box-shadow: 0 1.5rem 4rem -2rem color-mix(in srgb, var(--color-ultraviolet) 60%, transparent);
+}
+
+.resume :is(header, section) {
+  padding: 0;
+}
+
+.resume :is(h1, h2, h3, p, ul) {
+  max-inline-size: none;
+}
+
+.resume h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 1.75rem + 2vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+.resume-role {
+  margin: 0.375rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.resume-header > p:not(.resume-role) {
+  margin: 0.25rem 0 0;
+  color: var(--color-muted);
+}
+
+.resume-contact {
+  display: grid;
+  gap: 0.125rem;
+  margin-block-start: 1rem;
+  font-size: 0.9375rem;
+}
+
+.resume a {
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.resume a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.resume h2 {
+  margin: 2.25rem 0 1rem;
+  padding-block-end: 0.5rem;
+  border-block-end: 1px solid color-mix(in srgb, var(--color-ultraviolet-deep) 35%, #fff);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--color-accent);
+}
+
+.resume h3 {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.resume p,
+.resume ul {
+  margin: 0;
+}
+
+.resume-org {
+  font-weight: 500;
+}
+
+.resume-meta {
+  margin-block-end: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.resume-entry + .resume-entry {
+  margin-block-start: 1.375rem;
+}
+
+.resume-entry > p + p {
+  margin-block-start: 0.375rem;
+}
+
+.resume-section ul:not([role]) {
+  padding-inline-start: 1.125rem;
+}
+
+.resume-section li + li {
+  margin-block-start: 0.25rem;
+}
+
+.resume li::marker {
+  color: var(--color-accent);
+}
+
+.resume-link {
+  font-size: 0.9375rem;
+}
+
+/* Margem zero no @page faz o navegador omitir cabeçalho e rodapé; as margens reais vêm do preenchimento clonado em cada página. */
+@page resume {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  /* O esquema escuro do site faria o navegador pintar a folha, mesmo sem fundos. */
+  :root:has(.resume) {
+    font-size: 9.75pt;
+    color-scheme: light;
+  }
+
+  body:has(.resume) {
+    color: #000;
+    background: none;
+  }
+
+  body:has(.resume) :is(.skip-link, .site-header, .site-footer),
+  .resume-tools {
+    display: none;
+  }
+
+  .resume-page {
+    padding: 0;
+  }
+
+  .resume {
+    max-inline-size: none;
+    padding: 14mm 16mm 15mm;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .resume {
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .resume h1 {
+    font-size: 2.25rem;
+  }
+
+  .resume a {
+    text-decoration: none;
+  }
+
+  .resume h2 {
+    margin-block: 1.5rem 0.75rem;
+  }
+
+  .resume :is(h2, h3, .resume-org, .resume-meta) {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  .resume-header,
+  .resume-entry,
+  .resume li {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .resume p {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+
 /* Rodapé */
 
 .site-footer {
@@ -3371,6 +3716,26 @@
   .signature:hover span,
   .signature:focus-visible span {
     transform: translateY(-0.18em);
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .site-status i::before {
+      animation: status-fill linear both;
+      animation-timeline: scroll(root);
+    }
+
+    .site-status i::after {
+      animation: status-travel linear both;
+      animation-timeline: scroll(root);
+    }
+
+    @keyframes status-fill {
+      from { transform: scaleY(0); }
+    }
+
+    @keyframes status-travel {
+      from { transform: translateY(calc(-1 * var(--track, 3.5rem))); }
+    }
   }
 
   .to-top:hover span,

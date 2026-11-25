@@ -46,7 +46,7 @@ Fonte única dos dados pessoais e profissionais do site; a seção Sobre os repr
 **Comunidade e aprendizado contínuo**
 
 - Mentora de tecnologia no Startup Weekend Indústria 4.0, Caxias do Sul, 2024. Responsabilidades e resultados não foram informados e não devem ser presumidos.
-- Participação em eventos: Codecon (2024, 2025 e 2026) e Front in Floripa (2024).
+- Participação em eventos: Codecon (2024, 2025 e 2026) e Front in Floripa (2024 e 2025).
 
 **Repertório** (sem níveis de proficiência)
 
