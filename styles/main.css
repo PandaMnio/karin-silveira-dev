@@ -11,32 +11,6 @@
   padding-block: 1.5rem;
 }
 
-.site-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  align-self: center;
-  margin: 0 auto 0 0;
-  padding: 0.3125rem 0.75rem;
-  border: var(--line);
-  border-radius: 999px;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--color-muted);
-}
-
-.site-status::before {
-  content: "";
-  inline-size: 0.375rem;
-  block-size: 0.375rem;
-  border-radius: 50%;
-  background: var(--color-pulse);
-}
-
 .site-header ul {
   display: flex;
   flex-wrap: wrap;
@@ -185,13 +159,6 @@
 
 
 @media (max-width: 23.99rem) {
-  .site-status {
-    gap: 0.375rem;
-    padding-inline: 0.5rem;
-    font-size: 0.625rem;
-    letter-spacing: 0.05em;
-  }
-
   .site-header.has-menu .menu-toggle {
     gap: 0.5rem;
     padding-inline: 0.875rem 0.75rem;
@@ -205,6 +172,7 @@
   display: grid;
   align-items: center;
   gap: clamp(1.5rem, 5vw, 3rem);
+  min-block-size: min(calc(100svh - 5.5rem), 60rem);
   padding-block: clamp(1.5rem, 5vh, 4rem) clamp(5rem, 11vh, 7rem);
 }
 
@@ -227,23 +195,43 @@
   margin-block-end: 2rem;
 }
 
+/* A escultura é o espaço do hero: nasce sob o texto e o envolve. */
 .hero-visual {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  margin-block-start: -3rem;
-  margin-inline: calc(var(--gutter) * -1);
+  position: absolute;
+  inset: 0;
+  container-type: size;
   perspective: 1600px;
   perspective-origin: 30% 40%;
 }
 
-/* No mobile, o início da construção, já dissolvido, sai pela borda esquerda. */
 .hero-visual svg {
   position: absolute;
-  inset: 0 0 0 -30%;
-  inline-size: 130%;
+  inset: 0;
+  inline-size: 100%;
   block-size: 100%;
   overflow: visible;
   transform: rotateX(4deg) rotateY(-12deg);
+}
+
+/* No mobile, o texto sobe ao topo e a escultura se ancora na base, centrada, recuando sob ele. */
+@media (max-width: 55.99rem) {
+  .hero {
+    align-items: start;
+    padding-block-start: clamp(2rem, 8svh, 5rem);
+  }
+
+  .hero-visual {
+    mask: linear-gradient(to top, #000 15%, rgb(0 0 0 / 0.45) 65%);
+  }
+
+  .hero-visual svg {
+    --w: min(100cqh * 16 / 9, 230cqw);
+
+    inset: auto auto 0 calc(50cqw - var(--w) * 0.6);
+    inline-size: var(--w);
+    block-size: auto;
+    aspect-ratio: 16 / 9;
+  }
 }
 
 .hero-visual path {
@@ -349,25 +337,8 @@
 }
 
 @media (min-width: 56rem) {
-  .hero {
-    min-block-size: min(calc(100svh - 5.5rem), 60rem);
-  }
-
   .hero-text {
     grid-area: 1 / 1 / 2 / 7;
-  }
-
-  /* A escultura é o espaço do hero: nasce sob o texto e o envolve. */
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    aspect-ratio: auto;
-    margin: 0;
-  }
-
-  .hero-visual svg {
-    inset-inline-start: 0;
-    inline-size: 100%;
   }
 }
 
@@ -2513,10 +2484,6 @@
 
 @media (prefers-reduced-motion: no-preference) {
 
-  .site-status::before {
-    animation: status-pulse 2.4s var(--ease-out) 1s 3;
-  }
-
   .type-stage span {
     transition: font-size 0.45s var(--ease-out), font-weight 0.45s var(--ease-out), margin 0.45s var(--ease-out);
   }
@@ -2876,11 +2843,6 @@
 
 @keyframes case-drift {
   to { translate: 0 var(--drift); }
-}
-
-@keyframes status-pulse {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-pulse) 60%, transparent); }
-  70%, 100% { box-shadow: 0 0 0 0.375rem transparent; }
 }
 
 @keyframes psi-fill {
