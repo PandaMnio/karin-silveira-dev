@@ -111,15 +111,13 @@ O conteúdo já está disponível; não é um preloader bloqueante. Os mesmos el
 
 Os tempos são parâmetros de prototipação. A abertura e o scroll devem parecer partes de uma única transformação. Preservar conteúdo legível, ações e navegação. Não sequestrar scroll, não usar flashes ou movimentos frenéticos.
 
-Comportamento acordado como direção: sequência completa apenas no primeiro acesso da sessão; em visitas subsequentes, estado final ou transição breve. Caso haja rolagem ou intenção de navegar durante a abertura, permitir conclusão/avanço sem espera. Preferência de movimento reduzido, falhas de JS e recursos indisponíveis devem deixar uma experiência estável e funcional. Em telas pequenas, priorizar composição própria e movimentos simplificados, não comprimir a versão desktop.
+Comportamento acordado como direção: sequência completa a cada carregamento da página, inclusive no reload. Caso haja rolagem ou intenção de navegar durante a abertura, permitir conclusão/avanço sem espera. Preferência de movimento reduzido, falhas de JS e recursos indisponíveis devem deixar uma experiência estável e funcional. Em telas pequenas, priorizar composição própria e movimentos simplificados, não comprimir a versão desktop.
 
 **Aplicado:**
 
-- A abertura (A → B → C) é toda em CSS, com `transform` e `opacity`; no hero, a superfície se desdobra da grade ao fluxo (`clip-path`) e a órbita chega depois. O estado final é o próprio layout: sem animação, a página já está completa.
+- A abertura (cerca de 2,4 s) é toda em CSS, com `transform`, `opacity` e `clip-path`: a luz acende; os textos sobem em cascata (sobrenome logo após o nome); a superfície se ergue do fundo em perspectiva e se desdobra da grade ao fluxo; as órbitas chegam depois; e o Pulse percorre a órbita até o ponto onde a deriva contínua começa, sem salto. O estado final é o próprio layout: sem animação, a página já está completa.
 - Os textos começam com no mínimo 80% de opacidade: nunca invisíveis (o que atrasaria o LCP) e sempre com contraste AA.
-- O JS apenas pula a abertura nas visitas seguintes da sessão e a conclui na primeira interação.
-- Sem JS ou sem `sessionStorage`, a abertura toca a cada carregamento.
-- No mobile, a coreografia é simplificada.
+- O JS apenas conclui a abertura na primeira interação (rolagem, toque, tecla ou clique).
 - A transição D usa CSS scroll-driven animations, sem JS. Ao sair, os fragmentos do hero perdem inclinação e profundidade; os itens do mosaico entram com a mesma perspectiva e se assentam (no mobile, só escala e opacidade). No mosaico, a coleção se assenta logo depois do projeto principal, em cascata. Sem suporte, como no Firefox atual, ou com movimento reduzido, a exposição é estática.
 
 ### Motion complementar — a validar
@@ -128,7 +126,7 @@ Comportamento acordado como direção: sequência completa apenas no primeiro ac
   - As camadas se deslocam conforme a profundidade (`--z`): a órbita, à frente, move-se mais que a fita.
   - A luz ambiente acompanha o cursor.
 - **Movimento contínuo do hero:** a atmosfera, a fita e a órbita derivam devagar (`rotate` e `scale`, 19–27 s, em fases diferentes, ida e volta), e o Pulse percorre um trecho da órbita (`offset-path`). Só há animação CSS, sem redesenho do SVG, e ela compõe com a abertura, o parallax (`translate`) e a transição de scroll (`transform`). É suspensa fora da tela e por um botão discreto "Pausar movimento", só visível com movimento permitido. Sem movimento permitido, o hero fica estático.
-- **Indicador de rolagem:** link para `#projetos`, centralizado na base do hero, com ícone de mouse minimalista cujo ponto desce em laço. A seção reserva espaço para ele, e o botão de pausa fica no canto oposto.
+- **Indicador de rolagem:** link para `#projetos`, centralizado na base do hero, com ícone de mouse minimalista cujo ponto desce em laço; abaixo de 56rem, o mouse vira uma mão que desliza para cima em laço. A seção reserva espaço para ele, e o botão de pausa fica no canto oposto.
   - Ativa só depois da abertura, com mouse ou trackpad e sem preferência por movimento reduzido.
   - Usa a propriedade `translate`, que se compõe com as animações de `transform`, e o retorno ao repouso é por transição CSS.
 - Máscaras e revelações, iluminação atmosférica, transformações ópticas e profundidade pontuais.

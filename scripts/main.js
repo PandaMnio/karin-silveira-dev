@@ -22,18 +22,8 @@ if (copy && navigator.clipboard) {
   });
 }
 
-// Abertura: completa só no primeiro acesso; qualquer interação a conclui.
+// Abertura: toca a cada carregamento; qualquer interação a conclui.
 const hero = document.querySelector('.hero');
-
-function introSeen() {
-  try {
-    if (sessionStorage.getItem('intro-seen')) return true;
-    sessionStorage.setItem('intro-seen', '1');
-  } catch {
-    // Sem sessionStorage, a abertura toca de novo.
-  }
-  return false;
-}
 
 // Só animações de tempo finitas; as de scroll seguem a rolagem e as contínuas nunca terminam.
 const intro = hero
@@ -43,9 +33,7 @@ const finish = () => intro.forEach((animation) => animation.finish());
 
 const introDone = Promise.allSettled(intro.map((animation) => animation.finished));
 
-if (intro.length && introSeen()) {
-  finish();
-} else if (intro.length) {
+if (intro.length) {
   const listeners = new AbortController();
 
   for (const type of ['scroll', 'wheel', 'touchstart', 'keydown', 'pointerdown']) {

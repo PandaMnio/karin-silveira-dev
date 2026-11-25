@@ -45,6 +45,13 @@
     flex-basis: 100%;
   }
 
+  /* Com JS, o menu nasce fechado: evita a lista aberta até o botão ser criado. */
+  @media (scripting: enabled) {
+    .site-header:not(.is-open) nav {
+      display: none;
+    }
+  }
+
   .site-header.has-menu {
     align-items: center;
     gap: 0 0.75rem;
@@ -452,6 +459,35 @@
   block-size: 0.4rem;
   border-radius: 2px;
   background: var(--color-aqua);
+}
+
+.scroll-cue-hand {
+  display: none;
+}
+
+/* Em telas de toque, o mouse dá lugar a uma mão em gesto de deslizar. */
+@media (max-width: 55.99rem) {
+  .scroll-cue-icon {
+    display: none;
+  }
+
+  .scroll-cue-hand {
+    display: block;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+/* Acima da barra fixa do selo de status. */
+@media (max-width: 39.99rem) {
+  .scroll-cue {
+    inset-block-end: 1.5rem;
+  }
 }
 
 .hero-pause {
@@ -3864,7 +3900,6 @@
   }
 
   .hero {
-    --intro-name: translateY(1.25rem) scale(1.06);
     view-timeline: --hero;
   }
 
@@ -3874,96 +3909,76 @@
     --ambient: paused;
   }
 
+  /* Abertura: a luz acende, a superfície se ergue do fundo e se desdobra, e o Pulse percorre a órbita até o repouso. */
   .hero::before {
     --drift: 23s;
-    animation: intro-light 2.4s var(--ease-out) backwards, drift-air var(--drift) ease-in-out infinite alternate;
+    animation: intro-light 2.2s var(--ease-out) backwards, drift-air var(--drift) ease-in-out infinite alternate;
     animation-play-state: running, var(--ambient, running);
   }
 
-  .hero h1 {
-    transform-origin: 0 50%;
-    animation: intro-name 2.2s var(--ease-out) backwards;
+  .hero-text > *,
+  .hero h1 .voice {
+    animation: intro-rise 1.1s var(--ease-out) var(--intro-delay, 0s) backwards;
   }
 
-  .hero-text p {
-    animation: intro-text 1.2s var(--ease-out) 0.9s backwards;
-  }
+  .hero h1 { --intro-delay: 0.08s; }
+  .hero h1 .voice { --intro-delay: 0.22s; }
+  .hero .lead { --intro-delay: 0.45s; }
+  .hero-text > :last-child { --intro-delay: 0.6s; }
 
   .hero-visual {
-    animation: intro-visual 2.2s var(--ease-out) backwards, hero-descend linear;
-    animation-timeline: auto, --hero;
-    animation-range: normal, exit 0% exit 80%;
+    animation: hero-descend linear;
+    animation-timeline: --hero;
+    animation-range: exit 0% exit 80%;
   }
 
   .hero-visual svg {
-    animation: intro-depth 1.8s var(--ease-out) var(--intro-delay, 0s) backwards, hero-settle linear, drift-orbit var(--drift) ease-in-out infinite alternate;
+    animation: intro-orbit 2s var(--ease-out) var(--intro-delay, 0s) backwards, hero-settle linear, drift-orbit var(--drift) ease-in-out infinite alternate;
     animation-timeline: auto, --hero, auto;
     animation-range: normal, exit 0% exit 80%, normal;
     animation-play-state: running, running, var(--ambient, running);
   }
 
   .hero-orbit {
-    --intro-delay: 0.6s;
+    --intro-delay: 0.5s;
     --drift: 27s;
   }
 
+  .hero-orbit-front {
+    --intro-delay: 0.7s;
+  }
+
+  /* O Pulse termina onde a deriva começa, sem salto entre as duas. */
   .hero-accent {
-    animation: drift-pulse 9s ease-in-out infinite alternate;
-    animation-play-state: var(--ambient, running);
+    animation: intro-pulse 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.8s backwards, drift-pulse 9s ease-in-out 2.4s infinite alternate backwards;
+    animation-play-state: running, var(--ambient, running);
   }
 
   /* A superfície se constrói da grade ao fluxo. */
   .hero-visual .hero-band {
     --drift: 19s;
-    animation: intro-depth 1.8s var(--ease-out) backwards, intro-unfold 1.9s cubic-bezier(0.65, 0, 0.35, 1) 0.2s backwards, hero-settle linear, drift-band var(--drift) ease-in-out infinite alternate;
+    animation: intro-build 2.2s var(--ease-out) backwards, intro-unfold 1.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s backwards, hero-settle linear, drift-band var(--drift) ease-in-out infinite alternate;
     animation-timeline: auto, auto, --hero, auto;
     animation-range: normal, normal, exit 0% exit 80%, normal;
     animation-play-state: running, running, running, var(--ambient, running);
   }
 
-  .intro-seen .hero h1,
-  .intro-seen .hero-text p,
-  .intro-seen .scroll-cue {
-    animation-duration: 0s;
-    animation-delay: 0s;
-  }
-
-  .intro-seen .hero::before {
-    animation-duration: 0s, var(--drift);
-    animation-delay: 0s;
-  }
-
-  .intro-seen .hero-visual {
-    animation-duration: 0s, auto;
-    animation-delay: 0s, 0s;
-  }
-
-  .intro-seen .hero-visual svg {
-    animation-duration: 0s, auto, var(--drift);
-    animation-delay: 0s;
-  }
-
-  .intro-seen .hero-visual .hero-band {
-    animation-duration: 0s, 0s, auto, var(--drift);
-  }
-
   .scroll-cue {
-    animation: intro-text 1.2s var(--ease-out) 1.6s backwards;
+    animation: intro-rise 1.1s var(--ease-out) 1.4s backwards;
   }
 
-  .scroll-cue-icon::before {
+  .scroll-cue-icon::before,
+  .scroll-cue-hand {
     animation: cue-dot 2.4s ease-in-out infinite;
     animation-play-state: var(--ambient, running);
   }
 
-  .works {
-    overflow: clip;
+  .scroll-cue-hand {
+    animation-name: cue-swipe;
   }
 
-  @media (min-width: 56rem) {
-    .hero {
-      --intro-name: translate(32%, 10%) scale(1.16);
-    }
+  .works {
+    overflow: clip;
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -4077,28 +4092,29 @@
 /* Keyframes */
 
 @keyframes intro-light {
-  0%, 15% { opacity: 0.2; transform: scale(0.8); }
+  from { opacity: 0; transform: scale(0.85); }
 }
 
-@keyframes intro-name {
-  0%, 25% { transform: var(--intro-name); }
+@keyframes intro-rise {
+  from { opacity: 0.8; transform: translateY(0.6em); }
 }
 
-@keyframes intro-text {
-  from { opacity: 0.8; transform: translateY(0.75rem); }
+@keyframes intro-build {
+  from { opacity: 0; transform: translateZ(-240px) rotateX(26deg) rotateY(-36deg); }
 }
 
-@keyframes intro-visual {
-  0%, 20% { opacity: 0.35; transform: translateX(6%) scale(0.86); }
-}
-
-@keyframes intro-depth {
-  from { opacity: 0.3; transform: rotateX(0deg) rotateY(0deg); }
+@keyframes intro-orbit {
+  from { opacity: 0; transform: translateZ(-120px) rotateX(12deg) rotateY(-28deg); }
 }
 
 @keyframes intro-unfold {
   from { clip-path: inset(-50% 100% -50% -50%); }
   to { clip-path: inset(-50%); }
+}
+
+@keyframes intro-pulse {
+  from { offset-distance: 0%; opacity: 0; scale: 0.3; }
+  to { offset-distance: 27%; }
 }
 
 @keyframes drift-air {
@@ -4122,6 +4138,12 @@
   0% { opacity: 0; transform: translateY(-0.2rem); }
   30% { opacity: 1; }
   100% { opacity: 0; transform: translateY(0.9rem); }
+}
+
+@keyframes cue-swipe {
+  0% { opacity: 0; transform: translateY(0.5rem); }
+  25%, 70% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-0.5rem); }
 }
 
 @keyframes hero-descend {

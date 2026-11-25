@@ -57,8 +57,6 @@
       ]
     }
     </script>
-    <!-- Em visitas seguintes, a abertura já nasce concluída. -->
-    <script>try { if (sessionStorage.getItem('intro-seen')) document.documentElement.classList.add('intro-seen'); } catch {}</script>
     <script type="module" src="scripts/main.js"></script>
   </head>
   <body>
@@ -94,7 +92,7 @@
           <svg class="hero-orbit hero-orbit-front" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid meet"><path d="M845 261L851 256L857 252L865 249L874 248L884 247L894 248L906 251L919 255L933 261L947 268L963 277L979 287L996 299L1014 313L1032 329L1051 346L1070 364L1089 384L1108 405L1127 427L1145 450L1163 473L1181 497L1197 522L1212 546L1227 571L1240 595L1251 618L1262 641L1270 663L1278 683L1283 703L1288 721L1290 738L1292 753L1292 767L1290 779L1287 790L1283 799L1278 807L1272 812L1265 817L1257 820L1248 822L1239 822L1229 821L1218 819L1207 816" /><path class="hero-accent" style="offset-path:path('M845 261L851 256L857 252L865 249L874 248L884 247L894 248L906 251L919 255L933 261L947 268L963 277L979 287L996 299L1014 313L1032 329L1051 346L1070 364L1089 384L1108 405L1127 427L1145 450L1163 473L1181 497L1197 522L1212 546L1227 571L1240 595L1251 618L1262 641L1270 663L1278 683L1283 703L1288 721L1290 738L1292 753L1292 767L1290 779L1287 790L1283 799L1278 807L1272 812L1265 817L1257 820L1248 822L1239 822L1229 821L1218 819L1207 816')" d="M-20 -3L-3 18L20 3L2 -18Z" /></svg>
         </div>
 
-        <a class="scroll-cue" href="#projetos"><span class="visually-hidden">Rolar para os projetos</span><span class="scroll-cue-icon" aria-hidden="true"></span></a>
+        <a class="scroll-cue" href="#projetos"><span class="visually-hidden">Rolar para os projetos</span><span class="scroll-cue-icon" aria-hidden="true"></span><svg class="scroll-cue-hand" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 15.5V4.5a1.5 1.5 0 0 1 3 0V11M12 10a1.5 1.5 0 0 1 3 0v1.5M15 11a1.5 1.5 0 0 1 3 0v4a6 6 0 0 1-6 6h-1a5 5 0 0 1-4-2l-2.6-3.4a1.5 1.5 0 0 1 2.3-1.9L9 15.5"/></svg></a>
         <button class="hero-pause" type="button" hidden>Pausar movimento</button>
       </section>
 
