@@ -25,6 +25,8 @@ Fonte única dos dados pessoais e profissionais do site; a seção Sobre os repr
 
 **Perfil:** desenvolvedora de software com experiência web e mobile desde 2021, bacharel em Ciência da Computação.
 
+**Contato:** e-mail kasilveira32@gmail.com (canal principal), GitHub [PandaMnio](https://github.com/PandaMnio) e LinkedIn [karin-silveira](https://www.linkedin.com/in/karin-silveira/). Telefone e Instagram não são expostos.
+
 **Experiência:** mais de cinco anos, desde 2021. Por decisão da autora, os nomes dos empregadores não são expostos no site nem no repositório. As atuações confirmadas que fundamentam as capacidades são:
 
 - Temas personalizados para WordPress.
@@ -49,7 +51,7 @@ Fonte única dos dados pessoais e profissionais do site; a seção Sobre os repr
 - Linguagens: HTML, CSS, JavaScript, TypeScript, PHP e C#.
 - Web e mobile: React, React Native, Expo, AngularJS, Laravel, Livewire, Tailwind CSS, Flux UI, Blade, Bootstrap, jQuery e WordPress.
 - Dados e integrações: Node.js, MySQL, MongoDB, REST APIs, JSON, Axios e Postman.
-- Ferramentas: Git, GitHub, VS Code, npm, Composer, GitHub Pages, Figma, Canva, ChatGPT e Claude Code.
+- Ferramentas: Git, GitHub, VS Code, npm, Composer, GitHub Pages, Figma e Canva. ChatGPT e Claude Code não são exibidos no site.
 - Conhecimentos complementares: SEO.
 - Cursos complementares de React Native, Expo e Hooks.
 
@@ -70,6 +72,10 @@ Três famílias conceituais de trabalhos:
 - **Desenvolvimento:** sistemas, aplicações, interfaces, ferramentas, automações e integrações; núcleo profissional.
 - **Experimentação:** creative coding, estudos, animações, interações e exploração de tecnologias.
 - **Além do código:** fotografia, audiovisual, design e outras criações pessoais.
+
+**Trabalhos publicados**
+
+- **Single page para psicologia** (Desenvolvimento): projeto autoral, uma página única para profissionais da psicologia, com identidade visual sóbria e fluxo demonstrativo de agendamento. "Fulana Detal" é só a persona fictícia da demonstração, não o nome do projeto. Publicado no [GitHub Pages](https://pandamnio.github.io/agendamento-consultas/), com o [repositório](https://github.com/PandaMnio/agendamento-consultas) como fonte das informações. Publicado como peça de portfólio, não como produto em produção; o agendamento é demonstrativo, e isso não é tratado como limitação. Clientes, resultados, métricas e motivações não confirmadas pela autora não devem ser presumidos.
 
 A categoria não define automaticamente a importância de um projeto. A curadoria terá três níveis: obras principais (referência inicial de 3 a 5, se houver conteúdo suficiente), trabalhos selecionados e acervo completo. Os destaques devem privilegiar trabalhos de desenvolvimento sem excluir outras criações relevantes.
 
@@ -111,8 +117,8 @@ Desenvolvimento colaborativo, em etapas pequenas e validadas com a autora; o mé
 ## 9. Questões em aberto
 
 - Texto definitivo de posicionamento e apresentação (versão atual do hero em teste); idioma(s) da interface.
-- Inventário de trabalhos reais, direitos de divulgação, imagens e contribuição individual.
-- Canais de contato, currículo e disponibilidade profissional.
+- Inventário dos demais trabalhos reais, direitos de divulgação, imagens e contribuição individual.
+- Currículo e disponibilidade profissional.
 - Necessidade e divisão final das páginas internas.
 - Favicon e eventuais assinaturas visuais (assinatura compacta `ks.` adotada).
 - Domínio, hospedagem e publicação.

@@ -67,7 +67,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 ### 05 — Exposição de trabalhos
 
 - [ ] Implementar destaque cinematográfico e galeria editorial.
-- [ ] Construir apresentação de projeto reutilizável, com variantes adequadas ao conteúdo.
+- [x] Construir apresentação de projeto reutilizável (primeiro estudo de caso: `projetos/psicologia/`).
+- [ ] Substituir os estudos ilustrativos restantes por trabalhos reais.
 - [x] Criar o acervo (`projetos/`) como índice estático, acessível pela exposição da homepage.
 - [ ] Adicionar filtros ao acervo quando o volume justificar, com alternativa sem JS.
 - [ ] Conectar os fragmentos do hero aos trabalhos da curadoria.
@@ -82,7 +83,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [ ] Aprovar os textos de apresentação.
 - [x] Criar a entrada do laboratório com o primeiro experimento interativo (Construção & Fluxo).
 - [ ] Definir a navegação às experiências quando houver mais de uma.
-- [ ] Construir encerramento e canais de contato; currículo quando disponível.
+- [x] Construir encerramento e canais de contato.
+- [ ] Acrescentar o currículo quando disponível.
 
 **Aceite:** identidade profissional clara, contato direto e experimentos isolados do funcionamento principal.
 

@@ -72,12 +72,14 @@ A homepage combina A + C com a atmosfera de B dos estudos: presença assimétric
 - **Sobre ampliado:**
   - **Destaques:** ficam na coluna do retrato, ao lado do texto: experiência, bacharelado e formação técnica, com o valor em serifa.
   - **Comunidade e aprendizado contínuo:** bloco compacto que continua o degrau do texto, ao lado dos destaques. Mentoria e eventos têm o mesmo peso, em texto corrido com local e anos atenuados, sem destaque tipográfico, para não competir com formação e capacidades.
-  - **Espaçamento:** os respiros entre e dentro das seções crescem com a largura da tela, não com a altura, para que os celulares altos não ganhem vazios excessivos.
+  - **Espaçamento:** os respiros entre e dentro das seções crescem com a largura da tela, não com a altura (`--space-section`, mais contido no desktop), para que os celulares altos não ganhem vazios excessivos.
   - **Capacidades:** quatro colunas (duas abaixo de 75rem). Cada uma traz um índice em serifa itálica, a descrição, uma linha de ícones em acento e as tecnologias em texto, mencionadas uma única vez. Os ícones são decorativos; os nomes estão no texto. O sprite é local (Simple Icons, CC0).
   - **Princípios:** fecham a seção, com o rótulo e o parágrafo no vazio à esquerda da lista.
   - **Fonte e privacidade:** os dados vêm do [Briefing](BRIEFING.md#dados-profissionais-confirmados), e os nomes de empregadores não aparecem.
 - **Retrato (Sobre):** a fotografia permanece intacta, sem filtros nem recortes. Ao redor dela, camadas independentes em CSS: um painel de grade violeta que sangra pela borda da página, uma moldura da qual só aparecem os cantos, uma órbita que cruza o canto superior longe do rosto, a cápsula de fluxo e o acento Pulse. Com suporte a scroll-driven animations e sem preferência por movimento reduzido, as formas derivam em velocidades diferentes; a foto não se move.
 - **Cabeçalho:** transparente e acima da primeira seção. A luz do topo é um gradiente violeta no fundo da página que atravessa o cabeçalho e a primeira seção, sem emenda entre eles. Nos links, um traço Aqua → Ultraviolet cresce da esquerda no hover e no foco, e fica completo e mais espesso na página atual. O ponto da assinatura salta de leve. Sem filtros nem blur; com movimento reduzido, não há transições.
+- **Contato:** Obsidian com luz violeta subindo do canto inferior esquerdo, oposta à do topo, e título em duas vozes com ponto em acento, como no Sobre. O e-mail é a peça tipográfica principal (Manrope 300, traço Aqua → Ultraviolet), e o botão de copiar só aparece quando a área de transferência está disponível. GitHub e LinkedIn vêm abaixo, com ícones locais (Simple Icons, CC0). Uma órbita sangra pela borda superior direita, com o acento Pulse sobre ela, e uma cápsula de fluxo deitada cruza a borda direita. As formas ficam fora da área do texto. Com suporte a scroll-driven animations e sem preferência por movimento reduzido, enquanto a seção entra na tela, a órbita gira e leva o acento pela curva, sem inclinar o quadrado, e a cápsula chega pela borda. Com o hover ou o foco no e-mail, a cápsula se estende. Sem suporte, a composição fica no estado final. A frase de apoio está sujeita a aprovação.
+- **Rodapé:** igual em todas as páginas: assinatura `ks.`, créditos e "Voltar ao topo", que leva ao cabeçalho (`#topo`).
 - **Hero estático = estado C:** fragmentos inclinados numa perspectiva comum, com o texto avançando sobre a borda escura da composição. Grade e moldura (precisão) contrastam com órbita e cápsula (fluidez).
 
 - **Laboratório:** volta ao escuro, com luz violeta e Aqua mais livre. O palco do experimento sangra até as bordas da página, e a legenda fica abaixo dele, em três colunas.
@@ -141,10 +143,32 @@ Cada página de projeto deve valorizar o resultado e, quando pertinente, context
 
 **Aplicado:**
 
-- Três estudos ilustrativos (Desenvolvimento, Experimentação e Expressão visual) formam um mosaico editorial no estado E, alinhados e sem inclinação. A partir de 56rem: o principal ocupa 8 colunas; Experimentação fica ao lado, em 4 colunas, com a base alinhada à dele; Expressão visual entra logo abaixo do principal, ao lado da legenda dele; e o acesso ao acervo ocupa o canto livre da última linha. As linhas são compartilhadas por subgrid. Sem subgrid, os três estudos ficam em duas faixas, com as legendas sob cada imagem. No mobile, os estudos se empilham com recuos alternados.
+- O mosaico editorial do estado E reúne a Single page para psicologia, no lugar principal, e dois estudos ilustrativos (Experimentação e Expressão visual), alinhados e sem inclinação. A partir de 56rem: o principal ocupa 8 colunas; Experimentação fica ao lado, em 4 colunas, com a base alinhada à dele; Expressão visual entra logo abaixo do principal, ao lado da legenda dele; e o acesso ao acervo ocupa o canto livre da última linha. As linhas são compartilhadas por subgrid. Sem subgrid, os três estudos ficam em duas faixas, com as legendas sob cada imagem. No mobile, os estudos se empilham com recuos alternados.
 - As superfícies compartilhadas (`--surface-*`) mantêm o vínculo visual com os fragmentos do hero, preparando a transição D.
-- Os estudos não têm links individuais enquanto não existirem destinos reais; a exposição termina com um acesso ao acervo.
+- Só os projetos reais têm link. O título leva ao estudo de caso, e a área clicável cobre o item inteiro. A exposição termina com um acesso ao acervo.
+- **Palco de projeto (`.stage`):** capturas reais da interface desktop e mobile sobre a superfície do projeto: grade, moldura de precisão, órbita, traço de fluxo e acento Pulse. A luz vem da identidade de cada projeto (`--project-deep` e `--project-glow`, definidos numa classe `stage-<projeto>`). O mesmo palco aparece na exposição, na miniatura do acervo e na abertura do estudo de caso. As formas ficam atrás das telas e nunca cobrem a interface.
+- **Estudo de caso (`projetos/<projeto>/`):** a abertura integra título em duas vozes, resumo, links e palco; o título toca a borda do palco, e a ficha corre sob ele. Seguem capítulos numerados, com o título à esquerda e o texto recuado, intercalados com registros em escalas e alinhamentos variados (detalhe, tela inteira, desktop e celular lado a lado). A identidade do projeto entra em uma faixa própria, com as cores dele (no caso da psicologia, papel e azul-petróleo), e a segunda voz e os índices usam o tom claro do projeto. Os capítulos começam pelo desenvolvimento (abertura, agendamento, implementação, desempenho) e terminam na identidade visual; as decisões técnicas formam uma ficha em linhas, sem badges. O desempenho traduz o relatório do PageSpeed Insights para a linguagem do estudo (linhas finas, rótulos, números em serifa, título à esquerda e conteúdo recuado): abas celular e computador, anéis por categoria, métricas com as faixas 0–49, 50–89 e 90–100 em cor e forma, sempre com a data e o ambiente da análise e um link para uma nova análise ao vivo; o peso do primeiro acesso entra como número e barra proporcional, de medição própria datada. A identidade visual é um quadro de estilo: a captura como peça principal e paleta e tipografia ao lado. O fechamento é uma linha compacta, com título no tamanho dos capítulos. Fecha com os links do projeto e o retorno ao acervo. Movimento discreto: o celular do palco sobe ao rolar, e os registros chegam com a perspectiva dos estudos.
+- **Capturas:** WebP em larguras responsivas em `assets/images/<projeto>/`, feitas da demonstração publicada (desktop em 1440px, mobile em 390px a 2x).
 - **Acervo (`projetos/`):** índice tipográfico em linhas com número em serifa itálica, título, resumo, metadados (categoria e tipo) e miniatura. As miniaturas têm a mesma altura, com largura que segue a proporção de cada trabalho. As categorias seguem as famílias do briefing (Desenvolvimento, Experimentação, Além do código). Cada entrada tem um `id` para link direto. A busca e os filtros só entram quando houver volume que os justifique.
+
+**Diretriz verbal** (conteúdos de projetos e textos futuros):
+
+- Autoral, reservada e precisa: descrever o que foi feito e como, com sensibilidade, sem elogio ao próprio trabalho.
+- O desenvolvimento vem em primeiro plano: os estudos de caso se aprofundam nas decisões de código; o design entra como contexto, com menos peso.
+- Design com o vocabulário da área (hierarquia, primeira dobra, paleta, par tipográfico, cor de destaque), explicado no próprio texto para quem não é da área.
+- Fatos vêm do código, do README e da autora; a redação é própria. Nada de clientes, resultados, métricas, motivações ou intenções emocionais não confirmados.
+- Frases curtas e concretas. Sem clichês, linguagem publicitária, metáforas forçadas ou explicações repetidas.
+- Nomear o que existe na interface (seções, etapas, controles) em vez de qualificá-lo.
+- Projetos publicados para o portfólio não são produtos em produção: apresentar o que foi construído, sem listar limitações como falhas. Recursos demonstrativos e personas fictícias são identificados como tais, sem ênfase.
+- Termos técnicos com precisão e só quando informam uma decisão.
+
+**SEO editorial** (complementa os requisitos técnicos da [Arquitetura](ARCHITECTURE.md#9-qualidade)):
+
+- Objetivo permanente: ser encontrada por clientes, recrutadores e oportunidades profissionais em buscas orgânicas.
+- Cada página responde a uma intenção de busca: a homepage apresenta a profissional e suas capacidades; o acervo, os trabalhos; cada estudo de caso, o tipo de solução (por exemplo, site para psicólogos, single page profissional, interface responsiva, fluxo de agendamento).
+- Os termos que as pessoas buscam entram com naturalidade no título, na descrição, nos subtítulos, no texto e nos links, uma vez em cada lugar e sem repetição forçada.
+- O texto dos links descreve o destino; o título da página e o `h1` dizem a mesma coisa com palavras próprias.
+- Conteúdo original e fundamentado nas decisões reais. Sem serviços, qualificações, experiências ou resultados não confirmados.
 
 ## 7. Qualidade visual e acessibilidade
 

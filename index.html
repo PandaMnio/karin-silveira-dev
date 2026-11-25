@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Karin Silveira — Portfólio (em desenvolvimento)</title>
-    <meta name="description" content="Portfólio de Karin Silveira, em desenvolvimento. Descrição provisória.">
+    <title>Karin Silveira — Desenvolvedora web e mobile</title>
+    <meta name="description" content="Portfólio de Karin Silveira, desenvolvedora de software web e mobile desde 2021: interfaces, sites responsivos e aplicativos, com projetos, experimentos e contato.">
     <!-- Evita a requisição de /favicon.ico até existir um favicon. -->
     <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="scripts/main.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
 
-    <header class="site-header">
+    <header id="topo" class="site-header">
       <a class="signature" href="./" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
       <nav aria-label="Principal">
         <ul role="list">
@@ -26,10 +27,10 @@
     </header>
 
     <main id="conteudo">
-      <section id="apresentacao" class="hero">
+      <section id="apresentacao" class="hero ambient grid-12">
         <div class="hero-text">
           <p class="eyebrow">Desenvolvimento &amp; criação digital</p>
-          <h1>Karin <span>Silveira</span></h1>
+          <h1 class="page-title">Karin <span class="voice">Silveira</span></h1>
           <p class="lead">Entre a lógica e a criatividade, ideias ganham forma.</p>
           <p><a class="cta" href="#projetos">Explorar projetos <span aria-hidden="true">→</span></a></p>
         </div>
@@ -46,18 +47,21 @@
       </section>
 
       <section id="projetos" class="works">
-        <div class="works-intro">
-          <h2>Projetos <span>selecionados</span></h2>
-          <p>Três estudos visuais ilustrativos ocupam este espaço enquanto a curadoria de trabalhos reais é preparada.</p>
+        <div class="section-intro works-intro">
+          <h2 class="display">Projetos <span class="voice">selecionados</span></h2>
+          <p>Um projeto real abre a curadoria. Os outros dois são estudos visuais ilustrativos, que darão lugar a novos trabalhos.</p>
         </div>
 
-        <ol class="studies" role="list">
+        <ol class="studies grid-12" role="list">
           <li class="study study-dev">
-            <div class="study-visual visual-dev" aria-hidden="true"></div>
+            <div class="study-visual stage stage-psicologia">
+              <img class="stage-desktop" src="assets/images/psicologia/desktop-inicio-960.webp" srcset="assets/images/psicologia/desktop-inicio-640.webp 640w, assets/images/psicologia/desktop-inicio-960.webp 960w, assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 72vw" width="1440" height="900" loading="lazy" decoding="async" alt="Página inicial no desktop: o título “Você não precisa ter todas as respostas.”, o botão “Encontre seu horário” e a foto de um consultório com duas poltronas.">
+              <img class="stage-mobile" src="assets/images/psicologia/mobile-inicio-390.webp" srcset="assets/images/psicologia/mobile-inicio-390.webp 390w, assets/images/psicologia/mobile-inicio-780.webp 780w" sizes="(min-width: 56rem) 12vw, 20vw" width="780" height="1688" loading="lazy" decoding="async" alt="A mesma página no celular, com o título, o botão de agendamento e a foto do consultório abaixo.">
+            </div>
             <div class="study-text">
-              <p class="eyebrow">01 · Estudo ilustrativo</p>
-              <h3>Desenvolvimento</h3>
-              <p>Sistemas, aplicações e interfaces: o núcleo profissional.</p>
+              <p class="eyebrow">01 · Projeto autoral</p>
+              <h3><a class="card-link" href="projetos/psicologia/">Single page para psicologia</a></h3>
+              <p>Site para psicólogos em HTML, CSS e JavaScript, com interface responsiva e agendamento demonstrativo gerado no navegador.</p>
             </div>
           </li>
           <li class="study study-lab">
@@ -81,9 +85,9 @@
         <p class="works-more"><a class="cta" href="projetos/">Ver o acervo de projetos <span aria-hidden="true">→</span></a></p>
       </section>
 
-      <section id="sobre" class="about light" aria-labelledby="sobre-titulo">
+      <section id="sobre" class="about light grid-12" aria-labelledby="sobre-titulo">
         <p class="eyebrow">Sobre</p>
-        <h2 id="sobre-titulo">Construir com precisão, <span>criar com liberdade<i>.</i></span></h2>
+        <h2 id="sobre-titulo" class="display">Construir com precisão, <span class="voice">criar com liberdade<i>.</i></span></h2>
 
         <div class="about-portrait">
           <img src="assets/images/karin-silveira-800.webp" srcset="assets/images/karin-silveira-480.webp 480w, assets/images/karin-silveira-800.webp 800w, assets/images/karin-silveira-1199.webp 1199w" sizes="(min-width: 56rem) 30vw, 78vw" width="1199" height="1312" loading="lazy" decoding="async" alt="Karin Silveira sorri, de óculos redondos e blusa preta, com o queixo apoiado na mão.">
@@ -122,7 +126,7 @@
         </dl>
 
         <div class="about-community">
-          <h3>Comunidade e aprendizado contínuo</h3>
+          <h3 class="label">Comunidade e aprendizado contínuo</h3>
           <dl>
             <div>
               <dt>Mentoria</dt>
@@ -137,11 +141,11 @@
         </div>
 
         <div class="about-capabilities">
-          <h3>Capacidades</h3>
+          <h3 class="label">Capacidades</h3>
           <ol class="capabilities" role="list">
             <li class="capability">
-              <p class="capability-index" aria-hidden="true">01</p>
-              <h4>Desenvolvimento web</h4>
+              <p class="index" aria-hidden="true">01</p>
+              <h4 class="item-title">Desenvolvimento web</h4>
               <p>Interfaces e páginas web, templates de e-mail, simulações educativas e temas personalizados para WordPress.</p>
               <div class="capability-icons" aria-hidden="true">
                 <svg width="24" height="24" focusable="false"><use href="assets/icons/tech.svg#html"></use></svg>
@@ -156,8 +160,8 @@
               <p class="capability-stack">HTML, CSS, JavaScript, TypeScript, PHP, React, AngularJS, Laravel, Livewire, Blade, Tailwind CSS, Flux UI, Bootstrap, jQuery e WordPress.</p>
             </li>
             <li class="capability">
-              <p class="capability-index" aria-hidden="true">02</p>
-              <h4>Desenvolvimento mobile</h4>
+              <p class="index" aria-hidden="true">02</p>
+              <h4 class="item-title">Desenvolvimento mobile</h4>
               <p>Desenvolvimento e manutenção de aplicativo mobile.</p>
               <div class="capability-icons" aria-hidden="true">
                 <svg width="24" height="24" focusable="false"><use href="assets/icons/tech.svg#react"></use></svg>
@@ -166,8 +170,8 @@
               <p class="capability-stack">React Native e Expo, com cursos complementares de React Native, Expo e Hooks.</p>
             </li>
             <li class="capability">
-              <p class="capability-index" aria-hidden="true">03</p>
-              <h4>Dados e integrações</h4>
+              <p class="index" aria-hidden="true">03</p>
+              <h4 class="item-title">Dados e integrações</h4>
               <p>Comunicação entre interfaces, APIs e bancos de dados.</p>
               <div class="capability-icons" aria-hidden="true">
                 <svg width="24" height="24" focusable="false"><use href="assets/icons/tech.svg#node"></use></svg>
@@ -178,8 +182,8 @@
               <p class="capability-stack">Node.js, MySQL, MongoDB, REST APIs, JSON, Axios e Postman.</p>
             </li>
             <li class="capability">
-              <p class="capability-index" aria-hidden="true">04</p>
-              <h4>Experiência digital</h4>
+              <p class="index" aria-hidden="true">04</p>
+              <h4 class="item-title">Experiência digital</h4>
               <p>Acessibilidade, SEO e desempenho como parte do desenvolvimento, do layout ao carregamento.</p>
               <div class="capability-icons" aria-hidden="true">
                 <svg width="24" height="24" focusable="false"><use href="assets/icons/tech.svg#figma"></use></svg>
@@ -191,7 +195,7 @@
           <dl class="about-tools">
             <div>
               <dt>Ferramentas</dt>
-              <dd>Git, GitHub, VS Code, npm, Composer, GitHub Pages, ChatGPT e Claude Code</dd>
+              <dd>Git, GitHub, VS Code, npm, Composer e GitHub Pages</dd>
             </div>
             <div>
               <dt>Outras linguagens</dt>
@@ -200,8 +204,8 @@
           </dl>
         </div>
 
-        <div class="about-principles">
-          <h3>Como penso e desenvolvo</h3>
+        <div class="about-principles grid-12">
+          <h3 class="label">Como penso e desenvolvo</h3>
           <ul role="list">
             <li>A criatividade <em>surpreende</em>.</li>
             <li>A elegância <em>sustenta</em>.</li>
@@ -212,11 +216,11 @@
         </div>
       </section>
 
-      <section id="laboratorio" class="lab" aria-labelledby="laboratorio-titulo">
-        <div class="lab-intro">
+      <section id="laboratorio" class="lab ambient" aria-labelledby="laboratorio-titulo">
+        <div class="section-intro lab-intro">
           <div>
             <p class="eyebrow">Laboratório</p>
-            <h2 id="laboratorio-titulo">Laboratório <span>criativo</span></h2>
+            <h2 id="laboratorio-titulo" class="display">Laboratório <span class="voice">criativo</span></h2>
           </div>
           <p>Um espaço para experimentos e descobertas entre código e criação. O primeiro estudo parte do conceito que orienta este portfólio.</p>
         </div>
@@ -237,7 +241,7 @@
             </svg>
           </div>
 
-          <div class="experiment-caption">
+          <div class="experiment-caption grid-12">
             <div class="experiment-heading">
               <p class="eyebrow">Experimento 01</p>
               <h3 id="experimento-titulo">Construção &amp; Fluxo</h3>
@@ -255,14 +259,45 @@
         </article>
       </section>
 
-      <section id="contato">
-        <h2>Contato</h2>
-        <p>[Provisório] Canais de contato a definir.</p>
+      <section id="contato" class="contact ambient grid-12" aria-labelledby="contato-titulo">
+        <div class="contact-shapes" aria-hidden="true">
+          <span class="contact-orbit"><span class="contact-accent"></span></span>
+          <span class="contact-flow"></span>
+        </div>
+
+        <p class="eyebrow">Contato</p>
+        <h2 id="contato-titulo" class="display">Vamos <span class="voice">conversar<i>.</i></span></h2>
+
+        <div class="contact-email">
+          <p>O caminho mais direto é o e-mail.</p>
+          <a href="mailto:kasilveira32@gmail.com">kasilveira32<wbr>@gmail.com</a>
+          <p class="contact-copy" hidden>
+            <button type="button" data-copy="kasilveira32@gmail.com">Copiar e-mail</button>
+            <span role="status"></span>
+          </p>
+        </div>
+
+        <ul class="contact-channels" role="list">
+          <li>
+            <a href="https://github.com/PandaMnio" target="_blank" rel="me noopener">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#github"></use></svg>
+              <span>GitHub <small>PandaMnio</small></span><span class="visually-hidden">(abre em nova aba)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/karin-silveira/" target="_blank" rel="me noopener">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#linkedin"></use></svg>
+              <span>LinkedIn <small>karin-silveira</small></span><span class="visually-hidden">(abre em nova aba)</span>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
 
-    <footer>
-      <p>© 2026 Karin Silveira. Site em desenvolvimento.</p>
+    <footer class="site-footer">
+      <a class="signature" href="./" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
+      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais.</p>
+      <a class="link to-top" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
     </footer>
   </body>
 </html>

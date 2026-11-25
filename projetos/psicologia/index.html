@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Single page para psicologia: site para psicólogos — Karin Silveira</title>
+    <meta name="description" content="Estudo de caso de uma single page para psicólogos: desenvolvimento front-end em HTML, CSS e JavaScript, agenda gerada no navegador, interface responsiva, desempenho, acessibilidade e identidade visual sóbria.">
+    <!-- Evita a requisição de /favicon.ico até existir um favicon. -->
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <header id="topo" class="site-header">
+      <a class="signature" href="../../" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
+      <nav aria-label="Principal">
+        <ul role="list">
+          <li><a href="../" aria-current="true">Projetos</a></li>
+          <li><a href="../../#sobre">Sobre</a></li>
+          <li><a href="../../#laboratorio">Laboratório</a></li>
+          <li><a href="../../#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="conteudo" class="case ambient project-psicologia">
+      <div class="case-intro grid-12">
+        <p class="case-back"><a href="../"><span aria-hidden="true">←</span> Acervo de projetos</a></p>
+        <p class="eyebrow">Projeto autoral · Desenvolvimento front-end</p>
+        <h1 class="page-title">Single page <span class="voice">para psicologia</span></h1>
+        <div class="case-summary">
+          <p class="lead">Um site de página única para psicólogos e psicólogas, desenvolvido em HTML, CSS e JavaScript: interface responsiva, conteúdo organizado em seções e um fluxo demonstrativo de agendamento gerado no navegador.</p>
+          <ul class="case-links" role="list">
+            <li><a class="button" href="https://pandamnio.github.io/agendamento-consultas/" target="_blank" rel="noopener">Ver a demonstração <span aria-hidden="true">↗</span> <span class="visually-hidden">(abre em nova aba)</span></a></li>
+            <li>
+              <a class="link" href="https://github.com/PandaMnio/agendamento-consultas" target="_blank" rel="noopener">
+                <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/social.svg#github"></use></svg>
+                Ver o repositório <span class="visually-hidden">(abre em nova aba)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="stage stage-psicologia case-stage">
+          <img class="stage-desktop" src="../../assets/images/psicologia/desktop-inicio-960.webp" srcset="../../assets/images/psicologia/desktop-inicio-640.webp 640w, ../../assets/images/psicologia/desktop-inicio-960.webp 960w, ../../assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 62vw" width="1440" height="900" fetchpriority="high" decoding="async" alt="Abertura da página no desktop: o título “Você não precisa ter todas as respostas.”, o botão “Encontre seu horário” e a foto de um consultório com duas poltronas.">
+          <img class="stage-mobile" src="../../assets/images/psicologia/mobile-inicio-390.webp" srcset="../../assets/images/psicologia/mobile-inicio-390.webp 390w, ../../assets/images/psicologia/mobile-inicio-780.webp 780w" sizes="(min-width: 56rem) 12vw, 17vw" width="780" height="1688" decoding="async" alt="A mesma abertura no celular, com o título, o botão de agendamento e a foto do consultório abaixo.">
+        </div>
+        <dl class="case-facts">
+          <div><dt>Formato</dt><dd>Single page</dd></div>
+          <div><dt>Para</dt><dd>Profissionais da psicologia</dd></div>
+          <div><dt>Demonstração</dt><dd>Persona fictícia, Fulana Detal</dd></div>
+          <div>
+            <dt>Tecnologias</dt>
+            <dd class="case-tech">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/tech.svg#html"></use></svg>
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/tech.svg#css"></use></svg>
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/tech.svg#javascript"></use></svg>
+              HTML, CSS e JavaScript
+            </dd>
+          </div>
+          <div><dt>Publicação</dt><dd>GitHub Pages, para portfólio</dd></div>
+        </dl>
+      </div>
+
+      <section class="case-chapter case-opening grid-12" aria-labelledby="abertura">
+        <div class="case-heading">
+          <p class="index" aria-hidden="true">01</p>
+          <h2 id="abertura">Abertura</h2>
+        </div>
+        <div class="case-text">
+          <p>A primeira dobra, o que aparece antes de rolar, concentra especialidade, público, formatos de atendimento e uma única chamada para ação: “Encontre seu horário”. As outras seções ficam a um clique, pelo menu ou pelo link logo abaixo do botão.</p>
+          <p>No código, essa hierarquia começa no HTML: um único <code>h1</code>, seções rotuladas pelos próprios títulos e links internos por âncora. No celular, a ordem se mantém, com título, texto e ação antes da fotografia, e a navegação passa para um menu expansível, aberto por um botão com <code>aria-expanded</code> e fechado com Esc, ao escolher um link ou ao clicar fora.</p>
+        </div>
+        <figure class="shot shot-detail">
+          <div class="shot-frame stage-psicologia">
+            <img src="../../assets/images/psicologia/desktop-titulo-620.webp" srcset="../../assets/images/psicologia/desktop-titulo-620.webp 620w, ../../assets/images/psicologia/desktop-titulo-1240.webp 1240w" sizes="(min-width: 56rem) 38vw, 84vw" width="1240" height="760" loading="lazy" decoding="async" alt="Detalhe do título: “Você não precisa ter todas as respostas.”, em serifa azul-petróleo, com a última palavra em itálico bronze.">
+          </div>
+        </figure>
+      </section>
+
+      <section class="case-chapter case-flow grid-12" aria-labelledby="agendamento">
+        <div class="case-heading">
+          <p class="index" aria-hidden="true">02</p>
+          <h2 id="agendamento">Agendamento</h2>
+        </div>
+        <div class="case-text">
+          <p>Na interface, a escolha acontece em três etapas: formato do encontro, dia e horário. Os cinco próximos dias com atendimento aparecem como atalhos, o campo de data cobre os 90 dias seguintes e um resumo acompanha a seleção até a revisão.</p>
+          <p>No código, nenhum horário é escrito à mão. Uma grade semanal, declarada em um objeto JavaScript, define as faixas de atendimento de cada dia, e cada faixa se divide em horários de 50 minutos de sessão e 10 de intervalo. O dia de referência é calculado no fuso de Brasília com <code>Intl.DateTimeFormat</code>; o restante trata datas de calendário, sem conversões de fuso.</p>
+          <p>Uma única função mantém o formulário consistente: a cada mudança, recalcula os horários do dia, atualiza atalhos, mensagens e resumo e devolve o primeiro campo que ainda precisa de resposta. No envio, o foco vai para esse campo ou para a revisão, aberta em um <code>&lt;dialog&gt;</code> nativo. As mensagens de erro ficam ligadas aos campos por <code>aria-describedby</code> e são anunciadas com <code>aria-live</code>.</p>
+        </div>
+        <figure class="shot shot-agenda">
+          <div class="shot-frame stage-psicologia">
+            <img src="../../assets/images/psicologia/desktop-agenda-1240.webp" srcset="../../assets/images/psicologia/desktop-agenda-640.webp 640w, ../../assets/images/psicologia/desktop-agenda-1240.webp 1240w" sizes="(min-width: 56rem) 56vw, 84vw" width="1240" height="775" loading="lazy" decoding="async" alt="Agenda de consultas no desktop: escolha entre online e presencial, cinco próximos dias com atendimento, campo de data e três horários disponíveis.">
+          </div>
+          <figcaption>Formato, dia e horário lado a lado no desktop.</figcaption>
+        </figure>
+        <figure class="shot shot-phone">
+          <div class="shot-frame stage-psicologia">
+            <img src="../../assets/images/psicologia/mobile-agenda-390.webp" srcset="../../assets/images/psicologia/mobile-agenda-390.webp 390w, ../../assets/images/psicologia/mobile-agenda-780.webp 780w" sizes="(min-width: 56rem) 16vw, 52vw" width="780" height="1688" loading="lazy" decoding="async" alt="A agenda no celular, com o formato do encontro, os próximos dias e a data escolhida empilhados.">
+          </div>
+          <figcaption>No celular, as etapas se empilham.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-chapter case-build grid-12" aria-labelledby="implementacao">
+        <div class="case-heading">
+          <p class="index" aria-hidden="true">03</p>
+          <h2 id="implementacao">Implementação</h2>
+        </div>
+        <div class="case-text">
+          <p>Sem bibliotecas nem etapa de build: um arquivo de HTML, um de CSS e um de JavaScript. Recursos nativos do navegador resolvem a janela de diálogo, as perguntas expansíveis e a observação da rolagem.</p>
+        </div>
+        <dl class="case-spec">
+          <div><dt>Estrutura</dt><dd>HTML semântico, com cabeçalho, navegação, seções rotuladas, rodapé e um sprite SVG para os ícones.</dd></div>
+          <div><dt>Estilo</dt><dd>CSS com variáveis para cores, espaçamentos e tipografia; layout responsivo do desktop até 360px; Cormorant Garamond e Manrope via Google Fonts.</dd></div>
+          <div><dt>Interface</dt><dd><code>&lt;dialog&gt;</code> para a revisão, <code>&lt;details&gt;</code> para as dúvidas frequentes e um menu expansível controlado por <code>aria-expanded</code>.</dd></div>
+          <div><dt>Acessibilidade</dt><dd>Link para pular ao conteúdo, navegação por teclado, <code>aria-invalid</code>, <code>aria-describedby</code> e <code>aria-live</code> no formulário; respeito a <code>prefers-reduced-motion</code> e <code>prefers-reduced-transparency</code>.</dd></div>
+          <div><dt>Busca</dt><dd>Título, descrição, Open Graph, canonical, dados estruturados, <code>sitemap.xml</code> e <code>robots.txt</code>.</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-chapter case-performance grid-12" aria-labelledby="desempenho">
+        <div class="case-heading">
+          <p class="index" aria-hidden="true">04</p>
+          <h2 id="desempenho">Desempenho</h2>
+        </div>
+        <div class="case-text">
+          <p>No PageSpeed Insights, a página marca 93 de desempenho no celular e 100 no computador, com 97 em acessibilidade e 100 em práticas recomendadas e SEO nos dois. O primeiro acesso transfere 278&nbsp;KB, e todo o código escrito para o projeto, entre HTML, CSS e JavaScript, soma 17&nbsp;KB.</p>
+          <p>A fotografia principal carrega com prioridade e tem largura e altura declaradas, o que reserva o espaço antes do download e evita saltos no layout. A segunda foto só é baixada quando se aproxima da tela, e o script, carregado com <code>defer</code>, não atrasa a primeira renderização. As fontes usam <code>preconnect</code> e <code>display=swap</code>, então o texto aparece antes delas. Cabeçalho e animações de entrada reagem por <code>IntersectionObserver</code>, sem escutar a rolagem.</p>
+        </div>
+        <div class="psi">
+          <div class="psi-head">
+            <fieldset class="psi-switch">
+              <legend class="visually-hidden">Dispositivo analisado</legend>
+              <label><input type="radio" name="psi-device" value="mobile" checked> Celular</label>
+              <label><input type="radio" name="psi-device" value="desktop"> Computador</label>
+            </fieldset>
+            <ul class="psi-legend" role="list" aria-label="Faixas de pontuação">
+              <li class="psi-poor">0–49</li>
+              <li class="psi-average">50–89</li>
+              <li class="psi-good">90–100</li>
+            </ul>
+          </div>
+          <div class="psi-panel psi-mobile">
+            <ul class="psi-scores" role="list">
+              <li class="psi-good" style="--score: 93"><span class="psi-gauge">93<span class="visually-hidden"> de 100</span></span> Desempenho</li>
+              <li class="psi-good" style="--score: 97"><span class="psi-gauge">97<span class="visually-hidden"> de 100</span></span> Acessibilidade</li>
+              <li class="psi-good" style="--score: 100"><span class="psi-gauge">100<span class="visually-hidden"> de 100</span></span> Práticas recomendadas</li>
+              <li class="psi-good" style="--score: 100"><span class="psi-gauge">100<span class="visually-hidden"> de 100</span></span> SEO</li>
+            </ul>
+            <dl class="psi-metrics">
+              <div class="psi-good"><dt>First Contentful Paint</dt><dd>1,5&nbsp;s</dd></div>
+              <div class="psi-average"><dt>Largest Contentful Paint</dt><dd>3,0&nbsp;s</dd></div>
+              <div class="psi-good"><dt>Total Blocking Time</dt><dd>0&nbsp;ms</dd></div>
+              <div class="psi-good"><dt>Cumulative Layout Shift</dt><dd>0</dd></div>
+              <div class="psi-good"><dt>Speed Index</dt><dd>2,8&nbsp;s</dd></div>
+            </dl>
+            <p class="psi-env">Moto G Power emulado, conexão 4G lenta · Lighthouse 13.6.0</p>
+          </div>
+          <div class="psi-panel psi-desktop">
+            <ul class="psi-scores" role="list">
+              <li class="psi-good" style="--score: 100"><span class="psi-gauge">100<span class="visually-hidden"> de 100</span></span> Desempenho</li>
+              <li class="psi-good" style="--score: 97"><span class="psi-gauge">97<span class="visually-hidden"> de 100</span></span> Acessibilidade</li>
+              <li class="psi-good" style="--score: 100"><span class="psi-gauge">100<span class="visually-hidden"> de 100</span></span> Práticas recomendadas</li>
+              <li class="psi-good" style="--score: 100"><span class="psi-gauge">100<span class="visually-hidden"> de 100</span></span> SEO</li>
+            </ul>
+            <dl class="psi-metrics">
+              <div class="psi-good"><dt>First Contentful Paint</dt><dd>0,4&nbsp;s</dd></div>
+              <div class="psi-good"><dt>Largest Contentful Paint</dt><dd>0,7&nbsp;s</dd></div>
+              <div class="psi-good"><dt>Total Blocking Time</dt><dd>0&nbsp;ms</dd></div>
+              <div class="psi-good"><dt>Cumulative Layout Shift</dt><dd>0</dd></div>
+              <div class="psi-good"><dt>Speed Index</dt><dd>0,4&nbsp;s</dd></div>
+            </dl>
+            <p class="psi-env">Área de trabalho emulada · Lighthouse 13.6.0</p>
+          </div>
+          <p class="psi-source">PageSpeed Insights, análise de 24 de novembro de 2026.</p>
+        </div>
+        <p class="weight-total"><span class="weight-number">278</span> KB <span class="label">no primeiro acesso</span></p>
+        <figure class="weight-chart">
+          <div class="weight-bar" aria-hidden="true">
+            <span style="--kb: 189"></span>
+            <span style="--kb: 71"></span>
+            <span style="--kb: 17"></span>
+          </div>
+          <dl class="weight-legend">
+            <div><dt>Fotografia principal</dt><dd>189 KB</dd></div>
+            <div><dt>Fontes</dt><dd>71 KB</dd></div>
+            <div><dt>HTML, CSS e JavaScript</dt><dd>17 KB</dd></div>
+          </dl>
+          <figcaption>Versão publicada, sem cache: 10 requisições e nenhuma biblioteca. Medição própria no Chrome, em novembro de 2026.</figcaption>
+        </figure>
+        <div class="case-audit">
+          <p>As notas variam a cada análise. O PageSpeed Insights mede a versão publicada no momento do acesso, no celular e no computador.</p>
+          <a class="link" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fpandamnio.github.io%2Fagendamento-consultas%2F" target="_blank" rel="noopener">Fazer uma nova análise no PageSpeed Insights <span aria-hidden="true">↗</span> <span class="visually-hidden">(abre em nova aba)</span></a>
+        </div>
+      </section>
+
+      <section class="case-chapter case-identity grid-12" aria-labelledby="identidade">
+        <div class="case-heading">
+          <p class="index" aria-hidden="true">05</p>
+          <h2 id="identidade">Identidade visual</h2>
+        </div>
+        <div class="case-text">
+          <p>A paleta tem três cores com papéis definidos: azul-petróleo para títulos e faixas de contraste, papel como fundo e bronze como cor de destaque. Na tipografia, uma serifa clássica nos títulos e uma sem serifa no texto corrido; o contraste entre as duas separa a chamada da leitura.</p>
+          <p>O itálico em bronze destaca o trecho final de cada título, e ícones de traço fino, na mesma cor, sinalizam os temas de atendimento.</p>
+        </div>
+        <figure class="shot shot-wide">
+          <div class="shot-frame stage-psicologia">
+            <img src="../../assets/images/psicologia/desktop-atendimento-1440.webp" srcset="../../assets/images/psicologia/desktop-atendimento-640.webp 640w, ../../assets/images/psicologia/desktop-atendimento-1440.webp 1440w" sizes="(min-width: 56rem) 56vw, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="Seção “Cuidado para diferentes momentos da vida”, com os temas Ansiedade e estresse, Humor e desânimo, Autoestima e identidade e Relações e limites, cada um com um ícone de linha.">
+          </div>
+          <figcaption>Hierarquia nos temas de atendimento: título, chamada em destaque e texto corrido.</figcaption>
+        </figure>
+        <ul class="case-palette" role="list">
+          <li style="--swatch: #1d3541"><span>Azul-petróleo</span> <code>#1D3541</code> Títulos e contraste</li>
+          <li style="--swatch: #f7f5f0"><span>Papel</span> <code>#F7F5F0</code> Fundo</li>
+          <li style="--swatch: #8d6845"><span>Bronze</span> <code>#8D6845</code> Destaque</li>
+        </ul>
+        <dl class="case-type">
+          <div><dt>Títulos · serifa</dt><dd>Cormorant Garamond</dd></div>
+          <div><dt>Texto · sem serifa</dt><dd>Manrope</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-next" aria-labelledby="explorar">
+        <h2 id="explorar">Explore <span class="voice">o projeto</span></h2>
+        <ul class="case-links" role="list">
+          <li><a class="button" href="https://pandamnio.github.io/agendamento-consultas/" target="_blank" rel="noopener">Ver a demonstração <span aria-hidden="true">↗</span> <span class="visually-hidden">(abre em nova aba)</span></a></li>
+          <li>
+            <a class="link" href="https://github.com/PandaMnio/agendamento-consultas" target="_blank" rel="noopener">
+              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/social.svg#github"></use></svg>
+              Ver o repositório <span class="visually-hidden">(abre em nova aba)</span>
+            </a>
+          </li>
+          <li><a class="link" href="../">Ver todos os projetos <span aria-hidden="true">→</span></a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="signature" href="../../" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
+      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais.</p>
+      <a class="link to-top" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
+    </footer>
+  </body>
+</html>

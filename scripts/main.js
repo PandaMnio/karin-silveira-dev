@@ -2,6 +2,27 @@
 // qualquer interação a conclui imediatamente. A animação em si está no CSS.
 import './lab.js';
 
+// Contato: o botão de copiar só aparece quando a área de transferência está disponível.
+const copy = document.querySelector('.contact-copy');
+
+if (copy && navigator.clipboard) {
+  const button = copy.querySelector('button');
+  const status = copy.querySelector('[role="status"]');
+  let clear = 0;
+
+  copy.hidden = false;
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy);
+      status.textContent = 'E-mail copiado.';
+    } catch {
+      status.textContent = 'Não foi possível copiar. Selecione o endereço acima.';
+    }
+    clearTimeout(clear);
+    clear = setTimeout(() => { status.textContent = ''; }, 4000);
+  });
+}
+
 const hero = document.querySelector('.hero');
 
 function introSeen() {

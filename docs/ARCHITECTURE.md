@@ -23,16 +23,18 @@ Sem JS, sem uma API ou sem recursos gráficos, a página continua apresentável 
 portfolio/
 ├── docs/            # BRIEFING, DESIGN, ARCHITECTURE, ROADMAP e style-guide.html
 ├── styles/
-│   └── main.css
+│   ├── global.css   # fundamentos, utilitários e componentes reutilizáveis
+│   └── main.css     # estilos específicos, na ordem da interface
 ├── scripts/
 │   ├── main.js      # módulo de entrada (coordenação da abertura)
 │   └── lab.js       # experimento do Laboratório, importado por main.js
 ├── assets/
 │   ├── fonts/       # WOFF2 e licenças OFL
-│   ├── icons/       # sprite SVG de tecnologias (Simple Icons, CC0)
-│   └── images/      # WebP em larguras responsivas
+│   ├── icons/       # sprites SVG de tecnologias e redes (Simple Icons, CC0)
+│   └── images/      # WebP em larguras responsivas; capturas por projeto
 ├── projetos/
-│   └── index.html   # acervo
+│   ├── index.html   # acervo
+│   └── psicologia/  # um diretório por estudo de caso
 ├── index.html
 ├── AGENTS.md
 ├── README.md
@@ -51,7 +53,12 @@ Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS o
 
 ## 5. CSS
 
-Um único `styles/main.css` enquanto o volume permitir. Dividir em arquivos ou adotar `@layer` quando houver responsabilidades distintas o bastante (por exemplo, tokens do design system e componentes) para justificar a separação.
+Dois arquivos, carregados nesta ordem em todas as páginas:
+
+- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados (rótulos, títulos, links, botão, link de card).
+- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, acervo, estudo de caso, sobre, laboratório, contato e rodapé), seguidos dos fallbacks sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
+
+Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
 
 - Custom Properties para tokens primitivos e semânticos; atmosferas definidas por seção.
 - Grid, Flexbox, propriedades lógicas, `clamp()` e media/container queries quando adequados.

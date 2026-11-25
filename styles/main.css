@@ -1,183 +1,5 @@
-/* Subconjunto latin, suficiente para o português. Licença OFL em assets/fonts. */
-@font-face {
-  font-family: "Manrope";
-  src: url("../assets/fonts/manrope-latin.woff2") format("woff2");
-  font-weight: 200 800;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("../assets/fonts/instrument-serif-latin.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("../assets/fonts/instrument-serif-italic-latin.woff2") format("woff2");
-  font-style: italic;
-  font-display: swap;
-}
-
-:root {
-  --color-obsidian: #0c0c10;
-  --color-porcelain: #ededf2;
-  --color-ultraviolet: #7148ff;
-  --color-ultraviolet-deep: #5d3ccf; /* Ultraviolet com contraste AA sobre Porcelain */
-  --color-aqua: #00d6cf;
-  --color-pulse: #ff426c;
-
-  --color-bg: var(--color-obsidian);
-  --color-text: var(--color-porcelain);
-  --color-accent: var(--color-aqua);
-  --color-muted: color-mix(in srgb, var(--color-porcelain) 72%, var(--color-obsidian));
-
-  /* Superfícies compartilhadas pelos fragmentos do hero e pelos estudos. */
-  --surface-grid:
-    radial-gradient(circle at 72% 30%, color-mix(in srgb, var(--color-ultraviolet) 65%, transparent), transparent 55%),
-    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
-    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
-    color-mix(in srgb, var(--color-ultraviolet) 10%, var(--color-obsidian));
-  --surface-flow: linear-gradient(var(--color-aqua), var(--color-ultraviolet) 55%, transparent) no-repeat;
-  --surface-page:
-    linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
-    repeating-linear-gradient(transparent 0 0.75rem, color-mix(in srgb, var(--color-obsidian) 12%, transparent) 0.75rem calc(0.75rem + 1px)) left 10% top 18% / 46% 40% no-repeat,
-    linear-gradient(135deg, var(--color-porcelain) 55%, color-mix(in srgb, var(--color-ultraviolet) 25%, var(--color-porcelain)));
-  --line: 1px solid color-mix(in srgb, var(--color-porcelain) 14%, transparent);
-  /* Luz do topo da página: atravessa o cabeçalho e a primeira seção, sem emenda. */
-  --light-top: color-mix(in srgb, var(--color-ultraviolet) 14%, transparent);
-
-  --font-sans: "Manrope", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-
-  --gutter: clamp(1rem, 4vw, 3rem);
-
-  color-scheme: dark;
-}
-
-/* Atmosfera clara: redefine os tokens semânticos para os descendentes. */
-.light {
-  --color-bg: var(--color-porcelain);
-  --color-text: var(--color-obsidian);
-  --color-accent: var(--color-ultraviolet-deep);
-  --color-muted: color-mix(in srgb, var(--color-obsidian) 72%, var(--color-porcelain));
-  --line: 1px solid color-mix(in srgb, var(--color-obsidian) 16%, transparent);
-
-  color-scheme: light;
-}
-
-/* Sem color-mix: valores equivalentes pré-calculados; brilhos decorativos são omitidos. */
-@supports not (color: color-mix(in srgb, red, blue)) {
-  :root {
-    --color-muted: #aeaeb3;
-    --surface-grid:
-      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      #161228;
-    --surface-page:
-      linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
-      linear-gradient(135deg, var(--color-porcelain) 55%, #cec4f5);
-    --line: 1px solid rgb(237 237 242 / 0.14);
-    --light-top: rgb(113 72 255 / 0.14);
-  }
-
-  .light {
-    --color-muted: #4b4b4f;
-    --line: 1px solid rgb(12 12 16 / 0.16);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  overflow-wrap: break-word;
-}
-
-h1,
-h2 {
-  margin-block: 0 1rem;
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
-}
-
-h1 {
-  font-size: clamp(2.75rem, 1.5rem + 6vw, 6rem);
-}
-
-h2 {
-  font-size: clamp(1.75rem, 1.25rem + 2.5vw, 3rem);
-}
-
-.lead {
-  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
-  font-weight: 300;
-  line-height: 1.45;
-  max-inline-size: 26ch;
-}
-
-body,
-.light {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-body {
-  background:
-    radial-gradient(40% 100% at 85% 0%, var(--light-top), transparent 70%) top / 100% min(100svh, 48rem) no-repeat,
-    var(--color-bg);
-}
-
-header,
-section,
-footer {
-  padding: 2rem var(--gutter);
-}
-
-p {
-  max-inline-size: 70ch;
-}
-
-a {
-  color: var(--color-accent);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-/* Oculto visualmente até receber foco. */
-.skip-link {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  z-index: 1;
-  padding: 0.75rem var(--gutter);
-  background: var(--color-bg);
-  transform: translateY(-100%);
-}
-
-.skip-link:focus {
-  transform: none;
-}
-
 /* Cabeçalho */
 
-/* Transparente: a luz do topo da página passa por trás dele. */
 .site-header {
   position: relative;
   z-index: 2;
@@ -189,36 +11,12 @@ a {
   padding-block: 1.5rem;
 }
 
-.signature {
-  /* Alvo de 44px sem alterar a altura do cabeçalho. */
-  margin-block: -0.5rem;
-  padding-block: 0.5rem;
-  font-size: 1.75rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-.signature span {
-  display: inline-block;
-  color: var(--color-accent);
-}
-
 .site-header ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem clamp(1rem, 3vw, 1.75rem);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
-/*
- * Links inline: o padding amplia o alvo para 44px sem alterar o layout.
- * O traço Aqua → Ultraviolet cresce da esquerda; na página atual, fica completo.
- */
 .site-header nav a {
   padding-block: 0.75rem;
   font-size: 0.9375rem;
@@ -234,44 +32,22 @@ a {
   background-size: 100% 1px;
 }
 
-.site-header nav a[aria-current="page"] {
+.site-header nav a[aria-current] {
   background-size: 100% 2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .site-header nav a {
-    transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* O ponto da assinatura salta de leve. */
-  .signature span {
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .signature:hover span,
-  .signature:focus-visible span {
-    transform: translateY(-0.18em);
-  }
-}
 
 /* Hall de entrada */
 
 .hero {
+  overflow: clip;
   display: grid;
   align-items: center;
   gap: clamp(1.5rem, 5vw, 3rem);
   padding-block: clamp(1.5rem, 5vh, 4rem) clamp(2.5rem, 8vh, 6rem);
-  position: relative;
-  isolation: isolate;
-  overflow: clip;
 }
 
-/* Luz ambiente: violeta atrás da composição, um reflexo de Aqua abaixo. */
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
   background:
     radial-gradient(55% 65% at 70% 45%, color-mix(in srgb, var(--color-ultraviolet) 20%, transparent), transparent 70%),
     radial-gradient(25% 30% at 85% 68%, color-mix(in srgb, var(--color-aqua) 8%, transparent), transparent 70%);
@@ -282,69 +58,14 @@ a {
   z-index: 1;
 }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-block: 0 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-.eyebrow::before {
-  content: "";
-  inline-size: 2rem;
-  border-block-start: 1px solid var(--color-accent);
-}
-
 .hero h1 {
-  margin-block-end: 1.5rem;
   font-size: clamp(3.5rem, 1.5rem + 7.5vw, 9rem);
-  font-weight: 700;
-  line-height: 0.88;
-}
-
-/* Contraste editorial: a segunda palavra em serifa itálica. */
-.hero h1 span,
-.works h2 span,
-.lab h2 span,
-.archive h1 span,
-.about h2 span {
-  display: block;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
 }
 
 .hero .lead {
   margin-block-end: 2rem;
 }
 
-.cta {
-  padding-block: 0.6875rem;
-  font-weight: 600;
-  color: var(--color-text);
-  text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.4em;
-}
-
-.cta:hover {
-  text-decoration-thickness: 2px;
-}
-
-.cta span {
-  color: var(--color-accent);
-}
-
-/*
- * Fragmentos provisórios. A perspectiva comum e um --z por fragmento
- * criam profundidade sem animação; os mais próximos parecem maiores.
- */
 .hero-visual {
   position: relative;
   aspect-ratio: 5 / 4;
@@ -358,7 +79,6 @@ a {
   transform: rotateX(4deg) rotateY(-12deg) translateZ(var(--z, 0));
 }
 
-/* Precisão: moldura e grade. */
 .frag-frame {
   --z: -80px;
   inset: 4% 0 12% 14%;
@@ -370,7 +90,6 @@ a {
   background: var(--surface-grid);
 }
 
-/* Fluidez: órbita e cápsula atravessam a grade. */
 .frag-orbit {
   --z: 30px;
   inset-block-start: 6%;
@@ -392,7 +111,6 @@ a {
   background: var(--surface-flow);
 }
 
-/* Superfície clara, tingida pela luz violeta: futura área de um trabalho. */
 .frag-surface {
   --z: 110px;
   inset-block-end: 2%;
@@ -414,11 +132,9 @@ a {
 
 @media (min-width: 56rem) {
   .hero {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
     min-block-size: min(88svh, 60rem);
   }
 
-  /* O texto avança sobre a borda escura da composição. */
   .hero-text {
     grid-area: 1 / 1 / 2 / 7;
   }
@@ -430,55 +146,38 @@ a {
   }
 }
 
-/* Projetos selecionados: reutiliza as superfícies dos fragmentos do hero, sem inclinação. */
+
+/* Projetos selecionados */
 
 .works {
-  padding-block: clamp(3rem, 1.5rem + 6vw, 9rem);
+  padding-block: clamp(3rem, 1.5rem + 4.5vw, 7rem);
 }
 
 .works-intro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem var(--gutter);
   margin-block-end: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-.works h2 {
-  margin: 0;
-  font-size: clamp(2.5rem, 1.25rem + 5.5vw, 6.5rem);
-  line-height: 0.9;
-}
-
-.works-intro p {
-  max-inline-size: 34ch;
-  margin: 0;
-  color: var(--color-muted);
 }
 
 .studies {
   display: grid;
   gap: clamp(2.5rem, 7vw, 4rem);
-  margin: 0;
-  padding: 0;
-  list-style: none;
+}
+
+.study:has(.card-link) {
+  position: relative;
+}
+
+.study .eyebrow {
+  margin-block: 1rem 0.5rem;
 }
 
 .study h3 {
   margin-block: 0 0.25rem;
   font-size: clamp(1.375rem, 1.125rem + 1vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
 .study h3 + p {
   margin: 0;
   color: var(--color-muted);
-}
-
-.study .eyebrow {
-  margin-block: 1rem 0.5rem;
 }
 
 .study-visual {
@@ -493,21 +192,6 @@ a {
   position: absolute;
 }
 
-/* Desenvolvimento: grade violeta com uma página editorial em primeiro plano. */
-.visual-dev {
-  aspect-ratio: 16 / 10;
-  background: var(--surface-grid);
-}
-
-.visual-dev::after {
-  inset-block-end: 10%;
-  inset-inline-end: 8%;
-  inline-size: 40%;
-  aspect-ratio: 4 / 3;
-  background: var(--surface-page);
-}
-
-/* Experimentação: órbita e cápsula de fluxo sobre o escuro. */
 .visual-lab {
   aspect-ratio: 4 / 5;
   background: radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--color-ultraviolet) 30%, transparent), transparent 60%);
@@ -518,7 +202,6 @@ a {
   inset-inline-start: 8%;
   inline-size: 76%;
   aspect-ratio: 1;
-  border: var(--line);
   border: 1px solid color-mix(in srgb, var(--color-porcelain) 24%, transparent);
   border-radius: 50%;
 }
@@ -531,10 +214,8 @@ a {
   background: var(--surface-flow);
 }
 
-/* Expressão visual: superfície clara, luz violeta e o acento Pulse. */
 .visual-art {
   aspect-ratio: 3 / 2;
-  background: var(--color-porcelain);
   background:
     radial-gradient(circle at 30% 60%, color-mix(in srgb, var(--color-ultraviolet) 55%, transparent), transparent 45%),
     linear-gradient(135deg, var(--color-porcelain) 40%, color-mix(in srgb, var(--color-ultraviolet) 25%, var(--color-porcelain)));
@@ -563,13 +244,8 @@ a {
   text-align: end;
 }
 
-/*
- * Mosaico: o principal à esquerda; Experimentação ao lado, na mesma altura;
- * Expressão visual logo abaixo do principal, ao lado da legenda dele.
- */
 @media (min-width: 56rem) {
   .studies {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: clamp(1.5rem, 3vw, 2.5rem) var(--gutter);
   }
 
@@ -590,10 +266,6 @@ a {
     grid-column: 1 / 5;
   }
 
-  /*
-   * Com subgrid, imagens e legendas compartilham as linhas do mosaico, e o
-   * acesso ao acervo ocupa o canto livre da última linha.
-   */
   @supports (grid-template-rows: subgrid) {
     .works {
       display: grid;
@@ -601,7 +273,9 @@ a {
       gap: clamp(1rem, 1.5vw, 1.5rem) var(--gutter);
     }
 
-    .works-intro {
+    .works-intro,
+    .study-visual,
+    .study-text {
       grid-column: 1 / -1;
     }
 
@@ -633,16 +307,10 @@ a {
       grid-row: 2 / 4;
     }
 
-    .study-visual,
-    .study-text {
-      grid-column: 1 / -1;
-    }
-
     .study-dev .study-text {
       grid-column: 5 / -1;
     }
 
-    /* Experimentação assenta na base do principal; as legendas se alinham. */
     .study-lab .study-visual {
       align-self: end;
     }
@@ -653,13 +321,89 @@ a {
   }
 }
 
-/* Acervo: índice tipográfico, com miniaturas dos trabalhos na proporção própria. */
 
-.archive {
-  padding: clamp(3rem, 10vh, 7rem) var(--gutter) clamp(4rem, 12vh, 9rem);
+/* Palco de projeto */
+
+.stage-psicologia {
+  --project-deep: #1d3541;
+  --project-glow: #8d6845;
+}
+
+.stage,
+.shot-frame {
+  --surface-project:
+    radial-gradient(60% 70% at 80% 15%, color-mix(in srgb, var(--project-glow) 50%, transparent), transparent 70%),
+    radial-gradient(50% 60% at 10% 100%, color-mix(in srgb, var(--color-ultraviolet) 22%, transparent), transparent 70%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
+    color-mix(in srgb, var(--project-deep) 65%, var(--color-obsidian));
+
+  border: var(--line);
+  background: var(--surface-project);
+}
+
+.stage {
   position: relative;
   isolation: isolate;
   overflow: clip;
+  aspect-ratio: 16 / 10;
+  background:
+    linear-gradient(var(--color-pulse) 0 0) left 86% top 13% / 1.6% 2.56% no-repeat,
+    linear-gradient(90deg, var(--color-aqua), var(--color-ultraviolet)) left 6% bottom 9% / 26% 2px no-repeat,
+    var(--surface-project);
+}
+
+.stage::before,
+.stage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+.stage::before {
+  inset-block-start: -30%;
+  inset-inline-end: -10%;
+  inline-size: 50%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-porcelain) 22%, transparent);
+  border-radius: 50%;
+}
+
+.stage::after {
+  inset: 7% 24% 15% 3%;
+  border: 1px solid color-mix(in srgb, var(--color-porcelain) 16%, transparent);
+}
+
+.stage img {
+  position: absolute;
+  display: block;
+  block-size: auto;
+  box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.65);
+}
+
+.stage-desktop {
+  inset-block-start: 12%;
+  inset-inline-start: 6%;
+  inline-size: 66%;
+  border-radius: 0.25rem;
+}
+
+.stage-mobile {
+  inset-block-end: 8%;
+  inset-inline-end: 7%;
+  inline-size: 18%;
+  border-radius: 12% / 5.5%;
+  outline: 1px solid color-mix(in srgb, var(--color-porcelain) 20%, transparent);
+}
+
+
+/* Acervo */
+
+.archive {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(3rem, 10vh, 7rem) var(--gutter) clamp(4rem, 12vh, 9rem);
 }
 
 .archive-intro {
@@ -667,10 +411,7 @@ a {
 }
 
 .archive h1 {
-  margin-block-end: 1.5rem;
   font-size: clamp(3.25rem, 1.25rem + 7vw, 8rem);
-  font-weight: 700;
-  line-height: 0.88;
 }
 
 .archive-intro h1 + p {
@@ -680,13 +421,11 @@ a {
 }
 
 .archive-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
   border-block-end: var(--line);
 }
 
 .entry {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas:
@@ -734,14 +473,9 @@ a {
 
 .entry-meta dt {
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-muted);
 }
 
 .entry-meta dd {
-  margin: 0;
   font-weight: 500;
 }
 
@@ -775,7 +509,6 @@ a {
     margin: 0;
   }
 
-  /* Altura comum; a largura segue a proporção de cada trabalho. */
   .entry .study-visual {
     grid-area: 1 / 10 / 3 / 13;
     justify-self: end;
@@ -783,34 +516,759 @@ a {
   }
 }
 
-/* Sobre: atmosfera clara, texto editorial e espaço negativo. */
+
+/* Estudo de caso */
+
+.project-psicologia {
+  --project-deep: #1d3541;
+  --project-glow: #8d6845;
+  --project-light: #ccb28e;
+  --project-paper: #f7f5f0;
+}
+
+.case {
+  overflow-x: clip;
+  padding: clamp(2rem, 1rem + 4vw, 4rem) var(--gutter) var(--space-section);
+}
+
+.case::before {
+  inset: -12rem 0 auto;
+  block-size: calc(min(120vh, 70rem) + 12rem);
+  background: radial-gradient(45% 55% at 85% 20%, color-mix(in srgb, var(--project-glow) 16%, transparent), transparent 70%);
+}
+
+.case .voice,
+.case .index {
+  color: var(--project-light);
+}
+
+.case dt {
+  margin-block-end: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.case figcaption {
+  margin-block-start: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.case code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+}
+
+.case-back {
+  margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+}
+
+.case-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.case-back a:hover,
+.case-back a:focus-visible {
+  color: var(--color-text);
+}
+
+.case h1 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3rem, 1.25rem + 7vw, 8rem);
+}
+
+.case-summary .lead {
+  margin: 0;
+  max-inline-size: 30ch;
+}
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.75rem;
+  margin-block-start: 2rem;
+}
+
+.case-links svg {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  fill: currentColor;
+}
+
+.case-stage {
+  margin-block-start: clamp(2rem, 5vw, 3rem);
+}
+
+.case-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1rem var(--gutter);
+  margin: 1.5rem 0 0;
+}
+
+.case-facts > div {
+  padding-block-start: 0.75rem;
+  border-block-start: var(--line);
+}
+
+.case-tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.case-tech svg {
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  fill: var(--color-accent);
+}
+
+.case-chapter {
+  display: grid;
+  gap: 1.5rem var(--gutter);
+  align-items: start;
+  margin-block-start: var(--space-section);
+  padding: 0;
+}
+
+.case-heading h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 2.75rem);
+}
+
+.case-text p {
+  max-inline-size: 60ch;
+  margin-block: 0 1.25rem;
+  color: var(--color-muted);
+}
+
+.case-text p:first-child {
+  font-size: 1.125rem;
+  color: var(--color-text);
+}
+
+.case-text p:last-child {
+  margin-block-end: 0;
+}
+
+.shot {
+  margin: 0;
+}
+
+.shot-frame {
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+.shot-frame img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 0.25rem;
+  box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.65);
+}
+
+.shot-phone .shot-frame img {
+  inline-size: min(100%, 15rem);
+  border-radius: 1rem;
+}
+
+.case-identity {
+  --color-text: var(--project-deep);
+  --color-muted: color-mix(in srgb, var(--project-deep) 78%, var(--project-paper));
+  --color-accent: var(--project-glow);
+  --line: 1px solid color-mix(in srgb, var(--project-deep) 18%, transparent);
+
+  margin-inline: calc(var(--gutter) * -1);
+  padding: clamp(3rem, 1.5rem + 4vw, 6rem) var(--gutter);
+  color: var(--color-text);
+  background: var(--project-paper);
+  color-scheme: light;
+}
+
+.case-identity .index {
+  color: var(--project-glow);
+}
+
+.case-identity .shot-frame {
+  background: color-mix(in srgb, var(--project-deep) 7%, var(--project-paper));
+}
+
+.case-identity .shot-frame img {
+  box-shadow: 0 1.25rem 2.5rem -1.25rem rgb(29 53 65 / 0.35);
+}
+
+.case-palette {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.case-palette li::before {
+  content: "";
+  display: block;
+  block-size: clamp(4.5rem, 10vw, 8rem);
+  margin-block-end: 0.75rem;
+  border: var(--line);
+  background: var(--swatch);
+}
+
+.case-palette span,
+.case-palette code {
+  display: block;
+}
+
+.case-palette span {
+  font-weight: 600;
+}
+
+.case-palette code,
+.case-type dd {
+  color: var(--color-muted);
+}
+
+.case-type {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.case-type > div,
+.case-spec > div {
+  padding-block-start: 0.75rem;
+  border-block-start: var(--line);
+}
+
+.case-type dd {
+  font-size: 1.25rem;
+}
+
+.case-spec {
+  margin: 0;
+  border-block-end: var(--line);
+}
+
+.case-spec > div {
+  display: grid;
+  gap: 0.25rem var(--gutter);
+  padding-block: 1rem;
+}
+
+.case-spec dt {
+  margin: 0;
+  padding-block-start: 0.2rem;
+}
+
+.psi {
+  --tone-good: var(--color-aqua);
+  --tone-average: #f5a524;
+  --tone-poor: var(--color-pulse);
+
+  display: grid;
+  gap: 1.5rem var(--gutter);
+  margin-block-start: 1rem;
+  padding-block-start: 1.5rem;
+  border-block-start: var(--line);
+}
+
+.psi-good { --tone: var(--tone-good); }
+.psi-average { --tone: var(--tone-average); }
+.psi-poor { --tone: var(--tone-poor); }
+
+.psi-head {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.psi-switch {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.psi-switch {
+  gap: 1.5rem;
+}
+
+.psi-switch label {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-block-end: 2px solid transparent;
+  cursor: pointer;
+}
+
+.psi-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.psi-switch label:has(:checked) {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.psi-switch label:has(:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.psi-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.psi-legend li,
+.psi-metrics dt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.psi-legend li::before,
+.psi-metrics dt::before {
+  content: "";
+  flex: none;
+  inline-size: 0.625rem;
+  block-size: 0.625rem;
+  background: var(--tone);
+}
+
+.psi-good::before,
+.psi-good dt::before { border-radius: 50%; }
+.psi-poor::before,
+.psi-poor dt::before { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+
+.psi:has(.psi-switch [value="mobile"]:checked) .psi-desktop,
+.psi:has(.psi-switch [value="desktop"]:checked) .psi-mobile {
+  display: none;
+}
+
+.psi-scores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+  padding-block-end: 1.5rem;
+}
+
+.psi-scores li {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+@property --psi-fill {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.psi-gauge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: clamp(4.5rem, 3.5rem + 3vw, 6rem);
+  aspect-ratio: 1;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.psi-gauge::before {
+  --psi-fill: var(--score);
+
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--tone) calc(var(--psi-fill) * 1%), color-mix(in srgb, var(--color-text) 14%, transparent) 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+}
+
+.psi-metrics {
+  display: grid;
+  column-gap: var(--gutter);
+  margin: 0;
+}
+
+.psi-metrics > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1rem;
+  padding-block: 0.75rem;
+  border-block-start: var(--line);
+}
+
+.psi-metrics dt {
+  margin: 0;
+}
+
+.psi-metrics dd {
+  padding-inline-start: 1.125rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.psi-env,
+.psi-source {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.psi-env {
+  margin-block-start: 0.75rem;
+}
+
+.weight-total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+  margin: 1rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.weight-number {
+  font-family: var(--font-serif);
+  font-size: clamp(5rem, 3rem + 9vw, 10rem);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  color: var(--project-light);
+}
+
+.weight-total .label {
+  flex-basis: 100%;
+  margin-block-start: 1rem;
+}
+
+.weight-chart {
+  margin: 0;
+}
+
+.weight-bar {
+  display: flex;
+  gap: 3px;
+  block-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.weight-bar span {
+  flex: var(--kb) 1 0;
+  min-inline-size: 0.375rem;
+  background: var(--swatch);
+}
+
+.weight-bar span:nth-child(1),
+.weight-legend > div:nth-child(1) { --swatch: var(--project-light); }
+.weight-bar span:nth-child(2),
+.weight-legend > div:nth-child(2) { --swatch: var(--project-glow); }
+.weight-bar span:nth-child(3),
+.weight-legend > div:nth-child(3) { --swatch: var(--color-accent); }
+
+@media (hover: hover) {
+  .weight-chart:has(.weight-bar span:nth-child(1):hover, .weight-legend > div:nth-child(1):hover) :is(.weight-bar span, .weight-legend > div):not(:nth-child(1)),
+  .weight-chart:has(.weight-bar span:nth-child(2):hover, .weight-legend > div:nth-child(2):hover) :is(.weight-bar span, .weight-legend > div):not(:nth-child(2)),
+  .weight-chart:has(.weight-bar span:nth-child(3):hover, .weight-legend > div:nth-child(3):hover) :is(.weight-bar span, .weight-legend > div):not(:nth-child(3)) {
+    opacity: 0.3;
+  }
+}
+
+.weight-legend {
+  display: grid;
+  gap: 0.75rem var(--gutter);
+  margin: 1.25rem 0 0;
+}
+
+.weight-legend > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1rem;
+  padding-block-start: 0.75rem;
+  border-block-start: var(--line);
+}
+
+.weight-legend dt::before {
+  content: "";
+  display: inline-block;
+  inline-size: 0.625rem;
+  block-size: 0.625rem;
+  margin-inline-end: 0.5rem;
+  background: var(--swatch);
+}
+
+.weight-legend dd {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.case-audit {
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+  padding-block-start: 1.5rem;
+  border-block-start: var(--line);
+}
+
+.case-audit p {
+  max-inline-size: 52ch;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.case-next {
+  margin-block-start: var(--space-section);
+  padding: 2rem 0 0;
+  border-block-start: var(--line);
+}
+
+.case-next h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 2.75rem);
+}
+
+.case-next .voice {
+  display: inline;
+}
+
+@media (min-width: 40rem) {
+  .case-spec > div {
+    grid-template-columns: 11rem minmax(0, 1fr);
+  }
+
+  .weight-legend {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .weight-legend > div {
+    display: block;
+  }
+
+  .psi-scores {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .psi-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .psi-metrics > div {
+    display: block;
+  }
+}
+
+@media (min-width: 56rem) {
+  .case-back,
+  .case-intro .eyebrow,
+  .case h1 {
+    grid-column: 1 / -1;
+  }
+
+  .case-summary {
+    grid-area: 4 / 1 / 5 / 5;
+    align-self: end;
+  }
+
+  .case-stage {
+    grid-area: 4 / 5 / 5 / 13;
+    margin-block-start: clamp(-2.5rem, -3vw, -1.5rem);
+  }
+
+  .case-facts {
+    grid-area: 5 / 5 / 6 / 13;
+  }
+
+  .case-heading {
+    grid-column: 1 / 5;
+  }
+
+  .case-text {
+    grid-column: 5 / 11;
+  }
+
+  .case-opening .case-heading,
+  .case-opening .case-text {
+    grid-column: 1 / 6;
+  }
+
+  .case-opening .case-text {
+    grid-row: 2;
+  }
+
+  .shot-detail {
+    grid-area: 1 / 7 / 4 / 13;
+    align-self: center;
+  }
+
+  .case-identity {
+    grid-template-rows: auto auto 1fr;
+  }
+
+  .case-identity .shot-wide {
+    grid-area: 2 / 1 / 4 / 9;
+    margin-block-start: 1.5rem;
+  }
+
+  .case-palette {
+    grid-area: 2 / 9 / 3 / 13;
+    margin-block-start: 1.5rem;
+  }
+
+  .case-palette li::before {
+    block-size: 5rem;
+  }
+
+  .case-type {
+    grid-area: 3 / 9 / 4 / 13;
+    align-self: start;
+    margin-block-start: 1rem;
+  }
+
+  .shot-agenda {
+    grid-column: 1 / 9;
+  }
+
+  .shot-phone {
+    grid-column: 10 / 13;
+    align-self: end;
+  }
+
+  .case-spec {
+    grid-column: 5 / 13;
+  }
+
+  .weight-total {
+    grid-column: 1 / 5;
+    align-self: end;
+  }
+
+  .weight-chart,
+  .case-audit {
+    grid-column: 5 / 13;
+  }
+
+  .psi {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .psi-head {
+    grid-area: 1 / 1;
+    align-self: start;
+  }
+
+  .psi-panel {
+    grid-area: 1 / 2 / 3;
+  }
+
+  .psi-source {
+    grid-area: 2 / 1;
+    align-self: end;
+  }
+
+  @supports (grid-template-columns: subgrid) {
+    .psi {
+      grid-template-columns: subgrid;
+    }
+
+    .psi-head,
+    .psi-source {
+      grid-column: 1 / 5;
+    }
+
+    .psi-panel {
+      grid-column: 5 / 13;
+    }
+  }
+
+
+  .case-next {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem var(--gutter);
+  }
+
+  .case-next .case-links {
+    margin: 0;
+  }
+}
+
+@media (min-width: 75rem) {
+  .case-facts {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+/* Sobre */
 
 .about {
   display: grid;
   align-items: start;
   column-gap: var(--gutter);
-  padding-block: clamp(3.5rem, 2rem + 8vw, 11rem);
-  /* As formas ao redor do retrato podem sangrar além da borda da página. */
+  padding-block: var(--space-section);
+
   overflow-x: clip;
 }
 
-/*
- * Retrato: a fotografia fica intacta; grade, moldura, órbita, cápsula e acento
- * são camadas independentes, posicionadas em relação a ela.
- */
+.about h2 {
+  margin-block-end: clamp(2rem, 1rem + 6vw, 6rem);
+}
+
+.about h3,
+.about dt {
+  margin-block: 0 1.5rem;
+}
+
 .about-portrait {
   position: relative;
   isolation: isolate;
   inline-size: min(78%, 26rem);
-  /* Espaço para a órbita, que sobe acima da foto, sem tocar o título. */
+
   margin-block: 4.5rem clamp(4rem, 12vw, 6rem);
   margin-inline-start: auto;
 }
 
 .about-portrait img {
-  display: block;
   position: relative;
   z-index: 1;
+  display: block;
   inline-size: 100%;
   block-size: auto;
   box-shadow: 0 2.5rem 4rem -2rem color-mix(in srgb, var(--color-obsidian) 45%, transparent);
@@ -821,7 +1279,6 @@ a {
   pointer-events: none;
 }
 
-/* Painel de grade tingido de violeta, deslocado para fora da página. */
 .shape-panel {
   z-index: -1;
   inset: 16% -45% -12% 22%;
@@ -832,14 +1289,12 @@ a {
     color-mix(in srgb, var(--color-ultraviolet) 8%, var(--color-porcelain));
 }
 
-/* Moldura de precisão: só os cantos aparecem por trás da foto. */
 .shape-frame {
   z-index: -1;
   inset: -7% 10% 10% -9%;
   border: var(--line);
 }
 
-/* Órbita: atravessa o canto superior, longe do rosto. */
 .shape-orbit {
   z-index: 2;
   inset-block-start: -22%;
@@ -850,7 +1305,6 @@ a {
   border-radius: 50%;
 }
 
-/* Fluxo: a cápsula Aqua → Ultraviolet cruza a borda esquerda. */
 .shape-flow {
   z-index: 2;
   inset-block-end: 10%;
@@ -870,36 +1324,6 @@ a {
   background: var(--color-pulse);
 }
 
-/* Sem color-mix: valores equivalentes pré-calculados. */
-@supports not (color: color-mix(in srgb, red, blue)) {
-  .about-portrait img {
-    box-shadow: 0 2.5rem 4rem -2rem rgb(12 12 16 / 0.45);
-  }
-
-  .shape-panel {
-    background:
-      repeating-linear-gradient(90deg, rgb(12 12 16 / 0.08) 0 1px, transparent 1px 2.5rem),
-      repeating-linear-gradient(0deg, rgb(12 12 16 / 0.08) 0 1px, transparent 1px 2.5rem),
-      #e2dff3;
-  }
-
-  .shape-orbit {
-    border-color: rgb(93 60 207 / 0.45);
-  }
-}
-
-.about h2 {
-  margin-block-end: clamp(2rem, 1rem + 6vw, 6rem);
-  font-size: clamp(2.5rem, 1.25rem + 5.5vw, 6.5rem);
-  line-height: 0.9;
-}
-
-/* O ponto final em acento, como na assinatura. */
-.about h2 i {
-  font-style: inherit;
-  color: var(--color-accent);
-}
-
 .about-lead {
   margin-block: 0 2rem;
   font-size: clamp(1.375rem, 1.1rem + 1.2vw, 2.125rem);
@@ -908,33 +1332,13 @@ a {
   max-inline-size: 22ch;
 }
 
-.about-text p {
+.about-text p,
+.about-principles p {
   max-inline-size: 46ch;
   margin-block: 0 1.25rem;
   color: var(--color-muted);
 }
 
-.about-principles {
-  margin-block-start: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
-}
-
-/* Rótulos dos blocos do Sobre. */
-.about h3,
-.about dt {
-  margin-block: 0 1.5rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-.about-capabilities,
-.about-principles {
-  margin-block-start: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
-}
-
-/* Destaques: experiência e formação, com o valor em serifa. */
 .about-facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -942,18 +1346,22 @@ a {
   margin: 2rem 0 0;
 }
 
-.about-facts > div {
+.about-facts > div,
+.about-community dl > div {
   padding-block-start: 0.875rem;
   border-block-start: var(--line);
 }
 
-.about .about-facts dt {
+.about-facts dt {
   margin-block-end: 0.5rem;
 }
 
-.about-facts dd {
-  margin: 0;
+.about-facts dd,
+.about-community dd {
   font-size: 0.9375rem;
+}
+
+.about-facts dd {
   color: var(--color-muted);
 }
 
@@ -966,7 +1374,6 @@ a {
   color: var(--color-text);
 }
 
-/* Comunidade: registro discreto, subordinado aos destaques e às capacidades. */
 .about-community {
   margin-block-start: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
 }
@@ -977,18 +1384,8 @@ a {
   margin: 0;
 }
 
-.about-community dl > div {
-  padding-block-start: 0.875rem;
-  border-block-start: var(--line);
-}
-
-.about .about-community dl dt {
+.about-community dt {
   margin-block-end: 0.375rem;
-}
-
-.about-community dd {
-  margin: 0;
-  font-size: 0.9375rem;
 }
 
 .about-community dd + dd {
@@ -1003,16 +1400,14 @@ a {
   content: " · ";
 }
 
-/*
- * Capacidades: cada uma reúne o que faz e as tecnologias que usa. Os ícones
- * são a assinatura visual do grupo; os nomes ficam no texto, uma única vez.
- */
+.about-capabilities,
+.about-principles {
+  margin-block-start: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
+}
+
 .capabilities {
   display: grid;
   gap: 2rem var(--gutter);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .capability {
@@ -1020,21 +1415,9 @@ a {
   border-block-start: var(--line);
 }
 
-.capability-index {
-  margin: 0 0 0.75rem;
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1;
-  color: var(--color-accent);
-}
-
 .capability h4 {
   margin: 0 0 0.5rem;
-  font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
-  font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.02em;
 }
 
 .capability h4 + p {
@@ -1068,18 +1451,12 @@ a {
   margin: 2.5rem 0 0;
 }
 
-.about .about-tools dt {
+.about-tools dt {
   margin-block-end: 0.25rem;
 }
 
-.about-tools dd {
-  margin: 0;
-}
-
 .about-principles ul {
-  margin: 0 0 2rem;
-  padding: 0;
-  list-style: none;
+  margin-block-end: 2rem;
   border-block-end: var(--line);
 }
 
@@ -1092,7 +1469,6 @@ a {
   letter-spacing: -0.03em;
 }
 
-/* O verbo em serifa itálica: o contraste entre construção e fluxo. */
 .about-principles em {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -1101,16 +1477,10 @@ a {
 }
 
 .about-principles p {
-  max-inline-size: 46ch;
   margin: 0;
-  color: var(--color-muted);
 }
 
 @media (min-width: 56rem) {
-  .about {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
   .about .eyebrow,
   .about h2 {
     grid-column: 1 / 9;
@@ -1120,7 +1490,6 @@ a {
     grid-column: 1 / 6;
   }
 
-  /* O texto desce em degrau, ao lado do retrato. */
   .about-text {
     grid-column: 3 / 8;
   }
@@ -1132,32 +1501,23 @@ a {
     margin: 0;
   }
 
-  /* Os destaques ocupam a coluna do retrato, ao lado do texto. */
   .about-facts {
     grid-area: 4 / 9 / 6 / 13;
     grid-template-columns: minmax(0, 1fr);
     margin-block-start: 4.5rem;
   }
 
-  /* A comunidade continua o degrau do texto, ao lado dos destaques. */
   .about-community {
     grid-area: 5 / 3 / 6 / 8;
   }
 
-  .about-capabilities {
+  .about-capabilities,
+  .about-principles {
     grid-column: 1 / 13;
   }
 
   .capabilities {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  /* Os princípios avançam para a direita; o rótulo e o fecho ocupam o vazio à esquerda. */
-  .about-principles {
-    display: grid;
-    grid-column: 1 / 13;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--gutter);
   }
 
   .about-principles h3 {
@@ -1186,47 +1546,24 @@ a {
   }
 }
 
-/* Laboratório: retorno ao escuro, com mais liberdade cromática. */
+
+/* Laboratório */
 
 .lab {
-  position: relative;
-  isolation: isolate;
   overflow-x: clip;
-  padding-block: clamp(3.5rem, 2rem + 8vw, 11rem);
+  padding-block: var(--space-section);
 }
 
 .lab::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
   background:
     radial-gradient(40% 35% at 10% 15%, color-mix(in srgb, var(--color-ultraviolet) 18%, transparent), transparent 70%),
     radial-gradient(30% 30% at 90% 85%, color-mix(in srgb, var(--color-aqua) 8%, transparent), transparent 70%);
 }
 
 .lab-intro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem var(--gutter);
   margin-block-end: clamp(2rem, 1rem + 5vw, 5rem);
 }
 
-.lab h2 {
-  margin: 0;
-  font-size: clamp(2.5rem, 1.25rem + 5.5vw, 6.5rem);
-  line-height: 0.9;
-}
-
-.lab-intro > p {
-  max-inline-size: 34ch;
-  margin: 0;
-  color: var(--color-muted);
-}
-
-/* O palco sangra até as bordas da página. */
 .experiment-stage {
   aspect-ratio: 1;
   margin-inline: calc(var(--gutter) * -1);
@@ -1257,7 +1594,6 @@ a {
   vector-effect: non-scaling-stroke;
 }
 
-/* A grade se apaga conforme o fluxo cresce; as correntes ganham luz e espessura. */
 .lab-grid path {
   stroke: var(--color-porcelain);
   stroke-opacity: calc(0.02 + 0.16 * (1 - var(--flow, 0)));
@@ -1304,9 +1640,7 @@ a {
 .experiment h3 {
   margin: 0;
   font-size: clamp(1.5rem, 1.125rem + 1.5vw, 2.25rem);
-  font-weight: 600;
   line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 .experiment-description {
@@ -1321,7 +1655,6 @@ a {
   gap: 1rem;
 }
 
-/* Os rótulos acompanham o controle: o peso se dissolve, a serifa se acende. */
 .control-start {
   font-weight: calc(800 - 500 * var(--flow, 0));
   letter-spacing: -0.02em;
@@ -1354,10 +1687,6 @@ a {
     aspect-ratio: 21 / 9;
   }
 
-  .experiment-caption {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
   .experiment-heading {
     grid-column: 1 / 5;
   }
@@ -1371,66 +1700,346 @@ a {
   }
 }
 
-/*
- * Abertura: A (tipográfico) → B (equilibrado) → C (visual, o layout acima).
- * Roda só em CSS, com transform e opacity; o JS apenas a conclui em visitas
- * seguintes ou quando há interação. Sem animação, a página já está no estado
- * final. Os textos mantêm contraste AA durante toda a abertura.
- */
+
+/* Contato */
+
+.contact {
+  overflow: clip;
+  display: grid;
+  align-items: end;
+  column-gap: var(--gutter);
+  padding-block: var(--space-section) clamp(3rem, 1.5rem + 6vw, 7rem);
+}
+
+.contact::before {
+  z-index: -2;
+  background:
+    radial-gradient(60% 70% at 15% 100%, color-mix(in srgb, var(--color-ultraviolet) 22%, transparent), transparent 70%),
+    radial-gradient(25% 35% at 80% 20%, color-mix(in srgb, var(--color-aqua) 7%, transparent), transparent 70%);
+}
+
+.contact-shapes > * {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.contact-orbit {
+  inset-block-start: clamp(-14rem, -18vw, -4rem);
+  inset-inline-end: clamp(-22rem, -26vw, -5rem);
+  inline-size: clamp(16rem, 48vw, 42rem);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-ultraviolet) 40%, transparent);
+  border-radius: 50%;
+  rotate: -20deg;
+}
+
+.contact-accent {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  inline-size: clamp(0.5rem, 1vw, 0.875rem);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  rotate: 20deg;
+  background: var(--color-pulse);
+}
+
+.contact-flow {
+  inset-block-end: clamp(2rem, 6vw, 5rem);
+  inset-inline-end: calc(var(--gutter) * -1);
+  inline-size: clamp(7rem, 22vw, 20rem);
+  block-size: clamp(0.75rem, 1.4vw, 1.25rem);
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--color-ultraviolet) 45%, var(--color-aqua));
+  transform-origin: right;
+}
+
+.contact h2 {
+  margin-block-end: clamp(2rem, 1rem + 5vw, 4rem);
+}
+
+.contact-email > p:first-child {
+  margin: 0 0 0.5rem;
+  color: var(--color-muted);
+}
+
+.contact-email > a {
+  display: inline-block;
+  padding-block: 0.375rem 0.625rem;
+  font-size: clamp(1.625rem, 0.75rem + 3.6vw, 4.25rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--color-aqua), var(--color-ultraviolet)) left bottom / 100% 1px no-repeat;
+}
+
+.contact-email > a:hover,
+.contact-email > a:focus-visible {
+  background-size: 100% 3px;
+}
+
+.contact-copy:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: 1.25rem 0 0;
+}
+
+.contact-copy button {
+  min-block-size: 2.75rem;
+  padding: 0 1.25rem;
+  border: var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.contact-copy button:hover {
+  border-color: var(--color-accent);
+}
+
+.contact-copy [role="status"] {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.contact-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(1.5rem, 4vw, 3rem);
+  margin-block-start: clamp(2rem, 1rem + 4vw, 3.5rem);
+}
+
+.contact-channels a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-block-size: 2.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.contact-channels svg {
+  flex: none;
+  inline-size: 1.375rem;
+  block-size: 1.375rem;
+  fill: var(--color-accent);
+}
+
+.contact-channels small {
+  margin-inline-start: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.contact-channels a:hover span,
+.contact-channels a:focus-visible span {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.3em;
+}
+
+@media (min-width: 56rem) {
+  .contact .eyebrow {
+    grid-column: 1 / 13;
+  }
+
+  .contact h2 {
+    grid-column: 1 / 5;
+    margin: 0;
+  }
+
+  .contact-email,
+  .contact-channels {
+    grid-column: 5 / 13;
+  }
+}
+
+
+/* Rodapé */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 1.5rem;
+  border-block-start: var(--line);
+}
+
+.site-footer p,
+.to-top {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.site-footer p {
+  color: var(--color-muted);
+}
+
+.to-top span {
+  display: inline-block;
+  color: var(--color-accent);
+}
+
+
+/* Sem color-mix */
+
+@supports not (color: color-mix(in srgb, red, blue)) {
+  .visual-lab::before {
+    border: var(--line);
+  }
+
+  .visual-art {
+    background: var(--color-porcelain);
+  }
+
+  .stage,
+  .shot-frame {
+    --surface-project:
+      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      #15232c;
+  }
+
+  .stage::before,
+  .stage::after,
+  .stage-mobile {
+    border-color: rgb(237 237 242 / 0.2);
+    outline-color: rgb(237 237 242 / 0.2);
+  }
+
+  .case::before {
+    background: radial-gradient(45% 55% at 85% 20%, rgb(141 104 69 / 0.16), transparent 70%);
+  }
+
+  .case-identity .shot-frame {
+    background: #e9eaea;
+  }
+
+  .psi-gauge::before {
+    background: conic-gradient(var(--tone) calc(var(--psi-fill) * 1%), rgb(237 237 242 / 0.12) 0);
+  }
+
+  .case-identity {
+    --color-muted: #48606a;
+    --line: 1px solid rgb(29 53 65 / 0.18);
+  }
+
+  .about-portrait img {
+    box-shadow: 0 2.5rem 4rem -2rem rgb(12 12 16 / 0.45);
+  }
+
+  .shape-panel {
+    background:
+      repeating-linear-gradient(90deg, rgb(12 12 16 / 0.08) 0 1px, transparent 1px 2.5rem),
+      repeating-linear-gradient(0deg, rgb(12 12 16 / 0.08) 0 1px, transparent 1px 2.5rem),
+      #e2dff3;
+  }
+
+  .shape-orbit {
+    border-color: rgb(93 60 207 / 0.45);
+  }
+
+  .contact::before {
+    background: radial-gradient(60% 70% at 15% 100%, rgb(113 72 255 / 0.22), transparent 70%);
+  }
+
+  .contact-orbit {
+    border-color: rgb(113 72 255 / 0.4);
+  }
+}
+
+
+/* Movimento */
+
 @media (prefers-reduced-motion: no-preference) {
+
+  .weight-bar span,
+  .weight-legend > div {
+    transition: opacity 0.4s var(--ease-out);
+  }
+
+  .site-header nav a,
+  .contact-email > a {
+    transition: background-size 0.3s var(--ease-out);
+  }
+
+  .signature span,
+  .to-top span {
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .signature:hover span,
+  .signature:focus-visible span {
+    transform: translateY(-0.18em);
+  }
+
+  .to-top:hover span,
+  .to-top:focus-visible span {
+    transform: translateY(-0.2em);
+  }
+
+  .stage img {
+    transition: translate 0.6s var(--ease-out);
+  }
+
+  :is(.study, .entry):has(.card-link:hover, .card-link:focus-visible) .stage-mobile {
+    translate: 0 -5%;
+  }
+
+  :is(.study, .entry):has(.card-link:hover, .card-link:focus-visible) .stage-desktop {
+    translate: 0 2%;
+  }
+
+  .contact-flow {
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .contact:has(.contact-email > a:is(:hover, :focus-visible)) .contact-flow {
+    transform: scaleX(1.3);
+  }
+
   .hero {
-    --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
     --intro-name: translateY(1.25rem) scale(1.06);
     view-timeline: --hero;
   }
 
   .hero::before {
-    animation: intro-light 2.4s var(--intro-ease) backwards;
+    animation: intro-light 2.4s var(--ease-out) backwards;
   }
 
   .hero h1 {
     transform-origin: 0 50%;
-    animation: intro-name 2.2s var(--intro-ease) backwards;
+    animation: intro-name 2.2s var(--ease-out) backwards;
   }
 
   .hero-text p {
-    animation: intro-text 1.2s var(--intro-ease) 0.9s backwards;
+    animation: intro-text 1.2s var(--ease-out) 0.9s backwards;
   }
 
-  /*
-   * A segunda animação de cada lista segue o scroll: ao sair, os fragmentos
-   * perdem inclinação e profundidade. A faixa "exit" só começa após a rolagem,
-   * então não interfere na abertura. Sem suporte a animation-timeline, ela tem
-   * duração 0 e nenhum efeito: a página fica estática.
-   */
   .hero-visual {
-    animation: intro-visual 2.2s var(--intro-ease) backwards, hero-descend linear;
+    animation: intro-visual 2.2s var(--ease-out) backwards, hero-descend linear;
     animation-timeline: auto, --hero;
     animation-range: normal, exit 0% exit 80%;
   }
 
   .hero-visual span {
-    animation: intro-depth 1.8s var(--intro-ease) var(--intro-delay, 0s) backwards, hero-settle linear;
+    animation: intro-depth 1.8s var(--ease-out) var(--intro-delay, 0s) backwards, hero-settle linear;
     animation-timeline: auto, --hero;
     animation-range: normal, exit 0% exit 80%;
-  }
-
-  /* Os estudos chegam com a perspectiva dos fragmentos e se assentam. */
-  .studies .study-visual {
-    --arrive: scale(0.94);
-    animation: study-arrive linear backwards;
-    animation-timeline: view();
-    animation-range: entry 0% cover 45%;
-  }
-
-  /* No mosaico, Experimentação se assenta logo depois do principal. */
-  .studies .study-lab .study-visual {
-    animation-range: entry 15% cover 55%;
-  }
-
-  /* Os estudos inclinados ultrapassariam a largura da página. */
-  .works {
-    overflow: clip;
   }
 
   .frag-main { --intro-delay: 0.1s; }
@@ -1439,17 +2048,124 @@ a {
   .frag-surface { --intro-delay: 0.5s; }
   .frag-accent { --intro-delay: 0.7s; }
 
+  .works {
+    overflow: clip;
+  }
+
   @media (min-width: 56rem) {
-    /* No desktop, o nome começa maior e mais ao centro da composição. */
     .hero {
       --intro-name: translate(32%, 10%) scale(1.16);
     }
+  }
 
-    .studies .study-visual {
-      --arrive: perspective(1600px) rotateX(4deg) rotateY(-12deg) scale(0.92);
+  @media (hover: hover) and (pointer: fine) {
+    .hero-visual span,
+    .hero::before,
+    .frag-main::after {
+      transition: translate 0.9s var(--ease-out), opacity 0.6s ease;
+    }
+
+    .hero-visual span {
+      translate: calc(var(--px, 0) * var(--z, 0px) / 8) calc(var(--py, 0) * var(--z, 0px) / 8);
+    }
+
+    .hero::before {
+      translate: calc(var(--px, 0) * 3%) calc(var(--py, 0) * 3%);
+    }
+
+    .frag-main {
+      overflow: clip;
+    }
+
+    .frag-main::after {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--color-porcelain) 16%, transparent), transparent 30%);
+      opacity: var(--glow, 0);
+      translate: calc(var(--px, 0) * 30%) calc(var(--py, 0) * 30%);
     }
   }
+
+  @supports (animation-timeline: view()) {
+
+    .studies .study-visual,
+    .shot-frame {
+      --arrive: scale(0.94);
+      animation: study-arrive linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    .shot-frame {
+      animation-range: entry 0% cover 40%;
+    }
+
+    .studies .study-lab .study-visual {
+      animation-range: entry 15% cover 55%;
+    }
+
+    @media (min-width: 56rem) {
+      .studies .study-visual {
+        --arrive: perspective(1600px) rotateX(4deg) rotateY(-12deg) scale(0.92);
+      }
+    }
+
+    .case-stage {
+      view-timeline: --case-stage;
+    }
+
+    .case-stage img {
+      animation: case-drift linear both;
+      animation-timeline: --case-stage;
+      animation-range: exit 0% exit 100%;
+    }
+
+    .case-stage .stage-mobile { --drift: -14%; }
+    .case-stage .stage-desktop { --drift: 4%; }
+
+    .psi-gauge::before {
+      animation: psi-fill linear both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 45%;
+    }
+
+    .about-portrait {
+      view-timeline: --portrait;
+    }
+
+    .portrait-shapes span {
+      animation: portrait-drift linear both;
+      animation-timeline: --portrait;
+      animation-range: cover;
+    }
+
+    .shape-panel { --drift: 1.5rem; }
+    .shape-frame { --drift: -1rem; }
+    .shape-orbit { --drift: -2.5rem; }
+    .shape-flow { --drift: 3.5rem; }
+    .shape-accent { --drift: 4.5rem; }
+
+    .contact {
+      view-timeline: --contact;
+    }
+
+    .contact-orbit,
+    .contact-accent,
+    .contact-flow {
+      animation: linear both;
+      animation-timeline: --contact;
+      animation-range: entry 0% entry 100%;
+    }
+
+    .contact-orbit { animation-name: contact-orbit; }
+    .contact-accent { animation-name: contact-accent; }
+    .contact-flow { animation-name: contact-flow; }
+  }
 }
+
+
+/* Keyframes */
 
 @keyframes intro-light {
   0%, 15% { opacity: 0.2; transform: scale(0.8); }
@@ -1467,70 +2183,8 @@ a {
   0%, 20% { opacity: 0.35; transform: translateX(6%) scale(0.86); }
 }
 
-/*
- * Resposta ao cursor, só com mouse ou trackpad. Usa a propriedade translate,
- * que se compõe com o transform animado pela abertura e pelo scroll.
- * O JS atualiza --px e --py (de -1 a 1) e --glow; a transição dá a inércia e o
- * retorno ao repouso.
- */
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .hero-visual span,
-  .hero::before,
-  .frag-main::after {
-    transition: translate 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
-  }
-
-  /* Paralaxe pela profundidade: os mais próximos se movem mais; a moldura, ao contrário. */
-  .hero-visual span {
-    translate: calc(var(--px, 0) * var(--z, 0px) / 8) calc(var(--py, 0) * var(--z, 0px) / 8);
-  }
-
-  .hero::before {
-    translate: calc(var(--px, 0) * 3%) calc(var(--py, 0) * 3%);
-  }
-
-  /* Reflexo que percorre o painel principal enquanto o cursor está no hero. */
-  .frag-main {
-    overflow: clip;
-  }
-
-  .frag-main::after {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--color-porcelain) 16%, transparent), transparent 30%);
-    opacity: var(--glow, 0);
-    translate: calc(var(--px, 0) * 30%) calc(var(--py, 0) * 30%);
-  }
-}
-
-/*
- * Profundidade no retrato: ao rolar, as formas derivam em velocidades
- * diferentes; a foto permanece parada. Sem suporte, a composição é estática.
- */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .about-portrait {
-      view-timeline: --portrait;
-    }
-
-    .portrait-shapes span {
-      animation: portrait-drift linear both;
-      animation-timeline: --portrait;
-      animation-range: cover;
-    }
-
-    .shape-panel { --drift: 1.5rem; }
-    .shape-frame { --drift: -1rem; }
-    .shape-orbit { --drift: -2.5rem; }
-    .shape-flow { --drift: 3.5rem; }
-    .shape-accent { --drift: 4.5rem; }
-  }
-}
-
-@keyframes portrait-drift {
-  from { translate: 0 var(--drift, 0); }
-  to { translate: 0 calc(var(--drift, 0) * -1); }
+@keyframes intro-depth {
+  from { opacity: 0.3; transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
 }
 
 @keyframes hero-descend {
@@ -1545,7 +2199,27 @@ a {
   from { opacity: 0.4; transform: var(--arrive); }
 }
 
-/* Os fragmentos partem planos e ganham profundidade. */
-@keyframes intro-depth {
-  from { opacity: 0.3; transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
+@keyframes portrait-drift {
+  from { translate: 0 var(--drift, 0); }
+  to { translate: 0 calc(var(--drift, 0) * -1); }
+}
+
+@keyframes case-drift {
+  to { translate: 0 var(--drift); }
+}
+
+@keyframes psi-fill {
+  from { --psi-fill: 0; }
+}
+
+@keyframes contact-orbit {
+  from { rotate: -75deg; scale: 0.92; }
+}
+
+@keyframes contact-accent {
+  from { rotate: 75deg; }
+}
+
+@keyframes contact-flow {
+  from { translate: 40% 0; scale: 0.4 1; opacity: 0; }
 }
