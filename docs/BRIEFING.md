@@ -1,10 +1,12 @@
 # Briefing — Karin Silveira
 
-> Versão 0.1 · 24/11/2026 · Documento vivo
+> Versão 0.2 · 25/11/2026 · Documento vivo
 
 ## 1. Propósito
 
 Criar um portfólio profissional que funcione como o hall de entrada de um estúdio criativo pessoal. O site deve apresentar Karin Silveira, demonstrar sua capacidade de desenvolvimento e convidar o visitante a explorar suas criações. O objetivo principal é profissional: ampliar oportunidades e tornar o trabalho fácil de conhecer e avaliar.
+
+O portfólio também tem um objetivo de captação comercial: atrair clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. Uma seção de serviços e novos canais de contato ainda não foram definidos.
 
 O portfólio também é uma obra autoral, capaz de evoluir com novos interesses, projetos e experimentos. Não é uma marca de agência independente.
 
@@ -73,9 +75,11 @@ Três famílias conceituais de trabalhos:
 - **Experimentação:** creative coding, estudos, animações, interações e exploração de tecnologias.
 - **Além do código:** fotografia, audiovisual, design e outras criações pessoais.
 
+**Categorias do acervo** (tipos de solução, dentro de Desenvolvimento): Sites institucionais, Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações. Cada categoria forma uma coleção e só é publicada quando tiver ao menos um projeto real; hoje, apenas Sites institucionais. Estudos ilustrativos não aparecem como projetos.
+
 **Trabalhos publicados**
 
-- **Single page para psicologia** (Desenvolvimento): projeto autoral, uma página única para profissionais da psicologia, com identidade visual sóbria e fluxo demonstrativo de agendamento. "Fulana Detal" é só a persona fictícia da demonstração, não o nome do projeto. Publicado no [GitHub Pages](https://pandamnio.github.io/agendamento-consultas/), com o [repositório](https://github.com/PandaMnio/agendamento-consultas) como fonte das informações. Publicado como peça de portfólio, não como produto em produção; o agendamento é demonstrativo, e isso não é tratado como limitação. Clientes, resultados, métricas e motivações não confirmadas pela autora não devem ser presumidos.
+- **Single page para psicologia** (Sites institucionais): projeto autoral, uma página única para profissionais da psicologia, com identidade visual sóbria e fluxo demonstrativo de agendamento. "Fulana Detal" é só a persona fictícia da demonstração, não o nome do projeto. Publicado no [GitHub Pages](https://pandamnio.github.io/agendamento-consultas/), com o [repositório](https://github.com/PandaMnio/agendamento-consultas) como fonte das informações. Publicado como peça de portfólio, não como produto em produção; o agendamento é demonstrativo, e isso não é tratado como limitação. Clientes, resultados, métricas e motivações não confirmadas pela autora não devem ser presumidos.
 
 A categoria não define automaticamente a importância de um projeto. A curadoria terá três níveis: obras principais (referência inicial de 3 a 5, se houver conteúdo suficiente), trabalhos selecionados e acervo completo. Os destaques devem privilegiar trabalhos de desenvolvimento sem excluir outras criações relevantes.
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Acervo de projetos — Karin Silveira</title>
-    <meta name="description" content="Projetos de Karin Silveira em desenvolvimento web, experimentação e criação visual, incluindo uma single page responsiva para psicólogos, ao lado de estudos ilustrativos provisórios.">
+    <meta name="description" content="Acervo de projetos de Karin Silveira, organizado por categoria: sites institucionais, como a single page responsiva para psicólogos em HTML, CSS e JavaScript.">
     <!-- Evita a requisição de /favicon.ico até existir um favicon. -->
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="../styles/global.css">
@@ -30,44 +30,35 @@
       <div class="archive-intro">
         <p class="eyebrow">Projetos</p>
         <h1 class="page-title">Acervo <span class="voice">de projetos</span></h1>
-        <p>Índice de todos os trabalhos, com categoria e tipo de cada um. Por enquanto, reúne um projeto real e dois estudos ilustrativos, que darão lugar a novos trabalhos.</p>
+        <p>Todos os projetos, organizados por categoria. Cada categoria forma uma coleção, com os trabalhos do mesmo tipo de solução.</p>
       </div>
 
-      <ol class="archive-list" role="list">
-        <li class="entry" id="psicologia">
-          <p class="entry-number" aria-hidden="true">01</p>
-          <h2><a class="card-link" href="psicologia/">Single page para psicologia</a></h2>
-          <p class="entry-summary">Single page para psicólogos, desenvolvida em HTML, CSS e JavaScript, com interface responsiva e agendamento demonstrativo gerado no navegador.</p>
-          <dl class="entry-meta">
-            <div><dt>Categoria</dt><dd>Desenvolvimento</dd></div>
-            <div><dt>Tipo</dt><dd>Projeto autoral</dd></div>
-          </dl>
-          <div class="study-visual stage stage-psicologia" aria-hidden="true">
-            <img class="stage-desktop" src="../assets/images/psicologia/desktop-inicio-960.webp" srcset="../assets/images/psicologia/desktop-inicio-640.webp 640w, ../assets/images/psicologia/desktop-inicio-960.webp 960w, ../assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="15rem" width="1440" height="900" loading="lazy" decoding="async" alt="">
-            <img class="stage-mobile" src="../assets/images/psicologia/mobile-inicio-390.webp" srcset="../assets/images/psicologia/mobile-inicio-390.webp 390w, ../assets/images/psicologia/mobile-inicio-780.webp 780w" sizes="4rem" width="780" height="1688" loading="lazy" decoding="async" alt="">
+      <section class="category" aria-labelledby="sites-institucionais">
+        <div class="category-head">
+          <div class="category-text">
+            <p class="eyebrow">Coleção · 1 projeto</p>
+            <h2 id="sites-institucionais"><a class="card-link" href="sites-institucionais/">Sites institucionais <span aria-hidden="true">→</span></a></h2>
+            <p>Sites que apresentam profissionais, serviços e formas de contato.</p>
           </div>
-        </li>
-        <li class="entry" id="experimentacao">
-          <p class="entry-number" aria-hidden="true">02</p>
-          <h2>Experimentação</h2>
-          <p class="entry-summary">Creative coding, interações e exploração de tecnologias.</p>
-          <dl class="entry-meta">
-            <div><dt>Categoria</dt><dd>Experimentação</dd></div>
-            <div><dt>Tipo</dt><dd>Estudo ilustrativo</dd></div>
-          </dl>
-          <div class="study-visual visual-lab" aria-hidden="true"></div>
-        </li>
-        <li class="entry" id="expressao-visual">
-          <p class="entry-number" aria-hidden="true">03</p>
-          <h2>Expressão visual</h2>
-          <p class="entry-summary">Fotografia, audiovisual, design e outras criações.</p>
-          <dl class="entry-meta">
-            <div><dt>Categoria</dt><dd>Além do código</dd></div>
-            <div><dt>Tipo</dt><dd>Estudo ilustrativo</dd></div>
-          </dl>
-          <div class="study-visual visual-art" aria-hidden="true"></div>
-        </li>
-      </ol>
+          <div class="cover cover-collection" aria-hidden="true"></div>
+        </div>
+
+        <ol class="archive-list" role="list">
+          <li class="entry" id="psicologia">
+            <p class="entry-number" aria-hidden="true">01</p>
+            <h3><a class="card-link" href="psicologia/">Single page para psicologia</a></h3>
+            <p class="entry-summary">Single page para psicólogos, desenvolvida em HTML, CSS e JavaScript, com interface responsiva e agendamento demonstrativo gerado no navegador.</p>
+            <dl class="entry-meta">
+              <div><dt>Formato</dt><dd>Single page</dd></div>
+              <div><dt>Tipo</dt><dd>Projeto autoral</dd></div>
+            </dl>
+            <div class="stage stage-psicologia" aria-hidden="true">
+              <img class="stage-desktop" src="../assets/images/psicologia/desktop-inicio-960.webp" srcset="../assets/images/psicologia/desktop-inicio-640.webp 640w, ../assets/images/psicologia/desktop-inicio-960.webp 960w, ../assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="15rem" width="1440" height="900" loading="lazy" decoding="async" alt="">
+              <img class="stage-mobile" src="../assets/images/psicologia/mobile-inicio-390.webp" srcset="../assets/images/psicologia/mobile-inicio-390.webp 390w, ../assets/images/psicologia/mobile-inicio-780.webp 780w" sizes="4rem" width="780" height="1688" loading="lazy" decoding="async" alt="">
+            </div>
+          </li>
+        </ol>
+      </section>
     </main>
 
     <footer class="site-footer">

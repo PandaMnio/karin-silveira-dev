@@ -73,26 +73,6 @@
   background: var(--color-bg);
 }
 
-@supports not (color: color-mix(in srgb, red, blue)) {
-  :root {
-    --color-muted: #aeaeb3;
-    --line: 1px solid rgb(237 237 242 / 0.14);
-    --light-top: rgb(113 72 255 / 0.14);
-    --surface-grid:
-      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      #161228;
-    --surface-page:
-      linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
-      linear-gradient(135deg, var(--color-porcelain) 55%, #cec4f5);
-  }
-
-  .light {
-    --color-muted: #4b4b4f;
-    --line: 1px solid rgb(12 12 16 / 0.16);
-  }
-}
-
 
 /* Base */
 
@@ -377,4 +357,178 @@ dt {
   text-decoration-color: var(--color-accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
+}
+
+.card-link span {
+  display: inline-block;
+  color: var(--color-accent);
+}
+
+.back {
+  margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+}
+
+.back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.back a:hover,
+.back a:focus-visible {
+  color: var(--color-text);
+}
+
+
+/* Palco de projeto e capa de coleção */
+
+.stage-psicologia {
+  --project-deep: #1d3541;
+  --project-glow: #8d6845;
+}
+
+.stage,
+.shot-frame {
+  --surface-project:
+    radial-gradient(60% 70% at 80% 15%, color-mix(in srgb, var(--project-glow) 50%, transparent), transparent 70%),
+    radial-gradient(50% 60% at 10% 100%, color-mix(in srgb, var(--color-ultraviolet) 22%, transparent), transparent 70%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
+    color-mix(in srgb, var(--project-deep) 65%, var(--color-obsidian));
+
+  border: var(--line);
+  background: var(--surface-project);
+}
+
+.stage,
+.cover {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  border: var(--line);
+}
+
+.stage::before,
+.stage::after,
+.cover::before,
+.cover::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+.stage {
+  aspect-ratio: 16 / 10;
+  background:
+    linear-gradient(var(--color-pulse) 0 0) left 86% top 13% / 1.6% 2.56% no-repeat,
+    linear-gradient(90deg, var(--color-aqua), var(--color-ultraviolet)) left 6% bottom 9% / 26% 2px no-repeat,
+    var(--surface-project);
+}
+
+.stage::before {
+  inset-block-start: -30%;
+  inset-inline-end: -10%;
+  inline-size: 50%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-porcelain) 22%, transparent);
+  border-radius: 50%;
+}
+
+.stage::after {
+  inset: 7% 24% 15% 3%;
+  border: 1px solid color-mix(in srgb, var(--color-porcelain) 16%, transparent);
+}
+
+.stage img {
+  position: absolute;
+  display: block;
+  block-size: auto;
+  box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.65);
+}
+
+.stage-desktop {
+  inset-block-start: 12%;
+  inset-inline-start: 6%;
+  inline-size: 66%;
+  border-radius: 0.25rem;
+}
+
+.stage-mobile {
+  inset-block-end: 8%;
+  inset-inline-end: 7%;
+  inline-size: 18%;
+  border-radius: 12% / 5.5%;
+  outline: 1px solid color-mix(in srgb, var(--color-porcelain) 20%, transparent);
+}
+
+/* As folhas deslocadas atrás da capa indicam um conjunto de projetos. */
+.cover-collection {
+  aspect-ratio: 4 / 5;
+  background: radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--color-ultraviolet) 30%, transparent), transparent 60%);
+  box-shadow:
+    -0.5rem -0.5rem 0 -1px var(--color-bg),
+    -0.5rem -0.5rem 0 0 rgb(237 237 242 / 0.2),
+    -1rem -1rem 0 -1px var(--color-bg),
+    -1rem -1rem 0 0 rgb(237 237 242 / 0.12);
+}
+
+.cover-collection::before {
+  inset-block-start: 14%;
+  inset-inline-start: 8%;
+  inline-size: 76%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-porcelain) 24%, transparent);
+  border-radius: 50%;
+}
+
+.cover-collection::after {
+  inset-block: 22% 12%;
+  inset-inline-end: 14%;
+  inline-size: 26%;
+  border-radius: 999px;
+  background: var(--surface-flow);
+}
+
+
+/* Sem color-mix */
+
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --color-muted: #aeaeb3;
+    --line: 1px solid rgb(237 237 242 / 0.14);
+    --light-top: rgb(113 72 255 / 0.14);
+    --surface-grid:
+      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      #161228;
+    --surface-page:
+      linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
+      linear-gradient(135deg, var(--color-porcelain) 55%, #cec4f5);
+  }
+
+  .light {
+    --color-muted: #4b4b4f;
+    --line: 1px solid rgb(12 12 16 / 0.16);
+  }
+
+  .stage,
+  .shot-frame {
+    --surface-project:
+      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
+      #15232c;
+  }
+
+  .stage::before,
+  .stage::after,
+  .stage-mobile,
+  .cover-collection::before {
+    border-color: rgb(237 237 242 / 0.2);
+    outline-color: rgb(237 237 242 / 0.2);
+  }
 }

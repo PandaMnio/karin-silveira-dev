@@ -1,6 +1,6 @@
 # Direção artística e design — Karin Silveira
 
-> Versão 0.2 · 24/11/2026 · Documento vivo
+> Versão 0.3 · 25/11/2026 · Documento vivo
 
 ## 1. Linguagem visual
 
@@ -114,7 +114,7 @@ Comportamento acordado como direção: sequência completa apenas no primeiro ac
 - O JS apenas pula a abertura nas visitas seguintes da sessão e a conclui na primeira interação.
 - Sem JS ou sem `sessionStorage`, a abertura toca a cada carregamento.
 - No mobile, a coreografia é simplificada.
-- A transição D usa CSS scroll-driven animations, sem JS. Ao sair, os fragmentos do hero perdem inclinação e profundidade; os estudos entram com a mesma perspectiva e se assentam (no mobile, só escala e opacidade). No mosaico, Experimentação se assenta logo depois do principal, em cascata. Sem suporte, como no Firefox atual, ou com movimento reduzido, a exposição é estática.
+- A transição D usa CSS scroll-driven animations, sem JS. Ao sair, os fragmentos do hero perdem inclinação e profundidade; os itens do mosaico entram com a mesma perspectiva e se assentam (no mobile, só escala e opacidade). No mosaico, a coleção se assenta logo depois do projeto principal, em cascata. Sem suporte, como no Firefox atual, ou com movimento reduzido, a exposição é estática.
 
 ### Motion complementar — a validar
 
@@ -143,13 +143,16 @@ Cada página de projeto deve valorizar o resultado e, quando pertinente, context
 
 **Aplicado:**
 
-- O mosaico editorial do estado E reúne a Single page para psicologia, no lugar principal, e dois estudos ilustrativos (Experimentação e Expressão visual), alinhados e sem inclinação. A partir de 56rem: o principal ocupa 8 colunas; Experimentação fica ao lado, em 4 colunas, com a base alinhada à dele; Expressão visual entra logo abaixo do principal, ao lado da legenda dele; e o acesso ao acervo ocupa o canto livre da última linha. As linhas são compartilhadas por subgrid. Sem subgrid, os três estudos ficam em duas faixas, com as legendas sob cada imagem. No mobile, os estudos se empilham com recuos alternados.
+- **Mosaico editorial (estado E):** apresenta projetos individuais e coleções, sem estudos ilustrativos. O tipo vem no rótulo de cada item ("Projeto · Site institucional", "Coleção · 1 projeto", "Acervo"). A partir de 56rem: o projeto principal ocupa 8 colunas; a coleção fica ao lado, em 4 colunas, com a base da capa alinhada ao palco; o acesso ao acervo desce em degrau, com a capa nas colunas 5 a 8 e o texto ao lado. As linhas são compartilhadas por subgrid; sem subgrid, cada item empilha a capa e o texto. No mobile, os itens se empilham com recuos alternados, e o acervo vira uma linha compacta.
+- **Agrupamento:** cada legenda fica logo abaixo da própria imagem, nunca ao lado da imagem de outro item; o espaço dentro de um item é sempre menor que o espaço entre itens.
 - As superfícies compartilhadas (`--surface-*`) mantêm o vínculo visual com os fragmentos do hero, preparando a transição D.
-- Só os projetos reais têm link. O título leva ao estudo de caso, e a área clicável cobre o item inteiro. A exposição termina com um acesso ao acervo.
-- **Palco de projeto (`.stage`):** capturas reais da interface desktop e mobile sobre a superfície do projeto: grade, moldura de precisão, órbita, traço de fluxo e acento Pulse. A luz vem da identidade de cada projeto (`--project-deep` e `--project-glow`, definidos numa classe `stage-<projeto>`). O mesmo palco aparece na exposição, na miniatura do acervo e na abertura do estudo de caso. As formas ficam atrás das telas e nunca cobrem a interface.
+- Todos os itens do mosaico levam a destinos reais. O título é o link, com uma seta em acento, e a área clicável cobre o item inteiro. No hover e no foco, a borda da imagem acende em acento, a seta avança e, conforme o item, as telas do palco se deslocam ou a cápsula da capa sobe.
+- **Palco de projeto (`.stage`):** capturas reais da interface desktop e mobile sobre a superfície do projeto: grade, moldura de precisão, órbita, traço de fluxo e acento Pulse. A luz vem da identidade de cada projeto (`--project-deep` e `--project-glow`, definidos numa classe `stage-<projeto>`). O mesmo palco aparece na exposição, nas miniaturas do acervo e da coleção e na abertura do estudo de caso. As formas ficam atrás das telas e nunca cobrem a interface.
 - **Estudo de caso (`projetos/<projeto>/`):** a abertura integra título em duas vozes, resumo, links e palco; o título toca a borda do palco, e a ficha corre sob ele. Seguem capítulos numerados, com o título à esquerda e o texto recuado, intercalados com registros em escalas e alinhamentos variados (detalhe, tela inteira, desktop e celular lado a lado). A identidade do projeto entra em uma faixa própria, com as cores dele (no caso da psicologia, papel e azul-petróleo), e a segunda voz e os índices usam o tom claro do projeto. Os capítulos começam pelo desenvolvimento (abertura, agendamento, implementação, desempenho) e terminam na identidade visual; as decisões técnicas formam uma ficha em linhas, sem badges. O desempenho traduz o relatório do PageSpeed Insights para a linguagem do estudo (linhas finas, rótulos, números em serifa, título à esquerda e conteúdo recuado): abas celular e computador, anéis por categoria, métricas com as faixas 0–49, 50–89 e 90–100 em cor e forma, sempre com a data e o ambiente da análise e um link para uma nova análise ao vivo; o peso do primeiro acesso entra como número e barra proporcional, de medição própria datada. A identidade visual é um quadro de estilo: a captura como peça principal e paleta e tipografia ao lado. O fechamento é uma linha compacta, com título no tamanho dos capítulos. Fecha com os links do projeto e o retorno ao acervo. Movimento discreto: o celular do palco sobe ao rolar, e os registros chegam com a perspectiva dos estudos.
 - **Capturas:** WebP em larguras responsivas em `assets/images/<projeto>/`, feitas da demonstração publicada (desktop em 1440px, mobile em 390px a 2x).
-- **Acervo (`projetos/`):** índice tipográfico em linhas com número em serifa itálica, título, resumo, metadados (categoria e tipo) e miniatura. As miniaturas têm a mesma altura, com largura que segue a proporção de cada trabalho. As categorias seguem as famílias do briefing (Desenvolvimento, Experimentação, Além do código). Cada entrada tem um `id` para link direto. A busca e os filtros só entram quando houver volume que os justifique.
+- **Capa de coleção (`.cover-collection`):** as formas Spectrum (órbita e cápsula de fluxo sobre luz violeta) com duas folhas deslocadas atrás, que sinalizam um conjunto. É a mesma na homepage, no acervo e na página da coleção. O acesso ao acervo usa a superfície clara com o acento Pulse (`.cover-archive`).
+- **Acervo (`projetos/`):** organizado por categoria. Cada categoria abre com rótulo, título que leva à coleção, descrição e capa, seguidos das entradas em linhas: número em serifa itálica, título, resumo, metadados (formato e tipo) e miniatura do palco. Cada entrada tem um `id` para link direto. Só entram categorias com projetos reais. A busca e os filtros só entram quando houver volume que os justifique.
+- **Coleção (`projetos/<categoria>/`):** retorno ao acervo, rótulo com a contagem, título em duas vozes, descrição da categoria e capa ao lado; abaixo, as entradas no mesmo formato do acervo. O estudo de caso mantém sua URL e volta à coleção pelo link de retorno.
 
 **Diretriz verbal** (conteúdos de projetos e textos futuros):
 
@@ -165,7 +168,7 @@ Cada página de projeto deve valorizar o resultado e, quando pertinente, context
 **SEO editorial** (complementa os requisitos técnicos da [Arquitetura](ARCHITECTURE.md#9-qualidade)):
 
 - Objetivo permanente: ser encontrada por clientes, recrutadores e oportunidades profissionais em buscas orgânicas.
-- Cada página responde a uma intenção de busca: a homepage apresenta a profissional e suas capacidades; o acervo, os trabalhos; cada estudo de caso, o tipo de solução (por exemplo, site para psicólogos, single page profissional, interface responsiva, fluxo de agendamento).
+- Cada página responde a uma intenção de busca: a homepage apresenta a profissional e suas capacidades; o acervo, os trabalhos; cada coleção, um tipo de solução (por exemplo, site institucional); cada estudo de caso, o tipo de solução (por exemplo, site para psicólogos, single page profissional, interface responsiva, fluxo de agendamento).
 - Os termos que as pessoas buscam entram com naturalidade no título, na descrição, nos subtítulos, no texto e nos links, uma vez em cada lugar e sem repetição forçada.
 - O texto dos links descreve o destino; o título da página e o `h1` dizem a mesma coisa com palavras próprias.
 - Conteúdo original e fundamentado nas decisões reais. Sem serviços, qualificações, experiências ou resultados não confirmados.

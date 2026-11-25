@@ -1,6 +1,6 @@
 # Arquitetura técnica — Karin Silveira
 
-> Versão 0.3 · 24/11/2026 · Documento vivo
+> Versão 0.4 · 25/11/2026 · Documento vivo
 
 ## 1. Stack
 
@@ -33,8 +33,9 @@ portfolio/
 │   ├── icons/       # sprites SVG de tecnologias e redes (Simple Icons, CC0)
 │   └── images/      # WebP em larguras responsivas; capturas por projeto
 ├── projetos/
-│   ├── index.html   # acervo
-│   └── psicologia/  # um diretório por estudo de caso
+│   ├── index.html   # acervo, por categoria
+│   ├── sites-institucionais/  # um diretório por coleção (categoria com projetos)
+│   └── psicologia/  # um diretório por estudo de caso; a URL não depende da coleção
 ├── index.html
 ├── AGENTS.md
 ├── README.md
@@ -55,8 +56,8 @@ Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS o
 
 Dois arquivos, carregados nesta ordem em todas as páginas:
 
-- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados (rótulos, títulos, links, botão, link de card).
-- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, acervo, estudo de caso, sobre, laboratório, contato e rodapé), seguidos dos fallbacks sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
+- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, palco de projeto e capa de coleção), terminando nos fallbacks sem `color-mix` desses fundamentos.
+- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, acervo e coleções, estudo de caso, sobre, laboratório, contato e rodapé), seguidos dos fallbacks sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
 
 Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
 

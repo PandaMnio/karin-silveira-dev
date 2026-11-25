@@ -1,6 +1,6 @@
 # Roadmap — Karin Silveira
 
-> Versão 0.1 · 24/11/2026 · Documento vivo
+> Versão 0.2 · 25/11/2026 · Documento vivo
 
 ## 1. Método
 
@@ -68,7 +68,10 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 - [ ] Implementar destaque cinematográfico e galeria editorial.
 - [x] Construir apresentação de projeto reutilizável (primeiro estudo de caso: `projetos/psicologia/`).
-- [ ] Substituir os estudos ilustrativos restantes por trabalhos reais.
+- [x] Retirar os estudos ilustrativos da exposição e do acervo, mantendo suas formas como capas.
+- [x] Organizar o acervo por categorias e criar a coleção Sites institucionais (`projetos/sites-institucionais/`).
+- [x] Apresentar projetos e coleções no mosaico da homepage, com agrupamento claro entre imagem e legenda.
+- [ ] Publicar as demais categorias (Sistemas e aplicações web, Aplicativos mobile, Back-end e integrações) quando houver projetos reais.
 - [x] Criar o acervo (`projetos/`) como índice estático, acessível pela exposição da homepage.
 - [ ] Adicionar filtros ao acervo quando o volume justificar, com alternativa sem JS.
 - [ ] Conectar os fragmentos do hero aos trabalhos da curadoria.
@@ -121,7 +124,7 @@ Priorizar uma homepage estática com apresentação, curadoria de trabalhos, sob
 
 ## 4. Próximos passos
 
-- **Abertura e transição pelo scroll:** validar em Safari, Firefox e dispositivos reais.
+- **Abertura, transição pelo scroll e mosaico:** validar em Safari, Firefox e dispositivos reais, incluindo o hover dos itens (`:has`) e o subgrid.
 - **Etapa 01:** validação do HTML no W3C Nu.
 - **Etapa 02:** consolidar escala, espaçamentos e grid a partir do que o hero e a exposição já usam.
 
