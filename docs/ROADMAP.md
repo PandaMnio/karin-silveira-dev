@@ -117,8 +117,11 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 
 - [ ] Validar HTML, teclado, foco, contraste, zoom, movimento reduzido e JS desligado.
 - [ ] Testar dispositivos/navegadores, links e performance com mídia real.
-- [ ] Configurar SEO, metadados sociais, domínio, HTTPS e hospedagem estática.
-- [ ] Publicar, revisar a experiência no ambiente real e documentar manutenção.
+- [x] Configurar SEO e metadados sociais: títulos, descrições, canonical, Open Graph, dados estruturados, sitemap e imagens de compartilhamento.
+- [x] Medir com Lighthouse (laboratório, servidor local) nas quatro páginas: desktop 100 em todas as categorias, LCP de 0,4 a 0,6 s e CLS até 0,016; mobile com desempenho de 94 a 99 (home 94, LCP 2,6 s, CLS 0,047; demais com LCP de 1,9 a 2,6 s) e acessibilidade, boas práticas e SEO em 100. Na simulação do subcaminho do GitHub Pages (mobile), desempenho 99, LCP de 1,6 a 1,9 s e CLS até 0,051. Todos dentro das metas de [Architecture, seção 9](ARCHITECTURE.md#9-qualidade); INP não medido.
+- [x] Preparar a publicação: workflow do GitHub Pages com lista explícita de arquivos e página 404 autoral. O gerador da escultura do hero fica em `dev/`, fora do artefato.
+- [ ] Ativar o GitHub Pages (Settings → Pages → Source: GitHub Actions) e rodar o workflow.
+- [ ] Revisar a experiência no ambiente real; definir domínio próprio, se houver, e documentar manutenção.
 
 **Aceite:** site profissional utilizável, conteúdo completo, contato válido e ausência de bloqueios críticos; experiência sofisticada sem sacrificar navegação. Registrar limitações e melhorias futuras.
 

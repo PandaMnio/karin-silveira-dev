@@ -17,6 +17,8 @@ HTML, CSS e JavaScript nativos (ES Modules), sem dependências nem etapa de buil
 ```text
 .
 ├── docs/              # Documentação do projeto
+├── dev/               # Ferramentas de desenvolvimento (fora do artefato publicado)
+├── .github/workflows/ # Publicação no GitHub Pages
 ├── styles/main.css
 ├── scripts/           # main.js (entrada) e lab.js (experimento)
 ├── assets/fonts/      # Fontes WOFF2 e licenças
@@ -24,6 +26,7 @@ HTML, CSS e JavaScript nativos (ES Modules), sem dependências nem etapa de buil
 ├── assets/icons/      # Sprite SVG de tecnologias
 ├── projetos/         # Acervo de projetos
 ├── index.html
+├── 404.html           # Caminhos absolutos a partir do subcaminho do site
 └── AGENTS.md          # Instruções para agentes de IA
 ```
 
@@ -36,6 +39,8 @@ python3 -m http.server 8000
 ```
 
 Acesse <http://localhost:8000/>. Qualquer servidor estático, como o Live Server do editor, também funciona.
+
+A `404.html` usa caminhos a partir de `/karin-silveira-dev/`, o subcaminho publicado, e só aparece com o estilo completo no GitHub Pages.
 
 ## Documentação
 

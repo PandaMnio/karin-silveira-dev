@@ -1,0 +1,46 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # Lista explícita: só o que o site usa entra no artefato.
+      - name: Montar o artefato
+        run: |
+          mkdir _site
+          cp --parents \
+            index.html 404.html sitemap.xml \
+            styles/*.css scripts/*.js \
+            projetos/index.html projetos/*/index.html \
+            assets/favicon.svg assets/apple-touch-icon.png \
+            assets/fonts/* assets/icons/* assets/share/* \
+            assets/images/*.webp assets/images/psicologia/* \
+            _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
