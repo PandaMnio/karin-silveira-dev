@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Karin Silveira — Desenvolvedora web e mobile</title>
-    <meta name="description" content="Portfólio de Karin Silveira, desenvolvedora de software web e mobile desde 2021: interfaces, sites responsivos e aplicativos, com projetos, experimentos e contato.">
+    <meta name="description" content="Karin Silveira, desenvolvedora web e mobile desde 2021: sites institucionais, landing pages, sistemas web, aplicativos e integrações sob medida, com projetos e contato para orçamento.">
     <!-- Evita a requisição de /favicon.ico até existir um favicon. -->
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="styles/global.css">
@@ -20,6 +20,7 @@
       <nav aria-label="Principal">
         <ul role="list">
           <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#laboratorio">Laboratório</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -50,38 +51,72 @@
       <section id="projetos" class="works">
         <div class="section-intro works-intro">
           <h2 class="display">Projetos <span class="voice">selecionados</span></h2>
-          <p>Projetos individuais e coleções, que reúnem os trabalhos de um mesmo tipo de solução.</p>
+          <p>Trabalhos reais, reunidos em coleções por tipo de solução.</p>
         </div>
 
         <ol class="studies grid-12" role="list">
-          <li class="study study-feature">
-            <div class="study-visual stage stage-psicologia">
-              <img class="stage-desktop" src="assets/images/psicologia/desktop-inicio-960.webp" srcset="assets/images/psicologia/desktop-inicio-640.webp 640w, assets/images/psicologia/desktop-inicio-960.webp 960w, assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 72vw" width="1440" height="900" loading="lazy" decoding="async" alt="Página inicial no desktop: o título “Você não precisa ter todas as respostas.”, o botão “Encontre seu horário” e a foto de um consultório com duas poltronas.">
+          <li class="study">
+            <div class="study-visual stage stage-psicologia stack">
+              <img class="stage-desktop" src="assets/images/psicologia/desktop-inicio-960.webp" srcset="assets/images/psicologia/desktop-inicio-640.webp 640w, assets/images/psicologia/desktop-inicio-960.webp 960w, assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 72vw" width="1440" height="900" loading="lazy" decoding="async" alt="Single page para psicologia no desktop: o título “Você não precisa ter todas as respostas.”, o botão “Encontre seu horário” e a foto de um consultório com duas poltronas.">
               <img class="stage-mobile" src="assets/images/psicologia/mobile-inicio-390.webp" srcset="assets/images/psicologia/mobile-inicio-390.webp 390w, assets/images/psicologia/mobile-inicio-780.webp 780w" sizes="(min-width: 56rem) 12vw, 20vw" width="780" height="1688" loading="lazy" decoding="async" alt="A mesma página no celular, com o título, o botão de agendamento e a foto do consultório abaixo.">
             </div>
-            <div class="study-text">
-              <p class="eyebrow">Projeto · Site institucional</p>
-              <h3><a class="card-link" href="projetos/psicologia/">Single page para psicologia <span aria-hidden="true">→</span></a></h3>
-              <p>Site para psicólogos em HTML, CSS e JavaScript, com interface responsiva e agendamento demonstrativo gerado no navegador.</p>
-            </div>
-          </li>
-          <li class="study study-aside">
-            <div class="study-visual cover cover-collection" aria-hidden="true"></div>
             <div class="study-text">
               <p class="eyebrow">Coleção · 1 projeto</p>
               <h3><a class="card-link" href="projetos/sites-institucionais/">Sites institucionais <span aria-hidden="true">→</span></a></h3>
               <p>Sites que apresentam profissionais, serviços e formas de contato.</p>
-            </div>
-          </li>
-          <li class="study study-index">
-            <div class="study-visual cover cover-archive" aria-hidden="true"></div>
-            <div class="study-text">
-              <p class="eyebrow">Acervo</p>
-              <h3><a class="card-link" href="projetos/">Todos os projetos <span aria-hidden="true">→</span></a></h3>
-              <p>O índice completo, organizado por categoria.</p>
+              <div class="study-projects">
+                <p class="label" id="colecao-sites">Nesta coleção</p>
+                <ul role="list" aria-labelledby="colecao-sites">
+                  <li><a href="projetos/psicologia/">Single page para psicologia <span aria-hidden="true">→</span></a></li>
+                </ul>
+              </div>
             </div>
           </li>
         </ol>
+
+        <p class="works-more"><a href="projetos/"><span class="label">Acervo</span> <span>Todos os <span class="voice">projetos</span> <span aria-hidden="true">→</span></span></a></p>
+      </section>
+
+      <section id="servicos" class="services ambient" aria-labelledby="servicos-titulo">
+        <div class="section-intro services-intro">
+          <h2 id="servicos-titulo" class="display">Serviços <span class="voice">sob medida<i>.</i></span></h2>
+          <p>Desenvolvimento de sites, sistemas, aplicativos e integrações, pensados para carregar rápido, funcionar em qualquer tela e ser encontrados nas buscas.</p>
+        </div>
+
+        <ol class="services-list" role="list">
+          <li class="service">
+            <h3>Sites institucionais <span class="voice">e landing pages</span></h3>
+            <p>Para apresentar um trabalho, um serviço ou um lançamento com clareza e ser encontrado por quem procura por ele.</p>
+            <p class="service-scope">Conteúdo organizado em seções, layout responsivo, SEO, desempenho e acessibilidade.</p>
+            <a class="link" href="projetos/sites-institucionais/">Ver sites institucionais <span aria-hidden="true">→</span></a>
+          </li>
+          <li class="service">
+            <h3>Sistemas <span class="voice">e interfaces web</span></h3>
+            <p>Para painéis, plataformas e ferramentas internas que precisam ser claros de usar, mesmo com muita informação.</p>
+            <p class="service-scope">Telas e componentes, formulários, fluxos de uso e integração com o back-end.</p>
+          </li>
+          <li class="service">
+            <h3>Aplicativos <span class="voice">mobile</span></h3>
+            <p>Para levar um serviço ao celular, com um único código para Android e iOS.</p>
+            <p class="service-scope">Desenvolvimento de novos aplicativos e evolução e manutenção dos que já existem.</p>
+          </li>
+          <li class="service">
+            <h3>Integrações <span class="voice">e otimização</span></h3>
+            <p>Para conectar sistemas, trocar dados entre eles e melhorar sites que já estão no ar.</p>
+            <p class="service-scope">Integração com APIs e bancos de dados; ajustes de desempenho, SEO e acessibilidade.</p>
+          </li>
+        </ol>
+
+        <div class="closing">
+          <div>
+            <h3>Tem um projeto <span class="voice">em mente?</span></h3>
+            <p>Conte em poucas linhas o que você precisa. Uma descrição curta já basta para começar a conversa.</p>
+          </div>
+          <ul class="actions" role="list">
+            <li><a class="button" href="mailto:kasilveira32@gmail.com?subject=Or%C3%A7amento%20de%20projeto">Pedir um orçamento</a></li>
+            <li><a class="link" href="#contato">Outros canais <span aria-hidden="true">↓</span></a></li>
+          </ul>
+        </div>
       </section>
 
       <section id="sobre" class="about light grid-12" aria-labelledby="sobre-titulo">
@@ -268,7 +303,7 @@
         <h2 id="contato-titulo" class="display">Vamos <span class="voice">conversar<i>.</i></span></h2>
 
         <div class="contact-email">
-          <p>O caminho mais direto é o e-mail.</p>
+          <p>O caminho mais direto é o e-mail. Para um orçamento, conte o tipo de projeto e o que ele precisa resolver.</p>
           <a href="mailto:kasilveira32@gmail.com">kasilveira32<wbr>@gmail.com</a>
           <p class="contact-copy" hidden>
             <button type="button" data-copy="kasilveira32@gmail.com">Copiar e-mail</button>

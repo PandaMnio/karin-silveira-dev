@@ -6,7 +6,7 @@
 
 Criar um portfólio profissional que funcione como o hall de entrada de um estúdio criativo pessoal. O site deve apresentar Karin Silveira, demonstrar sua capacidade de desenvolvimento e convidar o visitante a explorar suas criações. O objetivo principal é profissional: ampliar oportunidades e tornar o trabalho fácil de conhecer e avaliar.
 
-O portfólio também tem um objetivo de captação comercial: atrair clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. Uma seção de serviços e novos canais de contato ainda não foram definidos.
+O portfólio também tem um objetivo de captação comercial: atrair clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. A seção de serviços da homepage apresenta quatro frentes contratáveis: sites institucionais e landing pages, sistemas e interfaces web, aplicativos mobile, e integrações e otimização. O contato comercial usa o e-mail e o LinkedIn; o WhatsApp será acrescentado depois.
 
 O portfólio também é uma obra autoral, capaz de evoluir com novos interesses, projetos e experimentos. Não é uma marca de agência independente.
 
@@ -93,9 +93,10 @@ Experiência híbrida: entrada guiada seguida de exploração livre, com navega�
 
 1. Hall de entrada: nome, posicionamento, fragmentos de trabalhos, convite à exploração.
 2. Trabalhos selecionados: continuidade visual do hero e exposição da curadoria principal.
-3. Sobre: trajetória, competências, personalidade e visão criativa.
-4. Laboratório: experimentos e descobertas.
-5. Contato: conexão profissional, links relevantes e encerramento.
+3. Serviços: o que pode ser contratado e um convite ao orçamento.
+4. Sobre: trajetória, competências, personalidade e visão criativa.
+5. Laboratório: experimentos e descobertas.
+6. Contato: conexão profissional, links relevantes e encerramento.
 
 O manifesto pessoal pode integrar o hero ou a seção Sobre, evitando uma etapa extra antes dos trabalhos. A divisão em páginas internas (projetos/acervo, sobre, laboratório, contato e detalhes de projetos) permanece uma proposta a validar conforme o conteúdo crescer. Os nomes em inglês usados no briefing são referências conceituais, não rótulos definitivos.
 

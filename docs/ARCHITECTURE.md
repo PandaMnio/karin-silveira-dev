@@ -56,8 +56,8 @@ Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS o
 
 Dois arquivos, carregados nesta ordem em todas as páginas:
 
-- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, palco de projeto e capa de coleção), terminando nos fallbacks sem `color-mix` desses fundamentos.
-- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, acervo e coleções, estudo de caso, sobre, laboratório, contato e rodapé), seguidos dos fallbacks sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
+- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, ações, fechamento, palco de projeto e folhas empilhadas), terminando nos fallbacks sem `color-mix` desses fundamentos.
+- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, serviços, acervo e coleções, estudo de caso, sobre, laboratório, contato e rodapé), seguidos dos fallbacks sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
 
 Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
 

@@ -71,6 +71,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Retirar os estudos ilustrativos da exposição e do acervo, mantendo suas formas como capas.
 - [x] Organizar o acervo por categorias e criar a coleção Sites institucionais (`projetos/sites-institucionais/`).
 - [x] Apresentar projetos e coleções no mosaico da homepage, com agrupamento claro entre imagem e legenda.
+- [x] Destacar a coleção com as interfaces reais e tornar o acesso ao acervo tipográfico, sem repetir trabalhos no mosaico.
 - [ ] Publicar as demais categorias (Sistemas e aplicações web, Aplicativos mobile, Back-end e integrações) quando houver projetos reais.
 - [x] Criar o acervo (`projetos/`) como índice estático, acessível pela exposição da homepage.
 - [ ] Adicionar filtros ao acervo quando o volume justificar, com alternativa sem JS.
@@ -88,6 +89,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [x] Construir encerramento e canais de contato.
 - [ ] Acrescentar o currículo quando disponível.
+- [x] Criar a seção de serviços e os convites ao contato nas páginas internas (textos sujeitos a aprovação).
+- [ ] Acrescentar o WhatsApp aos canais de contato quando confirmado.
 
 **Aceite:** identidade profissional clara, contato direto e experimentos isolados do funcionamento principal.
 

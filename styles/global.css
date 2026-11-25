@@ -359,13 +359,56 @@ dt {
   text-underline-offset: 0.15em;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.75rem;
+}
+
+.actions svg {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  fill: currentColor;
+}
+
+.closing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem var(--gutter);
+  margin-block-start: var(--space-section);
+  padding: 2rem 0 0;
+  border-block-start: var(--line);
+}
+
+.closing + .closing {
+  margin-block-start: clamp(2.5rem, 6vw, 4rem);
+}
+
+.closing :is(h2, h3) {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 2.75rem);
+}
+
+.closing .voice {
+  display: inline;
+}
+
+.closing p {
+  max-inline-size: 46ch;
+  margin: 0.75rem 0 0;
+  color: var(--color-muted);
+}
+
 .card-link span {
   display: inline-block;
   color: var(--color-accent);
 }
 
 .back {
-  margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+  margin: 0 0 clamp(1.25rem, 3vw, 2.5rem);
 }
 
 .back a {
@@ -385,7 +428,7 @@ dt {
 }
 
 
-/* Palco de projeto e capa de coleção */
+/* Palco de projeto */
 
 .stage-psicologia {
   --project-deep: #1d3541;
@@ -405,29 +448,22 @@ dt {
   background: var(--surface-project);
 }
 
-.stage,
-.cover {
+.stage {
   position: relative;
   isolation: isolate;
   overflow: clip;
-  border: var(--line);
-}
-
-.stage::before,
-.stage::after,
-.cover::before,
-.cover::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-}
-
-.stage {
   aspect-ratio: 16 / 10;
   background:
     linear-gradient(var(--color-pulse) 0 0) left 86% top 13% / 1.6% 2.56% no-repeat,
     linear-gradient(90deg, var(--color-aqua), var(--color-ultraviolet)) left 6% bottom 9% / 26% 2px no-repeat,
     var(--surface-project);
+}
+
+.stage::before,
+.stage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
 }
 
 .stage::before {
@@ -466,34 +502,14 @@ dt {
   outline: 1px solid color-mix(in srgb, var(--color-porcelain) 20%, transparent);
 }
 
-/* As folhas deslocadas atrás da capa indicam um conjunto de projetos. */
-.cover-collection {
-  aspect-ratio: 4 / 5;
-  background: radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--color-ultraviolet) 30%, transparent), transparent 60%);
+/* As folhas deslocadas atrás indicam um conjunto de projetos. */
+.stack {
   box-shadow:
     -0.5rem -0.5rem 0 -1px var(--color-bg),
     -0.5rem -0.5rem 0 0 rgb(237 237 242 / 0.2),
     -1rem -1rem 0 -1px var(--color-bg),
     -1rem -1rem 0 0 rgb(237 237 242 / 0.12);
 }
-
-.cover-collection::before {
-  inset-block-start: 14%;
-  inset-inline-start: 8%;
-  inline-size: 76%;
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--color-porcelain) 24%, transparent);
-  border-radius: 50%;
-}
-
-.cover-collection::after {
-  inset-block: 22% 12%;
-  inset-inline-end: 14%;
-  inline-size: 26%;
-  border-radius: 999px;
-  background: var(--surface-flow);
-}
-
 
 /* Sem color-mix */
 
@@ -526,8 +542,7 @@ dt {
 
   .stage::before,
   .stage::after,
-  .stage-mobile,
-  .cover-collection::before {
+  .stage-mobile {
     border-color: rgb(237 237 242 / 0.2);
     outline-color: rgb(237 237 242 / 0.2);
   }
