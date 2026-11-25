@@ -374,11 +374,6 @@
   margin: 0;
 }
 
-.service-scope {
-  font-size: 0.9375rem;
-  color: var(--color-muted);
-}
-
 .service .link {
   justify-self: start;
 }

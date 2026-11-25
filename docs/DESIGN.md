@@ -68,7 +68,7 @@ A homepage combina A + C com a atmosfera de B dos estudos: presença assimétric
 **Aplicado na homepage:**
 
 - **Assinatura compacta:** `ks.` em Manrope 800, com o ponto em Aqua.
-- **Hierarquia do hero:** posicionamento, nome, mensagem autoral e CTA. Os textos ainda estão sujeitos a aprovação.
+- **Hierarquia do hero:** posicionamento, nome, mensagem e CTA.
 - **Sobre:** atmosfera clara (`.light`), com título em duas vozes e um ponto final em acento, ecoando a assinatura. O texto desce em degrau ao lado do retrato, e os princípios aparecem como frases grandes com o verbo em serifa itálica, recuados para deixar espaço vazio à esquerda. Os textos derivam do briefing e estão sujeitos a aprovação.
 - **Sobre ampliado:**
   - **Destaques:** ficam na coluna do retrato, ao lado do texto: experiência, bacharelado e formação técnica, com o valor em serifa.
@@ -154,7 +154,7 @@ Cada página de projeto deve valorizar o resultado e, quando pertinente, context
 - **Capa de coleção (`.cover`):** as formas Spectrum (órbita e cápsula de fluxo sobre luz violeta) com as folhas empilhadas. Fica só na abertura da página da coleção, onde as entradas abaixo já mostram as interfaces.
 - **Acervo (`projetos/`):** organizado por categoria. Cada categoria abre com rótulo, título que leva à coleção e descrição, sem capa, seguidos das entradas em linhas: número em serifa itálica, título, resumo, metadados (formato e tipo) e miniatura do palco. Cada entrada tem um `id` para link direto. Só entram categorias com projetos reais. A busca e os filtros só entram quando houver volume que os justifique.
 - **Coleção (`projetos/<categoria>/`):** retorno ao acervo, rótulo com a contagem, título em duas vozes, descrição da categoria e capa ao lado; abaixo, as entradas no mesmo formato do acervo. O estudo de caso mantém sua URL e volta à coleção pelo link de retorno.
-- **Serviços (homepage, entre Projetos e Sobre):** o que se pode contratar, separado dos projetos realizados (mosaico e acervo) e das competências (Sobre). Título em duas vozes, sem rótulo, e quatro linhas: o nome do serviço em duas vozes à esquerda; à direita, para quem ele serve e o que inclui, sem listar tecnologias, que ficam no Sobre. Só o serviço com projetos publicados tem link para a coleção. Um traço Aqua → Ultraviolet abre a lista e se desenha com o scroll (com suporte a scroll-driven animations e sem movimento reduzido).
+- **Serviços (homepage, entre Projetos e Sobre):** o que se pode contratar, separado dos projetos realizados (mosaico e acervo) e das competências (Sobre). Título em duas vozes, sem rótulo, e quatro linhas: o nome do serviço em duas vozes à esquerda; à direita, uma descrição do que ele entrega, sem listar tecnologias, que ficam no Sobre. Só o serviço com projetos publicados tem link para a coleção. Um traço Aqua → Ultraviolet abre a lista e se desenha com o scroll (com suporte a scroll-driven animations e sem movimento reduzido).
 - **Fechamento (`.closing`):** título em duas vozes à esquerda e ações à direita, separados por uma linha. Fecha a seção de serviços e as páginas internas com um convite ao contato: "Pedir um orçamento" (e-mail com assunto preenchido), LinkedIn e os serviços. O título se ajusta à página ("Precisa de um site institucional?" na coleção, "Precisa de um site como este?" no estudo de caso). O WhatsApp entra quando for confirmado.
 - **Páginas internas:** o conteúdo começa perto do cabeçalho, com um respiro curto (`clamp(0.5rem, 1.5vw, 1.5rem)`) e o link de retorno logo abaixo.
 

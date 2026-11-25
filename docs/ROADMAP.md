@@ -89,7 +89,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [x] Construir encerramento e canais de contato.
 - [ ] Acrescentar o currículo quando disponível.
-- [x] Criar a seção de serviços e os convites ao contato nas páginas internas (textos sujeitos a aprovação).
+- [x] Criar a seção de serviços e os convites ao contato nas páginas internas.
 - [ ] Acrescentar o WhatsApp aos canais de contato quando confirmado.
 
 **Aceite:** identidade profissional clara, contato direto e experimentos isolados do funcionamento principal.

@@ -17,7 +17,11 @@ Consulte apenas o que a tarefa exigir.
 
 ## Contexto e ferramentas
 
-Use o menor contexto suficiente: busque antes de ler e leia o arquivo inteiro quando dependências ou regressões exigirem. Reaproveite o contexto válido e ignore logs e arquivos gerados. Use comandos com escopo definido, agrupe operações independentes, analise erros antes de repetir comandos e não refaça verificações ainda válidas.
+Use o menor contexto e o menor número de ações suficientes para a tarefa: busque antes de ler, leia o arquivo inteiro só quando dependências ou regressões exigirem, e reaproveite contexto e resultados já obtidos, ignorando logs e arquivos gerados. Use comandos com escopo definido, agrupe operações independentes, analise erros antes de repetir comandos, não refaça verificações ainda válidas e evite investigações alheias ao escopo pedido.
+
+Dimensione planejamento, ferramentas, capturas e testes à proporção do risco; prefira verificações automatizadas objetivas e recorra à inspeção visual quando necessário. Evite subagentes, leituras repetidas, relatórios extensos e atualizações documentais sem benefício concreto, e encerre quando os critérios de aceitação forem satisfeitos, sem rodadas adicionais de refinamento injustificadas.
+
+Essa economia nunca reduz qualidade técnica, segurança, acessibilidade ou confiabilidade.
 
 ## Como trabalhar
 
