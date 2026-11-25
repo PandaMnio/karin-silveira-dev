@@ -82,7 +82,7 @@ A homepage combina A + C com a atmosfera de B dos estudos: presença assimétric
 - **Contato:** Obsidian com luz violeta subindo do canto inferior esquerdo, oposta à do topo, e título em duas vozes com ponto em acento, como no Sobre. Os canais se dividem em dois grupos: contato direto (e-mail e WhatsApp, com o mesmo peso, sob um traço Aqua → Ultraviolet que engrossa no hover; o botão de copiar só aparece quando a área de transferência está disponível) e presença profissional (GitHub e LinkedIn). Ícones locais (Simple Icons, CC0). Uma órbita sangra pela borda superior direita, com o acento Pulse sobre ela, e uma cápsula de fluxo deitada cruza a borda direita. As formas ficam fora da área do texto. Com suporte a scroll-driven animations e sem preferência por movimento reduzido, enquanto a seção entra na tela, a órbita gira e leva o acento pela curva, sem inclinar o quadrado, e a cápsula chega pela borda. Com o hover ou o foco no contato direto, a cápsula se estende. Sem suporte, a composição fica no estado final. A frase de apoio está sujeita a aprovação.
 - **Menu mobile (< 56rem):** a mesma `nav` vira um painel vertical com índices em itálico serifado e o traço Aqua → Ultraviolet no topo, aberto por um botão "Menu" (`aria-expanded`) criado por `nav.js`. Fecha com Esc (devolve o foco ao botão), clique fora, escolha de link ou ao sair do foco. Sem JS, a navegação permanece em linha, visível. Abaixo de 40rem, os botões comerciais ocupam a largura total, com links secundários abaixo.
 - **Rodapé:** igual em todas as páginas: assinatura `ks.`, créditos e "Voltar ao topo", que leva ao cabeçalho (`#topo`).
-- **Hero estático = estado C:** fragmentos inclinados numa perspectiva comum, com o texto avançando sobre a borda escura da composição. Grade e moldura (precisão) contrastam com órbita e cápsula (fluidez).
+- **Hero estático = estado C:** uma escultura paramétrica única, com o texto à esquerda. Uma superfície regrada nasce como plano de grade escuro com linhas Porcelain (construção), emerge do escuro, curva-se e se torce meia volta num ponto de transformação, revelando a outra face em Aqua → Ultraviolet (fluxo), que sobe e sangra pela borda direita. Uma órbita perfeita envolve a fita nesse ponto, passando à frente e atrás dela, com o acento Pulse no seu plano. As faces são sombreadas por uma luz fixa e calculadas em projeção 3D, num SVG estático (geometria gerada fora do repositório). No mobile, o início da construção sai pela borda esquerda. Sem texto, código, controles ou dispositivos.
 
 - **Laboratório:** volta ao escuro, com luz violeta e Aqua mais livre. O palco do experimento sangra até as bordas da página, e a legenda fica abaixo dele, em três colunas.
 - **Experimento 01 — Construção & Fluxo:** uma grade em SVG se transforma em correntes Aqua → Ultraviolet. O controle deslizante nativo vai da construção ao fluxo, e os rótulos acompanham: "Construção" perde peso enquanto "Fluxo", em serifa itálica, se acende. Com mouse, a lente segue o cursor; com toque, ela fica onde foi tocada. Na construção, ela abre a grade; no fluxo, faz as linhas girarem. O acento Pulse é levado pela corrente. Só há redesenho durante a interação, e o laço de quadros para quando tudo se assenta. Com movimento reduzido, as mudanças são imediatas, sem transição. Sem JS, o palco mostra a grade estática, e o controle continua oculto.
@@ -114,7 +114,7 @@ Comportamento acordado como direção: sequência completa apenas no primeiro ac
 
 **Aplicado:**
 
-- A abertura (A → B → C) é toda em CSS, com `transform` e `opacity`. O estado final é o próprio layout: sem animação, a página já está completa.
+- A abertura (A → B → C) é toda em CSS, com `transform` e `opacity`; no hero, a superfície se desdobra da grade ao fluxo (`clip-path`) e a órbita chega depois. O estado final é o próprio layout: sem animação, a página já está completa.
 - Os textos começam com no mínimo 80% de opacidade: nunca invisíveis (o que atrasaria o LCP) e sempre com contraste AA.
 - O JS apenas pula a abertura nas visitas seguintes da sessão e a conclui na primeira interação.
 - Sem JS ou sem `sessionStorage`, a abertura toca a cada carregamento.
@@ -124,8 +124,10 @@ Comportamento acordado como direção: sequência completa apenas no primeiro ac
 ### Motion complementar — a validar
 
 - Parallax sutil para ponteiro de mouse, sem depender de hover. **Aplicado no hero:**
-  - Os fragmentos se deslocam conforme a profundidade (`--z`); os mais próximos se movem mais, e a moldura vai no sentido oposto.
-  - A luz ambiente acompanha o cursor, e um reflexo percorre o painel principal.
+  - As camadas se deslocam conforme a profundidade (`--z`): a órbita, à frente, move-se mais que a fita.
+  - A luz ambiente acompanha o cursor.
+- **Movimento contínuo do hero:** a atmosfera, a fita e a órbita derivam devagar (`rotate` e `scale`, 19–27 s, em fases diferentes, ida e volta), e o Pulse percorre um trecho da órbita (`offset-path`). Só há animação CSS, sem redesenho do SVG, e ela compõe com a abertura, o parallax (`translate`) e a transição de scroll (`transform`). É suspensa fora da tela e por um botão discreto "Pausar movimento", só visível com movimento permitido. Sem movimento permitido, o hero fica estático.
+- **Indicador de rolagem:** link para `#projetos`, centralizado na base do hero, com ícone de mouse minimalista cujo ponto desce em laço. A seção reserva espaço para ele, e o botão de pausa fica no canto oposto.
   - Ativa só depois da abertura, com mouse ou trackpad e sem preferência por movimento reduzido.
   - Usa a propriedade `translate`, que se compõe com as animações de `transform`, e o retorno ao repouso é por transição CSS.
 - Máscaras e revelações, iluminação atmosférica, transformações ópticas e profundidade pontuais.

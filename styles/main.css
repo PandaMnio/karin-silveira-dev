@@ -205,7 +205,7 @@
   display: grid;
   align-items: center;
   gap: clamp(1.5rem, 5vw, 3rem);
-  padding-block: clamp(1.5rem, 5vh, 4rem) clamp(2.5rem, 8vh, 6rem);
+  padding-block: clamp(1.5rem, 5vh, 4rem) clamp(5rem, 11vh, 7rem);
 }
 
 .hero::before {
@@ -229,66 +229,123 @@
 
 .hero-visual {
   position: relative;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 6 / 5;
+  margin-block-start: -3rem;
+  margin-inline: calc(var(--gutter) * -1);
   perspective: 1600px;
   perspective-origin: 30% 40%;
 }
 
-.hero-visual span {
+/* No mobile, o início da construção, já dissolvido, sai pela borda esquerda. */
+.hero-visual svg {
   position: absolute;
-  border: var(--line);
-  transform: rotateX(4deg) rotateY(-12deg) translateZ(var(--z, 0));
+  inset: 0 0 0 -30%;
+  inline-size: 130%;
+  block-size: 100%;
+  overflow: visible;
+  transform: rotateX(4deg) rotateY(-12deg);
 }
 
-.frag-frame {
-  --z: -80px;
-  inset: 4% 0 12% 14%;
+.hero-visual path {
+  fill: none;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
 }
 
-.frag-main {
-  --z: -20px;
-  inset: 0 12% 20% 0;
-  background: var(--surface-grid);
-}
-
-.frag-orbit {
+/* A construção emerge do escuro. */
+.hero-band {
   --z: 30px;
-  inset-block-start: 6%;
-  inset-inline-start: 34%;
-  block-size: 78%;
-  aspect-ratio: 1;
-  border-color: color-mix(in srgb, var(--color-porcelain) 24%, transparent);
-  border-radius: 50%;
+
+  mask: linear-gradient(60deg, transparent 8%, #000 38%), linear-gradient(to top, transparent 2%, #000 24%);
+  mask-composite: intersect;
 }
 
-.frag-flow {
+/* Faces sombreadas da superfície; o contorno da mesma cor fecha as emendas. */
+.hero-band [color] {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0.75;
+}
+
+.hero-band .grid {
+  stroke: color-mix(in srgb, var(--color-porcelain) 28%, transparent);
+}
+
+.hero-band .flow {
+  stroke: color-mix(in srgb, var(--color-porcelain) 38%, transparent);
+}
+
+.hero-orbit {
   --z: 70px;
-  inset-block-start: 16%;
-  inset-inline-end: 4%;
-  inline-size: 16%;
-  block-size: 58%;
-  border: 0;
+
+  mask: linear-gradient(to top, transparent, #000 22%);
+}
+
+.hero-orbit path {
+  stroke: color-mix(in srgb, var(--color-porcelain) 40%, transparent);
+}
+
+.hero-orbit .hero-accent {
+  fill: var(--color-pulse);
+  stroke: none;
+  offset-distance: 35%;
+  offset-rotate: 0deg;
+}
+
+/* Convite à rolagem e controle do movimento, na base do hero. */
+.scroll-cue {
+  position: absolute;
+  inset-block-end: 0.75rem;
+  inset-inline: 0;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 3.5rem;
+  color: color-mix(in srgb, var(--color-porcelain) 60%, transparent);
+  transition: color 0.3s ease;
+}
+
+.scroll-cue:is(:hover, :focus-visible) {
+  color: var(--color-aqua);
+}
+
+.scroll-cue-icon {
+  position: relative;
+  inline-size: 1.25rem;
+  block-size: 2rem;
+  border: 1.5px solid currentColor;
   border-radius: 999px;
-  background: var(--surface-flow);
 }
 
-.frag-surface {
-  --z: 110px;
-  inset-block-end: 2%;
-  inset-inline-start: 30%;
-  inline-size: 42%;
-  aspect-ratio: 4 / 3;
-  background: var(--surface-page);
+.scroll-cue-icon::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.4rem;
+  inset-inline-start: calc(50% - 1.5px);
+  inline-size: 3px;
+  block-size: 0.4rem;
+  border-radius: 2px;
+  background: var(--color-aqua);
 }
 
-.frag-accent {
-  --z: 140px;
-  inset-block-start: 10%;
-  inset-inline-start: 52%;
-  inline-size: 4%;
-  aspect-ratio: 1;
+.hero-pause {
+  position: absolute;
+  inset-block-end: 1.25rem;
+  inset-inline-end: var(--gutter);
+  padding: 0.5rem 0.25rem;
   border: 0;
-  background: var(--color-pulse);
+  background: none;
+  color: color-mix(in srgb, var(--color-porcelain) 52%, var(--color-obsidian));
+  font: inherit;
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.hero-pause:is(:hover, :focus-visible) {
+  color: var(--color-porcelain);
 }
 
 @media (min-width: 56rem) {
@@ -303,7 +360,14 @@
   .hero-visual {
     grid-area: 1 / 4 / 2 / 13;
     aspect-ratio: auto;
-    block-size: min(70svh, 44rem);
+    block-size: min(76svh, 48rem);
+    margin-block-start: 0;
+    margin-inline: 0 calc(var(--gutter) * -1);
+  }
+
+  .hero-visual svg {
+    inset-inline-start: 0;
+    inline-size: 100%;
   }
 }
 
@@ -472,7 +536,9 @@
 }
 
 .services::before {
-  background: radial-gradient(45% 55% at 100% 100%, var(--light-top), transparent 70%);
+  background:
+    radial-gradient(45% 55% at 100% 100%, var(--light-top), transparent 70%),
+    radial-gradient(70% 40% at 0% 0%, color-mix(in srgb, var(--color-ultraviolet) 11%, transparent), transparent 75%);
 }
 
 .services-intro {
@@ -1804,7 +1870,9 @@
 .lab::before {
   background:
     radial-gradient(40% 35% at 10% 15%, color-mix(in srgb, var(--color-ultraviolet) 18%, transparent), transparent 70%),
-    radial-gradient(30% 30% at 90% 85%, color-mix(in srgb, var(--color-aqua) 8%, transparent), transparent 70%);
+    radial-gradient(30% 30% at 90% 70%, color-mix(in srgb, var(--color-aqua) 9%, transparent), transparent 70%),
+    radial-gradient(22% 20% at 50% 100%, color-mix(in srgb, var(--color-pulse) 5%, transparent), transparent 70%),
+    linear-gradient(color-mix(in srgb, var(--color-obsidian) 55%, black), var(--color-obsidian));
 }
 
 .lab-intro {
@@ -2201,8 +2269,9 @@
 .contact::before {
   z-index: -2;
   background:
-    radial-gradient(60% 70% at 15% 100%, color-mix(in srgb, var(--color-ultraviolet) 22%, transparent), transparent 70%),
-    radial-gradient(25% 35% at 80% 20%, color-mix(in srgb, var(--color-aqua) 7%, transparent), transparent 70%);
+    radial-gradient(70% 70% at 15% 100%, color-mix(in srgb, var(--color-ultraviolet) 30%, transparent), transparent 70%),
+    radial-gradient(25% 35% at 80% 20%, color-mix(in srgb, var(--color-aqua) 7%, transparent), transparent 70%),
+    linear-gradient(color-mix(in srgb, var(--color-ultraviolet) 5%, var(--color-obsidian)), color-mix(in srgb, var(--color-ultraviolet) 12%, var(--color-obsidian)));
 }
 
 .contact-shapes > * {
@@ -2533,8 +2602,16 @@
     view-timeline: --hero;
   }
 
+  /* Movimento contínuo: lento, só com transform/opacity, e suspenso fora da tela ou a pedido. */
+  .hero.is-paused,
+  .hero.is-offscreen {
+    --ambient: paused;
+  }
+
   .hero::before {
-    animation: intro-light 2.4s var(--ease-out) backwards;
+    --drift: 23s;
+    animation: intro-light 2.4s var(--ease-out) backwards, drift-air var(--drift) ease-in-out infinite alternate;
+    animation-play-state: running, var(--ambient, running);
   }
 
   .hero h1 {
@@ -2552,29 +2629,65 @@
     animation-range: normal, exit 0% exit 80%;
   }
 
-  .hero-visual span {
-    animation: intro-depth 1.8s var(--ease-out) var(--intro-delay, 0s) backwards, hero-settle linear;
-    animation-timeline: auto, --hero;
-    animation-range: normal, exit 0% exit 80%;
+  .hero-visual svg {
+    animation: intro-depth 1.8s var(--ease-out) var(--intro-delay, 0s) backwards, hero-settle linear, drift-orbit var(--drift) ease-in-out infinite alternate;
+    animation-timeline: auto, --hero, auto;
+    animation-range: normal, exit 0% exit 80%, normal;
+    animation-play-state: running, running, var(--ambient, running);
   }
 
-  .frag-main { --intro-delay: 0.1s; }
-  .frag-orbit { --intro-delay: 0.3s; }
-  .frag-flow { --intro-delay: 0.4s; }
-  .frag-surface { --intro-delay: 0.5s; }
-  .frag-accent { --intro-delay: 0.7s; }
+  .hero-orbit {
+    --intro-delay: 0.6s;
+    --drift: 27s;
+  }
 
-  .intro-seen .hero::before,
+  .hero-accent {
+    animation: drift-pulse 9s ease-in-out infinite alternate;
+    animation-play-state: var(--ambient, running);
+  }
+
+  /* A superfície se constrói da grade ao fluxo. */
+  .hero-visual .hero-band {
+    --drift: 19s;
+    animation: intro-depth 1.8s var(--ease-out) backwards, intro-unfold 1.9s cubic-bezier(0.65, 0, 0.35, 1) 0.2s backwards, hero-settle linear, drift-band var(--drift) ease-in-out infinite alternate;
+    animation-timeline: auto, auto, --hero, auto;
+    animation-range: normal, normal, exit 0% exit 80%, normal;
+    animation-play-state: running, running, running, var(--ambient, running);
+  }
+
   .intro-seen .hero h1,
-  .intro-seen .hero-text p {
+  .intro-seen .hero-text p,
+  .intro-seen .scroll-cue {
     animation-duration: 0s;
     animation-delay: 0s;
   }
 
-  .intro-seen .hero-visual,
-  .intro-seen .hero-visual span {
+  .intro-seen .hero::before {
+    animation-duration: 0s, var(--drift);
+    animation-delay: 0s;
+  }
+
+  .intro-seen .hero-visual {
     animation-duration: 0s, auto;
     animation-delay: 0s, 0s;
+  }
+
+  .intro-seen .hero-visual svg {
+    animation-duration: 0s, auto, var(--drift);
+    animation-delay: 0s;
+  }
+
+  .intro-seen .hero-visual .hero-band {
+    animation-duration: 0s, 0s, auto, var(--drift);
+  }
+
+  .scroll-cue {
+    animation: intro-text 1.2s var(--ease-out) 1.6s backwards;
+  }
+
+  .scroll-cue-icon::before {
+    animation: cue-dot 2.4s ease-in-out infinite;
+    animation-play-state: var(--ambient, running);
   }
 
   .works {
@@ -2588,31 +2701,17 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .hero-visual span,
-    .hero::before,
-    .frag-main::after {
-      transition: translate 0.9s var(--ease-out), opacity 0.6s ease;
+    .hero-visual svg,
+    .hero::before {
+      transition: translate 0.9s var(--ease-out);
     }
 
-    .hero-visual span {
+    .hero-visual svg {
       translate: calc(var(--px, 0) * var(--z, 0px) / 8) calc(var(--py, 0) * var(--z, 0px) / 8);
     }
 
     .hero::before {
       translate: calc(var(--px, 0) * 3%) calc(var(--py, 0) * 3%);
-    }
-
-    .frag-main {
-      overflow: clip;
-    }
-
-    .frag-main::after {
-      content: "";
-      position: absolute;
-      inset: -50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--color-porcelain) 16%, transparent), transparent 30%);
-      opacity: var(--glow, 0);
-      translate: calc(var(--px, 0) * 30%) calc(var(--py, 0) * 30%);
     }
   }
 
@@ -2723,7 +2822,35 @@
 }
 
 @keyframes intro-depth {
-  from { opacity: 0.3; transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
+  from { opacity: 0.3; transform: rotateX(0deg) rotateY(0deg); }
+}
+
+@keyframes intro-unfold {
+  from { clip-path: inset(-50% 100% -50% -50%); }
+  to { clip-path: inset(-50%); }
+}
+
+@keyframes drift-air {
+  to { rotate: 4deg; scale: 1.1; }
+}
+
+@keyframes drift-band {
+  to { rotate: -0.8deg; scale: 1.03; }
+}
+
+@keyframes drift-orbit {
+  to { rotate: 1.8deg; scale: 1.025; }
+}
+
+@keyframes drift-pulse {
+  from { offset-distance: 27%; }
+  to { offset-distance: 43%; }
+}
+
+@keyframes cue-dot {
+  0% { opacity: 0; transform: translateY(-0.2rem); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(0.9rem); }
 }
 
 @keyframes hero-descend {
@@ -2731,7 +2858,7 @@
 }
 
 @keyframes hero-settle {
-  to { transform: rotateX(0deg) rotateY(0deg) translateZ(0px); }
+  to { transform: rotateX(0deg) rotateY(0deg); }
 }
 
 @keyframes flow-draw {

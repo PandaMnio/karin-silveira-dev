@@ -35,9 +35,9 @@ function introSeen() {
   return false;
 }
 
-// Só animações de tempo; as de scroll seguem a rolagem.
+// Só animações de tempo finitas; as de scroll seguem a rolagem e as contínuas nunca terminam.
 const intro = hero
-  ? hero.getAnimations({ subtree: true }).filter((animation) => animation.timeline === document.timeline)
+  ? hero.getAnimations({ subtree: true }).filter((animation) => animation.timeline === document.timeline && Number.isFinite(animation.effect.getComputedTiming().endTime))
   : [];
 const finish = () => intro.forEach((animation) => animation.finish());
 
@@ -58,25 +58,34 @@ if (intro.length && introSeen()) {
 function followPointer() {
   let x = 0;
   let y = 0;
-  let glow = 0;
   let frame = 0;
   const apply = () => {
     frame = 0;
     hero.style.setProperty('--px', x.toFixed(3));
     hero.style.setProperty('--py', y.toFixed(3));
-    hero.style.setProperty('--glow', glow);
   };
-  const update = (nextX, nextY, nextGlow) => {
+  const update = (nextX, nextY) => {
     x = nextX;
     y = nextY;
-    glow = nextGlow;
     frame ||= requestAnimationFrame(apply);
   };
 
-  hero.addEventListener('pointermove', (event) => update((event.clientX / innerWidth) * 2 - 1, (event.clientY / innerHeight) * 2 - 1, 1), { passive: true });
-  hero.addEventListener('pointerleave', () => update(0, 0, 0));
+  hero.addEventListener('pointermove', (event) => update((event.clientX / innerWidth) * 2 - 1, (event.clientY / innerHeight) * 2 - 1), { passive: true });
+  hero.addEventListener('pointerleave', () => update(0, 0));
 }
 
 if (hero && matchMedia('(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)').matches) {
   introDone.then(followPointer);
+}
+
+// Movimento contínuo: suspenso fora da tela e a pedido.
+const pause = hero?.querySelector('.hero-pause');
+
+if (pause && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  pause.hidden = false;
+  pause.addEventListener('click', () => {
+    const paused = hero.classList.toggle('is-paused');
+    pause.textContent = paused ? 'Retomar movimento' : 'Pausar movimento';
+  });
+  new IntersectionObserver(([entry]) => hero.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(hero);
 }

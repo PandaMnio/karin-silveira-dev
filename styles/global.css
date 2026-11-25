@@ -45,10 +45,6 @@
     repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 6%, transparent) 0 1px, transparent 1px 3rem),
     color-mix(in srgb, var(--color-ultraviolet) 10%, var(--color-obsidian));
   --surface-flow: linear-gradient(var(--color-aqua), var(--color-ultraviolet) 55%, transparent) no-repeat;
-  --surface-page:
-    linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
-    repeating-linear-gradient(transparent 0 0.75rem, color-mix(in srgb, var(--color-obsidian) 12%, transparent) 0.75rem calc(0.75rem + 1px)) left 10% top 18% / 46% 40% no-repeat,
-    linear-gradient(135deg, var(--color-porcelain) 55%, color-mix(in srgb, var(--color-ultraviolet) 25%, var(--color-porcelain)));
 
   --font-sans: "Manrope", system-ui, sans-serif;
   --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
