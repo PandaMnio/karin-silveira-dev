@@ -26,8 +26,9 @@ portfolio/
 │   ├── global.css   # fundamentos, utilitários e componentes reutilizáveis
 │   └── main.css     # estilos específicos, na ordem da interface
 ├── scripts/
+│   ├── nav.js       # menu mobile; carregado por todas as páginas (na home, via main.js)
 │   ├── main.js      # módulo de entrada (coordenação da abertura)
-│   └── lab.js       # experimento do Laboratório, importado por main.js
+│   └── lab.js       # experimentos do Laboratório, importado por main.js
 ├── assets/
 │   ├── fonts/       # WOFF2 e licenças OFL
 │   ├── icons/       # sprites SVG de tecnologias e redes (Simple Icons, CC0)
@@ -56,8 +57,8 @@ Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS o
 
 Dois arquivos, carregados nesta ordem em todas as páginas:
 
-- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, ações, fechamento, palco de projeto e folhas empilhadas), terminando nos fallbacks sem `color-mix` desses fundamentos.
-- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, serviços, acervo e coleções, estudo de caso, sobre, laboratório, contato e rodapé), seguidos dos fallbacks sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
+- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, ações, fechamento, palco de projeto e folhas empilhadas), terminando no fallback sem `color-mix`.
+- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, serviços, acervo e coleções, estudo de caso, sobre, laboratório, contato e rodapé), seguidos do fallback sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
 
 Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
 
@@ -122,6 +123,7 @@ SEO, performance, responsividade e acessibilidade são requisitos de toda implem
   - Fontes WOFF2 locais; nenhum recurso externo.
   - Movimento em CSS, com JS apenas coordenando estados.
 - **Proposto:** nomenclatura de CSS e JS, modo de publicação, detalhes das APIs.
+- **Compatibilidade:** `color-mix` (Chrome 111, Safari 16.2, Firefox 113) é usado livremente; o fallback `@supports not` cobre só o que afeta legibilidade ou função (texto secundário e trilha do medidor). Efeitos decorativos simplesmente não aparecem em navegadores anteriores.
 - **A validar:** páginas internas, estratégia de dados e compatibilidade dos efeitos em Safari, Firefox e dispositivos reais.
 
 Ver também: [Briefing](BRIEFING.md), [Design](DESIGN.md) e [Roadmap](ROADMAP.md).

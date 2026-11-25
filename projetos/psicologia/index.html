@@ -9,6 +9,7 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="../../styles/global.css">
     <link rel="stylesheet" href="../../styles/main.css">
+    <script type="module" src="../../scripts/nav.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
@@ -135,8 +136,8 @@
           <div class="psi-head">
             <fieldset class="psi-switch">
               <legend class="visually-hidden">Dispositivo analisado</legend>
-              <label><input type="radio" name="psi-device" value="mobile" checked> Celular</label>
-              <label><input type="radio" name="psi-device" value="desktop"> Computador</label>
+              <label class="label"><input type="radio" name="psi-device" value="mobile" checked> Celular</label>
+              <label class="label"><input type="radio" name="psi-device" value="desktop"> Computador</label>
             </fieldset>
             <ul class="psi-legend" role="list" aria-label="Faixas de pontuação">
               <li class="psi-poor">0–49</li>
@@ -214,9 +215,9 @@
           <figcaption>Hierarquia nos temas de atendimento: título, chamada em destaque e texto corrido.</figcaption>
         </figure>
         <ul class="case-palette" role="list">
-          <li style="--swatch: #1d3541"><span>Azul-petróleo</span> <code>#1D3541</code> Títulos e contraste</li>
-          <li style="--swatch: #f7f5f0"><span>Papel</span> <code>#F7F5F0</code> Fundo</li>
-          <li style="--swatch: #8d6845"><span>Bronze</span> <code>#8D6845</code> Destaque</li>
+          <li style="--swatch: var(--project-deep)"><span>Azul-petróleo</span> <code>#1D3541</code> Títulos e contraste</li>
+          <li style="--swatch: var(--project-paper)"><span>Papel</span> <code>#F7F5F0</code> Fundo</li>
+          <li style="--swatch: var(--project-glow)"><span>Bronze</span> <code>#8D6845</code> Destaque</li>
         </ul>
         <dl class="case-type">
           <div><dt>Títulos · serifa</dt><dd>Cormorant Garamond</dd></div>
@@ -241,10 +242,11 @@
       <section class="closing" aria-labelledby="orcamento">
         <div>
           <h2 id="orcamento">Precisa de um site <span class="voice">como este?</span></h2>
-          <p>Conte em poucas linhas o que você precisa, pelo e-mail kasilveira32@gmail.com ou pelo LinkedIn. Uma descrição curta já basta para começar a conversa.</p>
+          <p>Conte em poucas linhas o que você precisa, pelo WhatsApp, pelo e-mail kasilveira32@gmail.com ou pelo LinkedIn. Uma descrição curta já basta para começar a conversa.</p>
         </div>
         <ul class="actions" role="list">
-          <li><a class="button" href="mailto:kasilveira32@gmail.com?subject=Or%C3%A7amento%20de%20site%20institucional">Pedir um orçamento</a></li>
+          <li><a class="button" href="https://wa.me/5554991311229?text=Ol%C3%A1%2C%20Karin%21%20Vi%20o%20site%20de%20psicologia%20do%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20um%20site%20como%20esse." target="_blank" rel="noopener"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/social.svg#whatsapp"></use></svg>Orçamento pelo WhatsApp<span class="visually-hidden">(abre em nova aba)</span></a></li>
+          <li><a class="button" href="mailto:kasilveira32@gmail.com?subject=Or%C3%A7amento%20de%20site%20institucional"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/social.svg#email"></use></svg>Orçamento por e-mail</a></li>
           <li>
             <a class="link" href="https://www.linkedin.com/in/karin-silveira/" target="_blank" rel="noopener">
               <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../../assets/icons/social.svg#linkedin"></use></svg>

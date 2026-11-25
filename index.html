@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Karin Silveira — Desenvolvedora web e mobile</title>
-    <meta name="description" content="Karin Silveira, desenvolvedora de software web e mobile desde 2021: sites institucionais, landing pages, sistemas e interfaces web, aplicativos e integrações, com projetos e contato para orçamento.">
+    <meta name="description" content="Karin Silveira, desenvolvedora de software web e mobile. Criação de sites, aplicações, interfaces e integrações. Conheça meus projetos e solicite um orçamento.">
     <!-- Evita a requisição de /favicon.ico até existir um favicon. -->
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/main.css">
+    <!-- Em visitas seguintes, a abertura já nasce concluída. -->
+    <script>try { if (sessionStorage.getItem('intro-seen')) document.documentElement.classList.add('intro-seen'); } catch {}</script>
     <script type="module" src="scripts/main.js"></script>
   </head>
   <body>
@@ -37,7 +39,7 @@
           <p><a class="cta" href="#projetos">Explorar projetos <span aria-hidden="true">→</span></a></p>
         </div>
 
-        <!-- Formas da identidade; recortes dos trabalhos reais poderão se juntar a elas. -->
+        <!-- Formas da identidade. -->
         <div class="hero-visual" aria-hidden="true">
           <span class="frag-frame"></span>
           <span class="frag-main"></span>
@@ -48,9 +50,9 @@
         </div>
       </section>
 
-      <section id="projetos" class="works">
+      <section id="projetos" class="works" aria-labelledby="projetos-titulo">
         <div class="section-intro works-intro">
-          <h2 class="display">Projetos <span class="voice">selecionados</span></h2>
+          <h2 class="display" id="projetos-titulo">Projetos <span class="voice">selecionados</span></h2>
           <p>Uma seleção de trabalhos em desenvolvimento de software e criação digital.</p>
         </div>
 
@@ -84,20 +86,20 @@
         </div>
 
         <ol class="services-list" role="list">
-          <li class="service">
+          <li class="service grid-12">
             <h3>Sites institucionais <span class="voice">e landing pages</span></h3>
             <p>Sites que apresentam seu trabalho com clareza, facilitam o contato e favorecem sua presença nas buscas.</p>
             <a class="link" href="projetos/sites-institucionais/">Ver sites institucionais <span aria-hidden="true">→</span></a>
           </li>
-          <li class="service">
+          <li class="service grid-12">
             <h3>Sistemas <span class="voice">e interfaces web</span></h3>
             <p>Interfaces que organizam informações, simplificam processos e facilitam o uso de sistemas.</p>
           </li>
-          <li class="service">
+          <li class="service grid-12">
             <h3>Aplicativos <span class="voice">mobile</span></h3>
             <p>Desenvolvimento e evolução de aplicações para Android e iOS.</p>
           </li>
-          <li class="service">
+          <li class="service grid-12">
             <h3>Integrações <span class="voice">e otimização</span></h3>
             <p>Conexão entre sistemas e melhorias de desempenho, acessibilidade e qualidade do código.</p>
           </li>
@@ -109,7 +111,8 @@
             <p>Conte em poucas linhas o que você precisa. Uma descrição curta já basta para começar a conversa.</p>
           </div>
           <ul class="actions" role="list">
-            <li><a class="button" href="mailto:kasilveira32@gmail.com?subject=Or%C3%A7amento%20de%20projeto">Pedir um orçamento</a></li>
+            <li><a class="button" href="https://wa.me/5554991311229?text=Ol%C3%A1%2C%20Karin%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20projeto." target="_blank" rel="noopener"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#whatsapp"></use></svg>Orçamento pelo WhatsApp<span class="visually-hidden">(abre em nova aba)</span></a></li>
+            <li><a class="button" href="mailto:kasilveira32@gmail.com?subject=Or%C3%A7amento%20de%20projeto"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#email"></use></svg>Orçamento por e-mail</a></li>
             <li><a class="link" href="#contato">Outros canais <span aria-hidden="true">↓</span></a></li>
           </ul>
         </div>
@@ -287,6 +290,93 @@
             </div>
           </div>
         </article>
+
+        <div class="lab-studies">
+          <article class="lab-study" data-experiment="luz-espectro" aria-labelledby="experimento-luz-titulo">
+            <div class="light-stage">
+              <svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false">
+                <defs>
+                  <pattern id="luz-grade" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <path d="M50 0H0V50" />
+                  </pattern>
+                  <filter id="luz-penumbra" filterUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+                    <feGaussianBlur stdDeviation="7" />
+                  </filter>
+                  <radialGradient id="luz-aqua"><stop offset="0" /><stop offset="0.4" /><stop offset="1" /></radialGradient>
+                  <radialGradient id="luz-ultraviolet"><stop offset="0" /><stop offset="0.4" /><stop offset="1" /></radialGradient>
+                  <radialGradient id="luz-pulse"><stop offset="0" /><stop offset="0.4" /><stop offset="1" /></radialGradient>
+                  <mask id="sombra-aqua" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+                    <rect width="1000" height="1000" />
+                    <path d="M430 400L570 400L2006 835L1757 1099ZM2006 835L1615 1716L570 640L570 400ZM1615 1716L1162 1949L430 640L570 640ZM430 640L430 400L1757 1099L1162 1949Z" />
+                  </mask>
+                  <mask id="sombra-ultraviolet" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+                    <rect width="1000" height="1000" />
+                    <path d="M430 400L570 400L-630 1300L-942 1005ZM570 400L570 640L-114 1975L-630 1300ZM-114 1975L-556 1771L430 640L570 640ZM-556 1771L-942 1005L430 400L430 640Z" />
+                  </mask>
+                  <mask id="sombra-pulse" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+                    <rect width="1000" height="1000" />
+                    <path d="M14 -1041L603 -1100L570 400L430 400ZM603 -1100L641 -858L570 640L570 400ZM570 640L430 640L-360 -635L641 -858ZM-360 -635L14 -1041L430 400L430 640Z" />
+                  </mask>
+                </defs>
+                <g class="light-scene">
+                  <rect class="light-floor" width="1000" height="1000" />
+                  <g class="light-beam" mask="url(#sombra-aqua)"><circle cx="240" cy="300" r="540" fill="url(#luz-aqua)" /></g>
+                  <g class="light-beam" mask="url(#sombra-ultraviolet)"><circle cx="770" cy="250" r="540" fill="url(#luz-ultraviolet)" /></g>
+                  <g class="light-beam" mask="url(#sombra-pulse)" opacity="0.55"><circle cx="560" cy="850" r="432" fill="url(#luz-pulse)" /></g>
+                </g>
+                <rect class="light-panel" x="430" y="400" width="140" height="240" />
+              </svg>
+              <div class="light-handles" hidden>
+                <button type="button" class="light-handle" data-light="aqua" data-x="240" data-y="300" aria-describedby="luz-dica">Luz Aqua</button>
+                <button type="button" class="light-handle" data-light="ultraviolet" data-x="770" data-y="250" aria-describedby="luz-dica">Luz Ultraviolet</button>
+                <button type="button" class="light-handle" data-light="pulse" data-x="560" data-y="850" aria-describedby="luz-dica">Luz Pulse</button>
+              </div>
+            </div>
+
+            <div class="study-caption">
+              <p class="eyebrow">Experimento 02</p>
+              <h3 id="experimento-luz-titulo">Luz &amp; Espectro</h3>
+              <p class="experiment-description">Três luzes Spectrum se somam diante de um painel. Onde uma delas é bloqueada, a sombra ganha a cor das outras.</p>
+              <div class="study-controls" hidden>
+                <label for="luz-aqua-intensidade"><span class="swatch swatch-aqua" aria-hidden="true"></span>Aqua</label>
+                <input id="luz-aqua-intensidade" type="range" min="0" max="100" value="100" data-intensity="aqua">
+                <label for="luz-ultraviolet-intensidade"><span class="swatch swatch-ultraviolet" aria-hidden="true"></span>Ultraviolet</label>
+                <input id="luz-ultraviolet-intensidade" type="range" min="0" max="100" value="100" data-intensity="ultraviolet">
+                <label for="luz-pulse-intensidade"><span class="swatch swatch-pulse" aria-hidden="true"></span>Pulse</label>
+                <input id="luz-pulse-intensidade" type="range" min="0" max="100" value="55" data-intensity="pulse">
+                <p id="luz-dica" class="control-hint">Arraste as luzes ou use as setas do teclado para movê-las. Os controles definem a intensidade de cada uma.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="lab-study" data-experiment="tipo-ritmo" aria-labelledby="experimento-tipo-titulo">
+            <div class="type-frame">
+              <p class="type-stage">
+                <span style="--w: 5.4; --n: 10; --k: var(--s3)">Estruturas</span>
+                <span style="--w: 4.4; --n: 8; --k: var(--s1)">precisas</span>
+                <span style="--w: 3.4; --n: 6; --k: var(--s0)">que se</span>
+                <span style="--w: 6.6; --n: 11; --k: var(--s2)">transformam</span>
+                <span style="--w: 2.2; --n: 3; --k: var(--s0)">com</span>
+                <span class="type-voice" style="--w: 5.1; --n: 12; --k: var(--s3)">naturalidade</span>
+              </p>
+            </div>
+
+            <div class="study-caption">
+              <p class="eyebrow">Experimento 03</p>
+              <h3 id="experimento-tipo-titulo">Tipo &amp; Ritmo</h3>
+              <p class="experiment-description">Uma frase em escala modular, cujas proporções levam o nome de intervalos musicais. Espaço e ritmo alternam peso e recuo entre as linhas.</p>
+              <div class="study-controls" hidden>
+                <label for="tipo-proporcao">Proporção</label>
+                <input id="tipo-proporcao" type="range" min="0" max="6" step="1" value="4" data-type="ratio">
+                <output for="tipo-proporcao">Quarta justa · 1,333</output>
+                <label for="tipo-espaco">Espaço</label>
+                <input id="tipo-espaco" type="range" min="0" max="100" value="30" data-type="space">
+                <label for="tipo-ritmo">Ritmo</label>
+                <input id="tipo-ritmo" type="range" min="0" max="100" value="50" data-type="rhythm">
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section id="contato" class="contact ambient grid-12" aria-labelledby="contato-titulo">
@@ -298,29 +388,53 @@
         <p class="eyebrow">Contato</p>
         <h2 id="contato-titulo" class="display">Vamos <span class="voice">conversar<i>.</i></span></h2>
 
-        <div class="contact-email">
-          <p>Está planejando um site, uma aplicação ou precisa evoluir um projeto existente? Conte-me o que você tem em mente.</p>
-          <a href="mailto:kasilveira32@gmail.com">kasilveira32<wbr>@gmail.com</a>
-          <p class="contact-copy" hidden>
-            <button type="button" data-copy="kasilveira32@gmail.com">Copiar e-mail</button>
-            <span role="status"></span>
-          </p>
-        </div>
+        <div class="contact-body">
+          <p class="contact-lead">Está planejando um site, uma aplicação ou precisa evoluir um projeto existente? Conte-me o que você tem em mente.</p>
 
-        <ul class="contact-channels" role="list">
-          <li>
-            <a href="https://github.com/PandaMnio" target="_blank" rel="me noopener">
-              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#github"></use></svg>
-              <span>GitHub <small>PandaMnio</small></span><span class="visually-hidden">(abre em nova aba)</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/karin-silveira/" target="_blank" rel="me noopener">
-              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#linkedin"></use></svg>
-              <span>LinkedIn <small>karin-silveira</small></span><span class="visually-hidden">(abre em nova aba)</span>
-            </a>
-          </li>
-        </ul>
+          <div class="contact-groups">
+            <div class="contact-group" role="group" aria-labelledby="contato-direto">
+              <h3 id="contato-direto" class="label">Contato direto</h3>
+              <ul class="contact-direct" role="list">
+                <li>
+                  <a href="mailto:kasilveira32@gmail.com">
+                    <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#email"></use></svg>
+                    <span class="label">E-mail</span>
+                    <span class="contact-value">kasilveira32<wbr>@gmail.com</span>
+                  </a>
+                  <p class="contact-copy" hidden>
+                    <button type="button" data-copy="kasilveira32@gmail.com" aria-label="Copiar e-mail" title="Copiar e-mail"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#copy"></use></svg></button>
+                    <span role="status"></span>
+                  </p>
+                </li>
+                <li>
+                  <a href="https://wa.me/5554991311229?text=Ol%C3%A1%2C%20Karin%21%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+                    <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#whatsapp"></use></svg>
+                    <span class="label">WhatsApp</span>
+                    <span class="contact-value">(54) 99131-1229</span><span class="visually-hidden">(abre em nova aba)</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="contact-group" role="group" aria-labelledby="contato-presenca">
+              <h3 id="contato-presenca" class="label">Presença profissional</h3>
+              <ul class="contact-channels" role="list">
+                <li>
+                  <a href="https://github.com/PandaMnio" target="_blank" rel="me noopener">
+                    <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#github"></use></svg>
+                    <span>GitHub <small>PandaMnio</small></span><span class="visually-hidden">(abre em nova aba)</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/karin-silveira/" target="_blank" rel="me noopener">
+                    <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#linkedin"></use></svg>
+                    <span>LinkedIn <small>karin-silveira</small></span><span class="visually-hidden">(abre em nova aba)</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 

@@ -86,11 +86,12 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Acrescentar ao Sobre a mentoria e a participação em eventos da comunidade.
 - [ ] Aprovar os textos de apresentação.
 - [x] Criar a entrada do laboratório com o primeiro experimento interativo (Construção & Fluxo).
+- [x] Expandir o laboratório com os estudos Luz & Espectro e Tipo & Ritmo.
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [x] Construir encerramento e canais de contato.
 - [ ] Acrescentar o currículo quando disponível.
 - [x] Criar a seção de serviços e os convites ao contato nas páginas internas.
-- [ ] Acrescentar o WhatsApp aos canais de contato quando confirmado.
+- [x] Acrescentar o WhatsApp aos canais de contato.
 
 **Aceite:** identidade profissional clara, contato direto e experimentos isolados do funcionamento principal.
 

@@ -121,6 +121,7 @@ h4 {
 
 p {
   max-inline-size: 70ch;
+  text-wrap: pretty;
 }
 
 a {
@@ -360,10 +361,42 @@ dt {
 }
 
 .actions {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.actions .button {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.75rem;
+  justify-content: center;
+}
+
+.actions li:has(.button) + li:has(.button) {
+  margin-block-start: 0.5rem;
+}
+
+.closing .actions {
+  flex-basis: 100%;
+}
+
+@media (min-width: 40rem) {
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.75rem;
+  }
+
+  .actions .button {
+    display: inline-flex;
+  }
+
+  .closing .actions {
+    flex-basis: auto;
+  }
+
+  .actions li:has(.button) + li:has(.button) {
+    margin-block-start: 0;
+  }
 }
 
 .actions svg {
@@ -430,9 +463,16 @@ dt {
 
 /* Palco de projeto */
 
-.stage-psicologia {
+/* Paleta compartilhada entre o palco da home e a página do projeto. */
+.stage-psicologia,
+.project-psicologia {
   --project-deep: #1d3541;
   --project-glow: #8d6845;
+  --project-light: #ccb28e;
+  --project-paper: #f7f5f0;
+  --tone-good: var(--color-aqua);
+  --tone-average: #f5a524;
+  --tone-poor: var(--color-pulse);
 }
 
 .stage,
@@ -502,7 +542,7 @@ dt {
   outline: 1px solid color-mix(in srgb, var(--color-porcelain) 20%, transparent);
 }
 
-/* As folhas deslocadas atrás indicam um conjunto de projetos. */
+/* Folhas deslocadas indicam um conjunto de projetos. */
 .stack {
   box-shadow:
     -0.5rem -0.5rem 0 -1px var(--color-bg),
@@ -511,39 +551,14 @@ dt {
     -1rem -1rem 0 0 rgb(237 237 242 / 0.12);
 }
 
-/* Sem color-mix */
+/* Sem color-mix: só o que afeta legibilidade ou função. */
 
 @supports not (color: color-mix(in srgb, red, blue)) {
   :root {
     --color-muted: #aeaeb3;
-    --line: 1px solid rgb(237 237 242 / 0.14);
-    --light-top: rgb(113 72 255 / 0.14);
-    --surface-grid:
-      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      #161228;
-    --surface-page:
-      linear-gradient(var(--color-aqua) 0 0) left 10% bottom 14% / 30% 2px no-repeat,
-      linear-gradient(135deg, var(--color-porcelain) 55%, #cec4f5);
   }
 
   .light {
     --color-muted: #4b4b4f;
-    --line: 1px solid rgb(12 12 16 / 0.16);
-  }
-
-  .stage,
-  .shot-frame {
-    --surface-project:
-      repeating-linear-gradient(90deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      repeating-linear-gradient(0deg, rgb(237 237 242 / 0.06) 0 1px, transparent 1px 3rem),
-      #15232c;
-  }
-
-  .stage::before,
-  .stage::after,
-  .stage-mobile {
-    border-color: rgb(237 237 242 / 0.2);
-    outline-color: rgb(237 237 242 / 0.2);
   }
 }

@@ -1,8 +1,7 @@
-// Abertura do hall de entrada: completa só no primeiro acesso da sessão;
-// qualquer interação a conclui imediatamente. A animação em si está no CSS.
+import './nav.js';
 import './lab.js';
 
-// Contato: o botão de copiar só aparece quando a área de transferência está disponível.
+// Contato: o botão de copiar só aparece com área de transferência.
 const copy = document.querySelector('.contact-copy');
 
 if (copy && navigator.clipboard) {
@@ -23,6 +22,7 @@ if (copy && navigator.clipboard) {
   });
 }
 
+// Abertura: completa só no primeiro acesso; qualquer interação a conclui.
 const hero = document.querySelector('.hero');
 
 function introSeen() {
@@ -30,12 +30,12 @@ function introSeen() {
     if (sessionStorage.getItem('intro-seen')) return true;
     sessionStorage.setItem('intro-seen', '1');
   } catch {
-    // Sem sessionStorage, a abertura apenas toca novamente.
+    // Sem sessionStorage, a abertura toca de novo.
   }
   return false;
 }
 
-// Só as animações de tempo; as vinculadas ao scroll seguem a rolagem.
+// Só animações de tempo; as de scroll seguem a rolagem.
 const intro = hero
   ? hero.getAnimations({ subtree: true }).filter((animation) => animation.timeline === document.timeline)
   : [];
@@ -54,8 +54,7 @@ if (intro.length && introSeen()) {
   introDone.then(() => listeners.abort());
 }
 
-// Resposta ao cursor (ver main.css): no máximo uma atualização por frame,
-// só enquanto o cursor se move sobre o hero, e apenas após a abertura.
+// Resposta ao cursor: uma atualização por frame, só sobre o hero.
 function followPointer() {
   let x = 0;
   let y = 0;

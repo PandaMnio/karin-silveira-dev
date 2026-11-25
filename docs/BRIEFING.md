@@ -6,7 +6,7 @@
 
 Criar um portfólio profissional que funcione como o hall de entrada de um estúdio criativo pessoal. O site deve apresentar Karin Silveira, demonstrar sua capacidade de desenvolvimento e convidar o visitante a explorar suas criações. O objetivo principal é profissional: ampliar oportunidades e tornar o trabalho fácil de conhecer e avaliar.
 
-O portfólio também tem um objetivo de captação comercial: atrair clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. A seção de serviços da homepage apresenta quatro frentes contratáveis: sites institucionais e landing pages, sistemas e interfaces web, aplicativos mobile, e integrações e otimização. O contato comercial usa o e-mail e o LinkedIn; o WhatsApp será acrescentado depois.
+O portfólio também tem um objetivo de captação comercial: atrair clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. A seção de serviços da homepage apresenta quatro frentes contratáveis: sites institucionais e landing pages, sistemas e interfaces web, aplicativos mobile, e integrações e otimização. O contato comercial usa WhatsApp, e-mail e LinkedIn.
 
 O portfólio também é uma obra autoral, capaz de evoluir com novos interesses, projetos e experimentos. Não é uma marca de agência independente.
 
