@@ -4,12 +4,16 @@
 // Para experimentar, sobrescreva parâmetros: P='{"rr":1.5}' node dev/escultura.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const W = 1200, H = 800;
+const W = 1600, H = 900;
 const CAM = 1500, F = 1250;
-const N = 72;           // amostras ao longo da fita
+const N = 84;           // amostras ao longo da fita
 const M = 12;           // linhas longitudinais (intervalos)
-const FINAL = { tw: 3.0, tb: 0.85, tr: 0.45, th0: -0.45, y0: -320, z0: 260, h0: 280, rr: 1.4, cy: -45 };
-const P = (o) => ({ ...FINAL, ...JSON.parse(process.env.P || '{}') })[o];
+// Eixo: Bézier cúbica no espaço (p0 nasce sob o texto, p3 se recolhe sobre o topo).
+const DEF = {
+  p0: [-1250, -330, 120], p1: [0, -560, 300], p2: [1000, 200, 0], p3: [300, 600, -300],
+  th0: -0.35, tw: 3.0, ta: 0.3, tb: 0.75, ba: 0.3, h0: 230, h1: 120, tp: 0.6, tr: 0.5, rr: 1.8, cy: 0,
+};
+const P = (o) => ({ ...DEF, ...JSON.parse(process.env.P || '{}') })[o];
 
 const v = {
   add: (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]],
@@ -22,18 +26,14 @@ const v = {
 const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 const lerp = (a, b, t) => a + (b - a) * t;
 
-// Eixo da fita.
 function center(t) {
-  const b = smooth(P('ba') ?? 0.28, 1, t);
-  return [
-    (P('x0') ?? -560) + (P('xs') ?? 1450) * t,
-    (P('y0') ?? -250) + (P('yl') ?? 120) * t + (P('ys') ?? 520) * b,
-    (P('z0') ?? 200) - (P('zs') ?? 500) * t + (P('zb') ?? 0) * Math.sin(Math.PI * b),
-  ];
+  const u = 1 - t, c = [u * u * u, 3 * u * u * t, 3 * u * t * t, t * t * t];
+  return [0, 1, 2].map((k) => c[0] * P('p0')[k] + c[1] * P('p1')[k] + c[2] * P('p2')[k] + c[3] * P('p3')[k]);
 }
 const tangent = (t) => v.norm(v.sub(center(t + 1e-3), center(t - 1e-3)));
-const twist = (t) => (P('th0') ?? 0.05) + (P('tw') ?? Math.PI * 1.05) * smooth(P('ta') ?? P('ba') ?? 0.3, P('tb') ?? 0.95, t);
-const half = (t) => lerp(P('h0') ?? 260, P('h1') ?? 120, smooth(P('ba') ?? 0.28, 1, t));
+const twist = (t) => P('th0') + P('tw') * smooth(P('ta'), P('tb'), t);
+// Largura: estreita depois da torção e afina na ponta, onde a curva se fecha.
+const half = (t) => lerp(P('h0'), P('h1'), smooth(P('ba'), 1, t)) * (1 - P('tp') * smooth(P('tb'), 1, t));
 
 function frame(t) {
   const T = tangent(t);
@@ -43,7 +43,7 @@ function frame(t) {
   return { T, Wd: w, N: v.cross(T, w) };
 }
 const point = (t, s) => { const f = frame(t); return v.add(center(t), v.mul(f.Wd, s * half(t))); };
-const project = (p) => { const k = F / (CAM - p[2]); return [W / 2 + p[0] * k, H / 2 + (P('cy') ?? 0) - p[1] * k]; };
+const project = (p) => { const k = F / (CAM - p[2]); return [W / 2 + p[0] * k, H / 2 + P('cy') - p[1] * k]; };
 const fmt = (p) => `${Math.round(p[0])} ${Math.round(p[1])}`;
 
 const ts = Array.from({ length: N + 1 }, (_, i) => i / N);
@@ -81,7 +81,7 @@ const segs = [];
 for (let i = 0; i < N; i++) {
   const tm = (ts[i] + ts[i + 1]) / 2;
   const { N: nrm } = frame(tm);
-  const build = Math.sign(facingAt(tm)) === sign0;
+  const build = tm < P('tb') && Math.sign(facingAt(tm)) === sign0;
   const light = Math.abs(v.dot(nrm, L));
   const color = build
     ? mix(NIGHT, DUSK, light * 0.8)
@@ -113,35 +113,22 @@ for (const r of runs) {
 }
 
 // Órbita perpendicular à fita, dividida em metade de trás e da frente.
-const TR = P('tr') ?? 0.6;
-const R = half(TR) * (P('rr') ?? 1.75);
+const TR = P('tr');
+const R = half(TR) * P('rr');
 const { T: To } = frame(TR);
-let U = v.norm(v.cross(To, [0, 1, 0]));
-let V = v.cross(To, U);
+const U = v.norm(v.cross(To, [0, 1, 0]));
+const V = v.cross(To, U);
 const C0 = center(TR);
-let back = '', front = '';
-const steps = 96;
-let prev = null;
-for (let k = 0; k <= steps; k++) {
-  const a = (k / steps) * Math.PI * 2;
-  const p = v.add(C0, v.add(v.mul(U, R * Math.cos(a)), v.mul(V, R * Math.sin(a))));
-  const isFront = p[2] > C0[2];
-  const xy = fmt(project(p));
-  if (prev === null || prev !== isFront) {
-    if (isFront) front += `M${xy}`; else back += `M${xy}`;
-  } else if (isFront) front += `L${xy}`; else back += `L${xy}`;
-  prev = isFront;
-}
-// Acento: quadrado no plano da órbita, sobre a metade da frente.
-const aa = P('aa') ?? -0.55;
-const ap = v.add(C0, v.add(v.mul(U, R * Math.cos(aa)), v.mul(V, R * Math.sin(aa))));
-const tu = v.norm(v.add(v.mul(U, -Math.sin(aa)), v.mul(V, Math.cos(aa))));
-const sz = 26;
-const q = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([a, b]) => fmt(project(v.add(ap, v.add(v.mul(tu, a * sz / 2), v.mul(To, b * sz / 2))))));
-const accent = `<path class="hero-accent" d="M${q.join('L')}Z"/>`;
-
-// Atualiza só as três geometrias (órbita de trás, fita e órbita da frente) no SVG de index.html;
-// o acento e o restante do hero são mantidos à mão.
+// Começa onde a órbita passa para a frente, para que cada metade seja um traço contínuo.
+const orbit = (k) => { const a = (k / 96) * Math.PI * 2; return v.add(C0, v.add(v.mul(U, R * Math.cos(a)), v.mul(V, R * Math.sin(a)))); };
+const isFront = (k) => orbit(k)[2] > C0[2];
+const k0 = Array.from({ length: 96 }, (_, k) => k).find((k) => isFront(k) && !isFront(k - 1));
+let k1 = k0;
+while (isFront(k1)) k1++;
+const trace = (from, to) => 'M' + Array.from({ length: to - from + 1 }, (_, i) => fmt(project(orbit(from + i)))).join('L');
+const front = trace(k0, k1), back = trace(k1, k0 + 96);
+// Atualiza só as geometrias (órbitas, fita e trajetória do acento) no SVG de index.html;
+// a forma do acento e o restante do hero são mantidos à mão.
 const file = new URL('../index.html', import.meta.url);
 let html = readFileSync(file, 'utf8');
 const bandSvg = band.replace(/class="line-c"/g, 'class="grid"').replace(/class="line-f"/g, 'class="flow"');
@@ -149,7 +136,9 @@ const swap = (re, fn) => {
   if (!re.test(html)) throw new Error('Trecho do hero não encontrado: ' + re);
   html = html.replace(re, fn);
 };
+html = html.replace(/(<svg class="hero-(?:orbit|band)[^"]*" viewBox=")[^"]*/g, (_, a) => a + `0 0 ${W} ${H}`);
 swap(/(<svg class="hero-orbit" [^>]*><path d=")[^"]*/, (_, a) => a + back);
 swap(/(<svg class="hero-band" [^>]*>).*?(<\/svg>)/, (_, a, b) => a + bandSvg + b);
 swap(/(<svg class="hero-orbit hero-orbit-front" [^>]*><path d=")[^"]*/, (_, a) => a + front);
+swap(/(offset-path:path\(')[^']*/, (_, a) => a + front);
 writeFileSync(file, html);

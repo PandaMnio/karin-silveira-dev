@@ -210,8 +210,8 @@
 
 .hero::before {
   background:
-    radial-gradient(55% 65% at 70% 45%, color-mix(in srgb, var(--color-ultraviolet) 20%, transparent), transparent 70%),
-    radial-gradient(25% 30% at 85% 68%, color-mix(in srgb, var(--color-aqua) 8%, transparent), transparent 70%);
+    radial-gradient(50% 60% at 74% 38%, color-mix(in srgb, var(--color-ultraviolet) 20%, transparent), transparent 70%),
+    radial-gradient(25% 30% at 64% 72%, color-mix(in srgb, var(--color-aqua) 9%, transparent), transparent 70%);
 }
 
 .hero-text {
@@ -229,7 +229,7 @@
 
 .hero-visual {
   position: relative;
-  aspect-ratio: 6 / 5;
+  aspect-ratio: 4 / 3;
   margin-block-start: -3rem;
   margin-inline: calc(var(--gutter) * -1);
   perspective: 1600px;
@@ -256,7 +256,7 @@
 .hero-band {
   --z: 30px;
 
-  mask: linear-gradient(60deg, transparent 8%, #000 38%), linear-gradient(to top, transparent 2%, #000 24%);
+  mask: linear-gradient(70deg, transparent 4%, #000 40%), linear-gradient(to top, transparent 2%, #000 24%);
   mask-composite: intersect;
 }
 
@@ -350,19 +350,19 @@
 
 @media (min-width: 56rem) {
   .hero {
-    min-block-size: min(88svh, 60rem);
+    min-block-size: min(calc(100svh - 5.5rem), 60rem);
   }
 
   .hero-text {
     grid-area: 1 / 1 / 2 / 7;
   }
 
+  /* A escultura é o espaço do hero: nasce sob o texto e o envolve. */
   .hero-visual {
-    grid-area: 1 / 4 / 2 / 13;
+    position: absolute;
+    inset: 0;
     aspect-ratio: auto;
-    block-size: min(76svh, 48rem);
-    margin-block-start: 0;
-    margin-inline: 0 calc(var(--gutter) * -1);
+    margin: 0;
   }
 
   .hero-visual svg {
