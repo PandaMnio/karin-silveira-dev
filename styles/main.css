@@ -237,22 +237,56 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-pulse) 24%, transparent), 0 0 0.75rem var(--color-pulse);
 }
 
+/* Em telas estreitas, vira uma barra fixa na base, com a trilha na horizontal. */
+
 @media (max-width: 39.99rem) {
   .site-status {
-    gap: 0.625rem;
-    padding: 0.875rem 0.3125rem 1rem;
+    inset-block: auto 0;
+    inset-inline: 0;
+    inline-size: fit-content;
+    max-inline-size: calc(100% - 2rem);
+    margin-inline: auto;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0.6875rem 1.25rem calc(0.6875rem + env(safe-area-inset-bottom));
+    border-block-end: 0;
+    border-inline-end: 1px solid color-mix(in srgb, var(--color-aqua) 45%, transparent);
+    border-radius: 0.875rem 0.875rem 0 0;
     font-size: 0.6875rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     background:
       linear-gradient(color-mix(in srgb, var(--color-ultraviolet) 18%, transparent), color-mix(in srgb, var(--color-aqua) 8%, transparent)),
-      color-mix(in srgb, var(--color-obsidian) 58%, transparent);
+      color-mix(in srgb, var(--color-obsidian) 82%, transparent);
     -webkit-backdrop-filter: blur(14px) saturate(1.2);
     backdrop-filter: blur(14px) saturate(1.2);
-    box-shadow: -0.25rem 0 1.5rem -0.75rem color-mix(in srgb, var(--color-ultraviolet) 70%, transparent);
+    box-shadow: 0 -0.25rem 1.5rem -0.75rem color-mix(in srgb, var(--color-ultraviolet) 70%, transparent);
+    transform: none;
+  }
+
+  .site-status span {
+    writing-mode: horizontal-tb;
   }
 
   .site-status i {
     --track: 2.5rem;
+    inline-size: var(--track);
+    block-size: 2px;
+  }
+
+  .site-status i::before {
+    transform-origin: left;
+  }
+
+  .site-status i::after {
+    inset-block-end: auto;
+    inset-block-start: 50%;
+    inset-inline-start: auto;
+    inset-inline-end: -0.1875rem;
+    margin: -0.21875rem 0 0;
+  }
+
+  body {
+    padding-block-end: 3rem;
   }
 }
 
@@ -3735,6 +3769,24 @@
 
     @keyframes status-travel {
       from { transform: translateY(calc(-1 * var(--track, 3.5rem))); }
+    }
+
+    @media (max-width: 39.99rem) {
+      .site-status i::before {
+        animation-name: status-fill-x;
+      }
+
+      .site-status i::after {
+        animation-name: status-travel-x;
+      }
+
+      @keyframes status-fill-x {
+        from { transform: scaleX(0); }
+      }
+
+      @keyframes status-travel-x {
+        from { transform: translateX(calc(-1 * var(--track, 2.5rem))); }
+      }
     }
   }
 
