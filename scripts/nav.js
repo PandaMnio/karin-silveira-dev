@@ -10,7 +10,10 @@ if (nav) {
   button.type = 'button';
   button.className = 'menu-toggle';
   button.setAttribute('aria-controls', nav.id);
-  button.innerHTML = 'Menu<span class="menu-icon" aria-hidden="true"></span>';
+  const icon = document.createElement('span');
+  icon.className = 'menu-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  button.append('Menu', icon);
   nav.before(button);
   header.classList.add('has-menu');
 

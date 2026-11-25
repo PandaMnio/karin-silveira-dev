@@ -17,10 +17,10 @@ HTML, CSS e JavaScript nativos (ES Modules), sem dependências nem etapa de buil
 ```text
 .
 ├── docs/              # Documentação do projeto
-├── dev/               # Ferramentas de desenvolvimento (fora do artefato publicado)
+├── dev/               # Gerador da escultura do hero (Node 22.12+, fora do artefato publicado)
 ├── .github/workflows/ # Publicação no GitHub Pages
 ├── styles/main.css
-├── scripts/           # main.js (entrada) e lab.js (experimento)
+├── scripts/           # main.js (entrada), lab.js (experimentos) e escultura.js (geometria do hero)
 ├── assets/fonts/      # Fontes WOFF2 e licenças
 ├── assets/images/     # Imagens otimizadas (WebP)
 ├── assets/icons/      # Sprite SVG de tecnologias

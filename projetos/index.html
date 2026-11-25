@@ -3,22 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Acervo de projetos — Karin Silveira</title>
-    <meta name="description" content="Acervo de projetos de Karin Silveira, organizado por categoria: sites institucionais, como a single page responsiva para psicólogos em HTML, CSS e JavaScript.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+    <title>Acervo de projetos: sites, aplicações e experimentos | Karin Silveira</title>
+    <meta name="description" content="Acervo de projetos de Karin Silveira: o portfólio Spectrum, em destaque, e a coleção de sites institucionais, com uma single page de agendamento online e seu estudo de caso.">
     <link rel="canonical" href="https://pandamnio.github.io/karin-silveira-dev/projetos/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Karin Silveira">
-    <meta property="og:title" content="Acervo de projetos — Karin Silveira">
-    <meta property="og:description" content="Acervo de projetos de Karin Silveira, organizado por categoria: sites institucionais, como a single page responsiva para psicólogos em HTML, CSS e JavaScript.">
+    <meta property="og:title" content="Acervo de projetos: sites, aplicações e experimentos | Karin Silveira">
+    <meta property="og:description" content="Acervo de projetos de Karin Silveira: o portfólio Spectrum, em destaque, e a coleção de sites institucionais, com uma single page de agendamento online e seu estudo de caso.">
     <meta property="og:url" content="https://pandamnio.github.io/karin-silveira-dev/projetos/">
     <meta property="og:image" content="https://pandamnio.github.io/karin-silveira-dev/assets/share/projetos.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Acervo de projetos de Karin Silveira, com a assinatura ks. e uma superfície de grade em ultravioleta e aqua.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Acervo de projetos — Karin Silveira">
-    <meta name="twitter:description" content="Acervo de projetos de Karin Silveira, organizado por categoria: sites institucionais, como a single page responsiva para psicólogos em HTML, CSS e JavaScript.">
+    <meta name="twitter:title" content="Acervo de projetos: sites, aplicações e experimentos | Karin Silveira">
+    <meta name="twitter:description" content="Acervo de projetos de Karin Silveira: o portfólio Spectrum, em destaque, e a coleção de sites institucionais, com uma single page de agendamento online e seu estudo de caso.">
     <meta name="twitter:image" content="https://pandamnio.github.io/karin-silveira-dev/assets/share/projetos.jpg">
     <meta name="twitter:image:alt" content="Acervo de projetos de Karin Silveira, com a assinatura ks. e uma superfície de grade em ultravioleta e aqua.">
     <meta name="theme-color" content="#0c0c10">
@@ -72,8 +73,8 @@
       <nav aria-label="Principal">
         <ul role="list">
           <li><a href="./" aria-current="page">Projetos</a></li>
-          <li><a href="../#servicos">Serviços</a></li>
           <li><a href="../#sobre">Sobre</a></li>
+          <li><a href="../#servicos">Serviços</a></li>
           <li><a href="../#laboratorio">Laboratório</a></li>
           <li><a href="../#contato">Contato</a></li>
         </ul>
@@ -84,21 +85,53 @@
       <div class="archive-intro">
         <p class="eyebrow">Projetos</p>
         <h1 class="page-title">Acervo <span class="voice">de projetos</span></h1>
-        <p>Sites, aplicações e projetos autorais.</p>
+        <p>Sites, aplicações e experimentos desenvolvidos em projetos autorais.</p>
+        <nav class="archive-index" aria-label="Coleções do acervo">
+          <ul role="list">
+            <li><a href="#destaques">Projetos em destaque <span aria-hidden="true">↓</span></a></li>
+            <li><a href="#sites-institucionais">Sites institucionais <span aria-hidden="true">↓</span></a></li>
+          </ul>
+        </nav>
       </div>
 
-      <section class="category" aria-labelledby="sites-institucionais">
+      <section class="category" id="destaques" aria-labelledby="destaques-titulo">
         <div class="category-head">
           <p class="eyebrow">Coleção · 1 projeto</p>
-          <h2 id="sites-institucionais"><a class="card-link" href="sites-institucionais/">Sites institucionais <span aria-hidden="true">→</span></a></h2>
-          <p>Sites e landing pages voltados à apresentação de profissionais, serviços e negócios, com atenção à identidade visual, à experiência de navegação e ao desempenho.</p>
+          <h2 id="destaques-titulo">Projetos em destaque</h2>
+        </div>
+
+        <ol class="archive-list" role="list">
+          <li class="entry entry-feature project-spectrum" id="spectrum">
+            <p class="entry-number" aria-hidden="true">01</p>
+            <h3><a class="card-link" href="spectrum/">Spectrum <span class="voice">portfólio profissional</span></a></h3>
+            <p class="entry-summary">Desenvolvimento de um portfólio que reúne minha trajetória profissional, meus projetos e experimentos de programação criativa. Construído com tecnologias nativas da web, o site possui identidade visual própria e elementos gráficos gerados por código.</p>
+            <dl class="entry-meta">
+              <div><dt>Formato</dt><dd>Site multipágina</dd></div>
+              <div><dt>Tipo</dt><dd>Projeto autoral</dd></div>
+            </dl>
+            <div class="stage stage-spectrum" aria-hidden="true">
+              <img class="stage-desktop" src="../assets/images/spectrum/desktop-inicio-960.webp" srcset="../assets/images/spectrum/desktop-inicio-640.webp 640w, ../assets/images/spectrum/desktop-inicio-960.webp 960w, ../assets/images/spectrum/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 34vw, 62vw" width="1440" height="900" fetchpriority="high" decoding="async" alt="">
+              <img class="stage-mobile" src="../assets/images/spectrum/mobile-inicio-390.webp" srcset="../assets/images/spectrum/mobile-inicio-390.webp 390w, ../assets/images/spectrum/mobile-inicio-780.webp 780w" sizes="(min-width: 56rem) 9vw, 17vw" width="780" height="1688" decoding="async" alt="">
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="category" id="sites-institucionais" aria-labelledby="sites-institucionais-titulo">
+        <div class="category-head">
+          <p class="eyebrow">Coleção · 1 projeto</p>
+          <h2 id="sites-institucionais-titulo"><a class="card-link" href="sites-institucionais/">Sites institucionais <span aria-hidden="true">→</span></a></h2>
+          <p>Sites e landing pages para profissionais e empresas que desejam apresentar seu trabalho, divulgar seus serviços e estabelecer uma presença digital.</p>
         </div>
 
         <ol class="archive-list" role="list">
           <li class="entry" id="psicologia">
             <p class="entry-number" aria-hidden="true">01</p>
-            <h3><a class="card-link" href="psicologia/">Single page para psicologia</a></h3>
-            <p class="entry-summary">Single page para psicólogos, desenvolvida em HTML, CSS e JavaScript, com interface responsiva e agendamento demonstrativo gerado no navegador.</p>
+            <h3><a class="card-link" href="psicologia/">Single page com agendamento online</a></h3>
+            <div class="entry-summary">
+              <p>Single page para profissionais que atendem com hora marcada. Apresenta a atuação, esclarece dúvidas sobre os atendimentos e leva o visitante ao agendamento online.</p>
+              <p>A demonstração usa uma psicóloga fictícia, mas a estrutura se aplica a outras áreas. Construída com HTML, CSS e JavaScript, tem interface responsiva e um agendamento demonstrativo que funciona no navegador.</p>
+            </div>
             <dl class="entry-meta">
               <div><dt>Formato</dt><dd>Single page</dd></div>
               <div><dt>Tipo</dt><dd>Projeto autoral</dd></div>
@@ -114,7 +147,7 @@
       <section class="closing" aria-labelledby="conversa">
         <div>
           <h2 id="conversa">Vamos conversar <span class="voice">sobre projetos?</span></h2>
-          <p>Para falar sobre projetos, oportunidades ou colaborações, escreva pelo WhatsApp, pelo e-mail kasilveira32@gmail.com ou pelo LinkedIn.</p>
+          <p>Estou disponível para conversar sobre novos projetos, oportunidades profissionais e parcerias.</p>
         </div>
         <ul class="actions" role="list">
           <li><a class="button" href="https://wa.me/5554991311229?text=Ol%C3%A1%2C%20Karin%21%20Vi%20seus%20projetos%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="../assets/icons/social.svg#whatsapp"></use></svg>WhatsApp<span class="visually-hidden">(abre em nova aba)</span></a></li>

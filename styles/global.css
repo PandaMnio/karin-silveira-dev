@@ -466,9 +466,14 @@ dt {
   --project-glow: #8d6845;
   --project-light: #ccb28e;
   --project-paper: #f7f5f0;
-  --tone-good: var(--color-aqua);
-  --tone-average: #f5a524;
-  --tone-poor: var(--color-pulse);
+}
+
+.stage-spectrum,
+.project-spectrum {
+  --project-deep: var(--color-obsidian);
+  --project-glow: var(--color-ultraviolet);
+  --project-light: #b9a8ff;
+  --project-paper: var(--color-porcelain);
 }
 
 .stage,

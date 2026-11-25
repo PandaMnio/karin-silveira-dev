@@ -72,6 +72,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Organizar o acervo por categorias e criar a coleção Sites institucionais (`projetos/sites-institucionais/`).
 - [x] Apresentar projetos e coleções no mosaico da homepage, com agrupamento claro entre imagem e legenda.
 - [x] Destacar a coleção com as interfaces reais e tornar o acesso ao acervo tipográfico, sem repetir trabalhos no mosaico.
+- [x] Criar a coleção curatorial Projetos em destaque e o estudo de caso Spectrum (`projetos/spectrum/`), antes das categorias na homepage e no acervo.
+- [x] Revisar e aprovar os textos públicos (homepage, acervo, coleção, estudos de caso, contatos e metadados), com a ordem do menu uniformizada: Projetos, Sobre, Serviços, Laboratório, Contato.
 - [ ] Publicar as demais categorias (Sistemas e aplicações web, Aplicativos mobile, Back-end e integrações) quando houver projetos reais.
 - [x] Criar o acervo (`projetos/`) como índice estático, acessível pela exposição da homepage.
 - [ ] Adicionar filtros ao acervo quando o volume justificar, com alternativa sem JS.
@@ -84,9 +86,10 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Compor a seção clara de apresentação (textos provisórios, derivados do briefing).
 - [x] Acrescentar ao Sobre capacidades, formação e repertório confirmados, sem nomes de empregadores.
 - [x] Acrescentar ao Sobre a mentoria e a participação em eventos da comunidade.
-- [ ] Aprovar os textos de apresentação.
+- [x] Aprovar os textos de apresentação (Sobre, com reflexão autoral, e demais textos públicos).
 - [x] Criar a entrada do laboratório com o primeiro experimento interativo (Construção & Fluxo).
 - [x] Expandir o laboratório com os estudos Luz & Espectro e Tipo & Ritmo.
+- [x] Acrescentar o Experimento 04 (Forma & Espaço), que compartilha com o gerador do hero o núcleo da escultura.
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [x] Construir encerramento e canais de contato.
 - [ ] Acrescentar o currículo quando disponível.
@@ -120,7 +123,8 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Configurar SEO e metadados sociais: títulos, descrições, canonical, Open Graph, dados estruturados, sitemap e imagens de compartilhamento.
 - [x] Medir com Lighthouse (laboratório, servidor local) nas quatro páginas: desktop 100 em todas as categorias, LCP de 0,4 a 0,6 s e CLS até 0,016; mobile com desempenho de 94 a 99 (home 94, LCP 2,6 s, CLS 0,047; demais com LCP de 1,9 a 2,6 s) e acessibilidade, boas práticas e SEO em 100. Na simulação do subcaminho do GitHub Pages (mobile), desempenho 99, LCP de 1,6 a 1,9 s e CLS até 0,051. Todos dentro das metas de [Architecture, seção 9](ARCHITECTURE.md#9-qualidade); INP não medido.
 - [x] Preparar a publicação: workflow do GitHub Pages com lista explícita de arquivos e página 404 autoral. O gerador da escultura do hero fica em `dev/`, fora do artefato.
-- [ ] Ativar o GitHub Pages (Settings → Pages → Source: GitHub Actions) e rodar o workflow.
+- [x] Ativar o GitHub Pages e publicar.
+- [x] Medir a versão publicada (Lighthouse 12.8.2, 25/11/2026, laboratório): página inicial com 100 nas quatro categorias no celular e no computador; celular com LCP 1,1 s, CLS 0,047 e 189 KB em 15 requisições. Dados reais de uso (CrUX) ainda não consultados: a cota anônima da API do PageSpeed Insights estava esgotada.
 - [ ] Revisar a experiência no ambiente real; definir domínio próprio, se houver, e documentar manutenção.
 
 **Aceite:** site profissional utilizável, conteúdo completo, contato válido e ausência de bloqueios críticos; experiência sofisticada sem sacrificar navegação. Registrar limitações e melhorias futuras.

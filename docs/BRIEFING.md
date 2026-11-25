@@ -13,7 +13,7 @@ O portfólio também é uma obra autoral, capaz de evoluir com novos interesses,
 ## 2. Posicionamento
 
 - **Marca:** Karin Silveira, nome completo como assinatura principal.
-- **Eixo profissional:** desenvolvimento, com ênfase em experiências e interfaces web.
+- **Eixo profissional:** desenvolvimento de software web e mobile. O posicionamento não se limita ao front-end ou a interfaces, e o portfólio acompanha a evolução da carreira em diferentes áreas da computação.
 - **Personalidade:** criatividade, elegância, versatilidade e domínio técnico.
 - **Tom de voz:** refinado, autoral e confiante, sem exagero ou pretensão; mais objetivo nos estudos de caso.
 - **Ambição visual:** um banquete aos olhos, com sofisticação e intenção, sem deixar de funcionar como um site familiar.
@@ -73,13 +73,16 @@ Três famílias conceituais de trabalhos:
 
 - **Desenvolvimento:** sistemas, aplicações, interfaces, ferramentas, automações e integrações; núcleo profissional.
 - **Experimentação:** creative coding, estudos, animações, interações e exploração de tecnologias.
-- **Além do código:** fotografia, audiovisual, design e outras criações pessoais.
+- **Além do código:** outras criações pessoais, quando houver. A autora tem senso estético, mas não se apresenta como especialista em fotografia, audiovisual ou design.
 
 **Categorias do acervo** (tipos de solução, dentro de Desenvolvimento): Sites institucionais, Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações. Cada categoria forma uma coleção e só é publicada quando tiver ao menos um projeto real; hoje, apenas Sites institucionais. Estudos ilustrativos não aparecem como projetos.
 
+**Projetos em destaque:** coleção curatorial, anterior às categorias na homepage e no acervo. Pode reunir trabalhos representativos de qualquer categoria; o estudo de caso continua com uma única página e URL própria, sem duplicação. Não tem página de coleção: o acesso é pela âncora `projetos/#destaques`.
+
 **Trabalhos publicados**
 
-- **Single page para psicologia** (Sites institucionais): projeto autoral, uma página única para profissionais da psicologia, com identidade visual sóbria e fluxo demonstrativo de agendamento. "Fulana Detal" é só a persona fictícia da demonstração, não o nome do projeto. Publicado no [GitHub Pages](https://pandamnio.github.io/agendamento-consultas/), com o [repositório](https://github.com/PandaMnio/agendamento-consultas) como fonte das informações. Publicado como peça de portfólio, não como produto em produção; o agendamento é demonstrativo, e isso não é tratado como limitação. Clientes, resultados, métricas e motivações não confirmadas pela autora não devem ser presumidos.
+- **Spectrum — Portfólio profissional** (Projetos em destaque): este próprio site como estudo de caso (`projetos/spectrum/`), escrito em primeira pessoa e fundamentado na documentação e no código. A IA aparece como ferramenta de engenharia, sem nomear as ferramentas usadas. Métricas apenas da versão publicada, com data e condições, distinguindo laboratório de dados reais de uso.
+- **Single page com agendamento online** (Sites institucionais; URL `projetos/psicologia/`): projeto autoral, uma página única para profissionais que atendem com hora marcada, sem se limitar à psicologia (a demonstração usa uma psicóloga fictícia), com identidade visual sóbria e fluxo demonstrativo de agendamento. "Fulana Detal" é só a persona fictícia da demonstração, não o nome do projeto. Publicado no [GitHub Pages](https://pandamnio.github.io/agendamento-consultas/), com o [repositório](https://github.com/PandaMnio/agendamento-consultas) como fonte das informações. Publicado como peça de portfólio, não como produto em produção; o agendamento é demonstrativo, e isso não é tratado como limitação. Clientes, resultados, métricas e motivações não confirmadas pela autora não devem ser presumidos.
 
 A categoria não define automaticamente a importância de um projeto. A curadoria terá três níveis: obras principais (referência inicial de 3 a 5, se houver conteúdo suficiente), trabalhos selecionados e acervo completo. Os destaques devem privilegiar trabalhos de desenvolvimento sem excluir outras criações relevantes.
 

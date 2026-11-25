@@ -2,10 +2,23 @@
 const root = document.querySelector('[data-experiment="construcao-fluxo"]');
 const light = document.querySelector('[data-experiment="luz-espectro"]');
 const type = document.querySelector('[data-experiment="tipo-ritmo"]');
+const form = document.querySelector('[data-experiment="forma-espaco"]');
 
 if (root) setup(root);
 if (light) lightSpectrum(light);
 if (type) typeRhythm(type);
+if (form) whenNear(form, () => import('./escultura.js').then((sculpture) => formSpace(form, sculpture)));
+
+// Adia o trabalho até o elemento se aproximar da área visível.
+function whenNear(element, callback) {
+  if (!('IntersectionObserver' in window)) return callback();
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    observer.disconnect();
+    callback();
+  }, { rootMargin: '50% 0px' });
+  observer.observe(element);
+}
 
 // "Construção & Fluxo": uma grade que se transforma em correntes.
 
@@ -277,4 +290,140 @@ function typeRhythm(root) {
   for (const input of [ratio, space, rhythm]) input.addEventListener('input', apply);
   apply();
   root.querySelector('.study-controls').hidden = false;
+}
+
+// "Forma & Espaço": a escultura do hero, recalculada a partir dos parâmetros escolhidos.
+function formSpace(root, { DEFAULTS, sculpt }) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = root.querySelector('svg');
+  const band = svg.querySelector('.form-band');
+  const [back, front] = svg.querySelectorAll('.form-orbit');
+  const accent = svg.querySelector('.form-accent');
+  const controls = root.querySelector('form');
+  const fields = controls.elements;
+  const status = controls.querySelector('[role="status"]');
+  let frame = 0;
+  let clear = 0;
+
+  const along = (a, b, t) => a.map((x, k) => x + (b[k] - x) * t);
+  const rgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const degrees = (value) => `${Math.round(value)}°`;
+  const { p0, p1, p2, p3, h0, h1 } = DEFAULTS;
+
+  // Curvatura afasta os pontos de controle da corda entre as pontas; perspectiva aproxima a câmera sem mudar a escala no plano z = 0.
+  function params() {
+    const value = (name) => Number(fields[name].value);
+    const bend = value('bend') / 100;
+    const width = value('width') / 100;
+    const cam = 150000 / value('depth');
+    const angle = (value('light') * Math.PI) / 180;
+    const reach = Math.hypot(DEFAULTS.light[0], DEFAULTS.light[1]);
+    return {
+      tw: value('twist') / 100,
+      p1: along(along(p0, p3, 1 / 3), p1, bend),
+      p2: along(along(p0, p3, 2 / 3), p2, bend),
+      h0: h0 * width,
+      h1: h1 * width,
+      m: value('mesh'),
+      n: value('mesh') * 7,
+      cam,
+      f: (cam * DEFAULTS.f) / DEFAULTS.cam,
+      light: [reach * Math.cos(angle), reach * Math.sin(angle), DEFAULTS.light[2]],
+      colors: [rgb(fields.from.value), rgb(fields.to.value)],
+    };
+  }
+
+  const labels = {
+    twist: (value) => degrees((value / 100) * (180 / Math.PI)),
+    bend: (value) => `${value}%`,
+    width: (value) => `${value}%`,
+    mesh: (value) => `${value} linhas`,
+    depth: (value) => `${value}%`,
+    light: degrees,
+  };
+
+  function path(attributes) {
+    const element = document.createElementNS(NS, 'path');
+    for (const [name, value] of Object.entries(attributes)) element.setAttribute(name, value);
+    return element;
+  }
+
+  // Atributos de apresentação, para que o SVG exportado não dependa da folha de estilo.
+  function draw() {
+    frame = 0;
+    const sculpture = sculpt(params());
+    const nodes = [];
+    for (const run of sculpture.band) {
+      for (const { color, d } of run.faces) nodes.push(path({ d, fill: color, stroke: color, 'stroke-width': 0.75 }));
+      nodes.push(path({
+        d: run.lines,
+        fill: 'none',
+        stroke: '#ededf2',
+        'stroke-opacity': run.build ? 0.28 : 0.38,
+        'vector-effect': 'non-scaling-stroke',
+      }));
+    }
+    band.replaceChildren(...nodes);
+    back.setAttribute('d', sculpture.back);
+    front.setAttribute('d', sculpture.front);
+
+    const length = sculpture.front ? front.getTotalLength() : 0;
+    accent.setAttribute('display', length ? 'inline' : 'none');
+    if (length) {
+      const { x, y } = front.getPointAtLength(length * 0.35);
+      accent.setAttribute('x', (x - 8).toFixed(1));
+      accent.setAttribute('y', (y - 8).toFixed(1));
+    }
+
+    for (const [name, label] of Object.entries(labels)) {
+      const text = label(Number(fields[name].value));
+      fields[name].labels[0].nextElementSibling.textContent = text;
+      fields[name].setAttribute('aria-valuetext', text);
+    }
+  }
+
+  const request = () => {
+    frame ||= requestAnimationFrame(draw);
+  };
+
+  function announce(message) {
+    status.textContent = message;
+    clearTimeout(clear);
+    clear = setTimeout(() => { status.textContent = ''; }, 4000);
+  }
+
+  function download() {
+    const copy = svg.cloneNode(true);
+    const [x, y, width, height] = svg.getAttribute('viewBox').split(' ');
+    const backdrop = document.createElementNS(NS, 'rect');
+    const title = document.createElementNS(NS, 'title');
+    for (const [name, value] of Object.entries({ x, y, width, height, fill: '#0c0c10' })) backdrop.setAttribute(name, value);
+    title.textContent = 'Forma & Espaço';
+    copy.removeAttribute('aria-hidden');
+    copy.removeAttribute('focusable');
+    copy.setAttribute('width', width);
+    copy.setAttribute('height', height);
+    copy.prepend(title, backdrop);
+
+    const file = new Blob([new XMLSerializer().serializeToString(copy)], { type: 'image/svg+xml' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(file);
+    link.download = 'forma-e-espaco.svg';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    announce('Escultura exportada em SVG.');
+  }
+
+  controls.addEventListener('input', request);
+  // Os valores voltam ao padrão depois do evento; o redesenho no próximo quadro já os encontra.
+  controls.addEventListener('reset', () => {
+    request();
+    announce('Parâmetros restaurados.');
+  });
+  controls.addEventListener('submit', (event) => event.preventDefault());
+  controls.querySelector('[data-export]').addEventListener('click', download);
+
+  root.classList.add('is-ready');
+  controls.hidden = false;
+  draw();
 }

@@ -28,7 +28,8 @@ portfolio/
 ├── scripts/
 │   ├── nav.js       # menu mobile; carregado por todas as páginas (na home, via main.js)
 │   ├── main.js      # módulo de entrada (coordenação da abertura)
-│   └── lab.js       # experimentos do Laboratório, importado por main.js
+│   ├── lab.js       # experimentos do Laboratório, importado por main.js
+│   └── escultura.js # geometria da escultura; usada por dev/escultura.mjs e, sob demanda, por lab.js
 ├── assets/
 │   ├── fonts/       # WOFF2 e licenças OFL
 │   ├── icons/       # sprites SVG de tecnologias e redes (Simple Icons, CC0)
@@ -36,7 +37,8 @@ portfolio/
 ├── projetos/
 │   ├── index.html   # acervo, por categoria
 │   ├── sites-institucionais/  # um diretório por coleção (categoria com projetos)
-│   └── psicologia/  # um diretório por estudo de caso; a URL não depende da coleção
+│   ├── psicologia/  # um diretório por estudo de caso; a URL não depende da coleção
+│   └── spectrum/    # estudo de caso do próprio portfólio (Projetos em destaque)
 ├── index.html
 ├── AGENTS.md
 ├── README.md
@@ -122,6 +124,8 @@ SEO, performance, responsividade e acessibilidade são requisitos de toda implem
   - Estrutura mínima que cresce com a necessidade.
   - Fontes WOFF2 locais; nenhum recurso externo.
   - Movimento em CSS, com JS apenas coordenando estados.
+  - CSP por `<meta>` em todas as páginas (o GitHub Pages não permite cabeçalhos), sem `unsafe-eval` e só com `style-src-attr 'unsafe-inline'` para as variáveis em `style=""`; `frame-ancestors` não é possível por meta. O script embutido de `index.html` é autorizado por hash: recalcular ao alterá-lo. Em JS, sem `innerHTML` e afins (`require-trusted-types-for 'script'` com `trusted-types 'none'` bloqueia, e não há políticas); usar `textContent`, `append` e `createElement`. Recurso externo novo exige ajustar a CSP.
+  - Actions do workflow fixadas por SHA de commit, com a versão em comentário; ao atualizar, resolver o novo SHA da tag. O lockfile nativo do GitHub (`gh actions-lock`) exige Enterprise Cloud.
 - **Proposto:** nomenclatura de CSS e JS, modo de publicação, detalhes das APIs.
 - **Compatibilidade:** `color-mix` (Chrome 111, Safari 16.2, Firefox 113) é usado livremente; o fallback `@supports not` cobre só o que afeta legibilidade ou função (texto secundário e trilha do medidor). Efeitos decorativos simplesmente não aparecem em navegadores anteriores.
 - **A validar:** páginas internas, estratégia de dados e compatibilidade dos efeitos em Safari, Firefox e dispositivos reais.

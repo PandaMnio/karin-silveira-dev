@@ -3,23 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- O hash do script-src corresponde ao script embutido abaixo; recalcular se ele mudar. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-OTgNdzX5o/i6AB1Q2IJuJHvArD9WTgU1vZQP5LGpcOA='; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
     <meta name="google-site-verification" content="QLhFIjdQ0P1j7Jg6uPl-L2834JCA17R9BZMM62H-lz4" />
-    <title>Karin Silveira — Desenvolvedora web e mobile</title>
-    <meta name="description" content="Karin Silveira, desenvolvedora de software web e mobile desde 2021. Conheça projetos, trajetória e serviços de sites, aplicações e integrações, e entre em contato.">
+    <title>Karin Silveira | Desenvolvedora de Software Web e Mobile</title>
+    <meta name="description" content="Desenvolvedora de software com mais de cinco anos de experiência em web e mobile. Veja projetos e serviços de criação de sites, sistemas e aplicativos, e entre em contato.">
     <link rel="canonical" href="https://pandamnio.github.io/karin-silveira-dev/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Karin Silveira">
-    <meta property="og:title" content="Karin Silveira — Desenvolvedora web e mobile">
-    <meta property="og:description" content="Karin Silveira, desenvolvedora de software web e mobile desde 2021. Conheça projetos, trajetória e serviços de sites, aplicações e integrações, e entre em contato.">
+    <meta property="og:title" content="Karin Silveira | Desenvolvedora de Software Web e Mobile">
+    <meta property="og:description" content="Desenvolvedora de software com mais de cinco anos de experiência em web e mobile. Veja projetos e serviços de criação de sites, sistemas e aplicativos, e entre em contato.">
     <meta property="og:url" content="https://pandamnio.github.io/karin-silveira-dev/">
     <meta property="og:image" content="https://pandamnio.github.io/karin-silveira-dev/assets/share/home.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Karin Silveira, desenvolvedora de software, com a assinatura ks. e uma superfície de grade em ultravioleta e aqua.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Karin Silveira — Desenvolvedora web e mobile">
-    <meta name="twitter:description" content="Karin Silveira, desenvolvedora de software web e mobile desde 2021. Conheça projetos, trajetória e serviços de sites, aplicações e integrações, e entre em contato.">
+    <meta name="twitter:title" content="Karin Silveira | Desenvolvedora de Software Web e Mobile">
+    <meta name="twitter:description" content="Desenvolvedora de software com mais de cinco anos de experiência em web e mobile. Veja projetos e serviços de criação de sites, sistemas e aplicativos, e entre em contato.">
     <meta name="twitter:image" content="https://pandamnio.github.io/karin-silveira-dev/assets/share/home.jpg">
     <meta name="twitter:image:alt" content="Karin Silveira, desenvolvedora de software, com a assinatura ks. e uma superfície de grade em ultravioleta e aqua.">
     <meta name="theme-color" content="#0c0c10">
@@ -80,7 +82,7 @@
         <div class="hero-text">
           <p class="eyebrow">Desenvolvedora de software</p>
           <h1 class="page-title">Karin <span class="voice">Silveira</span></h1>
-          <p class="lead">Atuo em projetos web e mobile, da estrutura do código à experiência de quem utiliza.</p>
+          <p class="lead">Desenvolvo sites, sistemas web e aplicativos mobile, com especial interesse pela qualidade do software.</p>
           <p><a class="cta" href="#projetos">Explorar projetos <span aria-hidden="true">→</span></a></p>
         </div>
 
@@ -98,23 +100,35 @@
       <section id="projetos" class="works" aria-labelledby="projetos-titulo">
         <div class="section-intro works-intro">
           <h2 class="display" id="projetos-titulo">Projetos <span class="voice">selecionados</span></h2>
-          <p>Uma seleção de trabalhos em desenvolvimento de software e criação digital.</p>
+          <p>Conheça os projetos que desenvolvo, desde a concepção até a implementação.</p>
         </div>
+
+        <article class="feature project-spectrum" aria-labelledby="destaque-spectrum">
+          <div class="feature-visual stage stage-spectrum">
+            <img class="stage-desktop" src="assets/images/spectrum/desktop-inicio-960.webp" srcset="assets/images/spectrum/desktop-inicio-640.webp 640w, assets/images/spectrum/desktop-inicio-960.webp 960w, assets/images/spectrum/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 72vw" width="1440" height="900" loading="lazy" decoding="async" alt="Este portfólio no desktop: o nome Karin Silveira e a escultura de uma fita que passa de grade a um gradiente Aqua e Ultraviolet.">
+            <img class="stage-mobile" src="assets/images/spectrum/mobile-inicio-390.webp" srcset="assets/images/spectrum/mobile-inicio-390.webp 390w, assets/images/spectrum/mobile-inicio-780.webp 780w" sizes="(min-width: 56rem) 12vw, 20vw" width="780" height="1688" loading="lazy" decoding="async" alt="O mesmo portfólio no celular, com a escultura ancorada na base.">
+          </div>
+          <div class="feature-text">
+            <p class="eyebrow">Projetos em destaque</p>
+            <h3 id="destaque-spectrum"><a class="card-link" href="projetos/spectrum/">Spectrum <span class="voice">portfólio profissional <span aria-hidden="true">→</span></span></a></h3>
+            <p>Meu próprio portfólio como projeto de desenvolvimento web e programação criativa, construído com HTML, CSS, JavaScript e SVG.</p>
+          </div>
+        </article>
 
         <ol class="studies grid-12" role="list">
           <li class="study">
             <div class="study-visual stage stage-psicologia stack">
-              <img class="stage-desktop" src="assets/images/psicologia/desktop-inicio-960.webp" srcset="assets/images/psicologia/desktop-inicio-640.webp 640w, assets/images/psicologia/desktop-inicio-960.webp 960w, assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 72vw" width="1440" height="900" loading="lazy" decoding="async" alt="Single page para psicologia no desktop: o título “Você não precisa ter todas as respostas.”, o botão “Encontre seu horário” e a foto de um consultório com duas poltronas.">
+              <img class="stage-desktop" src="assets/images/psicologia/desktop-inicio-960.webp" srcset="assets/images/psicologia/desktop-inicio-640.webp 640w, assets/images/psicologia/desktop-inicio-960.webp 960w, assets/images/psicologia/desktop-inicio-1440.webp 1440w" sizes="(min-width: 56rem) 44vw, 72vw" width="1440" height="900" loading="lazy" decoding="async" alt="Single page com agendamento online no desktop: o título “Você não precisa ter todas as respostas.”, o botão “Encontre seu horário” e a foto de um consultório com duas poltronas.">
               <img class="stage-mobile" src="assets/images/psicologia/mobile-inicio-390.webp" srcset="assets/images/psicologia/mobile-inicio-390.webp 390w, assets/images/psicologia/mobile-inicio-780.webp 780w" sizes="(min-width: 56rem) 12vw, 20vw" width="780" height="1688" loading="lazy" decoding="async" alt="A mesma página no celular, com o título, o botão de agendamento e a foto do consultório abaixo.">
             </div>
             <div class="study-text">
               <p class="eyebrow">Coleção · 1 projeto</p>
               <h3><a class="card-link" href="projetos/sites-institucionais/">Sites institucionais <span aria-hidden="true">→</span></a></h3>
-              <p>Sites e landing pages voltados à apresentação de profissionais, serviços e negócios, com atenção à identidade visual, à experiência de navegação e ao desempenho.</p>
+              <p>Sites e landing pages para profissionais e empresas que desejam apresentar seu trabalho, divulgar seus serviços e estabelecer uma presença digital.</p>
               <div class="study-projects">
                 <p class="label" id="colecao-sites">Nesta coleção</p>
                 <ul role="list" aria-labelledby="colecao-sites">
-                  <li><a href="projetos/psicologia/">Single page para psicologia <span aria-hidden="true">→</span></a></li>
+                  <li><a href="projetos/psicologia/">Single page com agendamento online <span aria-hidden="true">→</span></a></li>
                 </ul>
               </div>
             </div>
@@ -139,13 +153,14 @@
           </div>
         </div>
 
-        <p class="about-lead">Sou desenvolvedora de software, bacharel em Ciência da Computação, com mais de cinco anos de experiência em desenvolvimento web e mobile.</p>
+        <p class="about-lead">Sou desenvolvedora de software e trabalho com diferentes tecnologias e aplicações.</p>
 
         <div class="about-text">
-          <p>A formação técnica em Informática, iniciada em 2018, e a graduação em Ciência da Computação, concluída em 2025, acompanharam uma atuação profissional que começou em 2021 e se estende de interfaces web a aplicativos mobile.</p>
-          <p>Gosto de entender o problema antes de escolher a tecnologia. Tenho especial interesse pela construção de interfaces, desde a organização do código até os detalhes que tornam uma aplicação mais intuitiva, acessível e eficiente.</p>
-          <p>A fotografia, o audiovisual e o design fazem parte do meu repertório criativo e influenciam minha maneira de desenvolver.</p>
+          <p>Sou curiosa por natureza e gosto de compreender o que estou desenvolvendo, questionar soluções e descobrir outras formas de resolver um problema. Prezo pela qualidade do meu trabalho, tenho senso crítico e valorizo a liberdade de criação que a tecnologia oferece.</p>
+          <p>Quero construir uma carreira diversificada dentro da computação, aprofundando meus conhecimentos, explorando novas áreas e assumindo desafios que ampliem minha experiência e minha capacidade de atuação.</p>
         </div>
+
+        <p class="about-quote">“Sempre enxerguei o desenvolvimento como uma forma de arte, assim como a pintura, pela <span>liberdade de criar</span>.”</p>
 
         <dl class="about-facts">
           <div>
@@ -259,33 +274,33 @@
       <section id="servicos" class="services ambient" aria-labelledby="servicos-titulo">
         <div class="section-intro services-intro">
           <h2 id="servicos-titulo" class="display">Serviços <span class="voice">sob medida<i>.</i></span></h2>
-          <p>Além da minha atuação profissional, desenvolvo projetos sob demanda e colaboro na evolução de aplicações existentes.</p>
+          <p>Além da minha atuação profissional, desenvolvo projetos independentes para profissionais e empresas.</p>
         </div>
 
         <ol class="services-list" role="list">
           <li class="service grid-12">
             <h3>Sites institucionais <span class="voice">e landing pages</span></h3>
-            <p>Sites que apresentam seu trabalho com clareza, facilitam o contato e favorecem sua presença nas buscas.</p>
+            <p>Criação de sites para apresentar profissionais, empresas, produtos e serviços.</p>
             <a class="link" href="projetos/sites-institucionais/">Ver sites institucionais <span aria-hidden="true">→</span></a>
           </li>
           <li class="service grid-12">
             <h3>Sistemas <span class="voice">e interfaces web</span></h3>
-            <p>Interfaces que organizam informações, simplificam processos e facilitam o uso de sistemas.</p>
+            <p>Desenvolvimento de interfaces e funcionalidades para sistemas novos ou existentes.</p>
           </li>
           <li class="service grid-12">
             <h3>Aplicativos <span class="voice">mobile</span></h3>
-            <p>Desenvolvimento e evolução de aplicações para Android e iOS.</p>
+            <p>Desenvolvimento e manutenção de aplicativos para Android e iOS.</p>
           </li>
           <li class="service grid-12">
             <h3>Integrações <span class="voice">e otimização</span></h3>
-            <p>Conexão entre sistemas e melhorias de desempenho, acessibilidade e qualidade do código.</p>
+            <p>Integração entre aplicações e melhorias de desempenho, acessibilidade e qualidade do código.</p>
           </li>
         </ol>
 
         <div class="closing">
           <div>
             <h3>Tem um projeto <span class="voice">em mente?</span></h3>
-            <p>Conte em poucas linhas o que você precisa. Uma descrição curta já basta para começar a conversa.</p>
+            <p>Entre em contato para conversarmos sobre o seu projeto.</p>
           </div>
           <ul class="actions" role="list">
             <li><a class="button" href="https://wa.me/5554991311229?text=Ol%C3%A1%2C%20Karin%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20projeto." target="_blank" rel="noopener"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="assets/icons/social.svg#whatsapp"></use></svg>Orçamento pelo WhatsApp<span class="visually-hidden">(abre em nova aba)</span></a></li>
@@ -301,7 +316,7 @@
             <p class="eyebrow">Laboratório</p>
             <h2 id="laboratorio-titulo" class="display">Laboratório <span class="voice">criativo</span></h2>
           </div>
-          <p>Um espaço para investigar o que o código permite criar quando a experimentação é o ponto de partida.</p>
+          <p>Um espaço dedicado à experimentação com código. Explore diferentes formas de trabalhar com geometria, luz, cor e tipografia.</p>
         </div>
 
         <article class="experiment" data-experiment="construcao-fluxo" aria-labelledby="experimento-titulo">
@@ -325,7 +340,7 @@
               <p class="eyebrow">Experimento 01</p>
               <h3 id="experimento-titulo">Construção &amp; Fluxo</h3>
             </div>
-            <p class="experiment-description">Uma grade geométrica que se transforma em movimento, explorando a relação entre estrutura, interação e liberdade visual.</p>
+            <p class="experiment-description">Transforme uma grade geométrica em uma composição de curvas e ondas, interagindo diretamente com suas formas.</p>
             <div class="experiment-control" hidden>
               <div class="control-range">
                 <span class="control-start" aria-hidden="true">Construção</span>
@@ -382,7 +397,7 @@
             <div class="study-caption">
               <p class="eyebrow">Experimento 02</p>
               <h3 id="experimento-luz-titulo">Luz &amp; Espectro</h3>
-              <p class="experiment-description">Três luzes Spectrum se somam diante de um painel. Onde uma delas é bloqueada, a sombra ganha a cor das outras.</p>
+              <p class="experiment-description">Combine três fontes de luz colorida e observe como suas posições e intensidades modificam as cores e sombras.</p>
               <div class="study-controls" hidden>
                 <label for="luz-aqua-intensidade"><span class="swatch swatch-aqua" aria-hidden="true"></span>Aqua</label>
                 <input id="luz-aqua-intensidade" type="range" min="0" max="100" value="100" data-intensity="aqua">
@@ -410,7 +425,7 @@
             <div class="study-caption">
               <p class="eyebrow">Experimento 03</p>
               <h3 id="experimento-tipo-titulo">Tipo &amp; Ritmo</h3>
-              <p class="experiment-description">Uma frase em escala modular, cujas proporções levam o nome de intervalos musicais. Espaço e ritmo alternam peso e recuo entre as linhas.</p>
+              <p class="experiment-description">Explore como proporções, espaçamentos e pesos tipográficos transformam uma mesma composição textual.</p>
               <div class="study-controls" hidden>
                 <label for="tipo-proporcao">Proporção</label>
                 <input id="tipo-proporcao" type="range" min="0" max="6" step="1" value="4" data-type="ratio">
@@ -423,6 +438,77 @@
             </div>
           </article>
         </div>
+
+        <article class="lab-form" data-experiment="forma-espaco" aria-labelledby="experimento-forma-titulo">
+          <div class="form-stage">
+            <svg viewBox="-250 -60 1800 1080" aria-hidden="true" focusable="false">
+              <path class="form-orbit" fill="none" stroke="#ededf2" stroke-opacity="0.4" vector-effect="non-scaling-stroke" />
+              <g class="form-band"></g>
+              <path class="form-orbit" fill="none" stroke="#ededf2" stroke-opacity="0.4" vector-effect="non-scaling-stroke" />
+              <rect class="form-accent" width="16" height="16" fill="#ff426c" />
+            </svg>
+          </div>
+
+          <div class="form-caption">
+            <p class="eyebrow">Experimento 04</p>
+            <h3 id="experimento-forma-titulo">Forma &amp; Espaço</h3>
+            <p class="experiment-description">Molde a escultura da abertura do portfólio: torça, curve e alargue a fita, ajuste a malha, a perspectiva, a luz e as cores, e exporte o resultado em SVG.</p>
+
+            <form class="form-controls" hidden>
+              <fieldset>
+                <legend class="label">Forma</legend>
+                <div class="form-field">
+                  <label for="forma-torcao">Torção</label>
+                  <output for="forma-torcao">172°</output>
+                  <input id="forma-torcao" name="twist" type="range" min="0" max="628" value="300">
+                </div>
+                <div class="form-field">
+                  <label for="forma-curvatura">Curvatura</label>
+                  <output for="forma-curvatura">100%</output>
+                  <input id="forma-curvatura" name="bend" type="range" min="0" max="140" value="100">
+                </div>
+                <div class="form-field">
+                  <label for="forma-largura">Largura</label>
+                  <output for="forma-largura">100%</output>
+                  <input id="forma-largura" name="width" type="range" min="50" max="140" value="100">
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend class="label">Espaço</legend>
+                <div class="form-field">
+                  <label for="forma-malha">Densidade da malha</label>
+                  <output for="forma-malha">12 linhas</output>
+                  <input id="forma-malha" name="mesh" type="range" min="4" max="24" step="2" value="12">
+                </div>
+                <div class="form-field">
+                  <label for="forma-perspectiva">Perspectiva</label>
+                  <output for="forma-perspectiva">100%</output>
+                  <input id="forma-perspectiva" name="depth" type="range" min="30" max="125" value="100">
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend class="label">Luz e cor</legend>
+                <div class="form-field">
+                  <label for="forma-luz">Direção da luz</label>
+                  <output for="forma-luz">121°</output>
+                  <input id="forma-luz" name="light" type="range" min="0" max="359" value="121">
+                </div>
+                <div class="form-colors">
+                  <label for="forma-cor-inicio">Início do fluxo<input id="forma-cor-inicio" name="from" type="color" value="#00d6cf"></label>
+                  <label for="forma-cor-fim">Fim do fluxo<input id="forma-cor-fim" name="to" type="color" value="#7148ff"></label>
+                </div>
+              </fieldset>
+
+              <div class="form-actions">
+                <button class="button" type="button" data-export>Exportar SVG</button>
+                <button class="link" type="reset">Restaurar parâmetros</button>
+              </div>
+              <p class="control-hint" role="status"></p>
+            </form>
+          </div>
+        </article>
       </section>
 
       <section id="contato" class="contact ambient grid-12" aria-labelledby="contato-titulo">
@@ -435,7 +521,7 @@
         <h2 id="contato-titulo" class="display">Vamos <span class="voice">conversar<i>.</i></span></h2>
 
         <div class="contact-body">
-          <p class="contact-lead">Estou aberta a oportunidades profissionais, projetos independentes e colaborações em tecnologia.</p>
+          <p class="contact-lead">Estou aberta a novas oportunidades profissionais, projetos independentes e parcerias.</p>
 
           <div class="contact-groups">
             <div class="contact-group" role="group" aria-labelledby="contato-direto">
