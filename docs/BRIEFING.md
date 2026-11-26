@@ -75,9 +75,9 @@ Três famílias conceituais de trabalhos:
 - **Experimentação:** creative coding, estudos, animações, interações e exploração de tecnologias.
 - **Além do código:** outras criações pessoais, quando houver. A autora tem senso estético, mas não se apresenta como especialista em fotografia, audiovisual ou design.
 
-**Categorias do acervo** (tipos de solução, dentro de Desenvolvimento): Sites institucionais, Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações. Cada categoria forma uma coleção e só é publicada quando tiver ao menos um projeto real; hoje, apenas Sites institucionais. Estudos ilustrativos não aparecem como projetos.
+**Categorias do acervo** (tipos de solução, dentro de Desenvolvimento): Sites institucionais, Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações. As categorias são filtros do acervo e só existem quando têm ao menos um projeto real; hoje, Projetos em destaque e Sites institucionais. Não há páginas de coleção. Estudos ilustrativos não aparecem como projetos.
 
-**Projetos em destaque:** coleção curatorial, anterior às categorias na homepage e no acervo. Pode reunir trabalhos representativos de qualquer categoria; o estudo de caso continua com uma única página e URL própria, sem duplicação. Não tem página de coleção: o acesso é pela âncora `projetos/#destaques`.
+**Projetos em destaque:** curadoria transversal às categorias de solução; no acervo é um filtro (`?categoria=destaques`) e um projeto pode estar nele e em outra categoria. Cada estudo de caso tem uma única página e URL própria, sem duplicação.
 
 **Trabalhos publicados**
 

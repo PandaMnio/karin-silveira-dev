@@ -250,7 +250,24 @@ dt {
 .section-intro > p {
   max-inline-size: 34ch;
   margin: 0;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
   color: var(--color-muted);
+}
+
+/* A coluna 7 é o eixo do texto de apoio em todas as seções da homepage. */
+@media (min-width: 56rem) {
+  .section-intro {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .section-intro > :first-child {
+    grid-column: 1 / 7;
+  }
+
+  .section-intro > p {
+    grid-column: 7 / 12;
+  }
 }
 
 .item-title {
@@ -529,14 +546,6 @@ dt {
   inline-size: 18%;
   border-radius: 12% / 5.5%;
   outline: 1px solid color-mix(in srgb, var(--color-porcelain) 20%, transparent);
-}
-
-.stack {
-  box-shadow:
-    -0.5rem -0.5rem 0 -1px var(--color-bg),
-    -0.5rem -0.5rem 0 0 rgb(237 237 242 / 0.2),
-    -1rem -1rem 0 -1px var(--color-bg),
-    -1rem -1rem 0 0 rgb(237 237 242 / 0.12);
 }
 
 /* Sem color-mix: só o que afeta legibilidade ou função. */

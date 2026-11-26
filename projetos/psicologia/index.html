@@ -66,12 +66,6 @@
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Sites institucionais",
-              "item": "https://pandamnio.github.io/karin-silveira-dev/projetos/sites-institucionais/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
               "name": "Single page com agendamento online",
               "item": "https://pandamnio.github.io/karin-silveira-dev/projetos/psicologia/"
             }
@@ -101,12 +95,12 @@
 
     <main id="conteudo" class="case ambient project-psicologia">
       <div class="case-intro grid-12">
-        <p class="back"><a href="../sites-institucionais/"><span aria-hidden="true">←</span> Coleção Sites institucionais</a></p>
+        <p class="back"><a href="../"><span aria-hidden="true">←</span> Acervo de projetos</a></p>
         <p class="eyebrow">Projeto autoral · Desenvolvimento web</p>
         <h1 class="page-title">Single page <span class="voice">com agendamento online</span></h1>
         <div class="case-summary">
           <p class="lead">Site institucional de página única para profissionais que atendem com hora marcada. Apresenta a atuação, esclarece dúvidas sobre os atendimentos e facilita o agendamento de consultas.</p>
-          <p>A demonstração usa uma psicóloga fictícia, mas a estrutura, o visual e a composição servem a outras áreas. O projeto foi construído com HTML, CSS e JavaScript, com interface responsiva, identidade visual própria e um fluxo demonstrativo de agendamento que funciona no navegador.</p>
+          <p>A demonstração usa uma psicóloga fictícia, mas a estrutura, o visual e a composição servem a outras áreas. O agendamento é um fluxo demonstrativo que funciona no navegador, com interface responsiva e identidade visual própria.</p>
           <ul class="actions" role="list">
             <li><a class="button" href="https://pandamnio.github.io/agendamento-consultas/" target="_blank" rel="noopener">Ver a demonstração <span aria-hidden="true">↗</span> <span class="visually-hidden">(abre em nova aba)</span></a></li>
             <li>
@@ -136,6 +130,16 @@
           </div>
           <div><dt>Publicação</dt><dd>GitHub Pages, para portfólio</dd></div>
         </dl>
+        <nav class="case-toc" aria-labelledby="neste-estudo">
+          <p id="neste-estudo" class="label">Neste estudo</p>
+          <ol role="list">
+            <li><a href="#abertura"><span class="index" aria-hidden="true">01</span>Abertura</a></li>
+            <li><a href="#agendamento"><span class="index" aria-hidden="true">02</span>Agendamento</a></li>
+            <li><a href="#implementacao"><span class="index" aria-hidden="true">03</span>Implementação</a></li>
+            <li><a href="#desempenho"><span class="index" aria-hidden="true">04</span>Desempenho</a></li>
+            <li><a href="#identidade"><span class="index" aria-hidden="true">05</span>Identidade visual</a></li>
+          </ol>
+        </nav>
       </div>
 
       <section class="case-chapter case-opening grid-12" aria-labelledby="abertura">
@@ -144,13 +148,14 @@
           <h2 id="abertura">Abertura</h2>
         </div>
         <div class="case-text">
-          <p>A página tem um objetivo: levar quem chega a marcar um horário. Por isso, a primeira dobra, o que aparece antes de rolar, responde ao que a pessoa precisa saber para decidir (quem atende, para quem e em que formato) e oferece uma única ação, “Encontre seu horário”. As outras seções ficam a um clique, pelo menu ou pelo link logo abaixo do botão.</p>
+          <p>A página tem um objetivo: levar quem chega a marcar um horário. A primeira dobra, o que aparece antes de rolar, responde ao que a pessoa precisa saber para decidir (quem atende, para quem e em que formato) e oferece uma única ação, “Encontre seu horário”. As outras seções ficam a um clique, pelo menu ou pelo link abaixo do botão.</p>
           <p>A hierarquia está no HTML: um único título principal, seções nomeadas e links internos. No celular, a ordem se mantém, com título, texto e ação antes da fotografia, e o menu vira um painel que abre e fecha pelo teclado.</p>
         </div>
         <figure class="shot shot-detail">
           <div class="shot-frame stage-psicologia">
             <img src="../../assets/images/psicologia/desktop-abertura-620.webp" srcset="../../assets/images/psicologia/desktop-abertura-620.webp 620w, ../../assets/images/psicologia/desktop-abertura-1240.webp 1240w" sizes="(min-width: 56rem) 34vw, 84vw" width="1240" height="1358" loading="lazy" decoding="async" alt="Detalhe da abertura: o título “Você não precisa ter todas as respostas.”, o texto de apoio, o botão “Encontre seu horário”, o link “Conheça o atendimento” e a linha “Online e presencial · CRP 00/00000”.">
           </div>
+          <figcaption>Primeira dobra: quem atende, para quem, em que formato e uma única ação.</figcaption>
         </figure>
       </section>
 
@@ -160,10 +165,13 @@
           <h2 id="agendamento">Agendamento</h2>
         </div>
         <div class="case-text">
-          <p>O agendamento é onde a página cumpre seu objetivo: transformar o interesse em um horário escolhido. Na interface, a escolha acontece em três etapas: formato do encontro, dia e horário. Os cinco próximos dias com atendimento aparecem como atalhos, o campo de data cobre os 90 dias seguintes e um resumo acompanha a seleção até a revisão.</p>
-          <p>Nenhum horário é escrito à mão. Uma grade semanal define as faixas de atendimento de cada dia, e cada faixa se divide em sessões de 50 minutos com 10 de intervalo. O dia de referência é calculado no fuso de Brasília, e o restante trabalha com datas de calendário, sem conversões de fuso.</p>
-          <p>A cada escolha, o formulário recalcula os horários do dia, atualiza atalhos, mensagens e resumo e leva a pessoa ao próximo campo pendente. No envio, a revisão se abre em uma janela de diálogo nativa, e as mensagens de erro são anunciadas por leitores de tela.</p>
+          <p>O agendamento é onde a página cumpre seu objetivo: transformar o interesse em um horário escolhido. A escolha acontece em três etapas, e um resumo acompanha a seleção até a revisão.</p>
         </div>
+        <ol class="case-process case-steps" role="list">
+          <li><span class="index" aria-hidden="true">01</span><h3>Formato</h3><p>Online ou presencial.</p></li>
+          <li><span class="index" aria-hidden="true">02</span><h3>Dia</h3><p>Os cinco próximos dias com atendimento aparecem como atalhos, e o campo de data cobre os 90 dias seguintes.</p></li>
+          <li><span class="index" aria-hidden="true">03</span><h3>Horário</h3><p>Os horários disponíveis do dia escolhido, em sessões de 50 minutos.</p></li>
+        </ol>
         <figure class="shot shot-agenda">
           <div class="shot-frame stage-psicologia">
             <img src="../../assets/images/psicologia/desktop-agenda-1240.webp" srcset="../../assets/images/psicologia/desktop-agenda-640.webp 640w, ../../assets/images/psicologia/desktop-agenda-1240.webp 1240w" sizes="(min-width: 56rem) 56vw, 84vw" width="1240" height="775" loading="lazy" decoding="async" alt="Agenda de consultas no desktop: escolha entre online e presencial, cinco próximos dias com atendimento, campo de data e três horários disponíveis.">
@@ -176,6 +184,15 @@
           </div>
           <figcaption>No celular, as etapas se empilham.</figcaption>
         </figure>
+        <div class="case-decisions">
+          <h3 class="label case-label">Por dentro do fluxo</h3>
+          <dl class="case-spec">
+            <div><dt>Horários</dt><dd>Nenhum é escrito à mão: uma grade semanal define as faixas de atendimento de cada dia, e cada faixa se divide em sessões de 50 minutos com 10 de intervalo.</dd></div>
+            <div><dt>Datas</dt><dd>O dia de referência é calculado no fuso de Brasília; o restante trabalha com datas de calendário, sem conversões de fuso.</dd></div>
+            <div><dt>A cada escolha</dt><dd>O formulário recalcula os horários do dia, atualiza atalhos, mensagens e resumo e leva a pessoa ao próximo campo pendente.</dd></div>
+            <div><dt>Envio</dt><dd>A revisão se abre em uma janela de diálogo nativa, e as mensagens de erro são anunciadas por leitores de tela.</dd></div>
+          </dl>
+        </div>
       </section>
 
       <section class="case-chapter case-build grid-12" aria-labelledby="implementacao">
@@ -186,13 +203,22 @@
         <div class="case-text">
           <p>Sem bibliotecas nem etapa de build: um arquivo de HTML, um de CSS e um de JavaScript. Recursos nativos do navegador resolvem a janela de diálogo, as perguntas expansíveis e a observação da rolagem.</p>
         </div>
-        <dl class="case-spec">
-          <div><dt>Estrutura</dt><dd>HTML semântico, com cabeçalho, navegação, seções rotuladas, rodapé e um sprite SVG para os ícones.</dd></div>
-          <div><dt>Estilo</dt><dd>CSS com variáveis para cores, espaçamentos e tipografia; layout responsivo do desktop até 360px; Cormorant Garamond e Manrope via Google Fonts.</dd></div>
-          <div><dt>Interface</dt><dd><code>&lt;dialog&gt;</code> para a revisão, <code>&lt;details&gt;</code> para as dúvidas frequentes e um menu expansível controlado por <code>aria-expanded</code>.</dd></div>
-          <div><dt>Acessibilidade</dt><dd>Link para pular ao conteúdo, navegação por teclado, <code>aria-invalid</code>, <code>aria-describedby</code> e <code>aria-live</code> no formulário; respeito a <code>prefers-reduced-motion</code> e <code>prefers-reduced-transparency</code>.</dd></div>
-          <div><dt>Busca</dt><dd>Título, descrição, Open Graph, canonical, dados estruturados, <code>sitemap.xml</code> e <code>robots.txt</code>.</dd></div>
-        </dl>
+        <ul class="case-figures" role="list">
+          <li><span>0</span> bibliotecas</li>
+          <li><span>0</span> etapas de build</li>
+          <li><span>3</span> arquivos de código</li>
+          <li><span>17</span> KB de código</li>
+        </ul>
+        <div class="case-decisions">
+          <h3 class="label case-label">Decisões técnicas</h3>
+          <dl class="case-spec">
+            <div><dt>Estrutura</dt><dd>HTML semântico, com cabeçalho, navegação, seções rotuladas, rodapé e um sprite SVG para os ícones.</dd></div>
+            <div><dt>Estilo</dt><dd>CSS com variáveis para cores, espaçamentos e tipografia; layout responsivo do desktop até 360px; Cormorant Garamond e Manrope via Google Fonts.</dd></div>
+            <div><dt>Interface</dt><dd><code>&lt;dialog&gt;</code> para a revisão, <code>&lt;details&gt;</code> para as dúvidas frequentes e um menu expansível controlado por <code>aria-expanded</code>.</dd></div>
+            <div><dt>Acessibilidade</dt><dd>Link para pular ao conteúdo, navegação por teclado, <code>aria-invalid</code>, <code>aria-describedby</code> e <code>aria-live</code> no formulário; respeito a <code>prefers-reduced-motion</code> e <code>prefers-reduced-transparency</code>.</dd></div>
+            <div><dt>Busca</dt><dd>Título, descrição, Open Graph, canonical, dados estruturados, <code>sitemap.xml</code> e <code>robots.txt</code>.</dd></div>
+          </dl>
+        </div>
       </section>
 
       <section class="case-chapter case-performance grid-12" aria-labelledby="desempenho">
@@ -201,11 +227,11 @@
           <h2 id="desempenho">Desempenho</h2>
         </div>
         <div class="case-text">
-          <p>No PageSpeed Insights, a página marca 93 de desempenho no celular e 100 no computador, com 97 em acessibilidade e 100 em práticas recomendadas e SEO nos dois. O primeiro acesso transfere 278&nbsp;KB, e todo o código escrito para o projeto, entre HTML, CSS e JavaScript, soma 17&nbsp;KB.</p>
-          <p>A fotografia principal carrega com prioridade e tem largura e altura declaradas, o que reserva o espaço antes do download e evita saltos no layout. A segunda foto só é baixada quando se aproxima da tela, e o script, carregado com <code>defer</code>, não atrasa a primeira renderização. As fontes usam <code>preconnect</code> e <code>display=swap</code>, então o texto aparece antes delas. Cabeçalho e animações de entrada reagem por <code>IntersectionObserver</code>, sem escutar a rolagem.</p>
+          <p>No PageSpeed Insights, a página marca 100 no computador e 93 de desempenho no celular, onde só o Largest Contentful Paint, de 3,0&nbsp;s, fica na faixa intermediária.</p>
         </div>
         <div class="psi">
           <div class="psi-head">
+            <h3 class="label case-label">PageSpeed Insights</h3>
             <fieldset class="psi-switch">
               <legend class="visually-hidden">Dispositivo analisado</legend>
               <label class="label"><input type="radio" name="psi-device" value="mobile" checked> Celular</label>
@@ -265,6 +291,16 @@
           </dl>
           <figcaption>Versão publicada, sem cache: 10 requisições e nenhuma biblioteca. Medição própria no Chrome, em novembro de 2026.</figcaption>
         </figure>
+        <div class="case-decisions">
+          <h3 class="label case-label">Decisões de carregamento</h3>
+          <dl class="case-spec">
+            <div><dt>Foto principal</dt><dd>Carrega com prioridade e tem largura e altura declaradas, o que reserva o espaço antes do download e evita saltos no layout.</dd></div>
+            <div><dt>Segunda foto</dt><dd>Só é baixada quando se aproxima da tela.</dd></div>
+            <div><dt>Script</dt><dd>Carregado com <code>defer</code>, não atrasa a primeira renderização.</dd></div>
+            <div><dt>Fontes</dt><dd><code>preconnect</code> e <code>display=swap</code> fazem o texto aparecer antes delas.</dd></div>
+            <div><dt>Rolagem</dt><dd>Cabeçalho e animações de entrada reagem por <code>IntersectionObserver</code>, sem escutar a rolagem.</dd></div>
+          </dl>
+        </div>
         <div class="case-audit">
           <p>As notas variam a cada análise. O PageSpeed Insights mede a versão publicada no momento do acesso, no celular e no computador.</p>
           <a class="link" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fpandamnio.github.io%2Fagendamento-consultas%2F" target="_blank" rel="noopener">Fazer uma nova análise no PageSpeed Insights <span aria-hidden="true">↗</span> <span class="visually-hidden">(abre em nova aba)</span></a>
@@ -339,10 +375,8 @@
 
     <footer class="site-footer">
       <a class="signature" href="../../" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
-      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais, com auxílio de IA.</p>
+      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais.</p>
       <a class="link to-top" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
     </footer>
-
-    <p class="site-status"><span>Projeto em construção</span><i aria-hidden="true"></i></p>
   </body>
 </html>

@@ -76,7 +76,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Revisar e aprovar os textos públicos (homepage, acervo, coleção, estudos de caso, contatos e metadados), com a ordem do menu uniformizada: Projetos, Sobre, Serviços, Laboratório, Contato.
 - [ ] Publicar as demais categorias (Sistemas e aplicações web, Aplicativos mobile, Back-end e integrações) quando houver projetos reais.
 - [x] Criar o acervo (`projetos/`) como índice estático, acessível pela exposição da homepage.
-- [ ] Adicionar filtros ao acervo quando o volume justificar, com alternativa sem JS.
+- [x] Reestruturar o acervo como lista única com filtros por categoria (`?categoria=`), sem JS como alternativa; a coleção Sites institucionais virou página mínima de redirecionamento.
 - [ ] Conectar os fragmentos do hero aos trabalhos da curadoria.
 
 **Aceite:** trabalhos distinguíveis e acessíveis; contexto, autoria e links visíveis; adicionar um projeto não exige reescrever a fundação.

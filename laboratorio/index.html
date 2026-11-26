@@ -87,10 +87,10 @@
       <section class="lab lab-page ambient" aria-labelledby="laboratorio-titulo">
         <div class="section-intro lab-intro">
           <div>
-            <p class="eyebrow">Laboratório</p>
+            <p class="eyebrow">Experimentação com código</p>
             <h1 id="laboratorio-titulo" class="display">Laboratório <span class="voice">criativo</span></h1>
           </div>
-          <p>Um espaço dedicado à experimentação com código. Explore diferentes formas de trabalhar com geometria, luz, cor e tipografia.</p>
+          <p>Experimentos em que o código é a matéria da composição: princípios do Spectrum, como estrutura, luz, tipografia e forma, abertos à interação.</p>
         </div>
 
         <article class="experiment" data-experiment="construcao-fluxo" aria-labelledby="experimento-titulo">
@@ -114,7 +114,7 @@
               <p class="eyebrow">Experimento 01</p>
               <h2 id="experimento-titulo">Construção &amp; Fluxo</h2>
             </div>
-            <p class="experiment-description">Transforme uma grade geométrica em uma composição de curvas e ondas, interagindo diretamente com suas formas.</p>
+            <p class="experiment-description">Uma grade rígida que, ao seu gesto, vira correnteza.</p>
             <div class="experiment-control" hidden>
               <div class="control-range">
                 <span class="control-start" aria-hidden="true">Construção</span>
@@ -124,6 +124,24 @@
               <p class="control-hint">Deslize entre construção e fluxo. Passe o cursor ou toque na composição para desviar as linhas.</p>
             </div>
           </div>
+
+          <details class="lab-details" open>
+            <summary>Entender o experimento</summary>
+            <dl class="lab-notes">
+              <div>
+                <dt class="label">Por quê</dt>
+                <dd>Estrutura e expressão são a tensão que organiza o Spectrum. Aqui ela fica isolada em um único gesto, entre a grade e a onda.</dd>
+              </div>
+              <div>
+                <dt class="label">Interação</dt>
+                <dd>O controle desliza do ordenado ao fluido. Ponteiro ou toque abrem uma lente que afasta as linhas na grade e as faz girar na correnteza; ao se mover, o ponteiro também faz a corrente avançar.</dd>
+              </div>
+              <div>
+                <dt class="label">Técnica</dt>
+                <dd>Cada linha é uma polilinha SVG, deslocada por ondas senoidais cruzadas. A lente é uma gaussiana que some no centro, para as linhas se abrirem sem dobrar. O quadro só é redesenhado enquanto algo se move; com movimento reduzido, o estado final é imediato.</dd>
+              </div>
+            </dl>
+          </details>
         </article>
 
         <div class="lab-studies">
@@ -171,7 +189,7 @@
             <div class="study-caption">
               <p class="eyebrow">Experimento 02</p>
               <h2 id="experimento-luz-titulo">Luz &amp; Espectro</h2>
-              <p class="experiment-description">Combine três fontes de luz colorida e observe como suas posições e intensidades modificam as cores e sombras.</p>
+              <p class="experiment-description">Três luzes, um só objeto. Mova as fontes e veja as cores se somarem onde a sombra de uma é iluminada por outra.</p>
               <div class="study-controls" hidden>
                 <label for="luz-aqua-intensidade"><span class="swatch swatch-aqua" aria-hidden="true"></span>Aqua</label>
                 <input id="luz-aqua-intensidade" type="range" min="0" max="100" value="100" data-intensity="aqua">
@@ -181,6 +199,23 @@
                 <input id="luz-pulse-intensidade" type="range" min="0" max="100" value="55" data-intensity="pulse">
                 <p id="luz-dica" class="control-hint">Arraste as luzes ou use as setas do teclado para movê-las. Os controles definem a intensidade de cada uma.</p>
               </div>
+              <details class="lab-details" open>
+                <summary>Entender o experimento</summary>
+                <dl class="lab-notes">
+                  <div>
+                    <dt class="label">Por quê</dt>
+                    <dd>Aqua, Ultraviolet e Pulse, as três cores do Spectrum, tratadas como luz e não como tinta: elas se somam em vez de se cobrir.</dd>
+                  </div>
+                  <div>
+                    <dt class="label">Interação</dt>
+                    <dd>Arraste cada fonte ou use as setas, com Shift para passos maiores. Os controles ajustam a intensidade, e a posição de cada luz é anunciada em texto.</dd>
+                  </div>
+                  <div>
+                    <dt class="label">Técnica</dt>
+                    <dd>Cada sombra é a união das faces do painel projetadas para longe da fonte, recalculada a cada movimento e aplicada como máscara com leve penumbra. Os feixes se combinam por mistura <em>screen</em>, e só as luzes alteradas são redesenhadas.</dd>
+                  </div>
+                </dl>
+              </details>
             </div>
           </article>
 
@@ -199,7 +234,7 @@
             <div class="study-caption">
               <p class="eyebrow">Experimento 03</p>
               <h2 id="experimento-tipo-titulo">Tipo &amp; Ritmo</h2>
-              <p class="experiment-description">Explore como proporções, espaçamentos e pesos tipográficos transformam uma mesma composição textual.</p>
+              <p class="experiment-description">A mesma frase, nas duas vozes tipográficas do site. Troque a proporção e o ritmo e ela se reorganiza.</p>
               <div class="study-controls" hidden>
                 <label for="tipo-proporcao">Proporção</label>
                 <input id="tipo-proporcao" type="range" min="0" max="6" step="1" value="4" data-type="ratio">
@@ -209,6 +244,23 @@
                 <label for="tipo-ritmo">Ritmo</label>
                 <input id="tipo-ritmo" type="range" min="0" max="100" value="50" data-type="rhythm">
               </div>
+              <details class="lab-details" open>
+                <summary>Entender o experimento</summary>
+                <dl class="lab-notes">
+                  <div>
+                    <dt class="label">Por quê</dt>
+                    <dd>No Spectrum, a tipografia combina uma sans-serif firme e uma serifa itálica expressiva. O experimento isola essa dupla e deixa a proporção em aberto.</dd>
+                  </div>
+                  <div>
+                    <dt class="label">Interação</dt>
+                    <dd>Proporção escolhe um intervalo musical, de 1,067 a 1,618. Espaço abre ou fecha letras e entrelinhas. Ritmo desloca as linhas alternadas e inverte seus pesos.</dd>
+                  </div>
+                  <div>
+                    <dt class="label">Técnica</dt>
+                    <dd>Os quatro tamanhos são potências da razão escolhida, limitados pela largura de cada linha em unidades de contêiner, de modo que nada quebra nem transborda. O JavaScript só atualiza propriedades customizadas; o layout é do CSS.</dd>
+                  </div>
+                </dl>
+              </details>
             </div>
           </article>
         </div>
@@ -226,7 +278,7 @@
           <div class="form-caption">
             <p class="eyebrow">Experimento 04</p>
             <h2 id="experimento-forma-titulo">Forma &amp; Espaço</h2>
-            <p class="experiment-description">Molde a escultura da abertura do portfólio: torça, curve e alargue a fita, ajuste a malha, a perspectiva, a luz e as cores, e exporte o resultado em SVG.</p>
+            <p class="experiment-description">A escultura da abertura do portfólio, nas suas mãos: torça, curve e alargue a fita, e exporte o resultado em SVG.</p>
 
             <form class="form-controls" hidden>
               <fieldset>
@@ -283,15 +335,31 @@
             </form>
           </div>
         </article>
+
+        <details class="lab-details" open>
+          <summary>Entender o experimento</summary>
+          <dl class="lab-notes lab-notes-form" aria-labelledby="experimento-forma-titulo">
+            <div>
+              <dt class="label">Por quê</dt>
+              <dd>É a mesma escultura que abre este site, com seus parâmetros expostos. O código que a desenha deixa de ser bastidor e passa a ser o material de trabalho.</dd>
+            </div>
+            <div>
+              <dt class="label">Interação</dt>
+              <dd>Forma altera a fita; espaço, a malha e a câmera; luz e cor, o sombreamento e o gradiente de Aqua a Ultraviolet. Restaurar volta ao desenho original.</dd>
+            </div>
+            <div>
+              <dt class="label">Técnica</dt>
+              <dd>A fita é regrada ao longo de uma curva de Bézier cúbica no espaço, projetada em perspectiva e pintada de trás para a frente. O módulo é compartilhado com o gerador do hero e só carrega perto da tela. As formas levam atributos de apresentação, então o SVG exportado funciona fora do site.</dd>
+            </div>
+          </dl>
+        </details>
       </section>
     </main>
 
     <footer class="site-footer">
       <a class="signature" href="../" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
-      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais, com auxílio de IA.</p>
+      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais.</p>
       <a class="link to-top" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
     </footer>
-
-    <p class="site-status"><span>Projeto em construção</span><i aria-hidden="true"></i></p>
   </body>
 </html>

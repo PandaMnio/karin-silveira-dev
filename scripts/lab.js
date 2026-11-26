@@ -9,6 +9,12 @@ if (light) lightSpectrum(light);
 if (type) typeRhythm(type);
 if (form) whenNear(form, () => import('./escultura.js').then((sculpture) => formSpace(form, sculpture)));
 
+// Explicações recolhidas no mobile e sempre abertas no desktop; sem JS, ficam abertas.
+const wide = matchMedia('(min-width: 56rem)');
+const syncDetails = () => document.querySelectorAll('.lab-details').forEach((details) => { details.open = wide.matches; });
+wide.addEventListener('change', syncDetails);
+syncDetails();
+
 function whenNear(element, callback) {
   if (!('IntersectionObserver' in window)) return callback();
   const observer = new IntersectionObserver((entries) => {

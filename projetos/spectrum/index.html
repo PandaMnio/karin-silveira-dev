@@ -66,12 +66,6 @@
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Projetos em destaque",
-              "item": "https://pandamnio.github.io/karin-silveira-dev/projetos/#destaques"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
               "name": "Spectrum — Portfólio profissional",
               "item": "https://pandamnio.github.io/karin-silveira-dev/projetos/spectrum/"
             }
@@ -101,7 +95,7 @@
 
     <main id="conteudo" class="case ambient project-spectrum">
       <div class="case-intro grid-12">
-        <p class="back"><a href="../#destaques"><span aria-hidden="true">←</span> Projetos em destaque</a></p>
+        <p class="back"><a href="../"><span aria-hidden="true">←</span> Acervo de projetos</a></p>
         <p class="eyebrow">Projeto autoral · Design e desenvolvimento</p>
         <h1 class="page-title">Spectrum <span class="voice">portfólio profissional</span></h1>
         <div class="case-summary">
@@ -136,6 +130,18 @@
           <div><dt>Dependências</dt><dd>Nenhuma</dd></div>
           <div><dt>Publicação</dt><dd>GitHub Pages, via GitHub Actions</dd></div>
         </dl>
+        <nav class="case-toc" aria-labelledby="neste-estudo">
+          <p id="neste-estudo" class="label">Neste estudo</p>
+          <ol role="list">
+            <li><a href="#proposito"><span class="index" aria-hidden="true">01</span>Propósito</a></li>
+            <li><a href="#identidade"><span class="index" aria-hidden="true">02</span>Identidade</a></li>
+            <li><a href="#materia"><span class="index" aria-hidden="true">03</span>Escultura</a></li>
+            <li><a href="#engenharia"><span class="index" aria-hidden="true">04</span>Engenharia</a></li>
+            <li><a href="#contextos"><span class="index" aria-hidden="true">05</span>Contextos de uso</a></li>
+            <li><a href="#desempenho"><span class="index" aria-hidden="true">06</span>Desempenho</a></li>
+            <li><a href="#ia"><span class="index" aria-hidden="true">07</span>Uso de IA</a></li>
+          </ol>
+        </nav>
       </div>
 
       <section class="case-chapter case-purpose grid-12" aria-labelledby="proposito">
@@ -145,13 +151,16 @@
         </div>
         <div class="case-text">
           <p>O desafio deste projeto foi reunir um currículo digital, uma apresentação de serviços e um portfólio autoral em um mesmo site, sem que uma dessas finalidades se sobrepusesse às demais.</p>
-          <p>Os estudos de caso permitem conhecer os projetos além de sua aparência, apresentando as tecnologias utilizadas, as decisões de desenvolvimento e os resultados obtidos. O laboratório complementa essa proposta com experimentos que podem ser explorados diretamente no navegador.</p>
+          <p>Os estudos de caso mostram os projetos além da aparência, com as tecnologias, as decisões e os resultados de cada um. O laboratório completa a proposta com experimentos para explorar no navegador.</p>
         </div>
-        <dl class="case-spec">
-          <div><dt>Identidade profissional</dt><dd>O nome e o posicionamento abrem a página; o retrato e a forma de trabalhar aparecem no Sobre.</dd></div>
-          <div><dt>Currículo digital</dt><dd>Experiência, formação, capacidades, mentoria e eventos, a partir de informações confirmadas.</dd></div>
-          <div><dt>Oportunidades comerciais</dt><dd>Quatro frentes de serviço, contato direto por WhatsApp e e-mail e um convite à conversa ao fim de cada página interna.</dd></div>
-        </dl>
+        <div class="case-purposes">
+          <h3 class="label case-label">Três finalidades</h3>
+          <dl class="case-spec">
+            <div><dt>Identidade profissional</dt><dd>O nome e o posicionamento abrem a página; o retrato e a forma de trabalhar aparecem no Sobre.</dd></div>
+            <div><dt>Currículo digital</dt><dd>Experiência, formação, capacidades, mentoria e eventos, a partir de informações confirmadas.</dd></div>
+            <div><dt>Oportunidades comerciais</dt><dd>Quatro frentes de serviço, contato direto por WhatsApp e e-mail e um convite à conversa ao fim de cada página interna.</dd></div>
+          </dl>
+        </div>
         <figure class="shot shot-services">
           <div class="shot-frame stage-spectrum">
             <img src="../../assets/images/spectrum/desktop-servicos-1240.webp" srcset="../../assets/images/spectrum/desktop-servicos-640.webp 640w, ../../assets/images/spectrum/desktop-servicos-1240.webp 1240w" sizes="(min-width: 56rem) 56vw, 84vw" width="1240" height="775" loading="lazy" decoding="async" alt="Seção Serviços sob medida no desktop: título em duas vozes e as linhas numeradas Sites institucionais e landing pages, Sistemas e interfaces web e Aplicativos, cada uma com uma descrição e um pequeno desenho geométrico.">
@@ -167,37 +176,41 @@
         </div>
         <div class="case-text">
           <p>A identidade visual parte do conceito Construção &amp; Fluxo. Elementos geométricos, grades e alinhamentos contrastam com formas orgânicas, curvas e movimento.</p>
-          <p>Obsidian e Porcelain compõem as superfícies escuras e claras do site. Ultraviolet, Aqua e Pulse aparecem em elementos gráficos, interações e pontos de destaque, com variações de cor quando necessárias para garantir o contraste do texto.</p>
-          <p>A tipografia combina Manrope, utilizada na maior parte da interface, com Instrument Serif, que confere uma expressão visual própria aos títulos.</p>
+          <p>Obsidian e Porcelain compõem as superfícies escuras e claras do site. Ultraviolet, Aqua e Pulse aparecem em elementos gráficos, interações e pontos de destaque, com variações de tom quando o contraste do texto exige.</p>
         </div>
 
         <figure class="spectrum-palette">
+          <h3 class="label case-label">Paleta</h3>
           <div class="spectrum-bar" aria-hidden="true"><span style="--share: 60; --swatch: var(--color-obsidian)"></span><span style="--share: 25; --swatch: var(--color-porcelain)"></span><span style="--share: 8; --swatch: var(--color-ultraviolet)"></span><span style="--share: 4; --swatch: var(--color-aqua)"></span><span style="--share: 3; --swatch: var(--color-pulse)"></span></div>
           <ul class="spectrum-legend" role="list">
-            <li style="--swatch: var(--color-obsidian)"><span>Obsidian</span> <code>#0C0C10</code> 60% · Superfícies e profundidade<small>Sobre Porcelain 16,73:1 · AAA</small></li>
-            <li style="--swatch: var(--color-porcelain)"><span>Porcelain</span> <code>#EDEDF2</code> 25% · Texto no escuro e ambientes claros<small>Sobre Obsidian 16,73:1 · AAA</small></li>
-            <li style="--swatch: var(--color-ultraviolet)"><span>Ultraviolet</span> <code>#7148FF</code> 8% · Assinatura<small>Sobre Obsidian 3,79:1</small><small>Sobre Porcelain 4,42:1</small></li>
-            <li style="--swatch: var(--color-aqua)"><span>Aqua</span> <code>#00D6CF</code> 4% · Interação e fluxo<small>Sobre Obsidian 10,71:1 · AAA</small><small>Sobre Porcelain 1,56:1</small></li>
-            <li style="--swatch: var(--color-pulse)"><span>Pulse</span> <code>#FF426C</code> 3% · Tensão pontual<small>Sobre Obsidian 5,81:1 · AA</small><small>Sobre Porcelain 2,88:1</small></li>
+            <li style="--swatch: var(--color-obsidian)"><span class="legend-name">Obsidian <code>#0C0C10</code></span><span class="legend-share">60%</span><span class="legend-role">Superfícies e profundidade</span><small>16,73:1 sobre Porcelain · AAA</small></li>
+            <li style="--swatch: var(--color-porcelain)"><span class="legend-name">Porcelain <code>#EDEDF2</code></span><span class="legend-share">25%</span><span class="legend-role">Texto no escuro e ambientes claros</span><small>16,73:1 sobre Obsidian · AAA</small></li>
+            <li style="--swatch: var(--color-ultraviolet)"><span class="legend-name">Ultraviolet <code>#7148FF</code></span><span class="legend-share">8%</span><span class="legend-role">Assinatura</span><small>3,79:1 sobre Obsidian</small><small>4,42:1 sobre Porcelain</small></li>
+            <li style="--swatch: var(--color-aqua)"><span class="legend-name">Aqua <code>#00D6CF</code></span><span class="legend-share">4%</span><span class="legend-role">Interação e fluxo</span><small>10,71:1 sobre Obsidian · AAA</small><small>1,56:1 sobre Porcelain</small></li>
+            <li style="--swatch: var(--color-pulse)"><span class="legend-name">Pulse <code>#FF426C</code></span><span class="legend-share">3%</span><span class="legend-role">Tensão pontual</span><small>5,81:1 sobre Obsidian · AA</small><small>2,88:1 sobre Porcelain</small></li>
           </ul>
-          <figcaption>Proporção de referência da paleta: um guia de equilíbrio, não uma cota. Para texto sobre Porcelain, o Ultraviolet cede lugar ao tom profundo #5D3CCF, com 5,97:1 (AA).</figcaption>
+          <figcaption>Proporção de referência: um guia de equilíbrio, não uma cota. Para texto sobre Porcelain, o Ultraviolet cede lugar ao tom profundo #5D3CCF, com 5,97:1 (AA).</figcaption>
         </figure>
 
-        <div class="spectrum-type" aria-label="Par tipográfico" role="group">
+        <div class="spectrum-type">
+          <h3 class="label case-label">Tipografia</h3>
           <p class="spectrum-specimen" aria-hidden="true">Construção <span class="voice">&amp; Fluxo</span></p>
           <dl class="case-type">
-            <div><dt>Estrutura · sem serifa</dt><dd>Manrope, de 200 a 800</dd></div>
-            <div><dt>Expressão · serifa</dt><dd>Instrument Serif, regular e itálico</dd></div>
+            <div><dt>Estrutura · sem serifa</dt><dd>Manrope, de 200 a 800, na maior parte da interface</dd></div>
+            <div><dt>Expressão · serifa</dt><dd>Instrument Serif, regular e itálico, na segunda voz dos títulos</dd></div>
           </dl>
         </div>
 
-        <ul class="spectrum-forms" role="list" aria-label="Vocabulário gráfico">
-          <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="form-line" d="M4 16H44M4 32H44M16 4V44M32 4V44"/></svg>Grade</li>
-          <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="form-line" d="M6 16V6H16M32 6H42V16M42 32V42H32M16 42H6V32"/></svg>Moldura</li>
-          <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle class="form-line" cx="24" cy="24" r="18"/></svg>Órbita</li>
-          <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="form-flow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00d6cf"/><stop offset="0.6" stop-color="#7148ff"/></linearGradient></defs><rect fill="url(#form-flow)" x="17" y="3" width="14" height="42" rx="7"/></svg>Cápsula de fluxo</li>
-          <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect class="form-accent" x="18" y="18" width="12" height="12"/></svg>Acento</li>
-        </ul>
+        <div class="spectrum-forms">
+          <h3 class="label case-label">Formas</h3>
+          <ul role="list">
+            <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="form-line" d="M4 16H44M4 32H44M16 4V44M32 4V44"/></svg>Grade</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="form-line" d="M6 16V6H16M32 6H42V16M42 32V42H32M16 42H6V32"/></svg>Moldura</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle class="form-line" cx="24" cy="24" r="18"/></svg>Órbita</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="form-flow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00d6cf"/><stop offset="0.6" stop-color="#7148ff"/></linearGradient></defs><rect fill="url(#form-flow)" x="17" y="3" width="14" height="42" rx="7"/></svg>Cápsula de fluxo</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect class="form-accent" x="18" y="18" width="12" height="12"/></svg>Acento</li>
+          </ul>
+        </div>
 
         <figure class="shot shot-about">
           <div class="shot-frame">
@@ -207,33 +220,34 @@
         </figure>
 
         <div class="case-text case-contexts-text">
-          <p>A identidade Spectrum acompanha as diferentes necessidades de cada página. Na homepage, os elementos gráficos e o movimento fazem parte da apresentação profissional. No acervo, a composição favorece a organização e a consulta dos projetos. Nos estudos de caso, o layout assume um caráter editorial, com espaço para imagens, informações técnicas e resultados.</p>
-          <p>Os fundamentos visuais permanecem os mesmos, enquanto a composição se adapta ao conteúdo. Cada projeto também pode apresentar sua própria identidade visual sem perder a conexão com o restante do portfólio.</p>
+          <h3 class="label case-label">Em cada página</h3>
+          <p>Os fundamentos visuais permanecem os mesmos, enquanto a composição se adapta ao conteúdo: na homepage, os elementos gráficos e o movimento fazem parte da apresentação; no acervo, a composição favorece a consulta dos projetos; nos estudos de caso, o layout ganha caráter editorial, com espaço para imagens, informações técnicas e resultados.</p>
+          <p>Cada projeto também pode apresentar sua própria identidade visual sem perder a conexão com o restante do portfólio.</p>
         </div>
 
         <figure class="spectrum-contexts">
           <ul role="list">
             <li>
               <div class="shot-frame">
-                <img src="../../assets/images/spectrum/desktop-inicio-960.webp" srcset="../../assets/images/spectrum/desktop-inicio-640.webp 640w, ../../assets/images/spectrum/desktop-inicio-960.webp 960w" sizes="(min-width: 56rem) 28vw, (min-width: 36rem) 44vw, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura da homepage: o nome Karin Silveira à esquerda e a escultura em grade, Aqua e Ultraviolet, ocupando a área à direita.">
+                <img src="../../assets/images/spectrum/desktop-inicio-960.webp" srcset="../../assets/images/spectrum/desktop-inicio-640.webp 640w, ../../assets/images/spectrum/desktop-inicio-960.webp 960w" sizes="(min-width: 56rem) 28vw, 46vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura da homepage: o nome Karin Silveira à esquerda e a escultura em grade, Aqua e Ultraviolet, ocupando a área à direita.">
               </div>
               <p>Homepage · apresentação</p>
             </li>
             <li>
               <div class="shot-frame">
-                <img src="../../assets/images/spectrum/contexto-acervo-960.webp" srcset="../../assets/images/spectrum/contexto-acervo-640.webp 640w, ../../assets/images/spectrum/contexto-acervo-960.webp 960w" sizes="(min-width: 56rem) 28vw, (min-width: 36rem) 44vw, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura do acervo: o título Acervo de projetos, o índice compacto das coleções e a primeira coleção, Projetos em destaque.">
+                <img src="../../assets/images/spectrum/contexto-acervo-960.webp" srcset="../../assets/images/spectrum/contexto-acervo-640.webp 640w, ../../assets/images/spectrum/contexto-acervo-960.webp 960w" sizes="(min-width: 56rem) 28vw, 46vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura do acervo: o título Acervo de projetos, o índice compacto das coleções e a primeira coleção, Projetos em destaque.">
               </div>
               <p>Acervo · consulta</p>
             </li>
             <li>
               <div class="shot-frame">
-                <img src="../../assets/images/spectrum/contexto-colecao-960.webp" srcset="../../assets/images/spectrum/contexto-colecao-640.webp 640w, ../../assets/images/spectrum/contexto-colecao-960.webp 960w" sizes="(min-width: 56rem) 28vw, (min-width: 36rem) 44vw, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura da coleção Sites institucionais: título, descrição, uma capa geométrica à direita e a lista de projetos abaixo.">
+                <img src="../../assets/images/spectrum/contexto-colecao-960.webp" srcset="../../assets/images/spectrum/contexto-colecao-640.webp 640w, ../../assets/images/spectrum/contexto-colecao-960.webp 960w" sizes="(min-width: 56rem) 28vw, 46vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura da coleção Sites institucionais: título, descrição, uma capa geométrica à direita e a lista de projetos abaixo.">
               </div>
               <p>Coleção · organização</p>
             </li>
             <li>
               <div class="shot-frame">
-                <img src="../../assets/images/spectrum/contexto-estudo-960.webp" srcset="../../assets/images/spectrum/contexto-estudo-640.webp 640w, ../../assets/images/spectrum/contexto-estudo-960.webp 960w" sizes="(min-width: 56rem) 28vw, (min-width: 36rem) 44vw, 92vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura do estudo de caso Single page com agendamento online: título grande, resumo e a captura do projeto em azul-petróleo e bronze.">
+                <img src="../../assets/images/spectrum/contexto-estudo-960.webp" srcset="../../assets/images/spectrum/contexto-estudo-640.webp 640w, ../../assets/images/spectrum/contexto-estudo-960.webp 960w" sizes="(min-width: 56rem) 28vw, 46vw" width="1440" height="900" loading="lazy" decoding="async" alt="Abertura do estudo de caso Single page com agendamento online: título grande, resumo e a captura do projeto em azul-petróleo e bronze.">
               </div>
               <p>Estudo de caso · editorial</p>
             </li>
@@ -249,14 +263,15 @@
         <div class="case-text">
           <p>A escultura apresentada na abertura do portfólio foi desenvolvida por meio de programação. Sua forma é definida por uma curva de Bézier tridimensional, a partir da qual são calculadas a largura, a torção, a perspectiva e a iluminação de uma fita geométrica.</p>
           <p>A geometria é gerada durante o desenvolvimento e incorporada à página em formato SVG. Dessa forma, o navegador não precisa recalcular a escultura a cada visita, ficando responsável pela renderização, pelas animações e pelas interações.</p>
-          <p>O mesmo núcleo matemático é carregado no laboratório, onde a escultura passa a ser recalculada no navegador. No experimento Forma &amp; Espaço, o visitante ajusta torção, curvatura, largura, malha, perspectiva, luz e cores, e pode exportar o resultado em SVG.</p>
         </div>
         <figure class="spectrum-diagram">
           <svg viewBox="0 0 680 440" aria-hidden="true" focusable="false"><path class="diagram-control" d="M40.0 300.0L250.0 400.0L640.0 230.0L330.0 40.0"/><path class="diagram-edge" d="M64.9 247.6L81.5 255.7L99.4 262.6L118.5 268.3L138.7 272.7L159.6 275.8L181.0 277.6L202.7 278.1L224.4 277.4L245.8 275.5L266.9 272.5L287.4 269.0L307.8 266.4L328.7 265.7L350.7 267.1L374.1 269.4L398.3 270.4L422.1 267.8L443.6 259.7L461.0 246.0L473.2 227.5L479.8 206.0L481.4 183.2L478.0 160.2L469.2 138.2L455.7 117.9L438.4 99.2L417.9 81.5L394.3 64.2L367.5 46.5L337.3 28.1"/><path class="diagram-edge" d="M15.1 352.4L41.7 362.5L68.9 370.4L96.5 376.0L124.3 379.7L152.3 381.5L180.1 381.6L207.8 380.0L235.1 376.9L261.8 372.2L287.9 366.0L313.0 357.8L336.3 346.4L356.9 330.8L373.6 310.9L385.9 288.1L393.9 264.6L398.4 243.0L401.0 225.1L403.1 211.2L405.3 200.7L407.7 191.7L409.4 182.8L409.7 173.0L408.9 161.0L405.8 146.5L399.1 129.5L387.9 110.8L371.6 91.1L349.9 71.3L322.7 51.9"/><path class="diagram-grid" d="M64.9 247.6L15.1 352.4"/><path class="diagram-grid" d="M81.5 255.7L41.7 362.5"/><path class="diagram-grid" d="M99.4 262.6L68.9 370.4"/><path class="diagram-grid" d="M118.5 268.3L96.5 376.0"/><path class="diagram-grid" d="M138.7 272.7L124.3 379.7"/><path class="diagram-grid" d="M159.6 275.8L152.3 381.5"/><path class="diagram-grid" d="M181.0 277.6L180.1 381.6"/><path class="diagram-grid" d="M202.7 278.1L207.8 380.0"/><path class="diagram-grid" d="M224.4 277.4L235.1 376.9"/><path class="diagram-grid" d="M245.8 275.5L261.8 372.2"/><path class="diagram-grid" d="M266.9 272.5L287.9 366.0"/><path class="diagram-grid" d="M287.4 269.0L313.0 357.8"/><path class="diagram-grid" d="M307.8 266.4L336.3 346.4"/><path class="diagram-grid" d="M328.7 265.7L356.9 330.8"/><path class="diagram-grid" d="M350.7 267.1L373.6 310.9"/><path class="diagram-grid" d="M374.1 269.4L385.9 288.1"/><path stroke="rgb(1 212 208)" d="M398.3 270.4L393.9 264.6"/><path stroke="rgb(5 207 209)" d="M422.1 267.8L398.4 243.0"/><path stroke="rgb(12 199 212)" d="M443.6 259.7L401.0 225.1"/><path stroke="rgb(20 189 215)" d="M461.0 246.0L403.1 211.2"/><path stroke="rgb(29 177 219)" d="M473.2 227.5L405.3 200.7"/><path stroke="rgb(40 164 224)" d="M479.8 206.0L407.7 191.7"/><path stroke="rgb(51 150 229)" d="M481.4 183.2L409.4 182.8"/><path stroke="rgb(62 136 233)" d="M478.0 160.2L409.7 173.0"/><path stroke="rgb(73 122 238)" d="M469.2 138.2L408.9 161.0"/><path stroke="rgb(84 109 243)" d="M455.7 117.9L405.8 146.5"/><path stroke="rgb(93 97 247)" d="M438.4 99.2L399.1 129.5"/><path stroke="rgb(101 87 250)" d="M417.9 81.5L387.9 110.8"/><path stroke="rgb(108 79 253)" d="M394.3 64.2L371.6 91.1"/><path stroke="rgb(112 74 254)" d="M367.5 46.5L349.9 71.3"/><path stroke="rgb(113 72 255)" d="M337.3 28.1L322.7 51.9"/><path class="diagram-axis" d="M40.0 300.0L50.6 304.8L61.6 309.1L72.7 313.0L84.1 316.5L95.7 319.5L107.5 322.2L119.5 324.4L131.5 326.2L143.7 327.6L155.9 328.7L168.2 329.3L180.6 329.6L192.9 329.5L205.2 329.1L217.5 328.3L229.7 327.1L241.8 325.7L253.8 323.8L265.7 321.7L277.4 319.3L288.9 316.5L300.2 313.4L311.3 310.1L322.1 306.4L332.6 302.5L342.8 298.2L352.7 293.8L362.2 289.0L371.3 284.0L380.0 278.8L388.3 273.3L396.1 267.5L403.4 261.6L410.3 255.4L416.6 249.0L422.3 242.4L427.5 235.6L432.0 228.6L436.0 221.4L439.3 214.1L441.9 206.5L443.8 198.8L444.9 191.0L445.4 183.0L445.0 174.8L443.8 166.6L441.9 158.1L439.0 149.6L435.3 140.9L430.7 132.2L425.2 123.3L418.8 114.3L411.3 105.3L402.9 96.1L393.4 86.9L382.9 77.7L371.4 68.3L358.7 58.9L344.9 49.5L330.0 40.0"/><circle class="diagram-point" cx="40" cy="300" r="5"/><text x="52" y="288">p0</text><circle class="diagram-point" cx="250" cy="400" r="5"/><text x="262" y="390">p1</text><circle class="diagram-point" cx="640" cy="230" r="5"/><text x="652" y="218">p2</text><circle class="diagram-point" cx="330" cy="40" r="5"/><text x="342" y="28">p3</text><rect class="diagram-accent" x="385.2" y="263.4" width="14" height="14" transform="rotate(45 392.2 270.4)"/></svg>
           <figcaption>Esquema simplificado: o eixo da fita é uma curva de Bézier com quatro pontos de controle, e a seção gira meia volta ao longo dele, passando da grade ao fluxo.</figcaption>
         </figure>
         <div class="case-text case-lab-text">
-          <p>O laboratório explora outras aplicações da programação criativa. Seus quatro experimentos permitem transformar uma grade geométrica, manipular fontes de luz colorida, alterar as proporções de uma composição tipográfica e moldar a própria escultura da abertura.</p>
+          <h3 class="label case-label">No laboratório</h3>
+          <p>O mesmo núcleo matemático é carregado no laboratório, onde a escultura passa a ser recalculada no navegador. No experimento Forma &amp; Espaço, o visitante ajusta torção, curvatura, largura, malha, perspectiva, luz e cores, e pode exportar o resultado em SVG.</p>
+          <p>Os outros três experimentos exploram a programação criativa de outras formas: transformam uma grade geométrica, manipulam fontes de luz colorida e alteram as proporções de uma composição tipográfica.</p>
         </div>
         <figure class="shot shot-lab">
           <div class="shot-frame stage-spectrum">
@@ -274,7 +289,6 @@
         <div class="case-text">
           <p>A escolha por tecnologias nativas da web permitiu desenvolver todas as funcionalidades do portfólio sem recorrer a frameworks, bibliotecas externas ou ferramentas de compilação.</p>
           <p>Os estilos compartilhados concentram os fundamentos da identidade visual e os componentes reutilizados entre as páginas. O JavaScript é organizado de acordo com as responsabilidades de cada funcionalidade, como navegação, animações e experimentos interativos.</p>
-          <p>A publicação é automatizada com GitHub Actions e GitHub Pages. Apenas os arquivos necessários ao funcionamento do site são incluídos no artefato de publicação.</p>
         </div>
         <ul class="case-figures" role="list">
           <li><span>0</span> dependências</li>
@@ -282,12 +296,15 @@
           <li><span>2</span> folhas de estilo</li>
           <li><span>4</span> módulos JavaScript</li>
         </ul>
-        <dl class="case-spec">
-          <div><dt>Estrutura</dt><dd>Cabeçalho e rodapé escritos em cada página e caminhos relativos, o que permite publicar o site em qualquer endereço.</dd></div>
-          <div><dt>Estilo</dt><dd>Cores como variáveis (primitivas e semânticas), ambiente claro trocado por uma classe, grid de 12 colunas e medidas que acompanham a tela e o zoom.</dd></div>
-          <div><dt>Segurança</dt><dd>Política de segurança de conteúdo (CSP) em todas as páginas, só com recursos do próprio site e sem <code>unsafe-eval</code>. Trusted Types obrigatórios: o JavaScript não insere HTML por <code>innerHTML</code>.</dd></div>
-          <div><dt>Publicação</dt><dd>Permissões mínimas em cada etapa do GitHub Actions, com leitura na montagem e escrita só no deploy, e ações fixadas por hash de commit.</dd></div>
-        </dl>
+        <div class="case-decisions">
+          <h3 class="label case-label">Decisões técnicas</h3>
+          <dl class="case-spec">
+            <div><dt>Estrutura</dt><dd>Cabeçalho e rodapé escritos em cada página e caminhos relativos, o que permite publicar o site em qualquer endereço.</dd></div>
+            <div><dt>Estilo</dt><dd>Cores como variáveis (primitivas e semânticas), ambiente claro trocado por uma classe, grid de 12 colunas e medidas que acompanham a tela e o zoom.</dd></div>
+            <div><dt>Segurança</dt><dd>Política de segurança de conteúdo (CSP) em todas as páginas, só com recursos do próprio site e sem <code>unsafe-eval</code>. Trusted Types obrigatórios: o JavaScript não insere HTML por <code>innerHTML</code>.</dd></div>
+            <div><dt>Publicação</dt><dd>Automatizada com GitHub Actions e GitHub Pages; só os arquivos necessários ao site entram no artefato publicado. Cada etapa tem permissões mínimas, com leitura na montagem e escrita só no deploy, e as ações são fixadas por hash de commit.</dd></div>
+          </dl>
+        </div>
       </section>
 
       <section class="case-chapter case-contexts grid-12" aria-labelledby="contextos">
@@ -297,8 +314,7 @@
         </div>
         <div class="case-text">
           <p>A composição do portfólio se adapta às dimensões da tela. Em dispositivos móveis, a escultura, a navegação, os projetos e os elementos interativos recebem ajustes próprios de layout e comportamento.</p>
-          <p>O conteúdo principal permanece acessível sem JavaScript. A navegação pode ser utilizada pelo teclado, e as animações respeitam a preferência por movimento reduzido do sistema operacional.</p>
-          <p>A escultura também possui um controle de pausa, permitindo interromper seu movimento sem comprometer a experiência de navegação.</p>
+          <p>O conteúdo principal permanece acessível sem JavaScript. A navegação pode ser utilizada pelo teclado, e as animações respeitam a preferência por movimento reduzido do sistema operacional. A escultura também tem um controle de pausa, que interrompe o movimento sem prejudicar a navegação.</p>
         </div>
         <figure class="shot shot-phones">
           <ul role="list">
@@ -332,10 +348,10 @@
         <div class="case-text">
           <p>Um dos objetivos do desenvolvimento foi preservar a riqueza visual do portfólio sem comprometer seu carregamento.</p>
           <p>As imagens utilizam o formato WebP e diferentes resoluções de acordo com a tela. As fontes são hospedadas localmente, as animações contínuas são suspensas quando saem da área visível e os experimentos são atualizados conforme a interação do visitante.</p>
-          <p>As análises realizadas na versão publicada da homepage registraram 100 pontos nas quatro categorias do Lighthouse, tanto no celular quanto no computador. O primeiro acesso transferiu 189&nbsp;KB em 15 requisições.</p>
         </div>
         <div class="psi">
           <div class="psi-head">
+            <h3 class="label case-label">Lighthouse</h3>
             <fieldset class="psi-switch">
               <legend class="visually-hidden">Dispositivo analisado</legend>
               <label class="label"><input type="radio" name="psi-device" value="mobile" checked> Celular</label>
@@ -381,7 +397,7 @@
           </div>
           <p class="psi-source">Página inicial publicada, analisada em 25 de novembro de 2026. Medição de laboratório.</p>
         </div>
-        <p class="weight-total"><span class="weight-number">189</span> KB <span class="label">no primeiro acesso</span></p>
+        <p class="weight-total"><span class="weight-number">189</span> KB <span class="label">no primeiro acesso, em 15 requisições</span></p>
         <figure class="weight-chart">
           <div class="weight-bar" aria-hidden="true">
             <span style="--kb: 86"></span>
@@ -396,7 +412,7 @@
           <figcaption>Análise para celular, sem cache.</figcaption>
         </figure>
         <div class="case-audit">
-          <p>Esses resultados correspondem às condições dos testes realizados, análises de laboratório simuladas, e não representam necessariamente a experiência de todos os visitantes. Dados de campo, como os do Chrome UX Report, não foram consultados.</p>
+          <p>Os resultados vêm de análises de laboratório simuladas, nas condições descritas, e não representam necessariamente a experiência de todos os visitantes. Dados de campo, como os do Chrome UX Report, não foram consultados.</p>
           <a class="link" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fpandamnio.github.io%2Fkarin-silveira-dev%2F" target="_blank" rel="noopener">Fazer uma nova análise no PageSpeed Insights <span aria-hidden="true">↗</span> <span class="visually-hidden">(abre em nova aba)</span></a>
         </div>
       </section>
@@ -408,15 +424,14 @@
         </div>
         <div class="case-text">
           <p>A inteligência artificial fez parte do desenvolvimento deste projeto, desde a exploração de propostas visuais até a implementação, refatoração e validação do software.</p>
-          <p>O processo envolve definir requisitos, avaliar alternativas, questionar soluções, revisar resultados e decidir quais implementações serão incorporadas ao projeto.</p>
           <p>Utilizo a IA como ferramenta de desenvolvimento, mantendo sob minha responsabilidade a direção do projeto e as decisões técnicas e criativas.</p>
         </div>
         <ol class="case-process" role="list">
-          <li><span class="index" aria-hidden="true">01</span><h3>Requisitos</h3><p class="label">Autora</p><p>O que o projeto precisa ser e fazer.</p></li>
-          <li><span class="index" aria-hidden="true">02</span><h3>Alternativas</h3><p class="label">Com IA</p><p>Propostas visuais e técnicas para comparar.</p></li>
-          <li><span class="index" aria-hidden="true">03</span><h3>Implementação</h3><p class="label">Assistida por IA</p><p>Código, refatoração e validação do software.</p></li>
-          <li><span class="index" aria-hidden="true">04</span><h3>Revisão</h3><p class="label">Autora</p><p>Questionar as soluções e revisar os resultados.</p></li>
-          <li><span class="index" aria-hidden="true">05</span><h3>Decisão</h3><p class="label">Autora</p><p>Escolher o que entra no projeto.</p></li>
+          <li><span class="index" aria-hidden="true">01</span><h3>Requisitos</h3><p class="label by-author">Autora</p><p>O que o projeto precisa ser e fazer.</p></li>
+          <li><span class="index" aria-hidden="true">02</span><h3>Alternativas</h3><p class="label by-ai">Com IA</p><p>Propostas visuais e técnicas para comparar.</p></li>
+          <li><span class="index" aria-hidden="true">03</span><h3>Implementação</h3><p class="label by-ai">Assistida por IA</p><p>Código, refatoração e validação do software.</p></li>
+          <li><span class="index" aria-hidden="true">04</span><h3>Revisão</h3><p class="label by-author">Autora</p><p>Questionar as soluções e revisar os resultados.</p></li>
+          <li><span class="index" aria-hidden="true">05</span><h3>Decisão</h3><p class="label by-author">Autora</p><p>Escolher o que entra no projeto.</p></li>
         </ol>
       </section>
 
@@ -462,10 +477,8 @@
 
     <footer class="site-footer">
       <a class="signature" href="../../" aria-label="ks. — Karin Silveira, página inicial">ks<span>.</span></a>
-      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais, com auxílio de IA.</p>
+      <p>© 2026 Karin Silveira. Design e desenvolvimento autorais.</p>
       <a class="link to-top" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
     </footer>
-
-    <p class="site-status"><span>Projeto em construção</span><i aria-hidden="true"></i></p>
   </body>
 </html>

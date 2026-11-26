@@ -72,3 +72,52 @@ if (pause && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
   });
   new IntersectionObserver(([entry]) => hero.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(hero);
 }
+
+const track = document.querySelector('.works-track');
+const controls = document.querySelector('.works-controls');
+
+if (track && controls) {
+  const items = [...track.children];
+  const [prev, next] = controls.querySelectorAll('button');
+  const current = document.createElement('span');
+  const pad = (n) => String(n).padStart(2, '0');
+  const smooth = matchMedia('(prefers-reduced-motion: no-preference)');
+  const visible = new Set();
+  let index = 0;
+
+  controls.querySelector('.works-count').replaceChildren(current, ` / ${pad(items.length)}`);
+
+  // aria-disabled em vez de disabled: o botão mantém o foco ao chegar a uma das pontas.
+  const render = () => {
+    if (visible.size) index = Math.min(...visible);
+    current.textContent = pad(index + 1);
+    prev.setAttribute('aria-disabled', String(visible.has(0)));
+    next.setAttribute('aria-disabled', String(visible.has(items.length - 1)));
+    controls.hidden = visible.size === items.length;
+  };
+
+  const go = (step) => {
+    const target = items[Math.min(Math.max(index + step, 0), items.length - 1)];
+    track.scrollTo({ left: target.offsetLeft - items[0].offsetLeft, behavior: smooth.matches ? 'smooth' : 'auto' });
+  };
+
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+
+  // O navegador não rola um link parcialmente visível ao receber foco; o projeto focado vem inteiro.
+  track.addEventListener('focusin', (event) => {
+    const item = event.target.closest('.work');
+    if (item) go(items.indexOf(item) - index);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      const i = items.indexOf(entry.target);
+      if (entry.intersectionRatio >= 0.95) visible.add(i);
+      else visible.delete(i);
+    }
+    render();
+  }, { root: track, threshold: 0.95 });
+
+  items.forEach((item) => observer.observe(item));
+}

@@ -35,10 +35,10 @@ portfolio/
 │   ├── icons/       # sprites SVG de tecnologias e redes (Simple Icons, CC0)
 │   └── images/      # WebP em larguras responsivas; capturas por projeto
 ├── projetos/
-│   ├── index.html   # acervo, por categoria
-│   ├── sites-institucionais/  # um diretório por coleção (categoria com projetos)
-│   ├── psicologia/  # um diretório por estudo de caso; a URL não depende da coleção
-│   └── spectrum/    # estudo de caso do próprio portfólio (Projetos em destaque)
+│   ├── index.html   # acervo: lista única, filtrável por categoria (`?categoria=`)
+│   ├── sites-institucionais/  # URL antiga da coleção: página mínima que redireciona ao acervo filtrado
+│   ├── psicologia/  # um diretório por estudo de caso
+│   └── spectrum/    # estudo de caso do próprio portfólio
 ├── laboratorio/     # página do Laboratório; a home mantém só a chamada
 ├── index.html
 ├── AGENTS.md
@@ -61,7 +61,7 @@ Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS o
 Dois arquivos, carregados nesta ordem em todas as páginas:
 
 - `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, ações, fechamento, palco de projeto e folhas empilhadas), terminando no fallback sem `color-mix`.
-- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, serviços, acervo e coleções, estudo de caso, sobre, laboratório, contato e rodapé), seguidos do fallback sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
+- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, serviços, acervo, estudo de caso, sobre, laboratório, contato e rodapé), seguidos do fallback sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
 
 Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
 
