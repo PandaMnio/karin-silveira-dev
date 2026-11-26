@@ -1149,7 +1149,7 @@
 .entry {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr minmax(0, auto);
   grid-template-areas:
     "number visual"
     "title visual"
@@ -1209,10 +1209,12 @@
   font-weight: 500;
 }
 
+/* Em telas estreitas, o palco cede espaço ao título sem perder a proporção. */
 .entry .stage {
   grid-area: visual;
   align-self: start;
-  block-size: 6rem;
+  inline-size: 9.6rem;
+  max-inline-size: 100%;
 }
 
 /* No destaque, o palco ganha a escala da obra. */
@@ -1222,6 +1224,7 @@
 }
 
 .entry-feature .stage {
+  inline-size: auto;
   block-size: auto;
   margin-block-start: 1.5rem;
 }
@@ -1291,6 +1294,7 @@
   .entry .stage {
     grid-area: 1 / 10 / 3 / 13;
     justify-self: end;
+    inline-size: auto;
     block-size: min(9rem, 12vw);
   }
 
@@ -3157,6 +3161,18 @@
   display: grid;
   gap: 1.75rem;
   margin-block-start: 2rem;
+}
+
+/* A rolagem por foco reserva espaço para o rótulo e, no mobile, para o preview e o selo fixos. */
+.form-controls :is(input, button) {
+  scroll-margin-block: 2.5rem 1rem;
+}
+
+@media (max-width: 55.99rem) {
+  .lab-form.is-ready .form-controls :is(input, button) {
+    scroll-margin-block: calc(min(60vw, 50vh) + 2.5rem) calc(3.5rem + env(safe-area-inset-bottom));
+    scroll-margin-block: calc(min(60vw, 50svh) + 2.5rem) calc(3.5rem + env(safe-area-inset-bottom));
+  }
 }
 
 .form-controls fieldset {
