@@ -1,5 +1,4 @@
 import './nav.js';
-import './lab.js';
 
 // Contato: o botão de copiar só aparece com área de transferência.
 const copy = document.querySelector('.contact-copy');

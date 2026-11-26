@@ -91,6 +91,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Expandir o laboratório com os estudos Luz & Espectro e Tipo & Ritmo.
 - [x] Acrescentar o Experimento 04 (Forma & Espaço), que compartilha com o gerador do hero o núcleo da escultura.
 - [ ] Definir a navegação às experiências quando houver mais de uma.
+- [x] Levar o laboratório para uma página própria (`/laboratorio/`), com chamada na homepage. Imagem de compartilhamento própria pendente (usa a da home).
 - [x] Construir encerramento e canais de contato.
 - [x] Acrescentar o currículo (`/curriculo/`), em HTML como fonte única, com exportação em PDF pela impressão do navegador.
 - [ ] Testar a importação do PDF do currículo na Gupy.

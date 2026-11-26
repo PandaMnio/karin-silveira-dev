@@ -28,7 +28,7 @@ portfolio/
 ├── scripts/
 │   ├── nav.js       # menu mobile; carregado por todas as páginas (na home, via main.js)
 │   ├── main.js      # módulo de entrada (coordenação da abertura)
-│   ├── lab.js       # experimentos do Laboratório, importado por main.js
+│   ├── lab.js       # experimentos do Laboratório, carregado por laboratorio/
 │   └── escultura.js # geometria da escultura; usada por dev/escultura.mjs e, sob demanda, por lab.js
 ├── assets/
 │   ├── fonts/       # WOFF2 e licenças OFL
@@ -39,6 +39,7 @@ portfolio/
 │   ├── sites-institucionais/  # um diretório por coleção (categoria com projetos)
 │   ├── psicologia/  # um diretório por estudo de caso; a URL não depende da coleção
 │   └── spectrum/    # estudo de caso do próprio portfólio (Projetos em destaque)
+├── laboratorio/     # página do Laboratório; a home mantém só a chamada
 ├── index.html
 ├── AGENTS.md
 ├── README.md

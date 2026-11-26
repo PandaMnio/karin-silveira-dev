@@ -2727,6 +2727,10 @@
   margin-block-end: clamp(2rem, 1rem + 5vw, 5rem);
 }
 
+.lab-page {
+  padding-block-start: clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
 .experiment-stage {
   aspect-ratio: 1;
   margin-inline: calc(var(--gutter) * -1);
@@ -2800,7 +2804,7 @@
   margin-block-end: 0.75rem;
 }
 
-.experiment h3 {
+.experiment h2 {
   margin: 0;
   font-size: clamp(1.5rem, 1.125rem + 1.5vw, 2.25rem);
   line-height: 1.1;
@@ -2869,7 +2873,7 @@
   margin-block-start: clamp(3.5rem, 2rem + 6vw, 7rem);
 }
 
-.lab-study h3 {
+.lab-study h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.375rem, 1.125rem + 1vw, 1.875rem);
   line-height: 1.1;
@@ -3143,7 +3147,7 @@
   display: block;
 }
 
-.lab-form h3 {
+.lab-form h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.5rem, 1.125rem + 1.5vw, 2.25rem);
   line-height: 1.1;
