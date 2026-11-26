@@ -78,7 +78,6 @@ export function sculpt(options = {}) {
   const L = v.norm(P.light);
   const cam = [0, 0, P.cam];
 
-  // Segmentos com face visível, profundidade e cor.
   const facingAt = (t) => v.dot(frame(t).N, v.sub(cam, center(t)));
   const sign0 = Math.sign(facingAt(0));
   const segs = [];
@@ -93,7 +92,6 @@ export function sculpt(options = {}) {
     segs.push({ i, build, z: center(tm)[2], color: hex(color) });
   }
 
-  // Ordem do pintor, agrupando segmentos vizinhos da mesma face.
   const order = [...segs].sort((a, b) => a.z - b.z);
   const runs = [];
   for (const s of order) {

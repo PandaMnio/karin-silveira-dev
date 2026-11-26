@@ -1,4 +1,4 @@
-// Experimentos do Laboratório. Só redesenham em resposta à interação.
+// Os experimentos só redesenham em resposta à interação.
 const root = document.querySelector('[data-experiment="construcao-fluxo"]');
 const light = document.querySelector('[data-experiment="luz-espectro"]');
 const type = document.querySelector('[data-experiment="tipo-ritmo"]');
@@ -9,7 +9,6 @@ if (light) lightSpectrum(light);
 if (type) typeRhythm(type);
 if (form) whenNear(form, () => import('./escultura.js').then((sculpture) => formSpace(form, sculpture)));
 
-// Adia o trabalho até o elemento se aproximar da área visível.
 function whenNear(element, callback) {
   if (!('IntersectionObserver' in window)) return callback();
   const observer = new IntersectionObserver((entries) => {
@@ -19,8 +18,6 @@ function whenNear(element, callback) {
   }, { rootMargin: '50% 0px' });
   observer.observe(element);
 }
-
-// "Construção & Fluxo": uma grade que se transforma em correntes.
 
 function setup(root) {
   const NS = 'http://www.w3.org/2000/svg';
@@ -137,7 +134,6 @@ function setup(root) {
     request();
   }
 
-  // Com movimento reduzido, só o controle deslizante altera a grade.
   if (!reduce) {
     svg.addEventListener('pointermove', point, { passive: true });
     svg.addEventListener('pointerdown', point, { passive: true });
@@ -155,7 +151,6 @@ function setup(root) {
   root.querySelector('.experiment-control').hidden = false;
 }
 
-// "Luz & Espectro": luzes somadas em tela; cada uma projeta a sombra do painel.
 function lightSpectrum(root) {
   const SIZE = 1000;
   const MARGIN = 40;
@@ -255,7 +250,6 @@ function lightSpectrum(root) {
   root.querySelector('.study-controls').hidden = false;
 }
 
-// "Tipo & Ritmo": escala modular nomeada pelos intervalos musicais.
 function typeRhythm(root) {
   const INTERVALS = [
     ['Segunda menor', 1.067],
@@ -292,7 +286,6 @@ function typeRhythm(root) {
   root.querySelector('.study-controls').hidden = false;
 }
 
-// "Forma & Espaço": a escultura do hero, recalculada a partir dos parâmetros escolhidos.
 function formSpace(root, { DEFAULTS, sculpt }) {
   const NS = 'http://www.w3.org/2000/svg';
   const svg = root.querySelector('svg');

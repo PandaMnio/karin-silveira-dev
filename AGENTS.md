@@ -31,7 +31,8 @@ Essa economia nunca reduz qualidade técnica, segurança, acessibilidade ou conf
 - Faça a menor alteração suficiente e só o que a tarefa pede, sem refatorar o que não está relacionado nem antecipar etapas. Nada de abstrações, arquivos ou padrões para necessidades hipotéticas.
 - Preserve as decisões criativas consolidadas e as alterações da desenvolvedora.
 - Não invente conteúdo pessoal ou profissional; o provisório é marcado como tal.
-- O código representa só o produto: nada de IDs de tarefa, roadmap, IA ou histórico em comentários e nomes. Comente apenas o que não é evidente.
+- O código representa só o produto: nada de IDs de tarefa, roadmap, IA ou histórico em comentários e nomes.
+- Comente só decisões, restrições ou comportamentos não evidentes, ou o que a convenção da tecnologia pede. Sem comentários que descrevam operações, identifiquem seções, expliquem código autoexplicativo, registrem alterações ou justifiquem paliativos; a clareza vem da nomenclatura e da estrutura.
 
 ## Qualidade
 

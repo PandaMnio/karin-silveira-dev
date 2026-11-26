@@ -1,6 +1,5 @@
 import './nav.js';
 
-// Contato: o botão de copiar só aparece com área de transferência.
 const copy = document.querySelector('.contact-copy');
 
 if (copy && navigator.clipboard) {
@@ -21,7 +20,6 @@ if (copy && navigator.clipboard) {
   });
 }
 
-// Abertura: toca a cada carregamento; qualquer interação a conclui.
 const hero = document.querySelector('.hero');
 
 // Só animações de tempo finitas; as de scroll seguem a rolagem e as contínuas nunca terminam.
@@ -41,7 +39,6 @@ if (intro.length) {
   introDone.then(() => listeners.abort());
 }
 
-// Resposta ao cursor: uma atualização por frame, só sobre o hero.
 function followPointer() {
   let x = 0;
   let y = 0;
@@ -65,7 +62,6 @@ if (hero && matchMedia('(prefers-reduced-motion: no-preference) and (hover: hove
   introDone.then(followPointer);
 }
 
-// Movimento contínuo: suspenso fora da tela e a pedido.
 const pause = hero?.querySelector('.hero-pause');
 
 if (pause && matchMedia('(prefers-reduced-motion: no-preference)').matches) {

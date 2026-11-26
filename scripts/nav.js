@@ -1,4 +1,3 @@
-// Menu expansível em telas estreitas; sem JS, a navegação fica em linha.
 const header = document.querySelector('.site-header');
 const nav = header?.querySelector('nav');
 
