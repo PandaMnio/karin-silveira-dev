@@ -57,7 +57,7 @@ Arquivos e diretórios novos são criados quando houver conteúdo real para eles
 Cada página carrega, por `<link>` direto e nesta ordem, `global.css`, `shared.css` e o arquivo da sua responsabilidade, sem `@import`. A 404, `projetos/sites-institucionais/` e `docs/style-guide.html` usam só os dois primeiros.
 
 - `global.css`: o que é base ou compartilhado por todas as páginas.
-- `shared.css`: regras usadas por mais de uma página ou família (cabeçalho, rodapé, índice dos estudos e dos serviços, acervo, animações compartilhadas).
+- `shared.css`: regras usadas por mais de uma página ou família (cabeçalho, rodapé, índice dos estudos, acervo, animações compartilhadas).
 - Arquivos de página: estilos exclusivos, com seus breakpoints, movimento e `@keyframes`. `case.css` atende os dois estudos de caso; `curriculo.css` inclui a impressão.
 
 Uma regra vai para `shared.css` apenas quando mais de uma família a usa, e nenhuma regra de página depende de outra para vencer a cascata. Compor com as classes existentes antes de criar regras novas; utilitários e variáveis só entram com reúso real.

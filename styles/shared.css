@@ -505,30 +505,6 @@
   from { transform: scaleX(0); }
 }
 
-@keyframes offer-grid {
-  from { clip-path: inset(0 0 0 100%); }
-}
-
-@keyframes offer-frame {
-  from { opacity: 0; scale: 1.12; }
-}
-
-@keyframes offer-orbit {
-  from { opacity: 0; rotate: -120deg; scale: 0.9; }
-}
-
-@keyframes offer-breathe {
-  to { transform: scale(1.05) translateX(-1.5%); }
-}
-
-@keyframes offer-focus {
-  to { transform: scale(0.96); }
-}
-
-@keyframes offer-spin {
-  to { transform: rotate(1turn); }
-}
-
 @keyframes scroll-drift {
   to { translate: 0 var(--drift); }
 }

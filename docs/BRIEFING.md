@@ -6,7 +6,7 @@
 
 Criar um portfólio profissional que funcione como o hall de entrada de um estúdio criativo pessoal. O site deve apresentar Karin Silveira, demonstrar sua capacidade de desenvolvimento e convidar o visitante a explorar suas criações. O objetivo principal é profissional: ampliar oportunidades e tornar o trabalho fácil de conhecer e avaliar.
 
-O portfólio equilibra currículo digital e captação comercial; o hero e o contato priorizam o posicionamento profissional e abrem espaço para oportunidades, projetos independentes e colaborações. A captação atrai clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. Os serviços têm quatro frentes contratáveis: sites institucionais e landing pages, sistemas e interfaces web, aplicativos mobile, e integrações e otimização. O contato comercial usa WhatsApp, e-mail e LinkedIn.
+O portfólio equilibra currículo digital e captação comercial; o hero e o contato priorizam o posicionamento profissional e abrem espaço para oportunidades, projetos independentes e colaborações. A captação atrai profissionais, empresas, agências e equipes de tecnologia para o desenvolvimento de sites, sistemas web e aplicativos. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. Os serviços têm três linhas comerciais: criação de sites, desenvolvimento de sistemas web e desenvolvimento de aplicativos, incluindo criação, reformulação, manutenção e evolução; modalidades aparecem como exemplos, não como catálogo, e todo projeto depende da avaliação de escopo e viabilidade técnica. Responsividade, acessibilidade, desempenho, SEO técnico e qualidade do código são fundamentos de todo projeto, não um serviço à parte; não se prometem back-end avançado, resultados comerciais nem posicionamento em buscadores. O contato comercial usa WhatsApp, e-mail e LinkedIn.
 
 O portfólio também é uma obra autoral, capaz de evoluir com novos interesses, projetos e experimentos. Não é uma marca de agência independente.
 
@@ -20,6 +20,15 @@ O portfólio também é uma obra autoral, capaz de evoluir com novos interesses,
 - **Conceito central:** Construção + Fluxo (Construction & Flow). A lógica e a precisão da construção convivem com a fluidez, a transformação e a liberdade criativa.
 
 O conceito é um princípio de design, não necessariamente um slogan público. Textos de apresentação, assinatura compacta e logotipo ainda serão refinados.
+
+### Condições comerciais confirmadas
+
+- Todo site inclui painel administrativo para editar os conteúdos previstos no escopo.
+- O design da interface integra o desenvolvimento; a identidade visual da marca é avaliada separadamente.
+- Textos, imagens e demais conteúdos são de responsabilidade do cliente.
+- Domínio e hospedagem podem ser contratados, configurados e geridos pela desenvolvedora ou pelo cliente.
+- A manutenção após a entrega é contratada separadamente.
+- Investimento e prazo são definidos na proposta. Sem preços, garantias, urgência ou depoimentos no site.
 
 ### Dados profissionais confirmados
 
@@ -97,7 +106,7 @@ Experiência híbrida: entrada guiada seguida de exploração livre, com navega�
 1. Hall de entrada: nome, posicionamento, fragmentos de trabalhos, convite à exploração.
 2. Trabalhos selecionados: continuidade visual do hero e exposição da curadoria principal.
 3. Sobre: trajetória, experiência técnica, competências, personalidade e visão criativa.
-4. Serviços: projetos sob demanda e evolução de aplicações, com convite ao orçamento; a página própria (`servicos/`) detalha as frentes.
+4. Serviços: as três linhas comerciais, com convite à conversa; a página própria (`servicos/`) é autônoma, para quem chega sem conhecer o portfólio, e leva à solicitação de proposta.
 5. Contato: conexão profissional, links relevantes e encerramento.
 6. Laboratório: chamada para a página própria (`laboratorio/`), com os experimentos.
 
