@@ -24,7 +24,8 @@ portfolio/
 ├── docs/            # BRIEFING, DESIGN, ARCHITECTURE, ROADMAP e style-guide.html
 ├── styles/
 │   ├── global.css   # fundamentos, utilitários e componentes reutilizáveis
-│   └── main.css     # estilos específicos, na ordem da interface
+│   ├── shared.css   # cabeçalho, rodapé e estruturas usadas por mais de uma página
+│   └── *.css        # home, projetos, case, laboratorio, servicos e curriculo
 ├── scripts/
 │   ├── nav.js       # menu mobile; carregado por todas as páginas (na home, via main.js)
 │   ├── main.js      # módulo de entrada (coordenação da abertura)
@@ -60,10 +61,13 @@ Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS o
 
 ## 5. CSS
 
-Dois arquivos, carregados nesta ordem em todas as páginas:
+Cada página carrega, por `<link>` direto e nesta ordem, `global.css`, `shared.css` e o arquivo da sua responsabilidade (sem `@import`):
 
 - `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, ações, fechamento, palco de projeto e folhas empilhadas), terminando no fallback sem `color-mix`.
-- `main.css`: estilos específicos, na ordem da interface (cabeçalho, hall, projetos, serviços, acervo, estudo de caso, sobre, laboratório, contato e rodapé), seguidos do fallback sem `color-mix`, de um único bloco de movimento e dos `@keyframes`.
+- `shared.css`: cabeçalho, rodapé e as regras usadas por mais de uma página ou família (índice e etapas do estudo de caso e dos serviços, acervo do 404 e de projetos, animações compartilhadas).
+- `home.css`, `projetos.css`, `case.css` (psicologia e spectrum), `laboratorio.css`, `servicos.css` e `curriculo.css` (inclui a impressão): estilos exclusivos, com seus breakpoints, movimento e `@keyframes`. 404, `projetos/sites-institucionais/` e `docs/style-guide.html` usam só `global.css` e `shared.css`.
+
+Uma regra vai para `shared.css` apenas quando mais de uma família a usa; a página nova carrega o arquivo existente que a atende ou ganha o seu. Em `shared.css` e nos arquivos de página, cada regra mantém a ordem relativa original, e nenhuma regra de página depende de outra página para vencer a cascata.
 
 Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
 

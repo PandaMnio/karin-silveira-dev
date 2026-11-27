@@ -29,7 +29,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Conectar `main.css` e `main.js` (módulo nativo); iniciar arquivos CSS essenciais sem implementar efeitos.
 - [x] Executar em servidor HTTP local; escrever instruções no README e definir `.gitignore` conforme necessidade.
 - [x] Validar a base: verificações automatizadas e validação manual da autora (teclado e foco, zoom, telas pequenas, JS desativado).
-- [x] Revisar e simplificar a fundação: CSS consolidado em `main.css`, sem camadas nem arquivos reservados.
+- [x] Revisar e simplificar a fundação: CSS sem camadas nem arquivos reservados (depois dividido em `global.css`, `shared.css` e um arquivo por página, sem `main.css`).
 - [ ] Validar o HTML no W3C Nu.
 - [x] Primeiro commit, feito pela autora.
 
