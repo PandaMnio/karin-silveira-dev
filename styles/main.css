@@ -3861,35 +3861,38 @@
   margin-inline: auto;
 }
 
+.resume-page::before {
+  inset-block-start: -8rem;
+  background:
+    radial-gradient(45% 28rem at 90% 8rem, color-mix(in srgb, var(--color-ultraviolet) 30%, transparent), transparent 70%),
+    radial-gradient(35% 22rem at 0% 20rem, color-mix(in srgb, var(--color-aqua) 14%, transparent), transparent 70%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-porcelain) 4%, transparent) 0 1px, transparent 1px 3rem),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 4%, transparent) 0 1px, transparent 1px 3rem);
+  mask-image: linear-gradient(transparent, #000 8rem, #000 60%, transparent);
+}
+
 .resume-tools {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  margin-block-end: 1.5rem;
+  display: grid;
+  gap: 1.5rem 2rem;
+  margin-block-end: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .resume-tools .back {
   margin: 0;
 }
 
-.resume-export {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.25rem;
+.resume-title .eyebrow {
+  margin-block-end: 0.75rem;
 }
 
-.resume-export p {
-  max-inline-size: 34ch;
+.resume-title .page-title {
   margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.45;
-  color: var(--color-muted);
+  font-size: clamp(2.75rem, 1.5rem + 5vw, 4.75rem);
+  letter-spacing: -0.03em;
 }
 
 .resume-export .button {
+  inline-size: 100%;
   border: 0;
   font: inherit;
   font-weight: 600;
@@ -3900,11 +3903,26 @@
   display: none;
 }
 
+@media (min-width: 40rem) {
+  .resume-tools {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .resume-tools .back {
+    grid-column: 1 / -1;
+  }
+
+  .resume-export .button {
+    inline-size: auto;
+  }
+}
+
 .resume {
   --color-bg: #fff;
 
   padding: clamp(1.5rem, 1rem + 4vw, 4rem);
-  border-block-start: 3px solid var(--color-ultraviolet-deep);
+  background: var(--gradient-spectrum) top / 100% 4px no-repeat, var(--color-bg);
   border-radius: 0.25rem;
   font-variant-ligatures: no-common-ligatures;
   box-shadow: 0 1.5rem 4rem -2rem color-mix(in srgb, var(--color-ultraviolet) 60%, transparent);
@@ -4012,6 +4030,50 @@
   font-size: 0.9375rem;
 }
 
+@media screen {
+  .resume {
+    line-height: 1.65;
+  }
+
+  .resume-header {
+    padding-block-end: 1.5rem;
+    border-block-end: 1px solid color-mix(in srgb, var(--color-ultraviolet-deep) 20%, #fff);
+  }
+
+  .resume h1 {
+    font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+    line-height: 1.05;
+  }
+
+  .resume h2 {
+    margin-block-start: 2.5rem;
+    border-block-end: 0;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .resume h3 {
+    font-size: 1.1875rem;
+  }
+
+  .resume-entry + .resume-entry {
+    margin-block-start: 1.75rem;
+  }
+
+  .resume-section li + li {
+    margin-block-start: 0.375rem;
+  }
+}
+
+@media screen and (width < 40rem) {
+  .resume {
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    border-radius: 0;
+  }
+}
+
 @page resume {
   size: A4;
   margin: 0;
@@ -4035,6 +4097,10 @@
 
   .resume-page {
     padding: 0;
+  }
+
+  .resume-page::before {
+    display: none;
   }
 
   .resume {
