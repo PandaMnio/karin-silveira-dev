@@ -93,7 +93,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [ ] Definir a navegação às experiências quando houver mais de uma.
 - [x] Levar o laboratório para uma página própria (`/laboratorio/`), com chamada na homepage. Imagem de compartilhamento própria pendente (usa a da home).
 - [x] Construir encerramento e canais de contato.
-- [x] Acrescentar o currículo (`/curriculo/`), em HTML como fonte única, com exportação em PDF pela impressão do navegador.
+- [x] Acrescentar o currículo (`/curriculo/`), em HTML como fonte única, com exportação em PDF pela impressão do navegador. Quatro versões (Geral, Front-end, Desenvolvimento web e Mobile) selecionadas por rádios em CSS (`:has()`) sobre blocos marcados com `data-v`; `?versao=` seleciona e o título do PDF segue a versão.
 - [ ] Testar a importação do PDF do currículo na Gupy.
 - [x] Criar a seção de serviços e os convites ao contato nas páginas internas.
 - [x] Levar os serviços para uma página própria (`/servicos/`), com chamada na homepage. Textos sujeitos a aprovação; imagem de compartilhamento própria pendente (usa a da home).

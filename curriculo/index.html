@@ -102,12 +102,22 @@
         <div class="resume-export">
           <button class="button" type="button" data-print hidden>Salvar em PDF <span aria-hidden="true">↓</span></button>
         </div>
+        <fieldset class="resume-versions">
+          <legend>Versão do currículo</legend>
+          <label><input class="visually-hidden" type="radio" name="versao" value="geral" checked><span>Geral</span></label>
+          <label><input class="visually-hidden" type="radio" name="versao" value="front"><span>Front-end</span></label>
+          <label><input class="visually-hidden" type="radio" name="versao" value="web"><span>Desenvolvimento web</span></label>
+          <label><input class="visually-hidden" type="radio" name="versao" value="mobile"><span>Mobile</span></label>
+        </fieldset>
       </div>
 
       <article class="resume light" aria-labelledby="resume-nome">
         <header class="resume-header">
           <h1 id="resume-nome">Karin Andrade Silveira</h1>
-          <p class="resume-role">Desenvolvedora de software</p>
+          <p class="resume-role" data-v="geral">Desenvolvedora de software</p>
+          <p class="resume-role" data-v="front">Desenvolvedora front-end</p>
+          <p class="resume-role" data-v="web">Desenvolvedora web</p>
+          <p class="resume-role" data-v="mobile">Desenvolvedora mobile</p>
           <p>Caxias do Sul, RS — Brasil</p>
           <ul class="resume-contact" role="list">
             <li>E-mail: <a href="mailto:kasilveira32@gmail.com">kasilveira32@gmail.com</a></li>
@@ -120,20 +130,52 @@
 
         <section class="resume-section" aria-labelledby="resumo">
           <h2 id="resumo">Resumo profissional</h2>
-          <p>Desenvolvedora de software com mais de cinco anos de experiência na criação, manutenção, evolução e publicação de aplicações web e mobile. Experiência profissional com JavaScript, PHP, HTML e CSS, utilizando tecnologias como Laravel, Livewire, React Native, Expo e WordPress. Minha trajetória também inclui desenvolvimento para smart TVs, hospedagem de sites, gerenciamento de domínios e suporte técnico.</p>
+          <p data-v="geral">Desenvolvedora de software com mais de cinco anos de experiência profissional na criação, manutenção, evolução e publicação de aplicações. Atuação predominante em desenvolvimento front-end, com experiência em sites, sistemas web e aplicativos para dispositivos móveis e smart TVs.</p>
+          <p data-v="front">Desenvolvedora front-end com mais de cinco anos de experiência profissional em desenvolvimento de software. Atuação na construção e evolução de interfaces para sites e sistemas web, com experiência em JavaScript e no ecossistema Laravel. Conhecimentos de acessibilidade, responsividade e desempenho web.</p>
+          <p data-v="web">Desenvolvedora web com mais de cinco anos de experiência na criação, manutenção e evolução de sites e aplicações web. Atuação profissional com PHP, Laravel, JavaScript e WordPress, incluindo publicação, hospedagem e gerenciamento de domínios.</p>
+          <p data-v="mobile">Experiência profissional no desenvolvimento, manutenção e publicação de aplicativos Android e iOS com React Native e Expo, além do desenvolvimento para Android TV e webOS. Atuação em aplicações educacionais com funcionalidades de pareamento de dispositivos, transmissão e reprodução de conteúdo.</p>
+        </section>
+
+        <section class="resume-section" aria-labelledby="competencias">
+          <h2 id="competencias">Competências técnicas</h2>
+          <ul data-v="geral">
+            <li><strong>Domínio atual:</strong> HTML, CSS, JavaScript, PHP, Laravel, Livewire, Blade, Tailwind CSS, Flux UI, Git e GitHub.</li>
+            <li><strong>Experiência complementar:</strong> WordPress, React Native, Expo, Android TV e webOS.</li>
+            <li><strong>Práticas:</strong> acessibilidade, SEO e desempenho web.</li>
+          </ul>
+          <ul data-v="front">
+            <li><strong>Domínio atual:</strong> HTML, CSS, JavaScript, Laravel, Livewire, Blade, Tailwind CSS, Flux UI, Git e GitHub.</li>
+            <li><strong>Experiência complementar:</strong> React e TypeScript.</li>
+            <li><strong>Práticas:</strong> acessibilidade, responsividade, SEO e desempenho web.</li>
+          </ul>
+          <ul data-v="web">
+            <li><strong>Domínio atual:</strong> PHP, Laravel, Livewire, Blade, JavaScript, HTML, CSS, Tailwind CSS, Flux UI, Git e GitHub.</li>
+            <li><strong>Experiência complementar:</strong> WordPress e MySQL.</li>
+            <li><strong>Operação de sites:</strong> hospedagem, gerenciamento de domínios e suporte técnico a servidores de e-mail.</li>
+            <li><strong>Práticas:</strong> acessibilidade, SEO e desempenho web.</li>
+          </ul>
+          <ul data-v="mobile">
+            <li><strong>Domínio atual:</strong> JavaScript, Git e GitHub.</li>
+            <li><strong>Experiência profissional:</strong> React Native, Expo, Android, iOS, Android TV e webOS.</li>
+            <li><strong>Experiência complementar:</strong> TypeScript e Android Studio.</li>
+            <li><strong>Publicação de aplicativos:</strong> Google Play e App Store.</li>
+          </ul>
         </section>
 
         <section class="resume-section" aria-labelledby="experiencia">
           <h2 id="experiencia">Experiência profissional</h2>
 
           <div class="resume-entry">
-            <h3>Desenvolvedora Front-end</h3>
+            <h3>Desenvolvedora front-end</h3>
             <p class="resume-org">Eskive — Conscientização em Segurança da Informação</p>
             <p class="resume-meta"><time datetime="2026-02">Fevereiro de 2026</time> – <time datetime="2026-11">Novembro de 2026</time> | Remoto</p>
-            <ul>
+            <ul data-v="geral front web">
               <li>Desenvolvimento de interfaces para plataforma de conscientização em segurança da informação.</li>
               <li>Desenvolvimento de páginas web, templates de e-mail e simulações educativas de phishing.</li>
               <li>Tecnologias: Laravel, Livewire, Blade, Tailwind CSS e Flux UI.</li>
+            </ul>
+            <ul data-v="mobile">
+              <li>Desenvolvimento de interfaces web para plataforma de conscientização em segurança da informação, com Laravel, Livewire, Blade, Tailwind CSS e Flux UI.</li>
             </ul>
           </div>
 
@@ -141,11 +183,21 @@
             <h3>Desenvolvedora web e mobile front-end</h3>
             <p class="resume-org">Astron Mídia</p>
             <p class="resume-meta"><time datetime="2023-04">Abril de 2023</time> – <time datetime="2026-02">Fevereiro de 2026</time> | Caxias do Sul, RS</p>
-            <ul>
-              <li>Desenvolvimento de interfaces para plataforma web utilizando HTML, CSS, JavaScript e PHP.</li>
-              <li>Desenvolvimento e manutenção de aplicativo mobile com React Native e Expo.</li>
-              <li>Publicação de aplicativos Android e iOS no Google Play e na App Store.</li>
-              <li>Desenvolvimento de aplicativo para smart TVs, incluindo webOS e TVs com Google Play.</li>
+            <ul data-v="geral">
+              <li><strong>Web:</strong> desenvolvimento de interfaces para plataforma web com HTML, CSS, JavaScript e PHP.</li>
+              <li><strong>Mobile:</strong> desenvolvimento e manutenção de aplicativo mobile com React Native e Expo; publicação de aplicativos Android e iOS na Google Play e na App Store.</li>
+              <li><strong>Android TV:</strong> desenvolvimento do aplicativo Astron TV com Android Studio, com pareamento de dispositivos, transmissão e reprodução de conteúdo educacional. Produto publicado na Google Play: <a href="https://play.google.com/store/apps/details?id=com.astronmembers.androidtv">https://play.google.com/store/apps/details?id=com.astronmembers.androidtv</a></li>
+              <li><strong>webOS:</strong> desenvolvimento da versão do Astron TV para webOS e preparação para publicação na LG Content Store; o processo de publicação não foi concluído.</li>
+            </ul>
+            <ul data-v="front web">
+              <li><strong>Web:</strong> desenvolvimento de interfaces para plataforma web com HTML, CSS, JavaScript e PHP.</li>
+              <li><strong>Mobile e TVs:</strong> desenvolvimento e manutenção de aplicativo mobile com React Native e Expo; desenvolvimento do aplicativo Astron TV para Android TV e webOS; publicação de aplicativos Android e iOS na Google Play e na App Store.</li>
+            </ul>
+            <ul data-v="mobile">
+              <li><strong>Mobile:</strong> desenvolvimento e manutenção de aplicativo mobile com React Native e Expo; publicação de aplicativos Android e iOS na Google Play e na App Store.</li>
+              <li><strong>Android TV:</strong> desenvolvimento do aplicativo Astron TV com Android Studio, com pareamento de dispositivos, transmissão e reprodução de conteúdo educacional. Produto publicado na Google Play: <a href="https://play.google.com/store/apps/details?id=com.astronmembers.androidtv">https://play.google.com/store/apps/details?id=com.astronmembers.androidtv</a></li>
+              <li><strong>webOS:</strong> desenvolvimento da versão do Astron TV para webOS e preparação para publicação na LG Content Store; o processo de publicação não foi concluído.</li>
+              <li><strong>Web:</strong> desenvolvimento de interfaces para plataforma web com HTML, CSS, JavaScript e PHP.</li>
             </ul>
           </div>
 
@@ -153,13 +205,32 @@
             <h3>Desenvolvedora web</h3>
             <p class="resume-org">Upplay Comunicação e Marketing Digital</p>
             <p class="resume-meta"><time datetime="2021-03">Março de 2021</time> – <time datetime="2023-04">Abril de 2023</time> | Caxias do Sul, RS</p>
-            <ul>
+            <ul data-v="geral web">
               <li>Desenvolvimento de temas personalizados para WordPress.</li>
-              <li>Publicação e hospedagem de sites.</li>
-              <li>Gerenciamento de domínios.</li>
-              <li>Suporte técnico a servidores de e-mail.</li>
-              <li>Atendimento e suporte técnico aos clientes.</li>
+              <li>Publicação e hospedagem de sites e gerenciamento de domínios.</li>
+              <li>Suporte técnico a servidores de e-mail e atendimento técnico aos clientes.</li>
+              <li>Participação pontual no desenvolvimento front-end de sistemas de gestão clínica com Laravel e Angular 13.</li>
             </ul>
+            <ul data-v="front">
+              <li>Desenvolvimento de temas personalizados para WordPress.</li>
+              <li>Participação pontual no desenvolvimento front-end de sistemas de gestão clínica com Laravel e Angular 13.</li>
+              <li>Atuação predominante em desenvolvimento web e suporte técnico.</li>
+            </ul>
+            <ul data-v="mobile">
+              <li>Desenvolvimento de temas personalizados para WordPress.</li>
+              <li>Suporte técnico e atendimento aos clientes.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="resume-section" aria-labelledby="projetos" data-v="geral front web">
+          <h2 id="projetos">Projetos relevantes</h2>
+
+          <div class="resume-entry">
+            <h3>Portfólio profissional</h3>
+            <p data-v="geral front">Portfólio multipágina com HTML, CSS, JavaScript e SVG, sem frameworks. Inclui geometria computacional, programação criativa, experimentos interativos e atenção à acessibilidade.</p>
+            <p data-v="web">Portfólio multipágina com HTML, CSS, JavaScript e SVG, sem frameworks. Inclui atenção à segurança e à acessibilidade e publicação automatizada com GitHub Actions.</p>
+            <p class="resume-link">Estudo de caso: <a href="https://pandamnio.github.io/karin-silveira-dev/projetos/spectrum/">https://pandamnio.github.io/karin-silveira-dev/projetos/spectrum/</a></p>
           </div>
         </section>
 
@@ -167,21 +238,7 @@
           <h2 id="formacao">Formação acadêmica</h2>
           <ul>
             <li>Bacharelado em Ciência da Computação — FSG, 2021–2025, concluído.</li>
-            <li>Colegial técnico em Informática — CETEC UCS, 2019–2020.</li>
             <li>Ensino médio profissionalizante em Informática — CETEC UCS, 2018–2020.</li>
-          </ul>
-        </section>
-
-        <section class="resume-section" aria-labelledby="competencias">
-          <h2 id="competencias">Competências técnicas</h2>
-          <ul>
-            <li><strong>Linguagens e tecnologias fundamentais:</strong> HTML, CSS, JavaScript, TypeScript, PHP e C#.</li>
-            <li><strong>Desenvolvimento web:</strong> React, AngularJS, Laravel, Livewire, Blade, Tailwind CSS, Flux UI, Bootstrap, jQuery e WordPress.</li>
-            <li><strong>Desenvolvimento mobile e smart TVs:</strong> React Native, Expo, webOS e TVs com Google Play.</li>
-            <li><strong>Back-end, dados e integrações:</strong> Node.js, MySQL, MongoDB, REST APIs, JSON, Axios e Postman.</li>
-            <li><strong>Publicação e infraestrutura:</strong> Google Play, App Store, hospedagem de sites, gerenciamento de domínios e servidores de e-mail.</li>
-            <li><strong>Ferramentas:</strong> Git, GitHub, VS Code, npm, Composer e GitHub Pages.</li>
-            <li><strong>Conhecimentos complementares:</strong> acessibilidade, SEO, desempenho web e desenvolvimento de software assistido por IA.</li>
           </ul>
         </section>
 
@@ -193,29 +250,13 @@
           </ul>
         </section>
 
-        <section class="resume-section" aria-labelledby="projetos">
-          <h2 id="projetos">Projetos autorais</h2>
-
-          <div class="resume-entry">
-            <h3>Spectrum — Portfólio profissional</h3>
-            <p>Desenvolvimento de portfólio multipágina com HTML, CSS, JavaScript e SVG. Arquitetura sem frameworks, geometria computacional, programação criativa, experimentos interativos, acessibilidade, segurança e publicação automatizada com GitHub Actions.</p>
-            <p class="resume-link">Estudo de caso: <a href="https://pandamnio.github.io/karin-silveira-dev/projetos/spectrum/">https://pandamnio.github.io/karin-silveira-dev/projetos/spectrum/</a></p>
-          </div>
-
-          <div class="resume-entry">
-            <h3>Single page com agendamento online</h3>
-            <p>Desenvolvimento de site institucional responsivo com HTML, CSS e JavaScript, incluindo geração dinâmica de horários e fluxo demonstrativo de agendamento no navegador.</p>
-            <p class="resume-link">Estudo de caso: <a href="https://pandamnio.github.io/karin-silveira-dev/projetos/psicologia/">https://pandamnio.github.io/karin-silveira-dev/projetos/psicologia/</a></p>
-          </div>
-        </section>
-
         <section class="resume-section" aria-labelledby="atividades">
           <h2 id="atividades">Atividades complementares</h2>
           <ul>
-            <li>Mentora de tecnologia — Startup Weekend Indústria 4.0, Caxias do Sul, 2024.</li>
+            <li>Mentora —Startup Weekend Indústria 4.0, Caxias do Sul, 2024.</li>
             <li>Participação no Codecon — 2024, 2025 e 2026.</li>
-            <li>Participação no Front in Floripa — 2024 e 2025.</li>
-            <li>Cursos complementares de React Native, Expo e Hooks.</li>
+            <li data-v="geral front">Participação no Front in Floripa — 2024 e 2025.</li>
+            <li data-v="geral mobile">Cursos complementares de React Native, Expo e Hooks.</li>
           </ul>
         </section>
       </article>
