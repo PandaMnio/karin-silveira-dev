@@ -1,12 +1,12 @@
 # Briefing — Karin Silveira
 
-> Versão 0.2 · 25/11/2026 · Documento vivo
+> Documento vivo
 
 ## 1. Propósito
 
 Criar um portfólio profissional que funcione como o hall de entrada de um estúdio criativo pessoal. O site deve apresentar Karin Silveira, demonstrar sua capacidade de desenvolvimento e convidar o visitante a explorar suas criações. O objetivo principal é profissional: ampliar oportunidades e tornar o trabalho fácil de conhecer e avaliar.
 
-O portfólio equilibra currículo digital e captação comercial; o hero e o contato priorizam o posicionamento profissional e abrem espaço para oportunidades, projetos independentes e colaborações. A captação: atrair clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. A seção de serviços da homepage apresenta quatro frentes contratáveis: sites institucionais e landing pages, sistemas e interfaces web, aplicativos mobile, e integrações e otimização. O contato comercial usa WhatsApp, e-mail e LinkedIn.
+O portfólio equilibra currículo digital e captação comercial; o hero e o contato priorizam o posicionamento profissional e abrem espaço para oportunidades, projetos independentes e colaborações. A captação atrai clientes para o desenvolvimento de sites, sistemas, aplicativos e integrações. As categorias do acervo correspondem a esses tipos de solução, para que cada visitante encontre trabalhos comparáveis à sua necessidade. Os serviços têm quatro frentes contratáveis: sites institucionais e landing pages, sistemas e interfaces web, aplicativos mobile, e integrações e otimização. O contato comercial usa WhatsApp, e-mail e LinkedIn.
 
 O portfólio também é uma obra autoral, capaz de evoluir com novos interesses, projetos e experimentos. Não é uma marca de agência independente.
 
@@ -27,7 +27,7 @@ Fonte única dos dados pessoais e profissionais do site; a seção Sobre os repr
 
 **Perfil:** desenvolvedora de software com experiência web e mobile desde 2021, bacharel em Ciência da Computação.
 
-**Contato:** e-mail kasilveira32@gmail.com (canal principal), GitHub [PandaMnio](https://github.com/PandaMnio) e LinkedIn [karin-silveira](https://www.linkedin.com/in/karin-silveira/). Telefone e Instagram não são expostos.
+**Contato:** e-mail kasilveira32@gmail.com (canal principal), WhatsApp (54) 99131-1229, GitHub [PandaMnio](https://github.com/PandaMnio) e LinkedIn [karin-silveira](https://www.linkedin.com/in/karin-silveira/). Instagram não é exposto.
 
 **Experiência:** mais de cinco anos, desde 2021. Por decisão da autora, os nomes dos empregadores não são expostos no site nem no repositório. As atuações confirmadas que fundamentam as capacidades são:
 
@@ -75,16 +75,16 @@ Três famílias conceituais de trabalhos:
 - **Experimentação:** creative coding, estudos, animações, interações e exploração de tecnologias.
 - **Além do código:** outras criações pessoais, quando houver. A autora tem senso estético, mas não se apresenta como especialista em fotografia, audiovisual ou design.
 
-**Categorias do acervo** (tipos de solução, dentro de Desenvolvimento): Sites institucionais, Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações. As categorias são filtros do acervo e só existem quando têm ao menos um projeto real; hoje, Projetos em destaque e Sites institucionais. Não há páginas de coleção. Estudos ilustrativos não aparecem como projetos.
+**Categorias do acervo** (tipos de solução, dentro de Desenvolvimento): Sites institucionais, Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações. As categorias são filtros do acervo e só existem quando têm ao menos um projeto real; hoje, Projetos em destaque e Sites institucionais. Não há páginas de coleção. Estudos ilustrativos não aparecem como projetos. Categorias ainda sem projeto real: Sistemas e aplicações web, Aplicativos mobile e Back-end e integrações.
 
-**Projetos em destaque:** curadoria transversal às categorias de solução; no acervo é um filtro (`?categoria=destaques`) e um projeto pode estar nele e em outra categoria. Cada estudo de caso tem uma única página e URL própria, sem duplicação.
+**Projetos em destaque:** curadoria transversal às categorias de solução; no acervo é um filtro (`?categoria=destaques`) e um projeto pode estar nele e em outra categoria. Cada estudo de caso tem uma única página e URL própria.
 
 **Trabalhos publicados**
 
 - **Spectrum — Portfólio profissional** (Projetos em destaque): este próprio site como estudo de caso (`projetos/spectrum/`), escrito em primeira pessoa e fundamentado na documentação e no código. A IA aparece como ferramenta de engenharia, sem nomear as ferramentas usadas. Métricas apenas da versão publicada, com data e condições, distinguindo laboratório de dados reais de uso.
 - **Single page com agendamento online** (Sites institucionais; URL `projetos/psicologia/`): projeto autoral, uma página única para profissionais que atendem com hora marcada, sem se limitar à psicologia (a demonstração usa uma psicóloga fictícia), com identidade visual sóbria e fluxo demonstrativo de agendamento. "Fulana Detal" é só a persona fictícia da demonstração, não o nome do projeto. Publicado no [GitHub Pages](https://pandamnio.github.io/agendamento-consultas/), com o [repositório](https://github.com/PandaMnio/agendamento-consultas) como fonte das informações. Publicado como peça de portfólio, não como produto em produção; o agendamento é demonstrativo, e isso não é tratado como limitação. Clientes, resultados, métricas e motivações não confirmadas pela autora não devem ser presumidos.
 
-A categoria não define automaticamente a importância de um projeto. A curadoria terá três níveis: obras principais (referência inicial de 3 a 5, se houver conteúdo suficiente), trabalhos selecionados e acervo completo. Os destaques devem privilegiar trabalhos de desenvolvimento sem excluir outras criações relevantes.
+A categoria não define automaticamente a importância de um projeto. A curadoria tem três níveis: obras principais (referência inicial de 3 a 5, se houver conteúdo suficiente), trabalhos selecionados e acervo completo. Os destaques devem privilegiar trabalhos de desenvolvimento sem excluir outras criações relevantes.
 
 Formas de apresentação: estudo de caso, showcase visual, galeria e experiência interativa. A escolha depende do trabalho. As demonstrações podem ser externas, independentes do site principal.
 
@@ -97,11 +97,11 @@ Experiência híbrida: entrada guiada seguida de exploração livre, com navega�
 1. Hall de entrada: nome, posicionamento, fragmentos de trabalhos, convite à exploração.
 2. Trabalhos selecionados: continuidade visual do hero e exposição da curadoria principal.
 3. Sobre: trajetória, experiência técnica, competências, personalidade e visão criativa.
-4. Serviços: projetos sob demanda e evolução de aplicações, com convite ao orçamento.
+4. Serviços: projetos sob demanda e evolução de aplicações, com convite ao orçamento; a página própria (`servicos/`) detalha as frentes.
 5. Contato: conexão profissional, links relevantes e encerramento.
-6. Laboratório: experimentos e descobertas.
+6. Laboratório: chamada para a página própria (`laboratorio/`), com os experimentos.
 
-O manifesto pessoal pode integrar o hero ou a seção Sobre, evitando uma etapa extra antes dos trabalhos. A divisão em páginas internas (projetos/acervo, sobre, laboratório, contato e detalhes de projetos) permanece uma proposta a validar conforme o conteúdo crescer. Os nomes em inglês usados no briefing são referências conceituais, não rótulos definitivos.
+Páginas próprias existem para o acervo e os estudos de caso, os serviços, o laboratório e o currículo (em HTML, exportável em PDF pela impressão, com versões por perfil). Sobre e Contato permanecem na homepage. O manifesto pessoal integra o hero ou a seção Sobre, sem etapa extra antes dos trabalhos. Os nomes em inglês usados no briefing são referências conceituais, não rótulos definitivos.
 
 ## 6. Princípios de experiência
 
@@ -120,15 +120,18 @@ Fora da primeira versão: autenticação, banco de dados, painel de administraç
 
 ## 8. Como trabalharemos
 
-Desenvolvimento colaborativo, em etapas pequenas e validadas com a autora; o método está no [Roadmap](ROADMAP.md) e as regras de trabalho, no [AGENTS.md](../AGENTS.md). A documentação registra acordos e distingue hipóteses de decisões aprovadas.
+Desenvolvimento colaborativo, em etapas pequenas e validadas com a autora; as regras de trabalho estão no [AGENTS.md](../AGENTS.md). A documentação registra acordos e distingue hipóteses de decisões aprovadas.
 
 ## 9. Questões em aberto
 
 - Texto definitivo de posicionamento e apresentação (versão atual do hero em teste); idioma(s) da interface.
-- Inventário dos demais trabalhos reais, direitos de divulgação, imagens e contribuição individual.
-- Currículo e disponibilidade profissional.
-- Necessidade e divisão final das páginas internas.
-- Favicon e eventuais assinaturas visuais (assinatura compacta `ks.` adotada).
-- Domínio, hospedagem e publicação.
+- Inventário dos demais trabalhos reais, direitos de divulgação, imagens e contribuição individual; priorizar desenvolvimento e escolher os destaques com a autora.
+- Textos da página de serviços sujeitos a aprovação.
+- Disponibilidade profissional.
+- Fragmentos do hero ainda não ligados aos trabalhos da curadoria.
+- Navegação entre experimentos do Laboratório, quando houver mais de uma experiência por tema.
+- Imagem de compartilhamento própria para Laboratório e Serviços (hoje usam a da home).
+- Domínio próprio, se houver.
+- Seletor global de tema claro/escuro: possibilidade não aprovada (ver [Design](DESIGN.md#ritmo-cromático)).
 
-Ver também: [Design](DESIGN.md), [Arquitetura](ARCHITECTURE.md) e [Roadmap](ROADMAP.md).
+Ver também: [Design](DESIGN.md) e [Arquitetura](ARCHITECTURE.md).

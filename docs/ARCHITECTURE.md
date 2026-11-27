@@ -1,109 +1,89 @@
 # Arquitetura técnica — Karin Silveira
 
-> Versão 0.4 · 25/11/2026 · Documento vivo
+> Documento vivo
 
 ## 1. Stack
 
-HTML, CSS e JavaScript nativos. Site estático, multipágina se necessário, sem framework, backend, CMS, npm ou build. Ferramentas novas só entram quando uma necessidade concreta justificar, com discussão e registro. Não criar um framework próprio para substituir o que foi dispensado. Os projetos do acervo podem usar qualquer stack, em ambientes independentes.
+HTML, CSS e JavaScript nativos. Site estático multipágina, sem framework, backend, CMS, npm ou build. Ferramentas novas só entram quando uma necessidade concreta justificar, com discussão e registro. Não criar um framework próprio para substituir o que foi dispensado. Os projetos do acervo podem usar qualquer stack, em ambientes independentes.
 
 Princípio: simplicidade na arquitetura, sofisticação na experiência.
 
 ## 2. Aprimoramento progressivo
 
 1. **HTML:** conteúdo, semântica, links e navegação funcionam sem JS.
-2. **CSS:** identidade, layout e responsividade.
-3. **JavaScript:** interações, filtros e animações como aprimoramento.
-4. **Camada criativa opcional:** Canvas, WebGL ou outras APIs, isoladas e carregadas sob demanda.
+2. **CSS:** identidade, layout e responsividade; boa parte do movimento, inclusive o guiado por scroll.
+3. **JavaScript:** interações, filtros e coordenação de estados como aprimoramento.
+4. **Camada criativa:** geometria e experimentos carregados sob demanda.
 
-Sem JS, sem uma API ou sem recursos gráficos, a página continua apresentável e os projetos acessíveis. Não esconder conteúdo à espera do JavaScript.
+Sem JS, sem uma API ou com movimento reduzido, a página continua completa e os projetos acessíveis. Não esconder conteúdo à espera do JavaScript.
 
 ## 3. Estrutura
 
 ```text
-portfolio/
-├── docs/            # BRIEFING, DESIGN, ARCHITECTURE, ROADMAP e style-guide.html
-├── styles/
-│   ├── global.css   # fundamentos, utilitários e componentes reutilizáveis
-│   ├── shared.css   # cabeçalho, rodapé e estruturas usadas por mais de uma página
-│   └── *.css        # home, projetos, case, laboratorio, servicos e curriculo
-├── scripts/
-│   ├── nav.js       # menu mobile; carregado por todas as páginas (na home, via main.js)
-│   ├── main.js      # módulo de entrada (coordenação da abertura)
-│   ├── lab.js       # experimentos do Laboratório, carregado por laboratorio/
-│   ├── servicos.js  # pausa do movimento contínuo da abertura de servicos/
-│   └── escultura.js # geometria da escultura; usada por dev/escultura.mjs e, sob demanda, por lab.js
-├── assets/
-│   ├── fonts/       # WOFF2 e licenças OFL
-│   ├── icons/       # sprites SVG de tecnologias e redes (Simple Icons, CC0)
-│   └── images/      # WebP em larguras responsivas; capturas por projeto
+├── index.html, 404.html, sitemap.xml
 ├── projetos/
-│   ├── index.html   # acervo: lista única, filtrável por categoria (`?categoria=`)
-│   ├── sites-institucionais/  # URL antiga da coleção: página mínima que redireciona ao acervo filtrado
-│   ├── psicologia/  # um diretório por estudo de caso
-│   └── spectrum/    # estudo de caso do próprio portfólio
-├── laboratorio/     # página do Laboratório; a home mantém só a chamada
-├── servicos/        # página de serviços; a home mantém só a chamada
-├── index.html
-├── AGENTS.md
-├── README.md
-├── .gitignore
-└── .gitattributes
+│   ├── index.html               # acervo: lista única, filtrável por categoria (?categoria=)
+│   ├── spectrum/, psicologia/   # um diretório por estudo de caso
+│   └── sites-institucionais/    # página mínima de redirecionamento ao acervo filtrado
+├── servicos/, laboratorio/, curriculo/
+├── styles/
+│   ├── global.css               # fontes, tokens, atmosferas, elementos e componentes compartilhados
+│   ├── shared.css               # cabeçalho, rodapé e regras usadas por mais de uma página
+│   └── home, projetos, case, servicos, laboratorio, curriculo (.css)
+├── scripts/
+│   ├── nav.js                   # menu mobile; importado por todas as páginas com JS
+│   ├── main.js                  # homepage: abertura, carrossel e cópia do e-mail
+│   ├── acervo.js                # filtros do acervo
+│   ├── servicos.js, curriculo.js
+│   ├── lab.js                   # experimentos do Laboratório
+│   └── escultura.js             # geometria da escultura, usada por dev/ e, sob demanda, por lab.js
+├── assets/                      # fonts (WOFF2 e licenças OFL), icons (sprites SVG), images (WebP), share
+├── dev/escultura.mjs            # gera o SVG do hero (Node 22.12+); fora do artefato publicado
+├── docs/                        # BRIEFING, DESIGN, ARCHITECTURE e style-guide.html
+└── .github/workflows/pages.yml
 ```
 
-Arquivos e diretórios novos (páginas internas, `assets/`, novos módulos CSS ou JS, dados) são criados quando houver conteúdo real para eles, não antes. Preferir links reais e HTML estático; com poucas páginas, repetir header e footer é aceitável. Não carregar a navegação via JS só para evitar repetição.
+Arquivos e diretórios novos são criados quando houver conteúdo real para eles. Preferir links reais e HTML estático: repetir cabeçalho e rodapé é aceitável, e a navegação não é carregada por JS para evitar repetição.
 
 ## 4. HTML
 
 - `lang` conforme o idioma real; landmarks (`header`, `nav`, `main`, `footer`) e títulos hierárquicos.
 - Links para navegar, botões para ações, texto alternativo em imagens e rótulos em controles.
-- Cada página tem título, descrição e conteúdo significativo. Metadados sociais e canonical entram quando houver domínio.
+- Cada página tem título, descrição, canonical, metadados sociais e dados estruturados.
 - Texto essencial nunca apenas em Canvas, imagem ou SVG.
 
 ## 5. CSS
 
-Cada página carrega, por `<link>` direto e nesta ordem, `global.css`, `shared.css` e o arquivo da sua responsabilidade (sem `@import`):
+Cada página carrega, por `<link>` direto e nesta ordem, `global.css`, `shared.css` e o arquivo da sua responsabilidade, sem `@import`. A 404, `projetos/sites-institucionais/` e `docs/style-guide.html` usam só os dois primeiros.
 
-- `global.css`: fontes, tokens, atmosferas, estilos de elementos, utilitários com reúso efetivo (como `.grid-12`) e componentes compartilhados entre páginas (rótulos, títulos, links, botão, link de card, link de retorno, ações, fechamento, palco de projeto e folhas empilhadas), terminando no fallback sem `color-mix`.
-- `shared.css`: cabeçalho, rodapé e as regras usadas por mais de uma página ou família (índice e etapas do estudo de caso e dos serviços, acervo do 404 e de projetos, animações compartilhadas).
-- `home.css`, `projetos.css`, `case.css` (psicologia e spectrum), `laboratorio.css`, `servicos.css` e `curriculo.css` (inclui a impressão): estilos exclusivos, com seus breakpoints, movimento e `@keyframes`. 404, `projetos/sites-institucionais/` e `docs/style-guide.html` usam só `global.css` e `shared.css`.
+- `global.css`: o que é base ou compartilhado por todas as páginas.
+- `shared.css`: regras usadas por mais de uma página ou família (cabeçalho, rodapé, índice dos estudos e dos serviços, acervo, animações compartilhadas).
+- Arquivos de página: estilos exclusivos, com seus breakpoints, movimento e `@keyframes`. `case.css` atende os dois estudos de caso; `curriculo.css` inclui a impressão.
 
-Uma regra vai para `shared.css` apenas quando mais de uma família a usa; a página nova carrega o arquivo existente que a atende ou ganha o seu. Em `shared.css` e nos arquivos de página, cada regra mantém a ordem relativa original, e nenhuma regra de página depende de outra página para vencer a cascata.
-
-Compor com as classes existentes antes de criar regras novas. Utilitários e variáveis só entram quando há reúso real; nada de framework próprio. Listas com `role="list"` já chegam sem marcadores nem recuos, e `dt`/`dd` já têm o estilo de rótulo e valor.
+Uma regra vai para `shared.css` apenas quando mais de uma família a usa, e nenhuma regra de página depende de outra para vencer a cascata. Compor com as classes existentes antes de criar regras novas; utilitários e variáveis só entram com reúso real.
 
 - Custom Properties para tokens primitivos e semânticos; atmosferas definidas por seção.
 - Grid, Flexbox, propriedades lógicas, `clamp()` e media/container queries quando adequados.
-- Classes em `kebab-case`, criadas quando houver estilo a aplicar; estados como `is-active` quando necessários.
+- Classes em `kebab-case`, criadas quando houver estilo a aplicar; estados como `is-active`.
 - Evitar seletores acoplados à estrutura interna e `!important`.
 
 ## 6. JavaScript
 
-ES Modules nativos, com `main.js` como entrada (`type="module"`). Criar módulos só quando a funcionalidade existir. JS coordena estados, CSS descreve a aparência; usar `data-*` como hook de comportamento quando isso desacoplar das classes de estilo.
+ES Modules nativos, um módulo de entrada por página (`type="module"`), criados só quando a funcionalidade existir. JS coordena estados, CSS descreve a aparência; `data-*` serve de hook de comportamento quando isso desacopla das classes de estilo.
 
-APIs candidatas, não dependências:
-
-| Necessidade | Solução inicial |
-| --- | --- |
-| Abertura e coreografia | CSS Animations/Transitions ou Web Animations API |
-| Transformação espacial → modular | CSS transforms e JS; FLIP se útil |
-| Scroll e revelação | Intersection Observer; scroll-driven CSS com detecção de suporte |
-| Transição entre páginas | View Transition API, com navegação comum como fallback |
-| Atmosferas | Custom Properties + estados de seção |
-| Experimentos | Canvas/WebGL sob demanda |
-
-Detectar suporte (`CSS.supports` ou equivalente), respeitar `prefers-reduced-motion`, não interceptar o scroll e evitar listeners que forcem layout repetidamente. `sessionStorage` pode registrar a abertura; se falhar, o site continua funcional.
+Detectar suporte (`CSS.supports` ou equivalente), respeitar `prefers-reduced-motion`, não interceptar o scroll e evitar listeners que forcem layout repetidamente. Animações contínuas são suspensas fora da tela. Em JS, sem `innerHTML` e afins: usar `textContent`, `append` e `createElement` (ver CSP).
 
 ## 7. Conteúdo
 
-O HTML estático é a fonte do conteúdo profissional, o que garante acesso sem JS e favorece SEO. Não renderizar a galeria apenas a partir de JSON via `fetch`. Um arquivo de dados pode surgir para filtros ou experimentos, com fonte de verdade definida. Campos ausentes não são inventados. Demos externas entram por link. Nunca publicar segredos ou materiais confidenciais de antigos empregadores.
+O HTML estático é a fonte do conteúdo profissional, o que garante acesso sem JS e favorece SEO. Não renderizar a galeria a partir de JSON via `fetch`. Os dados pessoais e profissionais têm fonte única no [Briefing](BRIEFING.md#dados-profissionais-confirmados). Campos ausentes não são inventados. Demos externas entram por link. Nunca publicar segredos ou materiais confidenciais de antigos empregadores.
 
-## 8. Desenvolvimento local e publicação
+## 8. Publicação
 
-Servir por HTTP, não por `file://`, que bloqueia módulos; o comando está no [README](../README.md). Usar caminhos relativos para permitir publicação em subdiretórios. Hospedagem estática e domínio serão decididos depois. Contato por links reais; formulário com envio exigiria um serviço adicional.
+Servir por HTTP, não por `file://`; execução local e publicação estão no [README](../README.md). Hospedagem no GitHub Pages, em subcaminho: usar caminhos relativos (a 404 é a exceção). Contato por links reais; formulário com envio exigiria um serviço adicional.
 
 ## 9. Qualidade
 
-SEO, performance, responsividade e acessibilidade são requisitos de toda implementação, desde a fundação; as regras de trabalho estão no [AGENTS.md](../AGENTS.md).
+SEO, performance, responsividade e acessibilidade são requisitos de toda implementação; as regras de trabalho estão no [AGENTS.md](../AGENTS.md).
 
 **Metas** (objetivos, não garantias):
 
@@ -114,27 +94,32 @@ SEO, performance, responsividade e acessibilidade são requisitos de toda implem
 | INP | até 200 ms |
 | CLS | até 0,1 |
 | Acessibilidade | WCAG 2.2 AA como referência (a verificar, não uma certificação) |
-| Transferência da homepage | até 600 KB (orçamento inicial, revisável com justificativa quando houver conteúdo real) |
+| Transferência da homepage | até 600 KB (revisável com justificativa) |
 
 **Navegadores:** Chrome, Safari, Firefox e navegadores móveis.
 
-**Testar desde já:** teclado, foco, contraste, zoom, telas pequenas, redução de movimento, JS desativado, conteúdo alternativo, links, console e HTML válido.
+**Testar:** teclado, foco, contraste, zoom, telas pequenas, redução de movimento, JS desativado, links, console e HTML válido.
 
-**Com conteúdo real:** otimizar imagens e fontes (fotos em WebP, gerado com `cwebp` sem metadados, em várias larguras com `srcset`), declarar dimensões de mídia, carregar sob demanda o que está fora da primeira dobra e medir em condições realistas.
+**Mídia:** fotos em WebP, geradas com `cwebp` sem metadados, em várias larguras com `srcset`; dimensões declaradas; carregamento sob demanda fora da primeira dobra.
 
-**SEO de conteúdo:** títulos, descrições e textos reais e específicos em cada página.
+**SEO:** títulos, descrições e textos reais e específicos em cada página; diretrizes editoriais em [Design](DESIGN.md#seo-editorial).
 
 ## 10. Decisões
 
-- **Aprovado:**
-  - Stack nativa sem dependências, aprimoramento progressivo e independência dos projetos.
-  - Estrutura mínima que cresce com a necessidade.
-  - Fontes WOFF2 locais; nenhum recurso externo.
-  - Movimento em CSS, com JS apenas coordenando estados.
-  - CSP por `<meta>` em todas as páginas (o GitHub Pages não permite cabeçalhos), sem `unsafe-eval` e só com `style-src-attr 'unsafe-inline'` para as variáveis em `style=""`; `frame-ancestors` não é possível por meta. O script embutido de `index.html` é autorizado por hash: recalcular ao alterá-lo. Em JS, sem `innerHTML` e afins (`require-trusted-types-for 'script'` com `trusted-types 'none'` bloqueia, e não há políticas); usar `textContent`, `append` e `createElement`. Recurso externo novo exige ajustar a CSP.
-  - Actions do workflow fixadas por SHA de commit, com a versão em comentário; ao atualizar, resolver o novo SHA da tag. O lockfile nativo do GitHub (`gh actions-lock`) exige Enterprise Cloud.
-- **Proposto:** nomenclatura de CSS e JS, modo de publicação, detalhes das APIs.
-- **Compatibilidade:** `color-mix` (Chrome 111, Safari 16.2, Firefox 113) é usado livremente; o fallback `@supports not` cobre só o que afeta legibilidade ou função (texto secundário e trilha do medidor). Efeitos decorativos simplesmente não aparecem em navegadores anteriores.
-- **A validar:** páginas internas, estratégia de dados e compatibilidade dos efeitos em Safari, Firefox e dispositivos reais.
+- **Stack nativa sem dependências**, aprimoramento progressivo, estrutura mínima que cresce com a necessidade e independência dos projetos.
+- **Fontes WOFF2 locais** (subconjunto latin, `font-display: swap`); nenhum recurso externo. O preload foi testado e piorou o FCP em rede lenta, por isso não é usado.
+- **Movimento em CSS**, com JS apenas coordenando estados.
+- **CSP por `<meta>`** em todas as páginas (o GitHub Pages não permite cabeçalhos), sem `unsafe-eval` e só com `style-src-attr 'unsafe-inline'` para as variáveis em `style=""`; `frame-ancestors` não é possível por meta. Trusted Types exigidos (`require-trusted-types-for 'script'`, `trusted-types 'none'`, sem políticas). Recurso externo novo exige ajustar a CSP; script embutido exigiria hash.
+- **Workflow com Actions fixadas por SHA de commit**, versão em comentário; ao atualizar, resolver o novo SHA da tag. O lockfile nativo do GitHub (`gh actions-lock`) exige Enterprise Cloud.
+- **Redirecionamento:** a hospedagem estática não oferece redirecionamento HTTP; `projetos/sites-institucionais/` usa `meta refresh`, link de reserva e `canonical` para o acervo, e fica fora do `sitemap.xml`.
+- **Compatibilidade:** `color-mix` (Chrome 111, Safari 16.2, Firefox 113) é usado livremente; o fallback `@supports not` cobre só o que afeta legibilidade ou função. Animações guiadas por scroll têm suporte parcial; sem ele, o estado final é estático.
 
-Ver também: [Briefing](BRIEFING.md), [Design](DESIGN.md) e [Roadmap](ROADMAP.md).
+## 11. Pendências
+
+- Validar o HTML no W3C Nu.
+- Validar abertura, transição pelo scroll, carrossel (`:has`, subgrid) e efeitos em Safari, Firefox e dispositivos reais.
+- Medir INP e consultar dados reais de uso (CrUX), indisponíveis até agora.
+- Testar a importação do PDF do currículo na Gupy.
+- Definir domínio próprio, se houver.
+
+Ver também: [Briefing](BRIEFING.md) e [Design](DESIGN.md).

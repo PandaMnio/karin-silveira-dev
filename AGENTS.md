@@ -11,7 +11,6 @@ Consulte apenas o que a tarefa exigir.
 | [BRIEFING](docs/BRIEFING.md) | Posicionamento, públicos, conteúdo, tom de voz |
 | [DESIGN](docs/DESIGN.md) | Paleta, tipografia, composição, movimento, exposição de trabalhos |
 | [ARCHITECTURE](docs/ARCHITECTURE.md) | Stack, estrutura, convenções, metas de qualidade |
-| [ROADMAP](docs/ROADMAP.md) | Etapa atual, progresso, próximos passos |
 | [README](README.md) | Execução local |
 | [style-guide.html](docs/style-guide.html) | Referência visual da paleta, tipografia e atmosferas |
 
@@ -52,4 +51,4 @@ O Git é responsabilidade exclusiva da desenvolvedora. Nunca execute comandos qu
 
 Relate em **Resultado**, **Alterações**, **Validação** e **Pendências**, omitindo seções vazias. Não repita o pedido, os arquivos ou as decisões já documentadas.
 
-Registre na documentação apenas o que não se infere do código: decisões duradouras, progresso real no roadmap e pendências. Sem narrativas e sem um arquivo por tarefa.
+Registre na documentação apenas o que não se infere do código: decisões duradouras e pendências. Sem narrativas e sem um arquivo por tarefa.
