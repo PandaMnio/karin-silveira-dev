@@ -31,7 +31,7 @@ jobs:
           cp --parents \
             index.html 404.html sitemap.xml \
             styles/*.css scripts/*.js \
-            projetos/index.html projetos/*/index.html curriculo/index.html laboratorio/index.html \
+            projetos/index.html projetos/*/index.html curriculo/index.html laboratorio/index.html servicos/index.html \
             assets/favicon.svg assets/apple-touch-icon.png \
             assets/fonts/* assets/icons/* assets/share/* \
             assets/images/*.webp assets/images/psicologia/* assets/images/spectrum/* \

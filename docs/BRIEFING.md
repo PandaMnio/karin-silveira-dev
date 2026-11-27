@@ -98,8 +98,8 @@ Experiência híbrida: entrada guiada seguida de exploração livre, com navega�
 2. Trabalhos selecionados: continuidade visual do hero e exposição da curadoria principal.
 3. Sobre: trajetória, experiência técnica, competências, personalidade e visão criativa.
 4. Serviços: projetos sob demanda e evolução de aplicações, com convite ao orçamento.
-5. Laboratório: experimentos e descobertas.
-6. Contato: conexão profissional, links relevantes e encerramento.
+5. Contato: conexão profissional, links relevantes e encerramento.
+6. Laboratório: experimentos e descobertas.
 
 O manifesto pessoal pode integrar o hero ou a seção Sobre, evitando uma etapa extra antes dos trabalhos. A divisão em páginas internas (projetos/acervo, sobre, laboratório, contato e detalhes de projetos) permanece uma proposta a validar conforme o conteúdo crescer. Os nomes em inglês usados no briefing são referências conceituais, não rótulos definitivos.
 

@@ -96,6 +96,7 @@ Legenda: `[x]` concluído no escopo atual; `[ ]` pendente. Critérios são condi
 - [x] Acrescentar o currículo (`/curriculo/`), em HTML como fonte única, com exportação em PDF pela impressão do navegador.
 - [ ] Testar a importação do PDF do currículo na Gupy.
 - [x] Criar a seção de serviços e os convites ao contato nas páginas internas.
+- [x] Levar os serviços para uma página própria (`/servicos/`), com chamada na homepage. Textos sujeitos a aprovação; imagem de compartilhamento própria pendente (usa a da home).
 - [x] Acrescentar o WhatsApp aos canais de contato.
 
 **Aceite:** identidade profissional clara, contato direto e experimentos isolados do funcionamento principal.
