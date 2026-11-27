@@ -45,7 +45,6 @@
     flex-basis: 100%;
   }
 
-  /* Com JS, o menu nasce fechado: evita a lista aberta até o botão ser criado. */
   @media (scripting: enabled) {
     .site-header:not(.is-open) nav {
       display: none;
@@ -163,7 +162,6 @@
   }
 }
 
-
 @media (width < 24rem) {
   .site-header.has-menu .menu-toggle {
     gap: 0.5rem;
@@ -251,7 +249,6 @@
   mask-composite: intersect;
 }
 
-/* O contorno da mesma cor fecha as emendas entre as faces. */
 .hero-band [color] {
   fill: currentColor;
   stroke: currentColor;
@@ -376,7 +373,6 @@
   }
 }
 
-
 .works {
   padding-block: clamp(3rem, 1.5rem + 4.5vw, 7rem);
 }
@@ -392,7 +388,6 @@
   grid-column: 1;
 }
 
-/* O acervo divide a linha com o cabeçalho, separado dos projetos e dos controles. */
 .works-intro .works-more {
   grid-area: 1 / 2 / 3 / 3;
   max-inline-size: none;
@@ -411,7 +406,6 @@
   }
 }
 
-/* Rolagem nativa: gestos, teclado e snap funcionam sem JS; o próximo projeto aparece na borda. */
 .works-track {
   position: relative;
   display: grid;
@@ -425,7 +419,6 @@
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--gutter);
   scrollbar-width: none;
-  /* Barras sobrepostas (macOS) ignoram scrollbar-width ao rolar; a faixa inferior onde são desenhadas fica recortada. */
   margin-block-end: -1.25rem;
   clip-path: inset(0 0 1.25rem);
 }
@@ -469,7 +462,6 @@
   color: var(--color-accent);
 }
 
-/* O quadrado Pulse do Spectrum orienta a leitura: assina a classificação de cada projeto e os blocos dos estudos. */
 .work-text > p.label::before,
 .case-label::before {
   content: "";
@@ -588,8 +580,6 @@
   }
 }
 
-
-/* Serviços e Contato dividem um único campo: a grade da construção no alto se dissolve na luz violeta do fluxo. */
 .finale {
   position: relative;
   isolation: isolate;
@@ -613,7 +603,6 @@
   mask-image: radial-gradient(70% 80% at 85% 0%, #000 20%, transparent);
 }
 
-/* Acima do Contato, para que a órbita que sobe dele passe por trás do texto. */
 .services {
   position: relative;
   z-index: 1;
@@ -711,13 +700,11 @@
   }
 }
 
-
 .offer-open {
   overflow-x: clip;
   padding-block: clamp(0.5rem, 1.5vw, 1.5rem) clamp(2.5rem, 6vw, 4.5rem);
 }
 
-/* O fundo sobe por trás do cabeçalho transparente e surge aos poucos, sem emenda nem com o menu aberto, que alonga o cabeçalho. */
 .offer-open::before {
   inset-block-start: -8rem;
   mask-image: linear-gradient(transparent, #000 8rem);
@@ -743,7 +730,6 @@
   mask-image: linear-gradient(90deg, transparent, #000 35%);
 }
 
-/* Da moldura de precisão, só os cantos aparecem. */
 .figure-frame {
   --corner: color-mix(in srgb, var(--color-porcelain) 55%, transparent);
 
@@ -768,7 +754,6 @@
   border-radius: 50%;
 }
 
-/* 14,6% coloca o acento sobre a curva, a 45° do centro. */
 .offer-figure .figure-pulse {
   inset-block-start: 14.6%;
   inset-inline-start: 14.6%;
@@ -854,7 +839,6 @@
     radial-gradient(40% 45% at 100% 35%, color-mix(in srgb, var(--tone) 9%, transparent), transparent 70%);
 }
 
-/* Ultraviolet puro não tem contraste para texto sobre Obsidian; o tom claro mantém a cor da frente. */
 .front-violet {
   --tone: var(--color-ultraviolet);
   --tone-text: color-mix(in srgb, var(--color-ultraviolet) 55%, var(--color-porcelain));
@@ -1004,7 +988,6 @@
   font-size: clamp(2.25rem, 1.25rem + 3.5vw, 4.5rem);
   line-height: 0.95;
 }
-
 
 .archive {
   position: relative;
@@ -1198,7 +1181,6 @@
   border-color: var(--color-accent);
 }
 
-/* A seleção muda de forma (preenchimento) e de peso, não só de cor. */
 .archive-filters button[aria-pressed="true"] {
   border-color: transparent;
   font-weight: 700;
@@ -1263,7 +1245,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
 
 .case {
   overflow-x: clip;
@@ -1560,7 +1541,6 @@
 .psi-good dt::before { border-radius: 50%; }
 .psi-poor::before,
 .psi-poor dt::before { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-
 
 .psi:has(.psi-switch [value="mobile"]:checked) .psi-desktop,
 .psi:has(.psi-switch [value="desktop"]:checked) .psi-mobile {
@@ -2252,7 +2232,6 @@
   color: var(--color-muted);
 }
 
-/* O quadrado Pulse marca a chegada: a etapa em que a escolha se conclui. */
 .case-steps {
   --steps: 3;
 }
@@ -2431,7 +2410,6 @@
   }
 }
 
-
 .about {
   display: grid;
   align-items: start;
@@ -2595,7 +2573,6 @@
   margin-block-start: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
 }
 
-/* Faixa que separa o que a autora faz de quem ela é; a grade ecoa o painel do retrato. */
 .about-capabilities {
   position: relative;
   isolation: isolate;
@@ -2672,7 +2649,6 @@
   }
 }
 
-/* No mobile, o nome das tecnologias basta; os ícones só somam estímulos. */
 @media (width < 56rem) {
   .capability-icons {
     display: none;
@@ -2790,22 +2766,13 @@
   }
 }
 
-
-/* Verde-petróleo derivado do Aqua: a superfície própria do Laboratório. */
 .lab {
   --lab-surface: color-mix(in srgb, var(--color-aqua) 16%, var(--color-obsidian));
   --lab-deep: color-mix(in srgb, var(--color-aqua) 6%, var(--color-obsidian));
+  --lab-mid: color-mix(in srgb, var(--color-aqua) 11%, var(--color-obsidian));
 
   overflow-x: clip;
   padding-block: var(--space-section);
-}
-
-/* O petróleo domina a abertura e cede ao Obsidian antes dos palcos, para não alterar as cores dos experimentos. */
-.lab::before {
-  background:
-    radial-gradient(45% 30rem at 85% 6rem, color-mix(in srgb, var(--color-aqua) 16%, transparent), transparent 70%),
-    radial-gradient(35% 24rem at 0% 14rem, color-mix(in srgb, var(--color-ultraviolet) 14%, transparent), transparent 70%),
-    linear-gradient(var(--lab-surface), var(--lab-deep) 34rem, var(--color-obsidian) 56rem);
 }
 
 .lab-intro {
@@ -2819,7 +2786,6 @@
     linear-gradient(160deg, var(--lab-surface), var(--lab-deep));
 }
 
-/* Um espécime de bancada: a grade da construção vira as ondas do fluxo dentro da moldura, medido por uma régua. */
 .lab-visual {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -2872,7 +2838,6 @@
   border-radius: 50%;
 }
 
-/* 85,4% e 14,6% põem o acento sobre a curva, a 45° do centro. */
 .lab-visual .teaser-pulse {
   inset-block-start: 85.4%;
   inset-inline-start: 14.6%;
@@ -2978,14 +2943,51 @@
   }
 }
 
-.lab-page {
-  padding-block-start: clamp(0.5rem, 1.5vw, 1.5rem);
-}
-
-/* O fundo sobe por trás do cabeçalho transparente e surge aos poucos, sem emenda nem com o menu aberto, que alonga o cabeçalho. */
 .lab-page::before {
   inset-block-start: -8rem;
+  background:
+    radial-gradient(45% 30rem at 85% 6rem, color-mix(in srgb, var(--color-aqua) 16%, transparent), transparent 70%),
+    radial-gradient(35% 24rem at 0% 14rem, color-mix(in srgb, var(--color-ultraviolet) 14%, transparent), transparent 70%),
+    linear-gradient(var(--lab-surface), var(--lab-mid) 40rem, var(--lab-mid) calc(100% - 14rem), var(--lab-deep));
   mask-image: linear-gradient(transparent, #000 8rem);
+}
+
+.lab-page article {
+  --glow: var(--color-aqua);
+  --glow-x: 88%;
+
+  position: relative;
+}
+
+.lab-page article::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -4rem calc(var(--gutter) * -1);
+  pointer-events: none;
+  background:
+    radial-gradient(55% 60% at var(--glow-x) 35%, color-mix(in srgb, var(--glow) 22%, transparent), transparent 70%),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-porcelain) 4%, transparent) 0 1px, transparent 1px 3rem),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-porcelain) 4%, transparent) 0 1px, transparent 1px 3rem);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent);
+}
+
+.lab-page :is(.lab-study:first-child, .lab-form) {
+  --glow: var(--color-ultraviolet);
+  --glow-x: 12%;
+}
+
+:is(.lab-studies, .lab-form)::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--section-gap) / -2) 0 auto;
+  block-size: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-aqua), var(--color-ultraviolet), transparent);
+  opacity: 0.5;
+}
+
+.lab-page {
+  padding-block-start: clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
 .experiment-stage {
@@ -3124,7 +3126,6 @@
   }
 }
 
-/* A explicação vem depois da interação e herda o traço do experimento: Aqua e Ultraviolet alternam o sentido. */
 .lab-details {
   margin-block-start: clamp(2rem, 5vw, 3rem);
 }
@@ -3246,9 +3247,12 @@
 }
 
 .lab-studies {
+  --section-gap: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+  position: relative;
   display: grid;
   gap: clamp(3.5rem, 2rem + 6vw, 6rem) var(--gutter);
-  margin-block-start: clamp(3.5rem, 2rem + 6vw, 7rem);
+  margin-block-start: var(--section-gap);
 }
 
 .lab-study h2 {
@@ -3448,7 +3452,6 @@
 
   display: block;
   margin-inline-start: var(--indent);
-  /* A escala modular, limitada pela largura calibrada de cada linha (--w em em, --n caracteres). */
   font-size: max(0.8125rem, min(18cqi * var(--k), (100cqi - var(--indent)) / (var(--w) + var(--n) * var(--tracking))));
   font-weight: calc(500 + var(--sign) * 300 * var(--rhythm));
   line-height: var(--leading);
@@ -3485,9 +3488,11 @@
 }
 
 .lab-form {
+  --section-gap: clamp(4rem, 2rem + 8vw, 9rem);
+
   display: grid;
   gap: clamp(1.25rem, 3vw, 2rem) var(--gutter);
-  margin-block-start: clamp(4rem, 2rem + 8vw, 9rem);
+  margin-block-start: var(--section-gap);
 }
 
 .form-stage {
@@ -3533,7 +3538,6 @@
   margin-block-start: 2rem;
 }
 
-/* A rolagem por foco reserva espaço para o rótulo e, no mobile, para o preview fixo. */
 .form-controls :is(input, button) {
   scroll-margin-block: 2.5rem 1rem;
 }
@@ -3644,7 +3648,6 @@
     border-inline-end: var(--line);
   }
 
-  /* Com cerca de 40vw de altura, o preview fica centrado na tela. */
   .lab-form.is-ready .form-stage {
     inset-block-start: max(1.5rem, 50vh - 20vw);
     max-block-size: none;
@@ -3655,7 +3658,6 @@
     padding-block-start: clamp(1rem, 3vw, 3rem);
   }
 }
-
 
 .contact {
   position: relative;
@@ -3788,7 +3790,6 @@
   fill: currentColor;
 }
 
-/* Fica no espaço entre os canais, sem deslocar o layout. */
 .contact-copy [role="status"] {
   position: absolute;
   inset-block-start: 100%;
@@ -3848,7 +3849,6 @@
     grid-column: 5 / 13;
   }
 }
-
 
 .resume-page {
   page: resume;
@@ -4012,14 +4012,12 @@
   font-size: 0.9375rem;
 }
 
-/* Margem zero no @page faz o navegador omitir cabeçalho e rodapé; as margens reais vêm do preenchimento clonado em cada página. */
 @page resume {
   size: A4;
   margin: 0;
 }
 
 @media print {
-  /* O esquema escuro do site faria o navegador pintar a folha, mesmo sem fundos. */
   :root:has(.resume) {
     font-size: 9.75pt;
     color-scheme: light;
@@ -4083,7 +4081,6 @@
   }
 }
 
-
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -4116,7 +4113,6 @@
   color: var(--color-accent);
 }
 
-
 @supports not (color: color-mix(in srgb, red, blue)) {
   .case-identity {
     --color-muted: #48606a;
@@ -4131,9 +4127,7 @@
   }
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
-
   .type-stage span {
     transition: font-size 0.45s var(--ease-out), font-weight 0.45s var(--ease-out), margin 0.45s var(--ease-out);
   }
@@ -4220,7 +4214,6 @@
     translate: 0.25em 0;
   }
 
-  /* A abertura se monta como o hero: a grade se estende, a moldura se fecha sobre ela, a órbita chega girando, o Pulse acende sobre a curva e o fluxo atravessa por último. Depois, o movimento contínuo assume em transform, sem disputar as propriedades da abertura, do hover e da rolagem. */
   .offer-open.is-paused,
   .offer-open.is-offscreen {
     --ambient: paused;
@@ -4244,7 +4237,6 @@
     animation-play-state: running, var(--ambient, running);
   }
 
-  /* Uma corrente de luz percorre a cápsula a intervalos, como o fluxo que dá nome a ela. */
   .figure-flow::after {
     content: "";
     position: absolute;
@@ -4290,7 +4282,6 @@
     view-timeline: --hero;
   }
 
-  /* O movimento contínuo é lento e usa só transform e opacity. */
   .hero.is-paused,
   .hero.is-offscreen {
     --ambient: paused;
@@ -4334,7 +4325,6 @@
     --intro-delay: 0.55s;
   }
 
-  /* O Pulse termina onde a deriva começa, sem salto entre as duas. */
   .hero-accent {
     animation: intro-pulse 1.25s cubic-bezier(0.65, 0, 0.35, 1) 0.6s backwards, drift-pulse 4s ease-in-out 1.85s infinite alternate backwards;
     animation-play-state: running, var(--ambient, running);
@@ -4382,7 +4372,6 @@
   }
 
   @supports (animation-timeline: view()) {
-
     .works-track,
     .shot-frame {
       --arrive: scale(0.94);
@@ -4395,7 +4384,6 @@
       animation-range: entry 0% cover 40%;
     }
 
-    /* Os projetos chegam pela direita, antecipando a navegação horizontal. */
     .works-track {
       --arrive: translateX(8%);
       animation-range: entry 0% cover 35%;
@@ -4462,7 +4450,6 @@
     .contact-accent { animation-name: contact-accent; }
     .contact-flow { animation-name: contact-flow; }
 
-    /* Ao sair da tela, as camadas da abertura se separam em profundidades diferentes. */
     .offer-open {
       view-timeline: --offer;
     }
@@ -4505,7 +4492,6 @@
     .teaser-plate { animation-name: teaser-plate; }
   }
 }
-
 
 @keyframes intro-light {
   from { opacity: 0; transform: scale(0.85); }

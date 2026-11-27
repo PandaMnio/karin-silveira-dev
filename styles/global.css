@@ -19,7 +19,6 @@
   font-display: swap;
 }
 
-
 :root {
   --color-obsidian: #0c0c10;
   --color-porcelain: #ededf2;
@@ -68,7 +67,6 @@
   color: var(--color-text);
   background: var(--color-bg);
 }
-
 
 *,
 *::before,
@@ -137,7 +135,6 @@ dd {
   margin: 0;
 }
 
-
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -155,7 +152,6 @@ dd {
   }
 }
 
-
 .skip-link {
   position: absolute;
   inset-block-start: 0;
@@ -171,7 +167,6 @@ dd {
 }
 
 .signature {
-
   margin-block: -0.5rem;
   padding-block: 0.5rem;
   font-size: 1.75rem;
@@ -257,7 +252,6 @@ dt {
   color: var(--color-muted);
 }
 
-/* A coluna 7 é o eixo do texto de apoio em todas as seções da homepage. */
 @media (min-width: 56rem) {
   .section-intro {
     display: grid;
@@ -467,7 +461,6 @@ dt {
   color: var(--color-text);
 }
 
-
 .stage-psicologia,
 .project-psicologia {
   --project-deep: #1d3541;
@@ -550,8 +543,6 @@ dt {
   border-radius: 12% / 5.5%;
   outline: 1px solid color-mix(in srgb, var(--color-porcelain) 20%, transparent);
 }
-
-/* Sem color-mix: só o que afeta legibilidade ou função. */
 
 @supports not (color: color-mix(in srgb, red, blue)) {
   :root {
